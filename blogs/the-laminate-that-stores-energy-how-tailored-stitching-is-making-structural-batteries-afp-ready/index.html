@@ -1,0 +1,1866 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Laminate That Stores Energy | Addcomposites</title>
+    <meta
+      name="description"
+      content="A 2026 paper in Advanced Science demonstrates that the manufacturing gap between structural battery concept and production-scale composite processing is narrower than assumed — and the solution runs through thermoplastic resin systems your AFP machine already handles."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#introduction" class="blog-sidebar-link active"
+            >Introduction</a
+          >
+          <a href="#problem-stack" class="blog-sidebar-link"
+            >The Problem Stack</a
+          >
+          <a href="#architecture" class="blog-sidebar-link">The Architecture</a>
+          <a href="#stitching" class="blog-sidebar-link"
+            >The Stitching Variable</a
+          >
+          <a href="#vertical-stacking" class="blog-sidebar-link"
+            >Vertical Stacking</a
+          >
+          <a href="#under-load" class="blog-sidebar-link">Under Load</a>
+          <a href="#afp-angle" class="blog-sidebar-link">The AFP Angle</a>
+          <a href="#where-numbers-sit" class="blog-sidebar-link"
+            >Where the Numbers Sit</a
+          >
+          <a href="#what-comes-next" class="blog-sidebar-link"
+            >What Comes Next</a
+          >
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          The Laminate That Stores Energy: How Tailored Stitching Is Making
+          Structural Batteries AFP-Ready
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            May 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Addcomposites
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            14 min read
+          </span>
+        </div>
+
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db67a0469d6f6822b4_1.png"
+          alt="Structural battery laminate with AFP manufacturing"
+          class="full-width-image"
+        />
+
+        <!-- Introduction -->
+        <section id="introduction">
+          <p class="drop-cap">
+            A 2026 paper in Advanced Science demonstrates that the manufacturing
+            gap between structural battery concept and production-scale
+            composite processing is narrower than the industry assumed — and the
+            solution runs through thermoplastic resin systems your AFP machine
+            already knows how to handle.
+          </p>
+          <p>
+            For the better part of a decade, the structural battery has occupied
+            a frustrating position in advanced composite design: theoretically
+            transformative, practically elusive. The idea — that a carbon-fiber
+            laminate could simultaneously carry mechanical load and store
+            electrochemical energy, eliminating the parasitic mass of a separate
+            battery pack — is compelling enough to attract sustained investment
+            from aerospace, automotive, and defence programmes worldwide. The
+            execution, however, has been persistently undermined by a set of
+            interrelated manufacturing problems that no single materials
+            innovation has been able to resolve all at once.
+          </p>
+          <p>
+            A paper published in <em>Advanced Science</em> (Wiley) in late 2025
+            by Park, Kim, Kwon, Lee, and colleagues from Chosun University,
+            KAIST, and Kyungpook National University changes that calculus in a
+            meaningful way. Their work —
+            <em
+              >Tailored Stitching and Vertical Stacking for High-Voltage
+              Multifunctional Structural Batteries with Enhanced
+              Electrochemical-Mechanical Coupling</em
+            >
+            — is not primarily a materials paper. It is a manufacturing
+            architecture paper. And for anyone building composite structures
+            with automated fibre placement, the implications are direct.
+          </p>
+
+          <!-- Full-width image with caption -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77dbc9cb74e41d7d0893_2.png"
+            alt="Architecture of the stitched high-voltage structural battery laminate"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Architecture of the stitched high-voltage structural battery
+            laminate: (A) through-thickness aramid stitching, (B) outer CFRP
+            face sheet, (C) stitch pattern, (D) PP/PE/PP separator, (E) LTO
+            electrode on CFRP current collector, (F) glass-fabric interleaf, (G)
+            LFP electrode on CFRP current collector, (H) CFRP/Al conductive
+            junctions for series coupling.
+          </p>
+        </section>
+
+        <!-- Section: The Problem Stack -->
+        <section id="problem-stack">
+          <h2>The Problem Stack</h2>
+          <p>
+            To appreciate what this paper solves, it helps to understand why
+            structural batteries have been so difficult to manufacture at scale.
+            The challenge is not any single failure mode — it is a cascade of
+            them that are geometrically linked.
+          </p>
+
+          <!-- INFOGRAPHIC 1 PLACEHOLDER -->
+
+          <div class="sbpc-wrap">
+            <div class="sbpc-header">
+              <div class="sbpc-eyebrow">Manufacturing Challenge</div>
+              <h3 class="sbpc-title">
+                The Structural Battery Manufacturing Problem Cascade
+              </h3>
+            </div>
+
+            <div class="sbpc-cascade" id="sbpcCascade">
+              <!-- Challenge 1 -->
+              <div class="sbpc-node" id="sbpcNode1">
+                <div class="sbpc-num">
+                  <span class="sbpc-n">1</span>
+                </div>
+                <div class="sbpc-card">
+                  <div class="sbpc-challenge-label">Challenge 1</div>
+                  <div class="sbpc-challenge-title">
+                    Electrolyte Containment
+                  </div>
+                  <div class="sbpc-facts">
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Epoxy matrix is permeable to O₂ and moisture</span>
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Electrolyte degrades over weeks, not years</span>
+                    </div>
+                  </div>
+                  <div class="sbpc-failure">
+                    → Premature electrolyte failure
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arrow 1→2 -->
+              <div class="sbpc-arrow" id="sbpcArrow1">
+                <div class="sbpc-arrow-inner">
+                  <span>leads to</span>
+                  <div class="sbpc-arrow-line"></div>
+                  <div class="sbpc-arrow-head"></div>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="sbpc-node" id="sbpcNode2">
+                <div class="sbpc-num">
+                  <span class="sbpc-n">2</span>
+                </div>
+                <div class="sbpc-card">
+                  <div class="sbpc-challenge-label">Challenge 2</div>
+                  <div class="sbpc-challenge-title">Electrode Delamination</div>
+                  <div class="sbpc-facts">
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span
+                        >Laminate interfaces carry no through-thickness
+                        load</span
+                      >
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Electrodes separate under bending</span>
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Electrode gap grows → ion transport fails</span>
+                    </div>
+                  </div>
+                  <div class="sbpc-failure">→ Ion transport failure</div>
+                </div>
+              </div>
+
+              <!-- Arrow 2→3 -->
+              <div class="sbpc-arrow" id="sbpcArrow2">
+                <div class="sbpc-arrow-inner">
+                  <span>leads to</span>
+                  <div class="sbpc-arrow-line"></div>
+                  <div class="sbpc-arrow-head"></div>
+                </div>
+              </div>
+
+              <!-- Challenge 3 -->
+              <div class="sbpc-node" id="sbpcNode3">
+                <div class="sbpc-num">
+                  <span class="sbpc-n">3</span>
+                </div>
+                <div class="sbpc-card">
+                  <div class="sbpc-challenge-label">Challenge 3</div>
+                  <div class="sbpc-challenge-title">
+                    Dead Space in Multi-Cell Systems
+                  </div>
+                  <div class="sbpc-facts">
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span
+                        >Series connection requires side-by-side cells</span
+                      >
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span
+                        >Long interconnects, wasted volume, stress
+                        concentrations at cell boundaries</span
+                      >
+                    </div>
+                  </div>
+                  <div class="sbpc-failure">→ System-level inefficiency</div>
+                </div>
+              </div>
+
+              <!-- Arrow 3→4 -->
+              <div class="sbpc-arrow" id="sbpcArrow3">
+                <div class="sbpc-arrow-inner">
+                  <span>leads to</span>
+                  <div class="sbpc-arrow-line"></div>
+                  <div class="sbpc-arrow-head"></div>
+                </div>
+              </div>
+
+              <!-- Challenge 4 -->
+              <div class="sbpc-node" id="sbpcNode4">
+                <div class="sbpc-num">
+                  <span class="sbpc-n">4</span>
+                </div>
+                <div class="sbpc-card">
+                  <div class="sbpc-challenge-label">Challenge 4</div>
+                  <div class="sbpc-challenge-title">
+                    Fabrication Incompatibility
+                  </div>
+                  <div class="sbpc-facts">
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span
+                        >Thermoset cure temperatures degrade electrolyte</span
+                      >
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Battery must be assembled after cure</span>
+                    </div>
+                    <div class="sbpc-fact">
+                      <span class="sbpc-fact-dot"></span
+                      ><span>Bonding quality is uncontrolled</span>
+                    </div>
+                  </div>
+                  <div class="sbpc-failure">→ Uncontrolled bonding quality</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            Prior work has addressed individual items in this stack. Ionic
+            liquid electrolytes improve environmental stability but reduce ionic
+            conductivity. Rigid composite face skins suppress delamination but
+            add mass. Post-injection electrolyte filling (injecting liquid
+            electrolyte after high-temperature cure) decouples thermal
+            processing from electrochemical degradation — but only works if the
+            laminate architecture provides a reliable sealed channel for the
+            fluid to travel through.
+          </p>
+          <p>
+            Park et al. address all four challenges simultaneously through a
+            combination of three architectural innovations: selective
+            thermoplastic encapsulation using polypropylene (PP) and Elium
+            resin, through-thickness aramid fibre stitching at controlled
+            densities, and vertical cell stacking for series-connected
+            high-voltage operation.
+          </p>
+        </section>
+
+        <!-- Section: The Architecture -->
+        <section id="architecture">
+          <h2>The Architecture: What Is Actually Being Built</h2>
+          <p>
+            The structural battery described in the paper is a CFRP laminate in
+            which plain-weave carbon fibre fabric functions simultaneously as
+            the mechanical reinforcement and the current collector for both
+            electrodes. LiFePO₄ (LFP) cathode and Li₄Ti₅O₁₂ (LTO) anode slurries
+            are doctor-blade coated onto separate carbon fabric layers within a
+            masked 3 cm × 5 cm electrode zone, then vacuum-dried. The result is
+            an electrode/CFRP current collector — a single ply that is both
+            structural and electrochemically active.
+          </p>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77dab4892d6203fbe0d2_3.jpeg"
+                alt="Doctor-blade-assisted slurry coating on masked carbon fibre fabric"
+              />
+              <p class="image-caption">
+                Doctor-blade-assisted slurry coating on masked carbon fibre
+                fabric — the 3 cm × 5 cm electrode zone is defined by Teflon
+                tape before casting.
+              </p>
+            </div>
+
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77dacc4a40b20410252a_4.jpeg"
+                alt="Cross-sectional SEM of the electrode-coated CFRP current collector"
+              />
+              <p class="image-caption">
+                Cross-sectional SEM of the electrode-coated CFRP current
+                collector, confirming uniform coating thickness of 22–28 μm on
+                the carbon fibre plain-weave substrate.
+              </p>
+            </div>
+          </div>
+
+          <!-- Split layout: text left, image right (reversed) -->
+          <div class="split-layout reverse"></div>
+
+          <p>The cell stack, from bottom to top, reads as follows:</p>
+
+          <!-- INFOGRAPHIC 2 PLACEHOLDER -->
+          <div class="slcs3-wrap">
+            <div class="slcs3-eyebrow">Cell Architecture</div>
+            <h3 class="slcs3-title">Single-Cell Layer Stack</h3>
+            <div class="slcs3-subtitle">Cross-section view — not to scale</div>
+
+            <table class="slcs3-table" id="slcs3Table">
+              <tbody>
+                <!-- CFRP top -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-cfrp">CFRP Face Sheet</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #47577c"></div>
+                      <div>
+                        <div class="slcs3-ann-name">CFRP Face Sheet</div>
+                        <div class="slcs3-ann-detail">Elium matrix</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Al barrier top -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-al">Al Barrier Film</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #8fa0bd"></div>
+                      <div>
+                        <div class="slcs3-ann-name">Al Barrier Film</div>
+                        <div class="slcs3-ann-detail">6 μm, PDA-coated</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- LFP electrode -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-lfp">LFP Electrode</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #2e3d5a"></div>
+                      <div>
+                        <div class="slcs3-ann-name">LFP Electrode</div>
+                        <div class="slcs3-ann-detail">
+                          Carbon fabric / Elium prepreg<br />22–28 μm active
+                          coating<br />PP border 5 mm wide
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Separator top -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-sep">PP/PE/PP Separator</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #b0bdcc"></div>
+                      <div>
+                        <div class="slcs3-ann-name">PP/PE/PP Separator</div>
+                        <div class="slcs3-ann-detail">16 μm trilayer</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Glass fibre -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-gf">Glass Fibre Isolator</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #c5cdd8"></div>
+                      <div>
+                        <div class="slcs3-ann-name">
+                          Glass Fibre Plain-Weave
+                        </div>
+                        <div class="slcs3-ann-detail">Electrical isolator</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Separator bottom -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-sep">PP/PE/PP Separator</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #b0bdcc"></div>
+                      <div>
+                        <div class="slcs3-ann-name">PP/PE/PP Separator</div>
+                        <div class="slcs3-ann-detail">16 μm trilayer</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- LTO electrode -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-lto">LTO Electrode</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #6b2219"></div>
+                      <div>
+                        <div class="slcs3-ann-name">LTO Electrode</div>
+                        <div class="slcs3-ann-detail">
+                          Carbon fabric / Elium prepreg<br />22–28 μm active
+                          coating<br />PP border + optical tube inlet
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Al barrier bottom -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-al">Al Barrier Film</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #8fa0bd"></div>
+                      <div>
+                        <div class="slcs3-ann-name">Al Barrier Film</div>
+                        <div class="slcs3-ann-detail">6 μm, PDA-coated</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- CFRP bottom -->
+                <tr>
+                  <td class="slcs3-bar-cell">
+                    <div class="slcs3-bar slcs3-cfrp">CFRP Face Sheet</div>
+                  </td>
+                  <td class="slcs3-ann-cell">
+                    <div class="slcs3-ann-inner">
+                      <div class="slcs3-dot" style="background: #47577c"></div>
+                      <div>
+                        <div class="slcs3-ann-name">CFRP Face Sheet</div>
+                        <div class="slcs3-ann-detail">Elium matrix</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Stitching footer -->
+            <div class="slcs3-footer" id="slcs3Footer">
+              <svg
+                class="slcs3-footer-icon"
+                viewBox="0 0 38 38"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="19"
+                  cy="19"
+                  r="17"
+                  fill="rgba(191,52,37,0.08)"
+                  stroke="#bf3425"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="19"
+                  y1="5"
+                  x2="19"
+                  y2="33"
+                  stroke="#bf3425"
+                  stroke-width="1.8"
+                  stroke-dasharray="3 3"
+                />
+                <polygon points="19,4 15,11 23,11" fill="#bf3425" />
+                <polygon points="19,34 15,27 23,27" fill="#bf3425" />
+              </svg>
+              <div>
+                <div class="slcs3-footer-label">
+                  Kevlar KM2 Through-Thickness Stitching
+                </div>
+                <div class="slcs3-footer-text">
+                  <span class="slcs3-chip">63 μm needle</span>&ensp;
+                  <span class="slcs3-chip">~45 μm aramid bundle</span>&ensp;
+                  Confined to the active electrode zone within PP border —
+                  passes full stack thickness
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            The Elium resin — a polymethyl methacrylate (PMMA)-based
+            thermoplastic — is applied in liquid form before polymerisation,
+            which allows it to be selectively masked away from the electrode
+            regions using Teflon tape. PP films are then bonded around the
+            electrode perimeter using a soldering iron, creating a hermetic
+            thermoplastic border that provides the low oxygen and moisture
+            permeability that Elium alone cannot offer. The paper reports that
+            PP is the dominant encapsulant specifically because, unlike epoxy,
+            it resists both O₂ and water vapour at levels sufficient to protect
+            lithium-ion electrolytes — a property well established in food
+            packaging literature and confirmed here for battery applications.
+          </p>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77daec94c64641ca63c7_5.jpeg"
+                alt="Hot-press consolidation profile"
+              />
+              <p class="image-caption">
+                Hot-press consolidation profile: 140 °C and 14 bar sustained for
+                30 minutes to unify the laminate structure and activate the
+                Elium matrix.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Post-Consolidation Electrolyte Injection</h3>
+              <p>
+                Electrolyte is injected after full high-temperature
+                consolidation (140 °C, 14 bar, 30 minutes) via an embedded
+                optical tube channel — a PMMA tube with inner diameter 0.38 mm
+                from which a fluoropolymer-coated steel wire is withdrawn
+                post-cure, leaving a clean PP-lined injection pathway.
+                Vacuum-assisted infusion draws the liquid electrolyte through
+                the stack from within a glove box, and the channel is sealed
+                with a PVDF wire and epoxy cap.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: The Stitching Variable -->
+        <section id="stitching">
+          <h2>The Stitching Variable: Why Density Is the Critical Parameter</h2>
+          <p>
+            The architectural innovation that distinguishes this work from
+            previous CFRP structural batteries is the systematic application of
+            through-thickness aramid stitching across the active electrode zone
+            — and the careful characterisation of what happens as stitch density
+            changes.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db120319da22617dbe_6.jpeg"
+            alt="Stitching process and density configurations"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Stitching process and density configurations: (D) side view of
+            Kevlar KM2 thread being introduced through the laminate; top views
+            of stitched structural batteries at (E) 5.0 mm, (F) 3.33 mm, and (G)
+            2.5 mm stitch spacing.
+          </p>
+
+          <p>
+            Four configurations were tested: unstitched, loosely stitched (5 mm
+            spacing), moderately stitched (3.33 mm spacing), and densely
+            stitched (2.5 mm spacing). The Kevlar KM2 yarn was tensioned during
+            stitching to minimise slack and ensure local ply compaction. The key
+            finding is that performance is not monotonic with density: there is
+            an optimum, and it sits at moderate density.
+          </p>
+
+          <!-- INFOGRAPHIC 3 PLACEHOLDER -->
+          <div class="sdp-wrap">
+            <div class="sdp-eyebrow">Stitch Configuration Study</div>
+            <h3 class="sdp-title">
+              Stitch Density vs Dual-Function Performance
+            </h3>
+            <div class="sdp-subtitle">
+              Electrochemical (Wh/kg at 0.1C) and mechanical (flexural strength,
+              MPa) trade-off by stitch pitch
+            </div>
+
+            <!-- Column headers -->
+            <div class="sdp-col-headers">
+              <div class="sdp-col-spacer"></div>
+              <div class="sdp-col-label sdp-col-electro">
+                Electrochemical
+                <span class="sdp-col-sub">Energy density · Wh/kg at 0.1C</span>
+              </div>
+              <div class="sdp-col-label sdp-col-mech">
+                Mechanical
+                <span class="sdp-col-sub">Flexural strength · MPa</span>
+              </div>
+            </div>
+
+            <!-- Rows -->
+            <div class="sdp-rows" id="sdpRows">
+              <!-- Unstitched -->
+              <div class="sdp-row" data-i="0">
+                <div class="sdp-row-label">
+                  <div class="sdp-row-name">Unstitched</div>
+                  <div class="sdp-row-sub">Baseline</div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-electro" data-pct="82">
+                        <span class="sdp-bar-val">36.7 Wh/kg</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-mech" data-pct="71">
+                        <span class="sdp-bar-val">153.2 MPa</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5.0 mm -->
+              <div class="sdp-row" data-i="1">
+                <div class="sdp-row-label">
+                  <div class="sdp-row-name">5.0 mm pitch</div>
+                  <div class="sdp-row-sub">Loose</div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-electro" data-pct="89">
+                        <span class="sdp-bar-val">39.7 Wh/kg</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-mech" data-pct="78">
+                        <span class="sdp-bar-val">168.5 MPa</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3.33 mm — PEAK -->
+              <div class="sdp-row" data-i="2">
+                <div class="sdp-row-label">
+                  <div class="sdp-row-name">3.33 mm pitch</div>
+                  <div class="sdp-row-sub">Moderate</div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-electro" data-pct="94">
+                        <span class="sdp-bar-val">42.2 Wh/kg</span>
+                      </div>
+                    </div>
+                    <span class="sdp-peak-badge sdp-e">Peak</span>
+                  </div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-mech" data-pct="90">
+                        <span class="sdp-bar-val">193.2 MPa</span>
+                      </div>
+                    </div>
+                    <span class="sdp-peak-badge sdp-m">Peak (stitch only)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2.5 mm -->
+              <div class="sdp-row" data-i="3">
+                <div class="sdp-row-label">
+                  <div class="sdp-row-name">2.5 mm pitch</div>
+                  <div class="sdp-row-sub">Dense</div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-electro" data-pct="90">
+                        <span class="sdp-bar-val">40.4 Wh/kg</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-mech" data-pct="86">
+                        <span class="sdp-bar-val">185.8 MPa</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="sdp-divider" id="sdpDivider"></div>
+
+              <!-- PDA-Modified -->
+              <div class="sdp-row" data-i="4">
+                <div class="sdp-row-label">
+                  <div class="sdp-row-name">PDA-Modified</div>
+                  <div class="sdp-row-sub">Moderate SB</div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <!-- same electrochemistry as 3.33 mm -->
+                      <div
+                        class="sdp-bar-fill sdp-electro"
+                        data-pct="94"
+                        style="opacity: 0.35"
+                      >
+                        <span class="sdp-bar-val">42.2 Wh/kg</span>
+                      </div>
+                    </div>
+                    <span
+                      style="
+                        font-size: 10px;
+                        color: #9d9d9c;
+                        margin-left: 8px;
+                        white-space: nowrap;
+                      "
+                      >same</span
+                    >
+                  </div>
+                </div>
+                <div class="sdp-bar-cell">
+                  <div class="sdp-bar-with-ext">
+                    <div class="sdp-bar-track">
+                      <div class="sdp-bar-fill sdp-mech-pda" data-pct="100">
+                        <span class="sdp-bar-val">215.6 MPa</span>
+                      </div>
+                    </div>
+                    <span class="sdp-peak-badge sdp-m">System Peak</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.sdp-rows -->
+
+            <!-- Axis -->
+            <div class="sdp-axis" id="sdpAxis">
+              <span class="sdp-axis-low">Lower performance</span>
+              <div class="sdp-axis-line"></div>
+              <div class="sdp-axis-arrow"></div>
+              <span class="sdp-axis-high">Higher performance</span>
+            </div>
+
+            <!-- Note -->
+            <div class="sdp-note-row" id="sdpNote">
+              <div class="sdp-note-text">
+                <strong>PDA</strong> = polydopamine surface treatment on
+                aluminium barrier films. PDA modification adds
+                <strong>~11.6%</strong> flexural strength over uncoated moderate
+                SB. 14.7 GPa flexural modulus at system peak.
+              </div>
+            </div>
+          </div>
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77dba03d004d58ef321a_7.png"
+            alt="Cross-sectional SEM of unstitched and moderately stitched structural battery laminates"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Cross-sectional SEM of unstitched (B) and moderately stitched (D)
+            structural battery laminates. In the stitched configuration, aramid
+            threads (arrows) compact the electrode–separator stack to
+            near-contact, minimising ionic path length.
+          </p>
+
+          <p>
+            The mechanism behind the optimum is well-characterised in the paper
+            and consistent with the stitched composite literature. At moderate
+            density, the aramid threads compact the ply stack locally, reducing
+            electrode-to-electrode spacing to near the separator filament
+            diameter — creating a geometry with only micrometre-scale,
+            electrolyte-filled residual voids between electrodes. This minimises
+            ionic path length, reduces both solution resistance (R_s) and
+            charge-transfer resistance (R_ct) at the electrode-electrolyte
+            interface, and produces the highest energy density (42.2 Wh kg⁻¹
+            against total structural mass — a 14% improvement over the
+            unstitched baseline).
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db504d69fa3f2ccb4a_8.png"
+            alt="SEM and EDS analysis of stitch-penetrated layers"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            SEM and EDS analysis of stitch-penetrated layers: (B/C) LFP
+            electrode surface showing ~46 μm damage zone and phosphorus loss;
+            (D/E) PP/PE/PP separator showing captured LFP fragments; (F/G) glass
+            fabric layer showing no phosphorus propagation beyond the first
+            separator.
+          </p>
+
+          <p>
+            At dense stitching, needle penetrations begin to locally damage the
+            electrode coating, exposing bare carbon fibre and reducing the
+            active surface area. SEM and EDS analysis in the paper confirms that
+            LFP fragments are displaced at each penetration site and migrate
+            into the first PP/PE/PP separator layer. The critical safety finding
+            is that the trilayer PP/PE/PP membrane acts as an effective
+            mechanical filter: fragments do not propagate past the first
+            separator into the glass fibre interlayer or the opposing electrode.
+            Electrical testing across multiple densely-stitched specimens
+            confirmed no shorting events when the PP/PE/PP layer was present on
+            both sides of the glass fabric.
+          </p>
+        </section>
+
+        <!-- Section: Vertical Stacking -->
+        <section id="vertical-stacking">
+          <h2>The Vertical Stacking Solution for High Voltage</h2>
+          <p>
+            Most published structural battery work stops at a single cell
+            operating at 1.7–1.9 V. This is fine for demonstrating the concept,
+            but electric vehicles and high-performance UAVs (DJI Matrice 350 RTK
+            operating at >40 V, cited in the paper) require multi-cell series
+            integration. Conventional CFRP structural battery designs achieve
+            this through side-by-side planar layouts, which introduce inter-cell
+            dead space, long interconnect runs, and structural discontinuities
+            at cell boundaries.
+          </p>
+          <p>
+            The paper proposes and demonstrates vertical stacking — laminating
+            cells in series along the thickness direction — as the solution.
+          </p>
+
+          <!-- INFOGRAPHIC 4 PLACEHOLDER -->
+
+          <div class="sivs-wrap">
+            <div class="sivs-eyebrow">Series Integration</div>
+            <h3 class="sivs-title">Planar vs Vertical Cell Stacking</h3>
+            <div class="sivs-subtitle">
+              Conventional side-by-side arrangement compared to vertical
+              interlaminar integration
+            </div>
+
+            <!-- Comparison panels -->
+            <div class="sivs-compare" id="sivsCompare">
+              <!-- LEFT: Conventional -->
+              <div class="sivs-panel sivs-panel-bad" id="sivsPanel1">
+                <div class="sivs-panel-head">
+                  <span class="sivs-panel-badge sivs-badge-bad"
+                    >Conventional</span
+                  >
+                </div>
+                <div class="sivs-panel-title">Side-by-Side Planar</div>
+
+                <!-- Diagram -->
+                <div class="sivs-diagram">
+                  <div class="sivs-side-by-side">
+                    <div class="sivs-sbs-cells">
+                      <div class="sivs-cell-box">Cell 1</div>
+                      <div class="sivs-gap-block">Gap</div>
+                      <div class="sivs-cell-box">Cell 2</div>
+                    </div>
+                    <div class="sivs-wire-row">
+                      <div class="sivs-wire-half"></div>
+                      <div class="sivs-wire-label">long interconnect wire</div>
+                      <div
+                        class="sivs-wire-half"
+                        style="transform: scaleX(-1)"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="sivs-stats">
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-bad">✕</div>
+                    <div>
+                      <span class="sivs-stat-label">Dead space: </span
+                      ><span class="sivs-stat-val sivs-bad">Significant</span>
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-bad">✕</div>
+                    <div>
+                      <span class="sivs-stat-label">Interconnect: </span
+                      ><span class="sivs-stat-val sivs-bad">cm-scale wire</span>
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-bad">✕</div>
+                    <div>
+                      <span class="sivs-stat-label"
+                        >Structural discontinuity: </span
+                      ><span class="sivs-stat-val sivs-bad">Yes</span>
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-bad">✕</div>
+                    <div>
+                      <span class="sivs-stat-label">Current distribution: </span
+                      ><span class="sivs-stat-val sivs-bad">Non-uniform</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: Vertical -->
+              <div class="sivs-panel sivs-panel-good" id="sivsPanel2">
+                <div class="sivs-panel-head">
+                  <span class="sivs-panel-badge sivs-badge-good"
+                    >This Paper</span
+                  >
+                </div>
+                <div class="sivs-panel-title">
+                  Vertical Interlaminar Stacking
+                </div>
+
+                <!-- Diagram -->
+                <div class="sivs-diagram">
+                  <div class="sivs-vertical" style="width: 100%">
+                    <div class="sivs-v-cell" style="border-radius: 8px 8px 0 0">
+                      Cell 2 &nbsp;↑ Top
+                    </div>
+                    <div class="sivs-v-interlayer">
+                      Al barrier + epoxy interlaminar
+                      <div class="sivs-junction-dot"></div>
+                    </div>
+                    <div
+                      class="sivs-v-cell sivs-bottom"
+                      style="border-radius: 0 0 8px 8px"
+                    >
+                      Cell 1 &nbsp;↓ Bottom
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="sivs-stats">
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-good">✓</div>
+                    <div>
+                      <span class="sivs-stat-label">Dead space: </span
+                      ><span class="sivs-stat-val sivs-good">Minimal</span>
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-good">✓</div>
+                    <div>
+                      <span class="sivs-stat-label">Interconnect: </span
+                      ><span class="sivs-stat-val sivs-good"
+                        >Sub-mm Al disc junction</span
+                      >
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-good">✓</div>
+                    <div>
+                      <span class="sivs-stat-label"
+                        >Structural discontinuity: </span
+                      ><span class="sivs-stat-val sivs-good">None</span>
+                    </div>
+                  </div>
+                  <div class="sivs-stat">
+                    <div class="sivs-stat-icon sivs-icon-good">✓</div>
+                    <div>
+                      <span class="sivs-stat-label">Current distribution: </span
+                      ><span class="sivs-stat-val sivs-good">Uniform</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Junction detail -->
+            <div class="sivs-junction" id="sivsJunction">
+              <div class="sivs-junction-diagram">
+                <div class="sivs-jd-layer sivs-jd-cell">Cell 2</div>
+                <div class="sivs-jd-layer sivs-jd-inter">
+                  <div class="sivs-jd-disc"></div>
+                </div>
+                <div class="sivs-jd-layer sivs-jd-cell">Cell 1</div>
+              </div>
+              <div class="sivs-junction-facts">
+                <div class="sivs-junction-label">Series Junction Detail</div>
+                <div class="sivs-jf-item">
+                  <div class="sivs-jf-dot"></div>
+                  <span
+                    >3 mm Al disc, silver-paste bonded at laminate edge</span
+                  >
+                </div>
+                <div class="sivs-jf-item">
+                  <div class="sivs-jf-dot"></div>
+                  <span>Placed only at interlaminar mid-plane</span>
+                </div>
+                <div class="sivs-jf-item">
+                  <div class="sivs-jf-dot"></div>
+                  <span>Aligned and hot-press bonded during consolidation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Result banner -->
+            <div class="sivs-result" id="sivsResult">
+              <div class="sivs-result-volt">5 V<span>output</span></div>
+              <div class="sivs-result-text">
+                <strong>Demonstrated result:</strong> 5 V output achieved with 2
+                × LFP∥LTO sub-cells connected in series via vertical
+                interlaminar integration
+              </div>
+            </div>
+          </div>
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77da3952c387d568db2e_9.jpeg"
+                alt="Final configuration of the vertically stacked high-voltage structural battery"
+              />
+              <p class="image-caption">
+                Final configuration of the vertically stacked high-voltage
+                structural battery: two cells laminated in series along the
+                thickness direction with PDA-coated aluminium barrier films and
+                CFRP/Elium protective skins.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>PDA Surface Treatment: A Critical Manufacturing Detail</h3>
+              <p>
+                The dopamine (PDA) surface treatment applied to the 6 μm
+                aluminium barrier films between cells shifts the failure mode
+                toward cohesive fracture within the PDA/adhesive interphase,
+                producing a 40.7% increase in flexural strength (215.6 MPa) and
+                41.3% increase in stiffness (14.7 GPa). This is among the
+                strongest flexural performance reported for a CFRP structural
+                battery using a liquid electrolyte, competitive with recent
+                results from Chen et al. (181 MPa), Han et al. (203 MPa), and
+                Liu et al. (201 MPa) in the same class of system.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Under Load -->
+        <section id="under-load">
+          <h2>Under Load: Electrochemical Stability During Bending</h2>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77da236ed78b57e0905b_10.jpeg"
+                alt="In situ three-point bending and charge–discharge test setup"
+              />
+              <p class="image-caption">
+                In situ three-point bending and charge–discharge test setup:
+                controlled deflection (δ) is applied at mid-span while the
+                structural battery is simultaneously cycled galvanostatically.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Simultaneous Mechanical and Electrochemical Testing</h3>
+              <p>
+                The coupled mechanical-electrochemical test — charging and
+                discharging the battery while simultaneously applying controlled
+                deflection in a three-point bending fixture — is where the
+                stitching advantage becomes most visible in practical terms.
+              </p>
+            </div>
+          </div>
+
+          <!-- INFOGRAPHIC 5 PLACEHOLDER -->
+
+          <div class="crbd-wrap">
+            <div class="crbd-eyebrow">Mechanical Durability</div>
+            <h3 class="crbd-title">
+              Capacity Retention Under Progressive Bending Deflection
+            </h3>
+            <div class="crbd-subtitle">
+              1C rate · LFP specific capacity (mAh/g<sub>LFP</sub>) ·
+              approximate midpoint values
+            </div>
+
+            <!-- Legend -->
+            <div class="crbd-legend">
+              <div class="crbd-legend-item">
+                <div class="crbd-legend-dot" style="background: #9d9d9c"></div>
+                Unstitched
+              </div>
+              <div class="crbd-legend-item">
+                <div class="crbd-legend-dot" style="background: #8fa0bd"></div>
+                Loose (5.0 mm)
+              </div>
+              <div class="crbd-legend-item">
+                <div class="crbd-legend-dot" style="background: #47577c"></div>
+                Moderate (3.33 mm)
+              </div>
+              <div class="crbd-legend-item">
+                <div class="crbd-legend-dot" style="background: #bf3425"></div>
+                Dense (2.5 mm)
+              </div>
+            </div>
+
+            <!-- Chart.js line chart -->
+            <div class="crbd-chart-wrap">
+              <canvas id="crbdChart"></canvas>
+            </div>
+
+            <!-- Insight cards -->
+            <div class="crbd-insights" id="crbdInsights">
+              <div class="crbd-insight" style="background: #f8f9fb">
+                <div class="crbd-insight-icon">🔵</div>
+                <div class="crbd-insight-label">Mild load (δ ≤ 1 mm)</div>
+                <div class="crbd-insight-text">
+                  <strong>Moderate stitching is optimal</strong> — highest
+                  capacity at low deflection
+                </div>
+              </div>
+              <div class="crbd-insight" style="background: #fff5f5">
+                <div class="crbd-insight-icon">🔴</div>
+                <div class="crbd-insight-label">Severe load (δ ≥ 2 mm)</div>
+                <div class="crbd-insight-text">
+                  <strong>Dense stitching leads</strong> — preserves most
+                  capacity under heavy bending
+                </div>
+              </div>
+              <div class="crbd-insight" style="background: #f7f9fc">
+                <div class="crbd-insight-icon">✅</div>
+                <div class="crbd-insight-label">All stitched configs</div>
+                <div class="crbd-insight-text">
+                  <strong>Substantially outperform unstitched</strong> at every
+                  deflection level
+                </div>
+              </div>
+            </div>
+
+            <!-- Recovery row -->
+            <div class="crbd-recovery" id="crbdRecovery">
+              <div class="crbd-recovery-label">
+                Post-Bending Recovery (δ → 0 mm again)
+              </div>
+              <div class="crbd-recovery-bars">
+                <div class="crbd-rec-item">
+                  <div class="crbd-rec-name">Unstitched</div>
+                  <div class="crbd-rec-track">
+                    <div
+                      class="crbd-rec-fill"
+                      style="background: #9d9d9c"
+                      data-w="81"
+                    ></div>
+                  </div>
+                  <div class="crbd-rec-val" style="color: #9d9d9c">
+                    ~81% retained
+                  </div>
+                </div>
+                <div class="crbd-rec-item">
+                  <div class="crbd-rec-name">Loose</div>
+                  <div class="crbd-rec-track">
+                    <div
+                      class="crbd-rec-fill"
+                      style="background: #8fa0bd"
+                      data-w="84"
+                    ></div>
+                  </div>
+                  <div class="crbd-rec-val" style="color: #8fa0bd">
+                    ~84% retained
+                  </div>
+                </div>
+                <div class="crbd-rec-item">
+                  <div class="crbd-rec-name">Moderate</div>
+                  <div class="crbd-rec-track">
+                    <div
+                      class="crbd-rec-fill"
+                      style="background: #47577c"
+                      data-w="86"
+                    ></div>
+                  </div>
+                  <div class="crbd-rec-val" style="color: #47577c">
+                    ~85–86% retained
+                  </div>
+                </div>
+                <div class="crbd-rec-item">
+                  <div class="crbd-rec-name">Dense</div>
+                  <div class="crbd-rec-track">
+                    <div
+                      class="crbd-rec-fill"
+                      style="background: #bf3425"
+                      data-w="84"
+                    ></div>
+                  </div>
+                  <div class="crbd-rec-val" style="color: #bf3425">
+                    ~84% retained
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db8d9bf709bb67b313_11.png"
+            alt="Inter-electrode deformation under bending"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Inter-electrode deformation under bending: (A) unstitched — bending
+            induces significant electrode separation and electrolyte starvation;
+            (B) loosely stitched — moderate restraint; (C) densely stitched —
+            electrode displacement is effectively suppressed.
+          </p>
+
+          <p>
+            The physical mechanism is illustrated by Figure 11 in the paper:
+            without stitching, bending-induced delamination opens electrode gaps
+            that electrolyte cannot bridge, starving ion transport. Stitching
+            threads act as localised mechanical tethers that resist interlaminar
+            separation, maintaining electrode proximity and electrolyte wetting
+            across the active region even as the laminate flexes. At large
+            deflections the denser stitch pattern's greater tether density
+            becomes the dominant factor. Critically, after full load removal,
+            stitched cells recover to approximately 85% of their original
+            capacity — versus 81–82% for the unstitched control — confirming
+            that the stitching limits irreversible interfacial damage, not
+            merely deformation.
+          </p>
+        </section>
+
+        <!-- Section: The AFP Angle -->
+        <section id="afp-angle">
+          <h2>The AFP Angle: Why This Is a Manufacturing Paper in Disguise</h2>
+          <p>
+            Here is the manufacturing-critical read on this paper that the
+            abstract does not foreground. Every process step described is
+            compatible with, or directly enabled by, thermoplastic AFP
+            manufacturing:
+          </p>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69ef57f133971e58d272323a_6.png"
+                alt="AFP-XS laser heating zone during thermoplastic tape consolidation"
+              />
+              <p class="image-caption">
+                AFP-XS laser heating zone during thermoplastic tape
+                consolidation — the processing regime that makes Elium-based
+                structural battery laminates manufacturable on existing AFP
+                equipment.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Elium as the Matrix</h3>
+              <p>
+                Elium 150 is applied in liquid form before polymerisation —
+                precisely the resin handling regime that makes it attractive for
+                AFP thermoplastic prepreg manufacture. Unlike thermoset epoxy,
+                Elium can be re-consolidated under heat and pressure, supports
+                the 140 °C / 14-bar hot-press cycle used here, and offers the
+                selective masking and resin-boundary control that distinguishes
+                this architecture. AFP systems that handle thermoplastic prepreg
+                tapes — including Addcomposites' AFP-X — are designed around the
+                resin flow and consolidation dynamics that make selective Elium
+                deposition possible at the ply level.
+              </p>
+            </div>
+          </div>
+
+          <!-- Split layout: image right, text left (reversed) -->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f14ce130f66c8b7c8b2_4.png"
+                alt="AFP-XS ply-by-ply deposition"
+              />
+              <p class="image-caption">
+                AFP-XS ply-by-ply deposition — programmed fibre path precision
+                that manual layup cannot replicate.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Ply-by-Ply Functional Zoning</h3>
+              <p>
+                The architecture requires precise placement of: CFRP/Elium plies
+                in structural zones, PP-bounded electrode plies in active zones,
+                aluminium barrier films at interlaminar boundaries, and glass
+                fibre interlayers for electrical isolation. This is exactly the
+                kind of heterogeneous ply stack that AFP's programmable fibre
+                path and material-switching capability is designed to handle.
+                Manual layup of this architecture is time-consuming and
+                positionally inconsistent; AFP-based layup closes both problems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69d388cf59b30b3073c7d5d1_3.jpeg"
+                alt="AFP-XS ply sequence simulation"
+              />
+              <p class="image-caption">
+                AFP-XS ply sequence simulation — each layer deposited to a
+                programmed orientation, eliminating the positional variability
+                that makes stitch-penetration geometry unpredictable in
+                hand-laid alternatives.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Scalability of the Stitching Step</h3>
+              <p>
+                The authors note that continuous fibre reinforcement simplifies
+                manufacture of large-area structural batteries. Stitching, as a
+                post-layup operation, scales linearly with area — but the
+                quality of the substrate it stitches through determines whether
+                the needle path is repeatable. AFP-laid laminates offer
+                dimensional consistency and controlled ply consolidation that
+                makes the stitch-penetration geometry more predictable than
+                hand-laid alternatives, reducing the risk of electrode damage
+                variability that the paper identifies as the primary mechanism
+                of dense-stitching performance loss.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h4>The Post-Injection Electrolyte Pathway</h4>
+            <p>
+              The optical tube injection channel is embedded during layup — a
+              feature that AFP can reproduce as a deliberate local inclusion,
+              analogous to the embedded sensor and insert capabilities that
+              AFP-X users already deploy for SHM and fastener integration. The
+              sealing sequence (PVDF wire + epoxy cap) is a bench operation that
+              does not require any modification to the AFP process itself.
+            </p>
+          </div>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db58ed3d07c3944937_15.jpeg"
+            alt="AFP-XS structural battery laminate research"
+            class="full-width-image"
+          />
+
+          <p>
+            For AFP-XS users operating in the UAV and small satellite structural
+            component space — precisely the applications the paper cites as the
+            primary demand drivers — this means the enabling manufacturing
+            technology for structural battery integration is not a future
+            development. It is available today, and the process architecture has
+            now been validated at the cell level.
+          </p>
+        </section>
+
+        <!-- Section: Where the Numbers Sit -->
+        <section id="where-numbers-sit">
+          <h2>Where the Numbers Sit</h2>
+          <p>
+            The paper's reported multifunctional efficiency (MFE) for the
+            PDA-modified moderately stitched system is 0.551, calculated against
+            a standard LFP cell baseline of 90 Wh kg⁻¹ and a unidirectional CFRP
+            modulus baseline of 128 GPa. The authors position this within the
+            0.16–0.58 range typical of carbon-fibre-based multifunctional
+            materials, noting that most published systems optimise one function
+            at the expense of the other.
+          </p>
+
+          <!-- Split layout: image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77db25a70d4671313ba3_16.jpeg"
+                alt="Energy density at 0.1C across stitching configurations"
+              />
+              <p class="image-caption">
+                Energy density at 0.1C across stitching configurations: moderate
+                stitching (3.33 mm spacing) achieves peak performance at 42.2 Wh
+                kg⁻¹ referenced to total structural mass.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Energy Density in Context</h3>
+              <p>
+                The energy density of 42.2 Wh kg⁻¹ is achieved using standard
+                carbon fibre electrodes with liquid electrolyte — no solid-state
+                electrolyte, no exotic chemistry. Systems using solid
+                electrolytes outperform it on individual metrics, but those
+                systems face their own manufacturing integration challenges:
+                solid electrolyte coverage at scale, limited interlaminar
+                bonding options, and process temperature constraints that
+                solid-state chemistry imposes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Split layout: image right, text left (reversed) -->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0a77dbb996c99aff15266e_17.jpeg"
+                alt="Long-term cycling performance at 0.5C over 500 cycles"
+              />
+              <p class="image-caption">
+                Long-term cycling performance at 0.5C over 500 cycles: the
+                moderately stitched structural battery retains 77% of initial
+                capacity, with all stitched configurations outperforming the
+                unstitched baseline throughout.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>The Right Comparison Baseline</h3>
+              <p>
+                The liquid-electrolyte architecture described here sacrifices
+                peak energy density in exchange for process compatibility with
+                AFP manufacturing and demonstrated stability over 500 cycles
+                (77% capacity retention at 0.5C).
+              </p>
+              <p>
+                For the aerospace and UAV structural designer, the relevant
+                comparison is not against a standalone LFP pouch cell. It is
+                against a CFRP structure plus a separate battery pack. At 42.2
+                Wh kg⁻¹ referenced to total structural mass — including the CFRP
+                current collectors, glass fibre interlayer, aluminium barriers,
+                and Elium matrix — the structural battery is doing
+                electrochemical work with mass that was always going to be in
+                the structure. That is the core value proposition, and it now
+                has a validated manufacturing path.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: What Comes Next -->
+        <section id="what-comes-next">
+          <h2>What Comes Next</h2>
+          <p>
+            The authors explicitly identify the modular nature of their
+            enhancement strategy. The stitching architecture, the vertical
+            stacking configuration, the thermoplastic encapsulation approach,
+            and the dopamine surface treatment are described as complementary
+            rather than mutually exclusive. Future combinations with
+            damage-tolerant electrode formulations, stitch-compatible gel or
+            soft polymer electrolytes, and automated stitching heads — already
+            in development for preform manufacturing — are natural extensions.
+          </p>
+          <p>
+            For the AFP community, the near-term development question is whether
+            Elium-based CFRP prepreg tape with embedded PP electrode zones can
+            be produced in a format compatible with slit-tape AFP heads. The
+            selective masking and doctor-blade coating steps described in the
+            paper translate reasonably directly to a modified tape manufacturing
+            process, where the electrode slurry is deposited onto the fibre
+            substrate before resin infiltration in designated tape segments. The
+            dimensional tolerances involved — 3 cm × 5 cm electrode zones within
+            an 8 cm × 6 cm laminate ply — are comfortably within AFP placement
+            accuracy.
+          </p>
+          <p>
+            The structural battery is moving from curiosity to component. The
+            manufacturing architecture to get it there is already in the room.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="AFP composite manufacturing"
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Compact plug-and-play AFP system</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <p>
+              Interested in how AFP-XS or AFP-X can be configured for
+              thermoplastic structural battery laminate research? Get in touch
+              with the Addcomposites team.
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>References</h2>
+          <ol class="references-list">
+            <li>
+              Park, G., Kim, C.-G., Kwon, H., Lee, J. D., Park, J., Son, Y.,
+              Kim, J. G., &amp; Cha, J.-H. (2026). Tailored Stitching and
+              Vertical Stacking for High-Voltage Multifunctional Structural
+              Batteries with Enhanced Electrochemical–Mechanical Coupling.
+              <em>Advanced Science</em>, 13, e14967.
+              <a
+                href="https://doi.org/10.1002/advs.202514967"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.1002/advs.202514967</a
+              >. Open access under Creative Commons Attribution License.
+            </li>
+            <li>
+              Addcomposites. AFP-XS Automated Fiber Placement System.
+              <a
+                href="https://www.addcomposites.com/afp-xs"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://www.addcomposites.com/afp-xs</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            This post was prepared by the Addcomposites team. Addcomposites
+            develops the AFP-XS automated fiber placement platform. For
+            questions about thermoplastic AFP process development, contact us at
+            <a
+              href="https://www.addcomposites.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >addcomposites.com</a
+            >.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
