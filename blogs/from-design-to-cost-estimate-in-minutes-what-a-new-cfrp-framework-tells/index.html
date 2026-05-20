@@ -192,20 +192,19 @@
             collaboration between the University of Stuttgart, IILS mbH,
             Fraunhofer IGCV, and Airbus Helicopters Deutschland (AHD), begins
             with a description of the situation most composites engineers will
-            recognize: CFRP production still poses significant challenges
-            because the highly customized and often complex geometries of
-            components can lead to process-related defects and quality
-            variations. Consequently, many manufacturing steps still rely
-            heavily on manual labor, making cost estimation and reproducibility
-            difficult.
+            recognize: The paper notes that "the highly customized and often
+            complex geometries of components can lead to process-related defects
+            and quality variations. Consequently, many manufacturing steps still
+            rely heavily on manual labor, making cost estimation and
+            reproducibility difficult."
           </p>
           <p>
             The diagnosis cuts deeper, though. It isn't just that manufacturing
             is hard. It's that the data flow between design and manufacturing is
-            broken. Fragmented toolchains and isolated disciplines often lead to
-            breaks in data flow and hinder the evaluation of how design choices
-            affect manufacturing effort, recurring costs, or material
-            efficiency.
+            broken. As the authors put it: "Fragmented toolchains and isolated
+            disciplines often lead to breaks in data flow and hinder the
+            evaluation of how design choices affect manufacturing effort,
+            recurring costs, or material efficiency."
           </p>
 
           <div class="highlight-box">
@@ -261,13 +260,20 @@
 
           <img
             src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e743d4fc9e5ddefa122c0a_aerospace-13-00311-g014%20(1).png"
-            alt="Inside the design graph: every ply, zone, and surface as connected, executable nodes"
+            alt="Figure 14: Design graph of an AFP component showing plies, zones, tool surface, and reference curves. From Schopper et al., Aerospace 2026, 13, 311. https://doi.org/10.3390/aerospace13040311. CC BY 4.0."
             class="full-width-image"
           />
-          <p class="image-caption" style="margin: 0; text-align: left">
-            Inside the design graph: every ply, zone, and surface as connected,
-            executable nodes. (Schopper et al.,
-            <em>Aerospace</em> 2026, CC BY 4.0)
+          <p
+            class="image-caption"
+            style="margin: 0; text-align: left; margin-bottom: 10px"
+          >
+            Figure 14: Design graph of an AFP component showing plies, zones,
+            tool surface, and reference curves. From Schopper et al., Aerospace
+            2026, 13, 311.
+            <a href="https://doi.org/10.3390/aerospace13040311" target="_blank"
+              >https://doi.org/10.3390/aerospace13040311</a
+            >
+            CC BY 4.0. [Cropped/resized from original.]
           </p>
 
           <!-- INFOGRAPHIC 1 PLACEHOLDER -->
@@ -501,13 +507,16 @@
           <!-- Image 4 with caption -->
           <img
             src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fc576f9eecf528f9f04b_4.png"
-            alt="Three frame variants — I, Ω, and C profiles — auto-generated at different fuselage positions"
+            alt="Figure 6: Different variants of helicopter frames (I, Omega, C profiles) at different positions within the fuselage geometry. From Schopper et al., Aerospace 2026, 13, 311. https://doi.org/10.3390/aerospace13040311. CC BY 4.0."
             class="full-width-image"
           />
           <p class="image-caption">
-            Three frame variants — I, Ω, and C profiles — auto-generated at
-            different fuselage positions from a single design run. (Schopper et
-            al., <em>Aerospace</em> 2026, CC BY 4.0)
+            Figure 6: Different variants of helicopter frames (I, Omega, C
+            profiles) at different positions within the fuselage geometry. From
+            Schopper et al., Aerospace 2026, 13, 311.
+            <a href="https://doi.org/10.3390/aerospace13040311" target="_blank"
+              >https://doi.org/10.3390/aerospace13040311</a
+            >. CC BY 4.0. [Cropped/resized from original.]
           </p>
 
           <p>
@@ -1608,12 +1617,19 @@
             <div class="split-image">
               <img
                 src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fc57d41522b69e55d6dc_5.png"
-                alt="Full design-to-manufacturing chain — from a single user selection to machine-ready NC code"
+                alt="Figure 1: Schematic overview of the automated engineering process from design to manufacturing, showing applications and file exchange formats between modules. From Schopper et al., Aerospace 2026, 13, 311. https://doi.org/10.3390/aerospace13040311. CC BY 4.0."
               />
               <p class="image-caption" style="margin-top: 20px">
-                The full design-to-manufacturing chain — from a single user
-                selection in DC43 to machine-ready NC code — runs automatically
-                with no manual data re-entry between steps.
+                Figure 1: Schematic overview of the automated engineering
+                process from design to manufacturing, showing applications and
+                file exchange formats between modules. From Schopper et al.,
+                Aerospace 2026, 13, 311.
+                <a
+                  href="https://doi.org/10.3390/aerospace13040311"
+                  target="_blank"
+                  >https://doi.org/10.3390/aerospace13040311</a
+                >
+                CC BY 4.0. [Cropped/resized from original.]
               </p>
             </div>
             <div class="split-text">
@@ -2779,10 +2795,12 @@
               <div>
                 <h4>Design Changes Become Cheap</h4>
                 <p>
-                  The design graph retains all intermediate values.
-                  Recalculating with a different material, tooling concept, or
-                  operator speed requires no model reconstruction — only
-                  parameter modification.
+                  One of the most powerful features is that, as the authors
+                  note, "the design graph retains all intermediate values" —
+                  meaning recalculations with modified parameters can be carried
+                  out rapidly without rebuilding the model from scratch. For AFP
+                  operators, this means a design change by the customer triggers
+                  an automatic cost update, not an hours-long re-estimate.
                 </p>
               </div>
             </div>
@@ -2807,10 +2825,13 @@
               <div>
                 <h4>The Workflow AFP-XS Users Need</h4>
                 <p>
-                  The structural customer changes a frame profile from I to Ω;
-                  the AFP operator needs to know within minutes what that means
-                  for lay-up time, tow waste, and quote price. The COBAIN
-                  framework shows exactly how to build that capability.
+                  This is the workflow that AFP-XS users operating in aerospace
+                  supply chains need. The structural customer changes a frame
+                  profile from I to Ω; the AFP operator needs to know, within
+                  minutes, what that means for lay-up time, tow waste, and quote
+                  price. The COBAIN framework shows exactly how to build that
+                  capability — and the tools to execute it (AddPath for path
+                  planning, AFP-XS for deposition) already exist.
                 </p>
               </div>
             </div>
