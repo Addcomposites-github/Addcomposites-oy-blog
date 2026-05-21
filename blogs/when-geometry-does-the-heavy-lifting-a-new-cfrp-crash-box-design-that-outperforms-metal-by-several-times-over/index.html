@@ -1,0 +1,2514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      When Geometry Does the Heavy Lifting: A New CFRP Crash Box Design That
+      Outperforms Metal by Several Times Over | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="How a sun-shaped carbon fiber structure — validated by a novel 50%-faster simulation workflow — is rewriting the rulebook on automotive crash energy absorption."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#intro" class="blog-sidebar-link active">Introduction</a>
+          <a href="#core-problem" class="blog-sidebar-link">The Core Problem</a>
+          <a href="#numerical-methodology" class="blog-sidebar-link"
+            >Numerical Methodology</a
+          >
+          <a href="#three-geometries" class="blog-sidebar-link"
+            >Three Geometries</a
+          >
+          <a href="#edge-tapering" class="blog-sidebar-link">Edge Tapering</a>
+          <a href="#woven-fabric" class="blog-sidebar-link"
+            >Woven Fabric Upgrade</a
+          >
+          <a href="#manufacturing-reality" class="blog-sidebar-link"
+            >Manufacturing Reality</a
+          >
+          <a href="#damage-mechanics" class="blog-sidebar-link"
+            >Damage Mechanics</a
+          >
+          <a href="#sea-ceiling" class="blog-sidebar-link">The SEA Ceiling</a>
+          <a href="#afp-implications" class="blog-sidebar-link"
+            >AFP Implications</a
+          >
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <!-- Main Blog Content -->
+      <main class="blog-content">
+        <!-- Article Content -->
+        <article>
+          <section id="intro">
+            <h1>
+              When Geometry Does the Heavy Lifting: A New CFRP Crash Box Design
+              That Outperforms Metal by Several Times Over
+            </h1>
+
+            <!-- Meta Bar -->
+            <div class="blog-meta">
+              <span class="blog-meta-item">
+                <svg
+                  class="blog-meta-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Pravin Luthada
+              </span>
+              <span class="blog-meta-item">
+                <svg
+                  class="blog-meta-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                2026
+              </span>
+              <span class="blog-meta-item">
+                <svg
+                  class="blog-meta-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                15 min read
+              </span>
+            </div>
+            <p class="subtitle">
+              How a sun-shaped carbon fiber structure — validated by a novel
+              50%-faster simulation workflow — is rewriting the rulebook on
+              automotive crash energy absorption.
+            </p>
+
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea329242a498ae84fe8f2_1.png"
+              alt="CFRP Crash Box Overview"
+              class="full-width-image"
+            />
+
+            <p class="drop-cap">
+              Crash boxes occupy a narrow band of a vehicle's front structure,
+              but the engineering demands placed on them are anything but
+              narrow. They must collapse predictably under axial load, absorbing
+              the maximum possible kinetic energy before a crash event reaches
+              the main frame — and they must do all of this while weighing as
+              little as possible. For decades, the industry has relied on steel
+              and aluminium, accepting specific energy absorption (SEA) values
+              in the 15–30 J/g range as the ceiling. A February 2026 open-access
+              paper published in <em>Journal of Composites Science</em> (MDPI)
+              by Engul, Demir, and Ersoy from Boğaziçi University, Virginia
+              Tech, and Yildiz Technical University challenges that ceiling
+              head-on — and clears it by a factor of three to four.
+            </p>
+
+            <div class="split-layout">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea329e6b9a9dfabea5add_2.png"
+                  alt="The manufactured SL4 sun-like crash box and MTS hydraulic test setup"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  The manufactured SL4 sun-like crash box (left) and the MTS
+                  hydraulic test setup with specimens under axial compression
+                  (right).
+                  <br />
+                  Figure 19 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+                  Manufacturing, and Analysis of a Carbon Fiber Reinforced
+                  Polymer Crash Box." Journal of Composites Science 2026, 10,
+                  85.<a
+                    href="https://doi.org/10.3390/jcs10020085"
+                    target="_blank"
+                    >https://doi.org/10.3390/jcs10020085</a
+                  >
+                  — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    >https://creativecommons.org/licenses/by/4.0/</a
+                  >).
+                </p>
+              </div>
+              <div class="split-text">
+                <p>
+                  This post walks through what the paper actually shows, why the
+                  geometry matters so much, how the authors solved the
+                  computational bottleneck that makes CFRP crash box design so
+                  expensive, and what all of this means for composite
+                  manufacturers investing in automated fibre placement (AFP)
+                  platforms.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="core-problem">
+            <h2>The Core Problem: Why CFRP Crash Box Design Is Hard</h2>
+            <p>
+              Designing a metallic crash box is relatively tractable: material
+              behaviour under axial crush is well characterised, and finite
+              element (FE) simulations run in reasonable time. CFRP is a
+              different story. The failure mechanics — intralaminar fibre and
+              matrix cracking, interlaminar delamination, debris wedge
+              formation, and their interactions — are simultaneously active and
+              deeply coupled. FE models that capture all of this are accurate
+              but extremely slow, which makes iterative geometry exploration by
+              trial-and-error manufacturing both time-consuming and expensive.
+            </p>
+
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea34ac2174fefa7102b2d_3.png"
+              alt="Physical compression testing and finite element simulation"
+              class="full-width-image"
+            />
+            <p class="image-caption">
+              AI-generated illustration for representational purposes. Physical
+              compression testing (left) and finite element simulation (right) —
+              the two bottlenecks in iterative CFRP crash box design.
+            </p>
+
+            <p>
+              The paper addresses this with a novel reduced-interface modelling
+              strategy, then applies it to design a genuinely new crash box
+              geometry. The two contributions — faster simulation and better
+              geometry — reinforce each other: you cannot easily explore a large
+              design space if each candidate takes hours to simulate.
+            </p>
+          </section>
+
+          <section id="numerical-methodology">
+            <h2>
+              The Numerical Methodology: Halving Simulation Time Without Losing
+              Fidelity
+            </h2>
+            <p>
+              The modelling approach, originally developed by the same group for
+              flat cross-ply laminates, works by consolidating the individual
+              plies of a [0/90]₂ₛ laminate into four [0/90] sub-laminates rather
+              than modelling all eight individual plies separately. This reduces
+              the number of cohesive interfaces from seven to three.
+            </p>
+            <p>
+              Reducing interfaces saves computation, but it also changes how
+              energy is dissipated through delamination — so the material
+              properties must be recalibrated. The authors' procedure involves:
+            </p>
+            <ul>
+              <li>
+                Three-point bending reference models on individual 0° and 90°
+                plies, then on the consolidated sub-laminate, to measure how
+                much energy dissipation is lost in the consolidation step.
+              </li>
+              <li>
+                Halving in-plane parameters for the cross-ply sub-laminates to
+                compensate for reduced intralaminar energy paths.
+              </li>
+              <li>
+                Doubling fracture toughness values to restore total delamination
+                energy, and increasing interfacial strength by 41% to maintain
+                cohesive zone length.
+              </li>
+            </ul>
+            <p>
+              The net result, validated against previously published
+              experimental data on sinusoidal specimens with three and five
+              curvatures, is summarised below:
+            </p>
+
+            <!-- INFOGRAPHIC 1: SIMULATION ACCURACY vs. RUN-TIME TABLE -->
+
+            <div class="simfe-wrap" id="simfeRoot">
+              <div class="simfe-header">
+                <p class="simfe-title">
+                  Simulation Accuracy vs. Run-Time: Novel vs. Conventional FE
+                </p>
+                <p class="simfe-subtitle">
+                  SEA error vs. experiment: &lt;2% in both cases &nbsp;·&nbsp;
+                  Data: Table 2, Engul et al., J. Compos. Sci. 2026, 10, 85
+                </p>
+              </div>
+
+              <div class="simfe-verdict">
+                <div class="simfe-verdict-pill">
+                  <div
+                    class="simfe-verdict-dot"
+                    style="background: #47577c"
+                  ></div>
+                  <span>Conventional FE</span>
+                </div>
+                <div class="simfe-verdict-pill">
+                  <div
+                    class="simfe-verdict-dot"
+                    style="background: #bf3425"
+                  ></div>
+                  <span>Novel FE</span>
+                </div>
+                <div class="simfe-verdict-pill">
+                  <div
+                    class="simfe-verdict-dot"
+                    style="background: #9d9d9c"
+                  ></div>
+                  <span>SEA Test (Experiment)</span>
+                </div>
+              </div>
+
+              <div class="simfe-panels">
+                <!-- LEFT: SEA Accuracy -->
+                <div class="simfe-panel">
+                  <div class="simfe-panel-label">SEA Accuracy (J/g)</div>
+                  <div class="simfe-accuracy-group">
+                    <div class="simfe-accuracy-item" data-delay="0">
+                      <div class="simfe-accuracy-name">3-Curvature Sine</div>
+                      <div class="simfe-accuracy-values">
+                        <div class="simfe-val-chip">
+                          <span class="simfe-val-chip-label">Test</span>
+                          <span
+                            class="simfe-val-chip-val"
+                            style="color: #9d9d9c"
+                            >62.64</span
+                          >
+                          <span class="simfe-val-chip-unit">J/g</span>
+                        </div>
+                        <div class="simfe-val-chip">
+                          <span class="simfe-val-chip-label">Novel FE</span>
+                          <span
+                            class="simfe-val-chip-val"
+                            style="color: #bf3425"
+                            >61.91</span
+                          >
+                          <span class="simfe-val-chip-unit">J/g</span>
+                        </div>
+                      </div>
+                      <div class="simfe-error-badge">✓ &lt;2% error</div>
+                    </div>
+
+                    <div class="simfe-accuracy-item" data-delay="150">
+                      <div class="simfe-accuracy-name">5-Curvature Sine</div>
+                      <div class="simfe-accuracy-values">
+                        <div class="simfe-val-chip">
+                          <span class="simfe-val-chip-label">Test</span>
+                          <span
+                            class="simfe-val-chip-val"
+                            style="color: #9d9d9c"
+                            >68.73</span
+                          >
+                          <span class="simfe-val-chip-unit">J/g</span>
+                        </div>
+                        <div class="simfe-val-chip">
+                          <span class="simfe-val-chip-label">Novel FE</span>
+                          <span
+                            class="simfe-val-chip-val"
+                            style="color: #bf3425"
+                            >69.82</span
+                          >
+                          <span class="simfe-val-chip-unit">J/g</span>
+                        </div>
+                      </div>
+                      <div class="simfe-error-badge">✓ &lt;2% error</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- RIGHT: Run-Time Comparison -->
+                <div class="simfe-panel">
+                  <div class="simfe-panel-label">
+                    Run-Time Comparison (hours)
+                  </div>
+
+                  <div class="simfe-geo-row" data-delay="0">
+                    <div class="simfe-geo-name">
+                      3-Curvature Sine
+                      <span class="simfe-delta">−46%</span>
+                    </div>
+                    <div class="simfe-bar-group">
+                      <div class="simfe-bar-row">
+                        <span class="simfe-bar-tag">Conv.</span>
+                        <div class="simfe-bar-outer">
+                          <div
+                            class="simfe-bar-inner navy"
+                            data-target="100"
+                            data-val="4.02 h"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="simfe-bar-row">
+                        <span class="simfe-bar-tag">Novel</span>
+                        <div class="simfe-bar-outer">
+                          <div
+                            class="simfe-bar-inner red"
+                            data-target="54"
+                            data-val="2.17 h"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="simfe-geo-row" data-delay="150">
+                    <div class="simfe-geo-name">
+                      5-Curvature Sine
+                      <span class="simfe-delta">−49%</span>
+                    </div>
+                    <div class="simfe-bar-group">
+                      <div class="simfe-bar-row">
+                        <span class="simfe-bar-tag">Conv.</span>
+                        <div class="simfe-bar-outer">
+                          <div
+                            class="simfe-bar-inner navy"
+                            data-target="100"
+                            data-val="4.52 h"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="simfe-bar-row">
+                        <span class="simfe-bar-tag">Novel</span>
+                        <div class="simfe-bar-outer">
+                          <div
+                            class="simfe-bar-inner red"
+                            data-target="51"
+                            data-val="2.30 h"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="simfe-footnote">
+                Data from Table 2, Engul et al., J. Compos. Sci. 2026, 10, 85
+              </div>
+            </div>
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea328167aeb2da79470d7_4.png"
+              alt="Load-displacement and cumulative absorbed energy curves for sinusoidal CFRP specimens"
+              class="full-width-image"
+            />
+
+            <p class="image-caption">
+              Load–displacement curves (solid lines) and cumulative absorbed
+              energy curves (dashed lines) for sinusoidal CFRP specimens with 3
+              curvatures (top) and 5 curvatures (bottom), with the novel FE
+              model prediction plotted against experimental test data. The close
+              tracking of both curve shapes across the full 10 mm crush distance
+              confirms the methodology preserves progressive crushing behaviour,
+              not just the final SEA number.
+              <br />
+              Figure 4 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+              Manufacturing, and Analysis of a Carbon Fiber Reinforced Polymer
+              Crash Box." Journal of Composites Science 2026, 10, 85.
+              <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                >https://doi.org/10.3390/jcs10020085</a
+              >
+              — © 2026 by the authors. Licensed under CC BY 4.0 (
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >).
+            </p>
+
+            <p>
+              The SEA predictions remain within roughly 2% of experimental
+              measurements while cutting wall-clock simulation time nearly in
+              half. From a design-iteration standpoint, this is not a minor
+              efficiency gain — it is the difference between running two
+              geometry candidates per day and running four or five.
+            </p>
+
+            <div class="highlight-box">
+              <h4>Addcomposites' Perspective</h4>
+              <p>
+                For AFP-equipped manufacturers developing crash structures,
+                simulation throughput is a genuine bottleneck. Coupling this
+                methodology with parametric AFP layup planning means geometry
+                candidates can be evaluated faster, and the layup parameters
+                that drive fibre orientations, thickness buildups, and
+                tow-steering radii can be adjusted between loops without waiting
+                for overnight FE runs.
+              </p>
+            </div>
+          </section>
+
+          <section id="three-geometries">
+            <h2>Three Geometries, One Winner</h2>
+            <p>
+              Armed with a validated fast-simulation workflow, the authors
+              evaluated three progressively more complex crash box designs, all
+              built from AS4/8552 carbon/epoxy unidirectional (UD) prepregs in a
+              [0/90]₂ₛ configuration. The design logic starts from a
+              well-established finding in the authors' prior work: among flat,
+              semi-circular, and sinusoidal geometries, a sinusoidal plate with
+              five curvatures of 9 mm radius delivers the highest SEA.
+            </p>
+            <p>
+              The three candidates combine that sinusoidal building block in
+              different configurations:
+            </p>
+
+            <!-- INFOGRAPHIC 2: CROSS-SECTION TAXONOMY -->
+
+            <div class="cbox-wrap" id="cboxRoot">
+              <p class="cbox-title">
+                Cross-Section Taxonomy of the Three Candidate Crash Box Designs
+              </p>
+              <p class="cbox-subtitle">
+                Dimensions from Table 3, Engul et al., J. Compos. Sci. 2026, 10,
+                85
+              </p>
+
+              <div class="cbox-grid">
+                <!-- PSP -->
+                <div class="cbox-card" data-delay="0">
+                  <div class="cbox-card-header">
+                    <div class="cbox-badge-wrap">
+                      <span class="cbox-code">PSP</span>
+                      <span class="cbox-name">Parallel Sinusoidal Plates</span>
+                    </div>
+                  </div>
+
+                  <div class="cbox-svg-area">
+                    <svg
+                      viewBox="0 0 120 100"
+                      width="120"
+                      height="100"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- Outer flat walls -->
+                      <rect
+                        x="10"
+                        y="8"
+                        width="4"
+                        height="84"
+                        rx="1"
+                        fill="#9d9d9c"
+                        opacity="0.5"
+                      />
+                      <rect
+                        x="106"
+                        y="8"
+                        width="4"
+                        height="84"
+                        rx="1"
+                        fill="#9d9d9c"
+                        opacity="0.5"
+                      />
+                      <!-- Top flat caps -->
+                      <rect
+                        x="10"
+                        y="8"
+                        width="100"
+                        height="4"
+                        rx="1"
+                        fill="#9d9d9c"
+                        opacity="0.4"
+                      />
+                      <rect
+                        x="10"
+                        y="88"
+                        width="100"
+                        height="4"
+                        rx="1"
+                        fill="#9d9d9c"
+                        opacity="0.4"
+                      />
+                      <!-- Sinusoidal plate 1 (left arm) -->
+                      <path
+                        d="M38 12 Q32 28 38 44 Q44 60 38 76 Q34 84 38 92"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- Sinusoidal plate 2 (right arm) -->
+                      <path
+                        d="M82 12 Q76 28 82 44 Q88 60 82 76 Q78 84 82 92"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- T-joints top -->
+                      <line
+                        x1="10"
+                        y1="10"
+                        x2="38"
+                        y2="10"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-dasharray="2 2"
+                      />
+                      <line
+                        x1="82"
+                        y1="10"
+                        x2="110"
+                        y2="10"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-dasharray="2 2"
+                      />
+                      <!-- T-joints bottom -->
+                      <line
+                        x1="10"
+                        y1="90"
+                        x2="38"
+                        y2="90"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-dasharray="2 2"
+                      />
+                      <line
+                        x1="82"
+                        y1="90"
+                        x2="110"
+                        y2="90"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-dasharray="2 2"
+                      />
+                      <!-- dimension arrow -->
+                      <line
+                        x1="10"
+                        y1="97"
+                        x2="110"
+                        y2="97"
+                        stroke="#9d9d9c"
+                        stroke-width="0.8"
+                        marker-end="url(#arr2)"
+                        marker-start="url(#arr2r)"
+                      />
+                      <text
+                        x="60"
+                        y="107"
+                        font-size="8"
+                        fill="#9d9d9c"
+                        text-anchor="middle"
+                        font-family="Inter,sans-serif"
+                        font-weight="600"
+                      >
+                        106 mm
+                      </text>
+                      <defs>
+                        <marker
+                          id="arr2"
+                          viewBox="0 0 10 10"
+                          refX="8"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                        <marker
+                          id="arr2r"
+                          viewBox="0 0 10 10"
+                          refX="2"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto-start-reverse"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                      </defs>
+                    </svg>
+                  </div>
+
+                  <div class="cbox-specs">
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Envelope width</span>
+                      <span class="cbox-spec-value">106 mm</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Sinusoidal plates</span>
+                      <span class="cbox-spec-value">2</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">T-joints</span>
+                      <span class="cbox-spec-value">4</span>
+                    </div>
+                  </div>
+
+                  <div class="cbox-tags">
+                    <span class="cbox-tag">Flat vertical walls</span>
+                    <span class="cbox-tag">Parallel layout</span>
+                  </div>
+                </div>
+
+                <!-- SL4 — SELECTED -->
+                <div class="cbox-card selected" data-delay="130">
+                  <div class="cbox-card-header">
+                    <div class="cbox-badge-wrap">
+                      <span class="cbox-code" style="color: #bf3425">SL4</span>
+                      <span class="cbox-name"
+                        >Sun-like Shape, 4 Sinusoidal Arms</span
+                      >
+                    </div>
+                    <span class="cbox-selected-pill">✦ Selected</span>
+                  </div>
+
+                  <div class="cbox-svg-area" style="border-color: #f5c5be">
+                    <svg
+                      viewBox="0 0 120 110"
+                      width="120"
+                      height="110"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <marker
+                          id="arr3"
+                          viewBox="0 0 10 10"
+                          refX="8"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                        <marker
+                          id="arr3r"
+                          viewBox="0 0 10 10"
+                          refX="2"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto-start-reverse"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                      </defs>
+                      <!-- Circular core R20 -->
+                      <circle
+                        cx="60"
+                        cy="50"
+                        r="14"
+                        fill="none"
+                        stroke="#bf3425"
+                        stroke-width="2.5"
+                      />
+                      <!-- Top arm (sinusoidal half-arm R9) -->
+                      <path
+                        d="M60 36 Q54 24 60 12 Q66 6 60 4"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- Bottom arm -->
+                      <path
+                        d="M60 64 Q54 76 60 88 Q66 94 60 96"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- Left arm -->
+                      <path
+                        d="M46 50 Q34 44 22 50 Q16 56 14 50"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- Right arm -->
+                      <path
+                        d="M74 50 Q86 44 98 50 Q104 56 106 50"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <!-- T-joint dots -->
+                      <circle cx="60" cy="36" r="2.5" fill="#bf3425" />
+                      <circle cx="60" cy="64" r="2.5" fill="#bf3425" />
+                      <circle cx="46" cy="50" r="2.5" fill="#bf3425" />
+                      <circle cx="74" cy="50" r="2.5" fill="#bf3425" />
+                      <!-- Core center dot -->
+                      <circle
+                        cx="60"
+                        cy="50"
+                        r="3"
+                        fill="#bf3425"
+                        opacity="0.4"
+                      />
+                      <!-- dimension -->
+                      <line
+                        x1="14"
+                        y1="104"
+                        x2="106"
+                        y2="104"
+                        stroke="#9d9d9c"
+                        stroke-width="0.8"
+                        marker-end="url(#arr3)"
+                        marker-start="url(#arr3r)"
+                      />
+                      <text
+                        x="60"
+                        y="112"
+                        font-size="8"
+                        fill="#9d9d9c"
+                        text-anchor="middle"
+                        font-family="Inter,sans-serif"
+                        font-weight="600"
+                      >
+                        114 mm
+                      </text>
+                    </svg>
+                  </div>
+
+                  <div class="cbox-specs">
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Envelope</span>
+                      <span class="cbox-spec-value red">114 mm</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Core radius</span>
+                      <span class="cbox-spec-value red">R20</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Arm radius</span>
+                      <span class="cbox-spec-value red">R9 × 4</span>
+                    </div>
+                  </div>
+
+                  <div class="cbox-tags">
+                    <span
+                      class="cbox-tag"
+                      style="background: #fde8e5; color: #bf3425"
+                      >Circular core</span
+                    >
+                    <span
+                      class="cbox-tag"
+                      style="background: #fde8e5; color: #bf3425"
+                      >T-joints ×4</span
+                    >
+                    <span
+                      class="cbox-tag"
+                      style="background: #fde8e5; color: #bf3425"
+                      >4 arms</span
+                    >
+                  </div>
+                </div>
+
+                <!-- SL8 -->
+                <div class="cbox-card" data-delay="260">
+                  <div class="cbox-card-header">
+                    <div class="cbox-badge-wrap">
+                      <span class="cbox-code">SL8</span>
+                      <span class="cbox-name"
+                        >Sun-like Shape, 8 Sinusoidal Arms</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="cbox-svg-area">
+                    <svg
+                      viewBox="0 0 120 110"
+                      width="120"
+                      height="110"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <marker
+                          id="arr4"
+                          viewBox="0 0 10 10"
+                          refX="8"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                        <marker
+                          id="arr4r"
+                          viewBox="0 0 10 10"
+                          refX="2"
+                          refY="5"
+                          markerWidth="5"
+                          markerHeight="5"
+                          orient="auto-start-reverse"
+                        >
+                          <path
+                            d="M2 1L8 5L2 9"
+                            fill="none"
+                            stroke="#9d9d9c"
+                            stroke-width="1.5"
+                          />
+                        </marker>
+                      </defs>
+                      <!-- Circular core -->
+                      <circle
+                        cx="60"
+                        cy="50"
+                        r="11"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="2"
+                      />
+                      <!-- 8 arms: 0, 45, 90, 135, 180, 225, 270, 315 deg -->
+                      <!-- 0° top -->
+                      <path
+                        d="M60 39 Q56 30 60 21 Q63 16 60 13"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 45° top-right -->
+                      <path
+                        d="M68 42 Q75 35 82 28 Q86 24 84 21"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 90° right -->
+                      <path
+                        d="M71 50 Q80 46 89 50 Q94 53 96 50"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 135° bottom-right -->
+                      <path
+                        d="M68 58 Q75 65 82 72 Q86 76 84 79"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 180° bottom -->
+                      <path
+                        d="M60 61 Q56 70 60 79 Q63 84 60 87"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 225° bottom-left -->
+                      <path
+                        d="M52 58 Q45 65 38 72 Q34 76 36 79"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 270° left -->
+                      <path
+                        d="M49 50 Q40 46 31 50 Q26 53 24 50"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- 315° top-left -->
+                      <path
+                        d="M52 42 Q45 35 38 28 Q34 24 36 21"
+                        fill="none"
+                        stroke="#47577c"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                      />
+                      <!-- Core center -->
+                      <circle
+                        cx="60"
+                        cy="50"
+                        r="2.5"
+                        fill="#47577c"
+                        opacity="0.5"
+                      />
+                      <!-- dimension -->
+                      <line
+                        x1="24"
+                        y1="104"
+                        x2="96"
+                        y2="104"
+                        stroke="#9d9d9c"
+                        stroke-width="0.8"
+                        marker-end="url(#arr4)"
+                        marker-start="url(#arr4r)"
+                      />
+                      <text
+                        x="60"
+                        y="112"
+                        font-size="8"
+                        fill="#9d9d9c"
+                        text-anchor="middle"
+                        font-family="Inter,sans-serif"
+                        font-weight="600"
+                      >
+                        98 mm
+                      </text>
+                    </svg>
+                  </div>
+
+                  <div class="cbox-specs">
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Envelope</span>
+                      <span class="cbox-spec-value">98 mm</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Arms</span>
+                      <span class="cbox-spec-value">8</span>
+                    </div>
+                    <div class="cbox-spec-row">
+                      <span class="cbox-spec-label">Arm spacing</span>
+                      <span class="cbox-spec-value">Closer (45°)</span>
+                    </div>
+                  </div>
+
+                  <div class="cbox-tags">
+                    <span class="cbox-tag">Denser layout</span>
+                    <span class="cbox-tag">Smaller envelope</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="cbox-footnote">
+                Dimensions from Table 3, Engul et al., J. Compos. Sci. 2026, 10,
+                85
+              </p>
+            </div>
+
+            <div class="split-layout">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea3282720516b28231564_5.png"
+                  alt="Dimensioned cross-sectional drawings of PSP, SL4, and SL8 crash box designs"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  Dimensioned cross-sectional drawings of the three candidate
+                  crash box designs: PSP (top) combining two sinusoidal plates
+                  with flat vertical connecting walls across a 106 mm width; SL4
+                  (centre) with a central circular core of R20 mm and four
+                  sinusoidal half-arms of R9 mm radius extending to a 114 mm
+                  envelope; SL8 (bottom) with eight sinusoidal half-arms on the
+                  same R20 core within a tighter 98 mm envelope. Wall thickness
+                  is 1.47 mm throughout.
+                  <br />
+                  Table 3 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+                  Manufacturing, and Analysis of a Carbon Fiber Reinforced
+                  Polymer Crash Box." Journal of Composites Science 2026, 10,
+                  85.<a
+                    href="https://doi.org/10.3390/jcs10020085"
+                    target="_blank"
+                    >https://doi.org/10.3390/jcs10020085</a
+                  >
+                  — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    >https://creativecommons.org/licenses/by/4.0/</a
+                  >).
+                </p>
+              </div>
+              <div class="split-text">
+                <p>
+                  This post walks through what the paper actually shows, why the
+                  geometry matters so much, how the authors solved the
+                  computational bottleneck that makes CFRP crash box design so
+                  expensive, and what all of this means for composite
+                  manufacturers investing in automated fibre placement (AFP)
+                  platforms.
+                </p>
+
+                <p>
+                  The paper's FE results explain the performance hierarchy
+                  clearly. In the PSP design, the flat walls connecting the two
+                  sinusoidal plates contribute relatively little to energy
+                  dissipation — matrix damage is largely absent in those central
+                  flat sections — which caps the SEA improvement over a single
+                  sinusoidal plate. The SL4 design replaces those flat walls
+                  with a circular core, and the simulation shows increased
+                  vertical rupture, micro-buckling, and fibre fracture in the
+                  circular region as a result. Among all the failure modes
+                  active during CFRP crush — delamination, matrix cracking,
+                  micro-buckling — fibre breakage consumes the most energy per
+                  unit volume, so any geometry that maximises that mode gains
+                  disproportionately in SEA. The SL8 design adds a further four
+                  arms, and the denser arm spacing does push more fibre failure
+                  into the T-joint zones, generating incremental energy gains.
+                  But those gains plateau quickly: the T-joint material reaches
+                  fracture saturation early, and packing in additional arms
+                  cannot compensate once that zone is exhausted.
+                </p>
+              </div>
+            </div>
+
+            <!-- INFOGRAPHIC 3: NUMERICAL SEA RESULTS -->
+
+            <div class="sea-wrap" id="seaRoot">
+              <p class="sea-title">
+                Numerical SEA Results — All Four Geometries
+              </p>
+              <p class="sea-subtitle">
+                Specific Energy Absorption, crushed over 10 mm &nbsp;·&nbsp;
+                Data: Table 4, Engul et al., J. Compos. Sci. 2026, 10, 85
+              </p>
+
+              <div class="sea-rows">
+                <!-- Single Sinusoidal — baseline -->
+                <div
+                  class="sea-row"
+                  data-delay="0"
+                  data-target="83.2"
+                  data-color="gray"
+                >
+                  <div class="sea-label-group">
+                    <span class="sea-label baseline">Single Sinusoidal</span>
+                    <span
+                      class="sea-delta"
+                      style="color: #9d9d9c; font-size: 10px; font-weight: 600"
+                      >Baseline</span
+                    >
+                  </div>
+                  <div class="sea-bar-track">
+                    <div class="sea-bar-fill gray" data-target="83.2">
+                      <span class="sea-bar-inner-label">68.7 J/g</span>
+                    </div>
+                  </div>
+                  <span class="sea-value" style="color: #9d9d9c"
+                    >68.7
+                    <span style="font-size: 11px; font-weight: 500"
+                      >J/g</span
+                    ></span
+                  >
+                </div>
+
+                <!-- PSP -->
+                <div class="sea-row" data-delay="120" data-target="85.6">
+                  <div class="sea-label-group">
+                    <span class="sea-label">PSP</span>
+                    <span class="sea-delta">+2.8%</span>
+                  </div>
+                  <div class="sea-bar-track">
+                    <div class="sea-bar-fill navy" data-target="85.6">
+                      <span class="sea-bar-inner-label">70.6 J/g</span>
+                    </div>
+                  </div>
+                  <span class="sea-value"
+                    >70.6
+                    <span style="font-size: 11px; font-weight: 500"
+                      >J/g</span
+                    ></span
+                  >
+                </div>
+
+                <!-- SL4 -->
+                <div class="sea-row" data-delay="240">
+                  <div class="sea-label-group">
+                    <span class="sea-label">SL4</span>
+                    <span class="sea-delta">+16%</span>
+                  </div>
+                  <div class="sea-bar-track">
+                    <div class="sea-bar-fill red-lt" data-target="96.6">
+                      <span class="sea-bar-inner-label">79.7 J/g</span>
+                    </div>
+                  </div>
+                  <span class="sea-value red"
+                    >79.7
+                    <span style="font-size: 11px; font-weight: 500"
+                      >J/g</span
+                    ></span
+                  >
+                </div>
+
+                <!-- SL8 -->
+                <div class="sea-row" data-delay="360">
+                  <div class="sea-label-group">
+                    <span class="sea-label">SL8</span>
+                    <span class="sea-delta">+20%</span>
+                  </div>
+                  <div class="sea-bar-track">
+                    <div class="sea-bar-fill red" data-target="100">
+                      <span class="sea-bar-inner-label">82.6 J/g</span>
+                    </div>
+                  </div>
+                  <span class="sea-value red"
+                    >82.6
+                    <span style="font-size: 11px; font-weight: 500"
+                      >J/g</span
+                    ></span
+                  >
+                </div>
+              </div>
+
+              <!-- Axis ticks -->
+              <div class="sea-axis">
+                <div></div>
+                <div class="sea-axis-ticks">
+                  <span class="sea-axis-tick">0</span>
+                  <span class="sea-axis-tick">20</span>
+                  <span class="sea-axis-tick">40</span>
+                  <span class="sea-axis-tick">60</span>
+                  <span class="sea-axis-tick">80 J/g</span>
+                </div>
+                <div></div>
+              </div>
+
+              <p class="sea-footnote">
+                Data from Table 4, Engul et al., J. Compos. Sci. 2026, 10, 85
+              </p>
+            </div>
+            <p>
+              The paper reports that SL4 achieves a 16% higher SEA per unit mass
+              than the single sinusoidal baseline, while SL8 reaches a 20% gain
+              — both measured numerically over a 10 mm crush distance. But the
+              authors chose SL4 for physical manufacture. The reasoning is worth
+              noting: between the two sun-like designs, the energy absorption
+              difference is modest, while the manufacturing difference is not.
+              The SL4 geometry requires fewer mould parts, a simpler lay-up
+              procedure, and produces fewer opportunities for defects. This is
+              exactly the trade-off that advanced manufacturing programmes face
+              constantly — and it is one where AFP technology changes the
+              calculus.
+            </p>
+          </section>
+
+          <section id="edge-tapering">
+            <h2>Taming the Peak Load: The Role of Edge Tapering</h2>
+            <p>
+              Even a crash box with excellent average SEA can cause passenger
+              injury if its initial peak load is too high. An abrupt force spike
+              at the onset of crush produces a deceleration pulse that may
+              exceed what occupant restraint systems can safely handle. The
+              paper examines a straightforward geometric countermeasure: a 5°
+              taper applied to each sinusoidal arm beginning at the T-joint and
+              widening outward, converting each arm into a truncated cone.
+            </p>
+
+            <!-- INFOGRAPHIC 4: LOAD vs. DISPLACEMENT TAPERED vs. NON-TAPERED -->
+
+            <div class="lvd-wrap" id="lvdRoot">
+              <p class="lvd-title">
+                Load vs. Displacement: Tapered vs. Non-Tapered SL4
+              </p>
+              <p class="lvd-subtitle">
+                Interpretive schematic derived from Figure 16, Engul et al., J.
+                Compos. Sci. 2026, 10, 85
+              </p>
+
+              <div class="lvd-legend">
+                <div class="lvd-legend-item">
+                  <div
+                    class="lvd-legend-line"
+                    style="background: #47577c"
+                  ></div>
+                  Non-tapered (sharp peak)
+                </div>
+                <div class="lvd-legend-item">
+                  <div
+                    class="lvd-legend-line"
+                    style="background: #bf3425"
+                  ></div>
+                  Tapered (gradual ramp)
+                </div>
+                <div class="lvd-legend-item">
+                  <div class="lvd-legend-line dashed"></div>
+                  Mean load ~80 kN
+                </div>
+              </div>
+
+              <div class="lvd-chart-wrap">
+                <canvas id="lvdChart"></canvas>
+              </div>
+
+              <div class="lvd-callouts">
+                <div class="lvd-callout" data-delay="0">
+                  <div
+                    class="lvd-callout-dot"
+                    style="background: #47577c"
+                  ></div>
+                  <div class="lvd-callout-text">
+                    <strong>Non-tapered: sharp peak ~165 kN</strong>
+                    Rapid load rise then sudden drop — high peak-to-mean ratio,
+                    undesirable for occupant protection
+                  </div>
+                </div>
+                <div class="lvd-callout" data-delay="130">
+                  <div
+                    class="lvd-callout-dot"
+                    style="background: #bf3425"
+                  ></div>
+                  <div class="lvd-callout-text">
+                    <strong>Tapered: gradual progressive ramp</strong>
+                    Smoother load introduction avoids sudden force spike while
+                    maintaining comparable mean load
+                  </div>
+                </div>
+                <div class="lvd-callout" data-delay="260">
+                  <div
+                    class="lvd-callout-dot"
+                    style="background: #9d9d9c"
+                  ></div>
+                  <div class="lvd-callout-text">
+                    <strong>Mean load both ~80 kN</strong>
+                    Equal energy absorption over the crush stroke — tapering
+                    redistributes, not reduces, energy
+                  </div>
+                </div>
+              </div>
+
+              <p class="lvd-footnote">
+                Interpretive schematic — exact curve shapes vary from the paper
+                figure
+              </p>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <div class="split-layout">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea328d84f930b6c1862b7_6.png"
+                  alt="Sequential photographs of tapered SL4 carbon fibre crash box under axial compression"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  Sequential photographs of the tapered SL4 carbon fibre crash
+                  box at four stages of quasi-static axial compression, from
+                  undeformed through to approximately 10 mm of crush travel. The
+                  gradual, stable progression of the crush front — with no
+                  catastrophic collapse or global buckling — confirms that the
+                  5° taper successfully converts the abrupt initial load spike
+                  into a controlled, progressive failure sequence.
+                  <br />
+                  Figure 22 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+                  Manufacturing, and Analysis of a Carbon Fiber Reinforced
+                  Polymer Crash Box." Journal of Composites Science 2026, 10,
+                  85.
+                  <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                    >https://doi.org/10.3390/jcs10020085</a
+                  >
+                  — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    >https://creativecommons.org/licenses/by/4.0/</a
+                  >)
+                </p>
+              </div>
+              <div class="split-text">
+                <p>
+                  The FE results are unambiguous. Rather than spiking to an
+                  early peak, the tapered configuration distributes resistance
+                  more progressively — the force profile climbs steadily across
+                  approximately the first 3 mm of crush travel instead of
+                  lunging abruptly to its maximum. The mean crushing load after
+                  that initial phase remains essentially the same as the
+                  non-tapered geometry, because the material being crushed — and
+                  the energy dissipation mechanisms — are unchanged beyond the
+                  taper zone.
+                </p>
+                <p>
+                  Experimentally, the tapered UD geometry measured an SEA of
+                  78.63 J/g — negligibly lower than the non-tapered average of
+                  79.46 J/g — confirming that eliminating the peak load costs
+                  almost nothing in total energy absorption. The governing
+                  reason: the amount of material removed by tapering is
+                  proportional to the reduction in absorbed energy, so the ratio
+                  (energy per gram) stays nearly constant.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="woven-fabric">
+            <h2>
+              The Material Upgrade: Woven Fabric Prepregs Push SEA to 89.26 J/g
+            </h2>
+
+            <div class="split-layout reverse">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea329421cae9dd223ad60_7.png"
+                  alt="Tapered SL4 crash box made from plain weave carbon/epoxy prepregs after crushing"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  The tapered SL4 crash box made from plain weave carbon/epoxy
+                  prepregs after quasi-static axial crushing. The extensive
+                  fragmentation visible across all four sinusoidal arms — small
+                  debris pieces rather than intact peeled fronds — is
+                  characteristic of woven fabric failure under axial crush, and
+                  is the direct mechanical reason the WF specimens achieve a
+                  higher SEA than their unidirectional equivalents on the same
+                  geometry.
+                  <br />
+                  Figure 25 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+                  Manufacturing, and Analysis of a Carbon Fiber Reinforced
+                  Polymer Crash Box." Journal of Composites Science 2026, 10,
+                  85.
+                  <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                    >https://doi.org/10.3390/jcs10020085</a
+                  >
+                  — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    >https://creativecommons.org/licenses/by/4.0/</a
+                  >)
+                </p>
+              </div>
+
+              <div class="split-text">
+                <p>
+                  With the SL4 geometry established as the preferred design, the
+                  authors took a second pass using woven fabric (WF) prepregs —
+                  specifically KOM10T/PL200 plain weave 3K T300 carbon/epoxy
+                  supplied by KORDSA — in place of the UD material. Six plies at
+                  0.21 mm cured thickness each replaced the eight UD plies,
+                  achieving a wall thickness of 1.26 mm (slightly thinner than
+                  the 1.47 mm UD wall).
+                </p>
+
+                <p>
+                  The textile structure of woven fabric changes the crushing
+                  morphology. According to the paper, the higher SEA of WF
+                  prepregs on this geometry stems from the yarn architecture:
+                  the interlocking fibres promote breakage-dominated failure
+                  rather than the splaying behaviour more characteristic of UD
+                  laminates. In practical terms, this translates to measurably
+                  higher SEA.
+                </p>
+
+                <p>
+                  The three UD compression tests returned 78.30, 79.10, and
+                  80.98 J/g respectively, averaging 79.46 J/g (σ = 0.95 J/g) —
+                  tight scatter confirming good test repeatability. Switching to
+                  WF prepregs on the same geometry pushed that average to 89.26
+                  J/g: a 12.4% improvement attributable purely to material
+                  selection, and cumulatively about 30% ahead of where the
+                  single sinusoidal plate sits. The FE model for the WF case,
+                  using the ABQ_PLY_FABRIC built-in subroutine and the Cohesive
+                  Zone Method for interlaminar damage, predicted 91.21 J/g —
+                  within 2.2% of the experimental mean, a level of agreement the
+                  authors characterise as strong.
+                </p>
+              </div>
+            </div>
+
+            <!-- INFOGRAPHIC 5: EXPERIMENTAL SEA SUMMARY UD vs WF -->
+
+            <div class="sea5-wrap" id="sea5Root">
+              <p class="sea5-title">
+                Experimental SEA Summary — UD vs. WF SL4 Crash Box
+              </p>
+              <p class="sea5-subtitle">
+                Specific Energy Absorption per test specimen &nbsp;·&nbsp; Data:
+                Sections 4 and 5, Engul et al., J. Compos. Sci. 2026, 10, 85
+              </p>
+
+              <div class="sea5-cols">
+                <!-- UD Non-tapered -->
+                <div class="sea5-col" data-delay="0">
+                  <div class="sea5-col-head">
+                    <div class="sea5-col-code">UD</div>
+                    <div class="sea5-col-name">Non-tapered</div>
+                  </div>
+                  <div class="sea5-test-rows">
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 1</span>
+                      <span class="sea5-test-val">78.30 J/g</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 2</span>
+                      <span class="sea5-test-val">79.10 J/g</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 3</span>
+                      <span class="sea5-test-val">80.98 J/g</span>
+                    </div>
+                  </div>
+                  <div class="sea5-avg-block">
+                    <span class="sea5-avg-label">Average</span>
+                    <div>
+                      <span class="sea5-avg-val">79.46</span>
+                      <span class="sea5-avg-unit"> J/g</span>
+                    </div>
+                    <span class="sea5-avg-sd">σ = 0.95 J/g</span>
+                    <div class="sea5-deltas">
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge navy">+16%</span>
+                        <span class="sea5-delta-context"
+                          >vs. single sinusoidal</span
+                        >
+                      </div>
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge navy">~2.6×</span>
+                        <span class="sea5-delta-context"
+                          >vs. metallic (30 J/g)</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- UD Tapered -->
+                <div class="sea5-col" data-delay="130">
+                  <div class="sea5-col-head">
+                    <div class="sea5-col-code">UD</div>
+                    <div class="sea5-col-name">Tapered</div>
+                  </div>
+                  <div class="sea5-test-rows">
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 1</span>
+                      <span class="sea5-test-val nr">N/R</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 2</span>
+                      <span class="sea5-test-val nr">N/R</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 3</span>
+                      <span class="sea5-test-val">78.63 J/g</span>
+                    </div>
+                  </div>
+                  <div class="sea5-avg-block">
+                    <span class="sea5-avg-label">Average</span>
+                    <div>
+                      <span class="sea5-avg-val">78.63</span>
+                      <span class="sea5-avg-unit"> J/g</span>
+                    </div>
+                    <span class="sea5-avg-sd">σ = —</span>
+                    <div class="sea5-deltas">
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge navy">+15%</span>
+                        <span class="sea5-delta-context"
+                          >vs. single sinusoidal</span
+                        >
+                      </div>
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge navy">~2.6×</span>
+                        <span class="sea5-delta-context"
+                          >vs. metallic (30 J/g)</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WF Tapered — highlight -->
+                <div class="sea5-col highlight" data-delay="260">
+                  <div class="sea5-col-head">
+                    <div class="sea5-col-code">WF</div>
+                    <div class="sea5-col-name">Tapered</div>
+                  </div>
+                  <div class="sea5-test-rows">
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 1</span>
+                      <span class="sea5-test-val hi">89.10 J/g</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 2</span>
+                      <span class="sea5-test-val hi">87.73 J/g</span>
+                    </div>
+                    <div class="sea5-test-row">
+                      <span class="sea5-test-label">Test 3</span>
+                      <span class="sea5-test-val hi">90.96 J/g</span>
+                    </div>
+                  </div>
+                  <div class="sea5-avg-block">
+                    <span class="sea5-avg-label">Average</span>
+                    <div>
+                      <span class="sea5-avg-val">89.26</span>
+                      <span class="sea5-avg-unit"> J/g</span>
+                    </div>
+                    <span class="sea5-avg-sd">σ = 1.62 J/g</span>
+                    <div class="sea5-deltas">
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge red">+30%</span>
+                        <span class="sea5-delta-context"
+                          >vs. single sinusoidal</span
+                        >
+                      </div>
+                      <div class="sea5-delta-row">
+                        <span class="sea5-delta-badge red">~3.0×</span>
+                        <span class="sea5-delta-context"
+                          >vs. metallic (30 J/g)</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom comparison strip -->
+              <div class="sea5-compare">
+                <div class="sea5-compare-card" data-delay="80">
+                  <div class="sea5-compare-big">79.46</div>
+                  <div class="sea5-compare-desc">
+                    UD Non-tapered avg J/g<br />σ = 0.95 — consistent results
+                  </div>
+                </div>
+                <div class="sea5-compare-card" data-delay="180">
+                  <div class="sea5-compare-big">78.63</div>
+                  <div class="sea5-compare-desc">
+                    UD Tapered avg J/g<br />Single specimen reported
+                  </div>
+                </div>
+                <div class="sea5-compare-card accent" data-delay="280">
+                  <div class="sea5-compare-big">89.26</div>
+                  <div class="sea5-compare-desc">
+                    WF Tapered avg J/g<br />Best performer across all variants
+                  </div>
+                </div>
+              </div>
+
+              <div class="sea5-note-strip">
+                N/R = not reported separately for individual tapered UD
+                specimens
+              </div>
+
+              <p class="sea5-footnote">
+                Data from Sections 4 and 5, Engul et al., J. Compos. Sci. 2026,
+                10, 85
+              </p>
+            </div>
+          </section>
+
+          <section id="manufacturing-reality">
+            <h2>
+              Manufacturing Reality: What It Takes to Build a Sun-Like Shape
+            </h2>
+            <p>
+              The paper does not gloss over production complexity. The SL4
+              geometry requires a steel-block split-die mould cut to shape via
+              wire EDM, a machining method chosen for the precision required by
+              the sinusoidal arm profile. The mould comprised four curved parts
+              for the arm surfaces and a cylindrical central insert for the
+              core. Hand lay-up was used: a [0/90/0/90] ply sequence was built
+              up on the arm-mould surfaces while a mirrored [90/0/90/0] sequence
+              was laid onto the cylindrical centre insert — producing the
+              symmetric cross-ply stack across the full geometry. After vacuum
+              bagging and autoclave curing, specimens were cut to 50 mm length
+              and edge-chamfered. Tapering used a diamond disc cutter followed
+              by emery paper finishing.
+            </p>
+
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea329d95db659c9cfaca6_8.png"
+              alt="Steel split-die mould assembly with carbon/epoxy prepreg plies"
+              class="full-width-image"
+            />
+            <p class="image-caption">
+              The steel split-die mould assembly with unidirectional
+              carbon/epoxy prepreg plies draped over the sinusoidal arm surfaces
+              and cylindrical central insert, prior to vacuum bagging and
+              autoclave curing.<br />
+              Figure 18 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+              Manufacturing, and Analysis of a Carbon Fiber Reinforced Polymer
+              Crash Box." Journal of Composites Science 2026, 10, 85.
+              <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                >https://doi.org/10.3390/jcs10020085</a
+              >
+              — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >)
+            </p>
+
+            <p>
+              For high-volume or high-consistency manufacturing, hand lay-up on
+              this geometry presents real challenges: the sinusoidal arm
+              surfaces involve compound curvature, the T-joint regions require
+              careful ply book-matching, and any fibre misalignment in the arm
+              structure will affect local stiffness and crush trigger behaviour.
+            </p>
+
+            <div class="highlight-box">
+              <h4>Addcomposites' Perspective</h4>
+              <p>
+                This is precisely where AFP changes what is possible. The AFP-XS
+                and associated plug-and-produce AFP head units are designed to
+                handle continuous tow placement over curved mandrel surfaces,
+                including sinusoidal and multi-lobe geometries. Tow steering
+                allows fibre orientations in the arm regions to be optimised
+                locally — for instance, aligning fibres to maximise fibre
+                fracture contribution in the curvature zones, which the paper
+                identifies as the highest-SEA-generating regions. The result is
+                not just faster production, but the ability to produce
+                geometries like SL4 with consistent, defect-free fibre placement
+                that hand lay-up cannot reliably replicate at scale.
+              </p>
+            </div>
+
+            <div class="split-layout reverse">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fc57ec138ca36ffb0618_8.png"
+                  alt="Addcomposites AFP-XS head unit depositing tow over a curved surface"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  The Addcomposites AFP-XS head unit in operation, depositing
+                  tow over a curved surface. Precision fibre placement at tight
+                  radii — the manufacturing capability that hand lay-up cannot
+                  reliably replicate at scale.
+                </p>
+              </div>
+              <div class="split-text">
+                <p>
+                  Furthermore, for AFP-capable programmes exploring WF
+                  alternatives, the higher SEA of woven fabric materials must be
+                  weighed against the reduced drapability of woven prepregs on
+                  tight-radius sinusoidal surfaces. Tow-steered UD tape, placed
+                  by AFP with controlled tension, may ultimately offer the best
+                  compromise between geometric conformance and energy absorption
+                  on arm radii as tight as the 9 mm featured here.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="damage-mechanics">
+            <h2>
+              Why Geometry Matters More Than You Think: The Damage Mechanics
+              Argument
+            </h2>
+            <p>
+              One of the more illuminating aspects of the paper is its use of FE
+              damage visualisation to explain why the SEA hierarchy exists — not
+              just that it does. The PSP geometry's flat central walls generate
+              no matrix damage during crushing, because they are loaded
+              primarily in membrane rather than bending compression. That means
+              those regions contribute relatively little to the total energy
+              budget. The T-joints, by interrupting crack propagation paths,
+              force the structure to generate more fibre fracture rather than
+              propagate clean delamination fronts — but those gains are partly
+              offset by the flat wall inefficiency.
+            </p>
+            <p>
+              In the SL4 and SL8 designs, the circular core is loaded in a
+              combination of hoop compression and local bending, generating
+              matrix cracking, micro-buckling, and fibre fracture across a much
+              larger fraction of the total crushed volume. The paper tracks the
+              number of elements reaching fibre failure thresholds across
+              designs: SL4 produces more fibre-failed elements than PSP, which
+              is the mechanistic explanation for its higher SEA rather than a
+              coincidental correlation.
+            </p>
+
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea3290256264ee6f3756d_10.png"
+              alt="FE simulation damage maps for SL4 geometry after axial crushing"
+              class="full-width-image"
+            />
+            <p class="image-caption">
+              FE simulation damage maps for the SL4 geometry after axial
+              crushing: fibre failure concentrated near the contact zone and
+              circular core (left), matrix failure across the sinusoidal arm
+              sidewalls (centre), and delamination propagating outward from the
+              T-joints (right). Red indicates damaged elements; blue indicates
+              undamaged material.
+              <br />
+              Figure 11 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+              Manufacturing, and Analysis of a Carbon Fiber Reinforced Polymer
+              Crash Box." Journal of Composites Science 2026, 10, 85.
+              <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                >https://doi.org/10.3390/jcs10020085</a
+              >
+              — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >)
+            </p>
+
+            <p>
+              This damage-mechanism framing matters for design: it tells the
+              engineer which geometric features are earning their mass, and
+              which are not. Flat walls in a crash box — regardless of material
+              — are mass-inefficient. Curved features in biaxial compression are
+              where composite crush energy absorption is generated.
+            </p>
+          </section>
+
+          <section id="sea-ceiling">
+            <h2>The SEA Ceiling and What Lies Beyond</h2>
+            <p>
+              To situate these results in context, the paper's comparison with
+              metallic crash boxes is worth stating plainly: metallic structures
+              typically achieve 15–30 J/g. The UD SL4 design reaches 79.46 J/g
+              experimentally — roughly 2.6 to 5.3 times that range. The WF SL4
+              reaches 89.26 J/g. These are not marginal improvements; they
+              represent a qualitative shift in what a crash structure can
+              deliver per unit mass.
+            </p>
+
+            <!-- INFOGRAPHIC 6: SEA PERFORMANCE LADDER -->
+            <div class="ladder-wrap" id="ladderRoot">
+              <p class="ladder-title">
+                SEA Performance Ladder: Material and Geometry Progression
+              </p>
+              <p class="ladder-subtitle">
+                Each rung represents a design decision — geometry or material —
+                and its SEA gain
+              </p>
+
+              <div class="ladder-rows">
+                <!-- Section: Metallic baseline -->
+                <div class="ladder-row" data-delay="0">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label muted">Metallic crash box</span>
+                    <span class="ladder-tag">Industry baseline</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div
+                      class="ladder-track range"
+                      style="position: relative; overflow: hidden"
+                    >
+                      <div
+                        class="ladder-fill-range-max"
+                        data-target="33.3"
+                      ></div>
+                      <div
+                        class="ladder-fill-range-min"
+                        data-target="16.7"
+                      ></div>
+                    </div>
+                    <span class="ladder-val muted">15–30 J/g</span>
+                  </div>
+                </div>
+
+                <!-- Divider -->
+                <div
+                  style="
+                    grid-column: 1/-1;
+                    height: 1px;
+                    background: #eef0f5;
+                    margin: 2px 0;
+                    opacity: 0;
+                    transition: opacity 0.4s ease 0.3s;
+                  "
+                  class="ladder-div"
+                ></div>
+
+                <!-- Single CFRP sine -->
+                <div class="ladder-row" data-delay="100">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label">Single CFRP sine</span>
+                    <span class="ladder-tag">Prior work, UD</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div class="ladder-track">
+                      <div class="ladder-fill s1" data-target="76.3"></div>
+                    </div>
+                    <span class="ladder-val">68.7 J/g</span>
+                  </div>
+                </div>
+
+                <!-- PSP UD -->
+                <div class="ladder-row" data-delay="190">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label">PSP (UD)</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div class="ladder-track">
+                      <div class="ladder-fill s2" data-target="78.4"></div>
+                    </div>
+                    <span class="ladder-val">70.6 J/g</span>
+                  </div>
+                </div>
+
+                <!-- SL4 UD non-tapered FEA -->
+                <div class="ladder-row" data-delay="280">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label">SL4 UD, non-tapered</span>
+                    <span class="ladder-tag">FEA</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div class="ladder-track">
+                      <div class="ladder-fill s3" data-target="88.6"></div>
+                    </div>
+                    <span class="ladder-val">79.7 J/g</span>
+                  </div>
+                </div>
+
+                <!-- SL4 UD tapered test -->
+                <div class="ladder-row" data-delay="370">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label">SL4 UD, tapered</span>
+                    <span class="ladder-tag">Test avg</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div class="ladder-track">
+                      <div class="ladder-fill s4" data-target="88.3"></div>
+                    </div>
+                    <span class="ladder-val">79.46 J/g</span>
+                  </div>
+                </div>
+
+                <!-- SL4 WF tapered — top -->
+                <div class="ladder-row" data-delay="460">
+                  <div class="ladder-label-group">
+                    <span class="ladder-label" style="color: #bf3425"
+                      >SL4 WF, tapered</span
+                    >
+                    <span class="ladder-tag red">Test avg · Best</span>
+                  </div>
+                  <div class="ladder-bar-area">
+                    <div class="ladder-track">
+                      <div class="ladder-fill s5" data-target="99.2"></div>
+                    </div>
+                    <span class="ladder-val red">89.26 J/g</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Axis -->
+              <div class="ladder-axis" style="margin-top: 6px">
+                <div></div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 2px;
+                  "
+                >
+                  <span
+                    style="font-size: 10px; color: #9d9d9c; font-weight: 600"
+                    >0</span
+                  >
+                  <span
+                    style="font-size: 10px; color: #9d9d9c; font-weight: 600"
+                    >30</span
+                  >
+                  <span
+                    style="font-size: 10px; color: #9d9d9c; font-weight: 600"
+                    >60</span
+                  >
+                  <span
+                    style="font-size: 10px; color: #9d9d9c; font-weight: 600"
+                    >90 J/g</span
+                  >
+                </div>
+              </div>
+
+              <!-- Multiplier badges -->
+              <div class="ladder-badges" style="margin-top: 20px">
+                <div class="ladder-badge-card" data-delay2="0">
+                  <div class="ladder-badge-big">2.3–4.6×</div>
+                  <div class="ladder-badge-desc">
+                    Single CFRP sine vs. metallic baseline (68.7 ÷ 15–30 J/g)
+                  </div>
+                </div>
+                <div class="ladder-badge-card" data-delay2="120">
+                  <div class="ladder-badge-big">+30%</div>
+                  <div class="ladder-badge-desc">
+                    SL4 WF tapered vs. single sinusoidal — geometry + material
+                    gain
+                  </div>
+                </div>
+                <div class="ladder-badge-card accent" data-delay2="240">
+                  <div class="ladder-badge-big">~3.0×</div>
+                  <div class="ladder-badge-desc">
+                    SL4 WF tapered vs. metallic — best performer in study
+                  </div>
+                </div>
+              </div>
+
+              <p class="ladder-footnote">
+                Based on Tables 2, 4, and Section 5 of Engul et al., J. Compos.
+                Sci. 2026 &nbsp;·&nbsp; Metallic range from Introduction, citing
+                [1] and [2] therein
+              </p>
+            </div>
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a0ea3283d687e07dbf503af_11.png"
+              alt="Bar chart comparing SEA values from experimental tests and FE predictions across all configurations"
+              class="full-width-image"
+            />
+            <p class="image-caption">
+              Bar chart comparing specific energy absorption values from
+              experimental tests and FE model predictions across all four
+              configurations: single sinusoidal baseline, UD sun-like
+              non-tapered, UD sun-like tapered, and WF sun-like tapered. Each
+              paired bar set shows test result alongside FE model estimate, with
+              the consistently small gap between them confirming predictive
+              accuracy across all geometry and material combinations tested.
+              <br />
+              Figure 26 from: Engul, M.; Demir, S.; Ersoy, N. "Design,
+              Manufacturing, and Analysis of a Carbon Fiber Reinforced Polymer
+              Crash Box." Journal of Composites Science 2026, 10, 85.
+              <a href="https://doi.org/10.3390/jcs10020085" target="_blank"
+                >https://doi.org/10.3390/jcs10020085</a
+              >
+              — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >)
+            </p>
+
+            <p>
+              The paper notes that while the SL8 geometry achieves 82.55 J/g
+              numerically — marginally above SL4's 79.70 J/g — the manufacturing
+              complexity tips the balance toward SL4 as the practical optimal.
+              This is an important signal for programmes evaluating the SL8
+              path: the diminishing returns on additional arms set in early
+              because T-joint fibre fracture saturates. Adding more arms past
+              four is not the most efficient way to continue climbing the SEA
+              curve. Material selection (UD to WF) and taper optimisation appear
+              to offer larger, more accessible gains.
+            </p>
+          </section>
+
+          <section id="afp-implications">
+            <h2>What This Means for AFP-Equipped Composite Manufacturers</h2>
+            <p>
+              Engul, Demir, and Ersoy's work points toward a set of conclusions
+              that have direct bearing on how composite crash structures should
+              be designed and manufactured:
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Geometry Is the Highest-Leverage Variable</h4>
+                  <p>
+                    The SL4 geometry achieves roughly 2.6× the SEA of metallic
+                    crash boxes, and 16% more than the best single sinusoidal
+                    plate — gains driven entirely by cross-section architecture,
+                    not material change. For AFP programmes, this means the
+                    first investment should go into developing and manufacturing
+                    complex geometries precisely — not simply sourcing a
+                    higher-spec prepreg.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Sinusoidal Arm Features Require Precision Manufacture</h4>
+                  <p>
+                    The 9 mm arm radii in the SL4 design are tight. The FE
+                    model's SEA predictions assume consistent ply placement and
+                    correct crush trigger behaviour — both of which are
+                    sensitive to fibre orientation accuracy in the curvature
+                    zones. AFP enables exactly this kind of controlled,
+                    repeatable placement.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline
+                      points="22 12 18 12 15 21 9 3 6 12 2 12"
+                    ></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Faster Simulation Unlocks Iterative Design</h4>
+                  <p>
+                    The reduced-interface FE methodology cuts simulation time
+                    roughly in half with less than 2% SEA error. Pairing this
+                    with parametric AFP process planning allows the
+                    design-simulate-manufacture loop to run far more efficiently
+                    — more geometry candidates evaluated, more quickly.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Tapering Is a Near-Zero-Cost Safety Feature</h4>
+                  <p>
+                    Adding a 5° edge taper to SL4 eliminates the initial peak
+                    load with less than 1% penalty to SEA. For any programme
+                    where occupant deceleration limits are a certification
+                    concern, this is a straightforward structural countermeasure
+                    confirmed by both simulation and experiment.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4>WF Prepregs Offer a Real SEA Premium</h4>
+                  <p>
+                    The 12.4% SEA gain from switching to woven fabric on the SL4
+                    design is significant and experimentally well-supported. AFP
+                    manufacturers working with woven tow or woven tape variants
+                    — or considering hybrid UD/WF layup sequences — have a
+                    validated data point to work from.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-layout">
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fc57fccc0a4a631c040c_9.png"
+                  alt="AddPath software simulating AFP layup sequence over a curved geometry"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  AddPath software simulating the AFP layup sequence over a
+                  curved geometry — the process planning layer that connects FE
+                  design iterations to physical manufacture.
+                </p>
+              </div>
+              <div class="split-image">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6968c73f61f65945581b62d9_5.png"
+                  alt="Addcomposites AFP-XS head unit"
+                />
+                <p class="image-caption" style="margin-top: 20px">
+                  The Addcomposites AFP-XS head unit — precision tow placement
+                  hardware designed for R&amp;D and low-to-mid volume composite
+                  production environments.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Addcomposites' AFP-XS platform, designed for rapid deployment in
+              R&amp;D and low-to-mid volume production environments, is
+              well-positioned to support exactly this kind of iterative crash
+              structure development: complex sinusoidal and multi-lobe mandrel
+              geometries, tow-steered UD placement, and the process consistency
+              that makes FE model assumptions valid in practice. The research
+              reviewed here gives manufacturers a clear geometry target, a
+              validated simulation shortcut, and a material comparison — the
+              manufacturing execution is where AFP makes the difference.
+            </p>
+
+            <div class="highlight-box dark">
+              <h4>Read the Research</h4>
+              <p>
+                This post draws entirely on the following open-access paper. All
+                data, figures referenced, and methodology described originate
+                from this source. The authors of the paper have no affiliation
+                with Addcomposites and have not reviewed or endorsed this post.
+              </p>
+            </div>
+          </section>
+
+          <!-- Learn More Section -->
+          <section id="learn-more">
+            <h2>Learn More</h2>
+            <div class="learn-more-container">
+              <a
+                target="_blank"
+                href="https://www.addcomposites.com/all-products/afp-xs"
+                class="learn-more-card"
+              >
+                <div class="learn-more-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="learn-more-text">
+                  <span class="learn-more-title">AFP-XS</span>
+                  <span class="learn-more-desc"
+                    >Entry-level automated fiber placement</span
+                  >
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href="https://www.addcomposites.com/all-products/afp-x"
+                class="learn-more-card"
+              >
+                <div class="learn-more-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="learn-more-text">
+                  <span class="learn-more-title">AFP-X</span>
+                  <span class="learn-more-desc">Advanced multi-tow system</span>
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href="https://www.addcomposites.com/addpath"
+                class="learn-more-card"
+              >
+                <div class="learn-more-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                </div>
+                <div class="learn-more-text">
+                  <span class="learn-more-title">AddPath</span>
+                  <span class="learn-more-desc"
+                    >AI-powered path planning software</span
+                  >
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href="https://www.addcomposites.com/post/afp-machines-and-components"
+                class="learn-more-card"
+              >
+                <div class="learn-more-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                </div>
+                <div class="learn-more-text">
+                  <span class="learn-more-title">Complete Guide</span>
+                  <span class="learn-more-desc"
+                    >The Complete Guide to AFP Machines</span
+                  >
+                </div>
+              </a>
+            </div>
+
+            <div class="cta-section">
+              <p>
+                Get in touch to discuss your composite crash structure or AFP
+                application →
+              </p>
+              <a
+                target="_blank"
+                href="https://www.addcomposites.com/contact-us"
+                class="cta-button"
+                >Contact Us for a Consultation</a
+              >
+            </div>
+          </section>
+
+          <!-- References Section -->
+          <section id="references">
+            <h2>References</h2>
+            <ol class="references-list">
+              <li>
+                Engul, M.; Demir, S.; Ersoy, N. "Design, Manufacturing, and
+                Analysis of a Carbon Fiber Reinforced Polymer Crash Box."
+                <em>Journal of Composites Science</em> 2026, 10, 85.
+                <a
+                  href="https://doi.org/10.3390/jcs10020085"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/jcs10020085</a
+                >
+                Published: 6 February 2026. Open access under Creative Commons
+                Attribution (CC BY) 4.0 license.
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >
+              </li>
+            </ol>
+            <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+              This post draws entirely on the open-access paper cited above. All
+              data, figures, and methodology described originate from that
+              source. The authors of the paper have no affiliation with
+              Addcomposites and have not reviewed or endorsed this post.
+            </p>
+
+            <img
+              src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+              alt="AFP composite manufacturing"
+              class="full-width-image"
+            />
+          </section>
+
+          <!-- Author Section -->
+          <section class="author-section">
+            <div class="author-card">
+              <div class="author-image-wrapper">
+                <img
+                  src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                  alt="Pravin Luthada"
+                  class="author-image"
+                />
+              </div>
+              <div class="author-info">
+                <h3 class="author-name">Pravin Luthada</h3>
+                <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+                <div class="author-social">
+                  <a
+                    href="https://www.linkedin.com/in/pravinluthada/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <svg viewBox="0 0 24 24" fill="#0A66C2">
+                      <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                      />
+                    </svg>
+                  </a>
+                  <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="#EA4335">
+                      <path
+                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@addcomposites"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                  >
+                    <svg viewBox="0 0 24 24" fill="#FF0000">
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <h4 class="about-author-label">About Author</h4>
+                <p class="author-bio">
+                  As the author of the Addcomposites blog, Pravin Luthada's
+                  insights are forged from a distinguished career in advanced
+                  materials, beginning as a space scientist at the Indian Space
+                  Research Organisation (ISRO). During his tenure, he gained
+                  hands-on expertise in manufacturing composite components for
+                  satellites and launch vehicles, where he witnessed firsthand
+                  the prohibitive costs of traditional Automated Fiber Placement
+                  (AFP) systems. This experience became the driving force behind
+                  his entrepreneurial venture, Addcomposites Oy, which he
+                  co-founded and now leads as CEO. The company is dedicated to
+                  democratizing advanced manufacturing by developing patented,
+                  plug-and-play AFP toolheads that make automation accessible
+                  and affordable. This unique journey from designing space-grade
+                  hardware to leading a disruptive technology company provides
+                  Pravin with a comprehensive, real-world perspective that
+                  informs his writing on the future of the composites industry.
+                </p>
+              </div>
+            </div>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
