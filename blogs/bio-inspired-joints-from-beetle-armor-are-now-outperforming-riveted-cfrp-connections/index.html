@@ -1,0 +1,2706 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Bio-Inspired Joints from Beetle Armor Are Now Outperforming Riveted CFRP
+      Connections | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A September 2025 open-access study formalizes how beetle elytra suture architecture translates into manufactured joints that outperform conventional interlocking, riveted, and bonded CFRP connections."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#the-problem" class="blog-sidebar-link active"
+            >The Problem</a
+          >
+          <a href="#three-beetles" class="blog-sidebar-link">Three Beetles</a>
+          <a href="#six-joint-geometries" class="blog-sidebar-link"
+            >Six Joint Geometries</a
+          >
+          <a href="#the-results" class="blog-sidebar-link">The Results</a>
+          <a href="#benchmarking" class="blog-sidebar-link">Benchmarking</a>
+          <a href="#afp-perspective" class="blog-sidebar-link"
+            >AFP Perspective</a
+          >
+          <a href="#three-takeaways" class="blog-sidebar-link"
+            >Three Takeaways</a
+          >
+          <a href="#read-the-research" class="blog-sidebar-link"
+            >Read the Research</a
+          >
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          Bio-Inspired Joints from Beetle Armor Are Now Outperforming Riveted
+          CFRP Connections
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            September 2025
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Addcomposites
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+        </div>
+
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bc8c831decc5ea45f840_1.png"
+          alt="Bio-inspired joints from beetle armor outperforming riveted CFRP connections"
+          class="full-width-image"
+        />
+
+        <!-- Section: The Problem -->
+        <section id="the-problem">
+          <h2>The Problem Nobody's Fixed Yet</h2>
+          <p class="drop-cap">
+            Ask a structural engineer designing a CFRP airframe panel what they
+            do at the joint to a metallic subframe, and the answer is usually
+            some variant of: drill holes, insert fasteners, reinforce locally,
+            and live with it.
+          </p>
+          <p>
+            Hole-drilling in carbon fiber reinforced polymers is one of the most
+            reliably damaging manufacturing steps in composite assembly. Each
+            drill creates a zone of delamination risk, severs fibers that were
+            oriented to carry load, and introduces a stress concentration at
+            precisely the location where load transfer is highest. Riveted and
+            bolted CFRP connections are structurally effective enough that they
+            remain standard practice — but they carry a hidden cost in
+            production scrap, rework, and structural knockdown factors built
+            into every margin calculation.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bcdbba226e3bead05817_2.png"
+            alt="Countersunk fastener holes drilled through a CFRP laminate panel joined to an aluminium subframe"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Countersunk fastener holes drilled through a CFRP laminate panel
+            joined to an aluminium subframe — each hole a stress concentration
+            at the highest-load point in the joint. AI-generated image.
+          </p>
+
+          <p>
+            Adhesive bonding eliminates holes but trades them for different
+            problems: process sensitivity, inspection difficulty,
+            temperature-limited service conditions, and the particular anxiety
+            of an invisible bond line that cannot be easily assessed once it is
+            cured.
+          </p>
+          <p>
+            The biological world, it turns out, solved this problem before CFRP
+            existed. A September 2025 open-access study in the
+            <em>Journal of Composites Science</em> (MDPI) formalizes the insight
+            with experimental data, and the implications for how we think about
+            composite joint design are worth reading carefully.
+          </p>
+        </section>
+
+        <!-- Section: Three Beetles -->
+        <section id="three-beetles">
+          <h2>Three Beetles and a Design Principle</h2>
+          <p>
+            The study — by Khishigdorj Davaasambuu, Animesh Kumar Basak, Yu
+            Dong, and Alokesh Pramanik of Curtin University and the University
+            of Adelaide — opens with an observation about beetle elytra: the
+            hardened wing covers that protect the insect's body. Specifically,
+            about the suture lines where those covers meet.
+          </p>
+          <p>
+            Three species drive the analysis: <em>Phloeodes diabolicus</em>,
+            <em>Asbolus verrucosus</em>, and <em>Cryptoglossa muricata</em>.
+            Cross-sections of their elytra sutures reveal a two-part
+            interlocking architecture that the engineering literature had not
+            fully translated into manufactured joints. There is a primary
+            interlock — a tooth-and-lobe geometry that resists the dominant
+            pull-out load — and alongside it, a set of secondary ridges and
+            overhanging features on either side of the main joint. These
+            auxiliary structures do not primarily carry the tensile load. They
+            prevent the female part of the joint from rotating outward.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bc8c3fb8fee985a4057a_3.png"
+            alt="Three beetle species and cross-sections of their elytra sutures showing interlocking tooth geometry and auxiliary ridges"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Three beetle species (<em>Phloeodes diabolicus</em>,
+            <em>Asbolus verrucosus</em>, <em>Cryptoglossa muricata</em>) and
+            cross-sections of their elytra sutures — showing the primary
+            interlocking tooth geometry and the secondary auxiliary ridges that
+            prevent the female part from bending outward. The auxiliary ridge is
+            the biological feature this study translates into engineered joints.
+            Figure 1 from: Davaasambuu, K.; Basak, A.K.; Dong, Y.; Pramanik, A.
+            "Bio-Inspired Novel Joints with Superior Mechanical Performance."
+            <em>J. Compos. Sci.</em> 2025, 9, 501.
+            <a
+              href="https://doi.org/10.3390/jcs9090501"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/jcs9090501</a
+            >
+            — © 2025 by the authors. Licensed under
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CC BY 4.0</a
+            >.
+          </p>
+
+          <p>
+            That distinction is the paper's central contribution. The failure
+            mechanism in conventional engineered interlocking joints — dovetail,
+            T-slot, elliptical — is almost universally the same: outward bending
+            of the female component's mortise groove, which progressively
+            disengages the interlock from below the load. According to the
+            paper, these secondary ridges physically restrain that rotation —
+            preventing the bending from reaching the point of interface
+            disengagement.
+          </p>
+          <p>
+            Davaasambuu et al. is not the first paper to draw inspiration from
+            beetle armor for joint design — Rivera et al. (2020), cited
+            throughout the paper, demonstrated that a beetle-derived elliptical
+            joint matched riveted CFRP-aluminium performance — 19 MPa versus 18
+            MPa — without a single hole drilled. Xing et al. (2024) took a
+            multi-species approach — drawing geometry from woodpecker anatomy,
+            turtle shell architecture, and fossilized ammonite sutures — to
+            identify which joint parameters push failure away from the interface
+            and toward the material itself. Mirkhalaf et al. have demonstrated
+            that elliptical interlocking geometries applied to glass can yield
+            toughness gains of up to 200 times that of monolithic glass — and
+            separately, double-circular variants applied to polymer substrates
+            produced tenfold toughness improvements.
+          </p>
+          <p>
+            What the Davaasambuu et al. paper adds is the first systematic
+            experimental translation of the auxiliary interlocking feature — not
+            just the primary geometry — into manufactured joints, with a full
+            benchmark against four existing bionic designs.
+          </p>
+        </section>
+
+        <!-- Section: Six Joint Geometries -->
+        <section id="six-joint-geometries">
+          <h2>Six Joint Geometries Under Test</h2>
+          <p>
+            The experimental program evaluated six designs at identical
+            dimensional parameters across all specimens — all specimens shared a
+            common geometry: a 10 mm neck, a 22 mm-wide main interlock, 110 mm
+            total engagement length, 30 mm specimen width, and 10 mm thickness
+            throughout. An interlocking aspect ratio of 2.2 was held constant.
+            Male parts were machined from nylon SUSTAMID 6G (bulk tensile
+            strength: 86.5 MPa), female parts from aluminium 6061-T6 (300 MPa).
+            All specimens were assembled at zero clearance and tested in
+            uniaxial tension at 3 mm/min on a 50 kN Shimadzu universal testing
+            machine, with DIC strain field analysis running in parallel via an
+            iPhone 11 Pro at 60 FPS.
+          </p>
+          <p>
+            Four geometries represented the state of existing bionic joint
+            research — each incorporating a primary interlock only:
+          </p>
+
+          <!-- INFOGRAPHICS START 1 -->
+
+          <div class="jt-root nj-outer-wrap">
+            <div class="jt-header">
+              <div class="jt-label">Control Designs</div>
+              <p class="jt-title">Joint Types: Primary Interlock Only</p>
+              <p class="jt-subtitle">
+                Cross-sectional geometry, UTS, and bending onset for
+                aluminium–nylon interlocked joints
+              </p>
+            </div>
+
+            <div class="jt-grid" id="jtGrid">
+              <!-- DOVETAIL -->
+              <div class="jt-card" data-delay="0">
+                <div class="jt-flare-badge">79° flare</div>
+                <div class="jt-card-name">Dovetail</div>
+                <div class="jt-svg-wrap">
+                  <svg
+                    viewBox="0 0 120 110"
+                    width="120"
+                    height="110"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL top -->
+                    <polygon
+                      points="18,8 102,8 88,46 32,46"
+                      fill="#47577c"
+                      rx="2"
+                    />
+                    <text
+                      x="60"
+                      y="30"
+                      text-anchor="middle"
+                      font-size="11"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- Nylon bottom -->
+                    <rect
+                      x="22"
+                      y="46"
+                      width="76"
+                      height="36"
+                      rx="3"
+                      fill="#9d9d9c"
+                    />
+                    <text
+                      x="60"
+                      y="68"
+                      text-anchor="middle"
+                      font-size="10"
+                      font-weight="600"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon
+                    </text>
+                    <!-- Interlock fit lines -->
+                    <line
+                      x1="32"
+                      y1="46"
+                      x2="22"
+                      y2="46"
+                      stroke="#bf3425"
+                      stroke-width="1.5"
+                      stroke-dasharray="3,2"
+                    />
+                    <line
+                      x1="88"
+                      y1="46"
+                      x2="98"
+                      y2="46"
+                      stroke="#bf3425"
+                      stroke-width="1.5"
+                      stroke-dasharray="3,2"
+                    />
+                  </svg>
+                </div>
+                <div class="jt-divider"></div>
+                <div class="jt-metrics">
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">UTS</div>
+                    <div class="jt-metric-value">
+                      4.9 <span class="jt-unit">MPa</span>
+                    </div>
+                    <div class="jt-bar-track">
+                      <div
+                        class="jt-bar-fill"
+                        data-pct="31"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">Bending Onset</div>
+                    <div class="jt-metric-value">
+                      ~1000 <span class="jt-unit">N</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ADAPTED DOVETAIL -->
+              <div class="jt-card" data-delay="1">
+                <div class="jt-flare-badge">65° flare</div>
+                <div class="jt-card-name">Adapted Dovetail</div>
+                <div class="jt-svg-wrap">
+                  <svg
+                    viewBox="0 0 120 110"
+                    width="120"
+                    height="110"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL top — shallower flare -->
+                    <polygon points="24,8 96,8 84,46 36,46" fill="#47577c" />
+                    <text
+                      x="60"
+                      y="30"
+                      text-anchor="middle"
+                      font-size="11"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- Nylon bottom -->
+                    <rect
+                      x="26"
+                      y="46"
+                      width="68"
+                      height="36"
+                      rx="3"
+                      fill="#9d9d9c"
+                    />
+                    <text
+                      x="60"
+                      y="68"
+                      text-anchor="middle"
+                      font-size="10"
+                      font-weight="600"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon
+                    </text>
+                    <line
+                      x1="36"
+                      y1="46"
+                      x2="26"
+                      y2="46"
+                      stroke="#bf3425"
+                      stroke-width="1.5"
+                      stroke-dasharray="3,2"
+                    />
+                    <line
+                      x1="84"
+                      y1="46"
+                      x2="94"
+                      y2="46"
+                      stroke="#bf3425"
+                      stroke-width="1.5"
+                      stroke-dasharray="3,2"
+                    />
+                  </svg>
+                </div>
+                <div class="jt-divider"></div>
+                <div class="jt-metrics">
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">UTS</div>
+                    <div class="jt-metric-value">
+                      3.8 <span class="jt-unit">MPa</span>
+                    </div>
+                    <div class="jt-bar-track">
+                      <div
+                        class="jt-bar-fill"
+                        data-pct="24"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">Bending Onset</div>
+                    <div class="jt-metric-value">
+                      ~400 <span class="jt-unit">N</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ELLIPTICAL -->
+              <div class="jt-card" data-delay="2">
+                <div class="jt-flare-badge">26° curved</div>
+                <div class="jt-card-name">Elliptical</div>
+                <div class="jt-svg-wrap">
+                  <svg
+                    viewBox="0 0 120 110"
+                    width="120"
+                    height="110"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL top elliptical cap -->
+                    <path d="M18,46 Q30,8 60,8 Q90,8 102,46 Z" fill="#47577c" />
+                    <text
+                      x="60"
+                      y="34"
+                      text-anchor="middle"
+                      font-size="11"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- AL fails marker -->
+                    <text
+                      x="60"
+                      y="54"
+                      text-anchor="middle"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                    >
+                      ← Al fails
+                    </text>
+                    <!-- Nylon bottom -->
+                    <rect
+                      x="20"
+                      y="60"
+                      width="80"
+                      height="34"
+                      rx="3"
+                      fill="#9d9d9c"
+                    />
+                    <text
+                      x="60"
+                      y="81"
+                      text-anchor="middle"
+                      font-size="10"
+                      font-weight="600"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon
+                    </text>
+                  </svg>
+                </div>
+                <div class="jt-divider"></div>
+                <div class="jt-metrics">
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">UTS</div>
+                    <div class="jt-metric-value">
+                      13.2 <span class="jt-unit">MPa</span>
+                    </div>
+                    <div class="jt-bar-track">
+                      <div
+                        class="jt-bar-fill"
+                        data-pct="85"
+                        style="background: #bf3425"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">Bending Onset</div>
+                    <div class="jt-metric-value">
+                      ~2500 <span class="jt-unit">N</span>
+                    </div>
+                  </div>
+                  <div class="jt-fail-note">
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <circle cx="5" cy="5" r="4.5" fill="#bf3425" />
+                      <text
+                        x="5"
+                        y="7.5"
+                        text-anchor="middle"
+                        font-size="7"
+                        fill="#fff"
+                        font-family="Inter"
+                      >
+                        !
+                      </text>
+                    </svg>
+                    Al section fails first
+                  </div>
+                </div>
+              </div>
+
+              <!-- T-SLOT -->
+              <div class="jt-card" data-delay="3">
+                <div class="jt-flare-badge">0° flat</div>
+                <div class="jt-card-name">T-Slot</div>
+                <div class="jt-svg-wrap">
+                  <svg
+                    viewBox="0 0 120 110"
+                    width="120"
+                    height="110"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL top T-shape -->
+                    <rect
+                      x="18"
+                      y="8"
+                      width="84"
+                      height="18"
+                      rx="3"
+                      fill="#47577c"
+                    />
+                    <rect x="46" y="26" width="28" height="20" fill="#47577c" />
+                    <text
+                      x="60"
+                      y="21"
+                      text-anchor="middle"
+                      font-size="11"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- Nylon bottom with slot -->
+                    <rect
+                      x="18"
+                      y="46"
+                      width="84"
+                      height="36"
+                      rx="3"
+                      fill="#9d9d9c"
+                    />
+                    <!-- slot cutout -->
+                    <rect
+                      x="46"
+                      y="46"
+                      width="28"
+                      height="14"
+                      rx="0"
+                      fill="#ffffff"
+                    />
+                    <text
+                      x="60"
+                      y="74"
+                      text-anchor="middle"
+                      font-size="10"
+                      font-weight="600"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon
+                    </text>
+                  </svg>
+                </div>
+                <div class="jt-divider"></div>
+                <div class="jt-metrics">
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">UTS</div>
+                    <div class="jt-metric-value">
+                      15.6 <span class="jt-unit">MPa</span>
+                    </div>
+                    <div class="jt-bar-track">
+                      <div
+                        class="jt-bar-fill"
+                        data-pct="100"
+                        style="background: #bf3425"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="jt-metric">
+                    <div class="jt-metric-label">Bending Onset</div>
+                    <div class="jt-metric-value">
+                      ~2500 <span class="jt-unit">N</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /grid -->
+
+            <!-- Comparison strip -->
+            <div class="jt-comparison" id="jtComparison">
+              <div class="jt-comparison-title">
+                UTS Ranking — Highest to Lowest
+              </div>
+              <div class="jt-rank-bars">
+                <div class="jt-rank-row">
+                  <div class="jt-rank-name">T-Slot (0° flat)</div>
+                  <div class="jt-rank-track">
+                    <div
+                      class="jt-rank-fill"
+                      data-pct="100"
+                      style="background: #bf3425"
+                    ></div>
+                  </div>
+                  <div class="jt-rank-val">15.6 MPa</div>
+                </div>
+                <div class="jt-rank-row">
+                  <div class="jt-rank-name">Elliptical (26° curved)</div>
+                  <div class="jt-rank-track">
+                    <div
+                      class="jt-rank-fill"
+                      data-pct="85"
+                      style="background: #bf3425; opacity: 0.75"
+                    ></div>
+                  </div>
+                  <div class="jt-rank-val">13.2 MPa</div>
+                </div>
+                <div class="jt-rank-row">
+                  <div class="jt-rank-name">Dovetail (79° flare)</div>
+                  <div class="jt-rank-track">
+                    <div
+                      class="jt-rank-fill"
+                      data-pct="31"
+                      style="background: #47577c"
+                    ></div>
+                  </div>
+                  <div class="jt-rank-val">4.9 MPa</div>
+                </div>
+                <div class="jt-rank-row">
+                  <div class="jt-rank-name">Adapted Dovetail (65° flare)</div>
+                  <div class="jt-rank-track">
+                    <div
+                      class="jt-rank-fill"
+                      data-pct="24"
+                      style="background: #9d9d9c"
+                    ></div>
+                  </div>
+                  <div class="jt-rank-val">3.8 MPa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /root -->
+
+          <p>
+            Two novel designs incorporated auxiliary interlocking shoulders,
+            directly translating the secondary ridge structures observed in
+            beetle elytra sutures:
+          </p>
+
+          <!-- INFOGRAPHICS START 2 -->
+
+          <div class="nj-root nj-outer-wrap">
+            <div class="nj-header">
+              <div class="nj-label">Novel Designs</div>
+              <p class="nj-title">Primary + Auxiliary Interlocking</p>
+              <p class="nj-subtitle">
+                Dual-mechanism joints combining scarf/wavy geometry with hump
+                interlocks — aluminium to nylon
+              </p>
+            </div>
+
+            <div class="nj-split">
+              <!-- HUMPS SCARF -->
+              <div class="nj-card" data-delay="0">
+                <div class="nj-angle-badge">31° scarf angle</div>
+                <div class="nj-card-name">Humps Scarf</div>
+                <div class="nj-card-aux">
+                  Auxiliary: <strong>Trapezoidal / Rigid</strong> shoulders
+                </div>
+
+                <div class="nj-svg-wrap">
+                  <svg
+                    viewBox="0 0 300 180"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL body — scarf (angled) interface with rigid trapezoid aux features -->
+                    <!-- Main AL block with scarf cut -->
+                    <polygon
+                      points="10,12 290,12 290,80 220,100 80,100 10,80"
+                      fill="#47577c"
+                      rx="4"
+                    />
+                    <!-- AUX rigid trapezoidal protrusions -->
+                    <polygon
+                      points="68,100 100,100 96,118 72,118"
+                      fill="#47577c"
+                      opacity="0.85"
+                    />
+                    <polygon
+                      points="200,100 232,100 228,118 204,118"
+                      fill="#47577c"
+                      opacity="0.85"
+                    />
+                    <!-- AL label -->
+                    <text
+                      x="150"
+                      y="58"
+                      text-anchor="middle"
+                      font-size="14"
+                      font-weight="800"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- AUX labels -->
+                    <text
+                      x="84"
+                      y="113"
+                      text-anchor="middle"
+                      font-size="8"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AUX
+                    </text>
+                    <text
+                      x="216"
+                      y="113"
+                      text-anchor="middle"
+                      font-size="8"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AUX
+                    </text>
+
+                    <!-- Scarf angle indicator -->
+                    <path
+                      d="M80,100 L220,100"
+                      stroke="#ffffff"
+                      stroke-width="0.8"
+                      stroke-dasharray="4,3"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M80,80 L220,100"
+                      stroke="#9d9d9c"
+                      stroke-width="1"
+                      stroke-dasharray="3,2"
+                    />
+                    <text
+                      x="240"
+                      y="95"
+                      font-size="9"
+                      fill="#9d9d9c"
+                      font-family="Inter,sans-serif"
+                    >
+                      31°
+                    </text>
+
+                    <!-- Nylon with humps -->
+                    <rect
+                      x="10"
+                      y="118"
+                      width="280"
+                      height="50"
+                      rx="4"
+                      fill="#9d9d9c"
+                    />
+                    <!-- Hump slots that interlock with AUX -->
+                    <rect
+                      x="68"
+                      y="118"
+                      width="32"
+                      height="16"
+                      rx="2"
+                      fill="#ffffff"
+                      opacity="0.35"
+                    />
+                    <rect
+                      x="200"
+                      y="118"
+                      width="32"
+                      height="16"
+                      rx="2"
+                      fill="#ffffff"
+                      opacity="0.35"
+                    />
+                    <text
+                      x="150"
+                      y="148"
+                      text-anchor="middle"
+                      font-size="12"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon · humps
+                    </text>
+
+                    <!-- Annotation arrows -->
+                    <line
+                      x1="298"
+                      y1="88"
+                      x2="240"
+                      y2="75"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      marker-end="url(#arrowRed)"
+                    />
+                    <text
+                      x="298"
+                      y="85"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="end"
+                    >
+                      rigid shoulders
+                    </text>
+                    <line
+                      x1="298"
+                      y1="132"
+                      x2="245"
+                      y2="127"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      marker-end="url(#arrowRed)"
+                    />
+                    <text
+                      x="298"
+                      y="129"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="end"
+                    >
+                      double interlocks
+                    </text>
+
+                    <defs>
+                      <marker
+                        id="arrowRed"
+                        markerWidth="6"
+                        markerHeight="6"
+                        refX="3"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <path d="M0,0 L6,3 L0,6 Z" fill="#bf3425" />
+                      </marker>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div class="nj-divider"></div>
+
+                <div class="nj-metrics">
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">UTS</div>
+                    <div class="nj-metric-value">
+                      22.6 <span class="nj-unit">MPa</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="100"
+                        style="background: #bf3425"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Stiffness</div>
+                    <div class="nj-metric-value">
+                      3174.9 <span class="nj-unit">N/mm</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="96"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Toughness</div>
+                    <div class="nj-metric-value">
+                      3.22 <span class="nj-unit">MJ/m³</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="81"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Bending Onset</div>
+                    <div class="nj-metric-value">
+                      ~6000 <span class="nj-unit">N</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="100"
+                        style="background: #bf3425"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- HUMPS WAVY -->
+              <div class="nj-card" data-delay="1">
+                <div class="nj-angle-badge">63° wavy angle</div>
+                <div class="nj-card-name">Humps Wavy</div>
+                <div class="nj-card-aux">
+                  Auxiliary: <strong>Curved / Compliant</strong> shoulders +
+                  central interlock
+                </div>
+
+                <div class="nj-svg-wrap">
+                  <svg
+                    viewBox="0 0 300 180"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- AL body — wavy/curved interface -->
+                    <path
+                      d="M10,12 L290,12 L290,72
+                   Q270,90 250,80 Q230,70 210,85 Q190,100 170,92
+                   Q150,84 130,95 Q110,106 90,95 Q70,84 50,90 Q30,96 10,80 Z"
+                      fill="#47577c"
+                    />
+                    <!-- AUX curved (elliptical) protrusions -->
+                    <ellipse
+                      cx="84"
+                      cy="104"
+                      rx="18"
+                      ry="10"
+                      fill="#47577c"
+                      opacity="0.9"
+                    />
+                    <ellipse
+                      cx="216"
+                      cy="104"
+                      rx="18"
+                      ry="10"
+                      fill="#47577c"
+                      opacity="0.9"
+                    />
+                    <!-- Central interlock marker -->
+                    <ellipse
+                      cx="150"
+                      cy="96"
+                      rx="14"
+                      ry="8"
+                      fill="#bf3425"
+                      opacity="0.9"
+                    />
+
+                    <!-- AL label -->
+                    <text
+                      x="150"
+                      y="50"
+                      text-anchor="middle"
+                      font-size="14"
+                      font-weight="800"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      AL
+                    </text>
+                    <!-- AUX labels -->
+                    <text
+                      x="84"
+                      y="107"
+                      text-anchor="middle"
+                      font-size="7.5"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      aux
+                    </text>
+                    <text
+                      x="216"
+                      y="107"
+                      text-anchor="middle"
+                      font-size="7.5"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      aux
+                    </text>
+                    <text
+                      x="150"
+                      y="99"
+                      text-anchor="middle"
+                      font-size="7.5"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      [C]
+                    </text>
+
+                    <!-- Nylon with humps -->
+                    <rect
+                      x="10"
+                      y="114"
+                      width="280"
+                      height="54"
+                      rx="4"
+                      fill="#9d9d9c"
+                    />
+                    <!-- Curved hump slots -->
+                    <ellipse
+                      cx="84"
+                      cy="114"
+                      rx="18"
+                      ry="8"
+                      fill="#ffffff"
+                      opacity="0.3"
+                    />
+                    <ellipse
+                      cx="216"
+                      cy="114"
+                      rx="18"
+                      ry="8"
+                      fill="#ffffff"
+                      opacity="0.3"
+                    />
+                    <ellipse
+                      cx="150"
+                      cy="114"
+                      rx="14"
+                      ry="7"
+                      fill="#ffffff"
+                      opacity="0.3"
+                    />
+                    <text
+                      x="150"
+                      y="148"
+                      text-anchor="middle"
+                      font-size="12"
+                      font-weight="700"
+                      fill="#ffffff"
+                      font-family="Inter,sans-serif"
+                    >
+                      nylon · humps
+                    </text>
+
+                    <!-- Annotation arrows -->
+                    <line
+                      x1="298"
+                      y1="78"
+                      x2="248"
+                      y2="72"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      marker-end="url(#arrowRed2)"
+                    />
+                    <text
+                      x="298"
+                      y="75"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="end"
+                    >
+                      curved shoulders
+                    </text>
+                    <line
+                      x1="298"
+                      y1="98"
+                      x2="167"
+                      y2="96"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      marker-end="url(#arrowRed2)"
+                    />
+                    <text
+                      x="298"
+                      y="95"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="end"
+                    >
+                      central interlock
+                    </text>
+                    <line
+                      x1="298"
+                      y1="134"
+                      x2="245"
+                      y2="128"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      marker-end="url(#arrowRed2)"
+                    />
+                    <text
+                      x="298"
+                      y="131"
+                      font-size="8.5"
+                      font-weight="700"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="end"
+                    >
+                      double + central
+                    </text>
+
+                    <defs>
+                      <marker
+                        id="arrowRed2"
+                        markerWidth="6"
+                        markerHeight="6"
+                        refX="3"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <path d="M0,0 L6,3 L0,6 Z" fill="#bf3425" />
+                      </marker>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div class="nj-divider"></div>
+
+                <div class="nj-metrics">
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">UTS</div>
+                    <div class="nj-metric-value">
+                      16.3 <span class="nj-unit">MPa</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="72"
+                        style="background: #bf3425; opacity: 0.7"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Stiffness</div>
+                    <div class="nj-metric-value">
+                      3304.5 <span class="nj-unit">N/mm</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="100"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                    <div class="nj-highest">↑ Highest</div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Toughness</div>
+                    <div class="nj-metric-value">
+                      3.99 <span class="nj-unit">MJ/m³</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="100"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                    <div class="nj-highest">↑ Highest</div>
+                  </div>
+                  <div class="nj-metric">
+                    <div class="nj-metric-label">Bending Onset</div>
+                    <div class="nj-metric-value">
+                      ~2000 <span class="nj-unit">N</span>
+                    </div>
+                    <div class="nj-bar-track">
+                      <div
+                        class="nj-bar-fill"
+                        data-pct="33"
+                        style="background: #9d9d9c"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /split -->
+
+            <!-- Comparison strip -->
+            <div class="nj-comparison" id="njComparison">
+              <div class="nj-comparison-title">
+                Head-to-Head: Humps Scarf vs Humps Wavy
+              </div>
+              <div class="nj-compare-grid">
+                <!-- UTS -->
+                <div class="nj-compare-col">
+                  <div class="nj-compare-label">
+                    UTS (MPa) — higher = stronger
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Scarf</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="100"
+                        style="background: #bf3425"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">22.6 MPa ★</div>
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Wavy</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="72"
+                        style="background: #9d9d9c"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">16.3 MPa</div>
+                  </div>
+                </div>
+
+                <!-- Stiffness -->
+                <div class="nj-compare-col">
+                  <div class="nj-compare-label">
+                    Stiffness (N/mm) — higher = stiffer
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Scarf</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="96"
+                        style="background: #47577c; opacity: 0.7"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">3174.9 N/mm</div>
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Wavy</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="100"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">3304.5 N/mm ★</div>
+                  </div>
+                </div>
+
+                <!-- Toughness -->
+                <div class="nj-compare-col">
+                  <div class="nj-compare-label">
+                    Toughness (MJ/m³) — higher = more energy absorbed
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Scarf</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="81"
+                        style="background: #47577c; opacity: 0.7"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">3.22 MJ/m³</div>
+                  </div>
+                  <div class="nj-compare-row">
+                    <div class="nj-compare-name">Humps Wavy</div>
+                    <div class="nj-compare-track">
+                      <div
+                        class="nj-compare-fill"
+                        data-pct="100"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                    <div class="nj-compare-val">3.99 MJ/m³ ★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /root -->
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bc8c3a19c896cab4afa6_4.png"
+            alt="All six joint geometries drawn to scale showing primary interlock only designs and novel designs with auxiliary shoulder features"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            All six joint geometries drawn to scale: the four control designs
+            (dovetail, adapted dovetail, elliptical, T-slot) carry only a
+            primary interlock; the two novel designs (humps scarf, humps wavy)
+            add auxiliary shoulder features on either side of the main
+            interlocking tooth. The shoulder is the structural addition the
+            paper tests. Figure 2 from: Davaasambuu, K.; Basak, A.K.; Dong, Y.;
+            Pramanik, A. "Bio-Inspired Novel Joints with Superior Mechanical
+            Performance." <em>J. Compos. Sci.</em> 2025, 9, 501.
+            <a
+              href="https://doi.org/10.3390/jcs9090501"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/jcs9090501</a
+            >
+            — © 2025 by the authors. Licensed under
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CC BY 4.0</a
+            >.
+          </p>
+        </section>
+
+        <!-- Section: The Results -->
+        <section id="the-results">
+          <h2>The Results, and Why They Look the Way They Do</h2>
+          <p>
+            The tensile strength data across all six joints tells a clear story:
+          </p>
+
+          <!-- INFOGRAPHICS START 3 -->
+
+          <div class="uts-root nj-outer-wrap">
+            <div class="uts-header">
+              <div class="uts-label">Mechanical Performance</div>
+              <p class="uts-title">
+                Ultimate Tensile Strength — All Six Joints
+              </p>
+              <p class="uts-subtitle">
+                Aluminium–nylon interlocked joints, primary interlock only vs.
+                primary + auxiliary designs
+              </p>
+            </div>
+
+            <div class="uts-card">
+              <div class="uts-ceiling-label">
+                Nylon bulk UTS ceiling: 86.5 MPa
+              </div>
+
+              <div class="uts-rows" id="utsRows">
+                <!-- Humps Scarf — 22.6 / 86.5 = 26.1% of ceiling -->
+                <div class="uts-row" data-delay="0">
+                  <div class="uts-name">
+                    Humps Scarf
+                    <span class="uts-tag novel">Novel · Primary + Aux</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="26.1"
+                        style="background: #bf3425; position: relative"
+                      >
+                        <div class="uts-best-badge">◄ Best</div>
+                      </div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">22.6 <span>MPa</span></div>
+                </div>
+
+                <!-- Humps Wavy — 16.3 / 86.5 = 18.8% -->
+                <div class="uts-row" data-delay="1">
+                  <div class="uts-name">
+                    Humps Wavy
+                    <span class="uts-tag novel">Novel · Primary + Aux</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="18.8"
+                        style="background: #bf3425; opacity: 0.72"
+                      ></div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">16.3 <span>MPa</span></div>
+                </div>
+
+                <!-- T-Slot — 15.6 / 86.5 = 18.0% -->
+                <div class="uts-row" data-delay="2">
+                  <div class="uts-name">
+                    T-Slot
+                    <span class="uts-tag control">Control · Primary Only</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="18.0"
+                        style="background: #47577c"
+                      ></div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">15.6 <span>MPa</span></div>
+                </div>
+
+                <!-- Elliptical — 13.2 / 86.5 = 15.3% -->
+                <div class="uts-row" data-delay="3">
+                  <div class="uts-name">
+                    Elliptical
+                    <span class="uts-tag control">Control · Primary Only</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="15.3"
+                        style="background: #47577c; opacity: 0.8"
+                      ></div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">13.2 <span>MPa</span></div>
+                </div>
+
+                <!-- Dovetail — 4.9 / 86.5 = 5.7% -->
+                <div class="uts-row" data-delay="4">
+                  <div class="uts-name">
+                    Dovetail
+                    <span class="uts-tag control">Control · Primary Only</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="5.7"
+                        style="background: #9d9d9c"
+                      ></div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">4.9 <span>MPa</span></div>
+                </div>
+
+                <!-- Adapted Dovetail — 3.8 / 86.5 = 4.4% -->
+                <div class="uts-row" data-delay="5">
+                  <div class="uts-name">
+                    Adapted Dovetail
+                    <span class="uts-tag control">Control · Primary Only</span>
+                  </div>
+                  <div class="uts-bar-area">
+                    <div class="uts-bar-ceiling"></div>
+                    <div class="uts-bar-track">
+                      <div
+                        class="uts-bar-fill"
+                        data-pct="4.4"
+                        style="background: #9d9d9c; opacity: 0.75"
+                      ></div>
+                    </div>
+                    <div class="uts-nylon-marker"></div>
+                  </div>
+                  <div class="uts-val">3.8 <span>MPa</span></div>
+                </div>
+              </div>
+              <!-- /rows -->
+
+              <div class="uts-footer" id="utsFooter">
+                <div class="uts-legend">
+                  <div class="uts-legend-item">
+                    <div
+                      class="uts-legend-dot"
+                      style="background: #bf3425"
+                    ></div>
+                    Novel (Primary + Auxiliary)
+                  </div>
+                  <div class="uts-legend-item">
+                    <div
+                      class="uts-legend-dot"
+                      style="background: #47577c"
+                    ></div>
+                    Control (Primary Only)
+                  </div>
+                  <div class="uts-legend-item">
+                    <div
+                      class="uts-legend-dot"
+                      style="background: #9d9d9c"
+                    ></div>
+                    Control · Lowest performers
+                  </div>
+                </div>
+                <div class="uts-ceiling-note">
+                  Bar width scaled to nylon bulk UTS (86.5 MPa)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bc8ca165e032d98519a7_5.png"
+                alt="Load vs. lateral mortise groove displacement for all six joints showing DIC reference point"
+              />
+              <p class="image-caption">
+                Load vs. lateral mortise groove displacement for all six joints:
+                the adapted dovetail begins bending at ~400 N, the dovetail at
+                ~1000 N, elliptical and T-slot hold to ~2500 N — and the humps
+                scarf groove does not move until ~6000 N. Panel (b) shows the
+                DIC reference point used to measure that displacement. The gap
+                between these curves is the mechanical story the paper is
+                telling. Figure 5 from: Davaasambuu, K.; Basak, A.K.; Dong, Y.;
+                Pramanik, A. "Bio-Inspired Novel Joints with Superior Mechanical
+                Performance." <em>J. Compos. Sci.</em> 2025, 9, 501.
+                <a
+                  href="https://doi.org/10.3390/jcs9090501"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/jcs9090501</a
+                >
+                — © 2025 by the authors. Licensed under
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >CC BY 4.0</a
+                >.
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                The paper's explanation is built on DIC measurements of mortise
+                groove displacement. In the dovetail, the aluminium female part
+                began bending at approximately 1000 N — far below any
+                material-limited threshold. The adapted dovetail started bending
+                at 400 N. Once bending begins, the interlocking geometry that
+                was carrying tensile load becomes a lever arm that amplifies the
+                disengagement force: the geometry works against itself.
+              </p>
+              <p>
+                The humps scarf joint's mortise groove did not register
+                appreciable displacement until approximately 6000 N. According
+                to the paper, the trapezoidal auxiliary shoulders redirect the
+                bending load back through the male part's neck region,
+                short-circuiting the lever arm mechanism. With bending
+                suppressed, load transfer concentrates in the nylon neck, and
+                the joint eventually fractures there — inside the material, not
+                at the interface.
+              </p>
+              <p>
+                That distinction matters: a joint that fails in the material has
+                reached the geometric design's theoretical ceiling. A joint that
+                fails at the interface is leaving load capacity unrealized.
+              </p>
+              <p>
+                For the T-slot and elliptical configurations, the mortise groove
+                remained effectively rigid up to approximately 2500 N — a
+                threshold more than twice what the dovetail designs could
+                sustain — and this is what underpins their substantially higher
+                strength relative to the dovetail variants.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            The humps wavy joint tells a complementary story. Its curved
+            auxiliary features are more compliant than the rectangular shoulders
+            of the humps scarf, allowing progressive deformation that
+            distributes strain across a wider interface region. The penalty is a
+            lower peak strength (16.3 MPa vs 22.6 MPa), but the benefit is
+            greater toughness — the ability to absorb energy before final
+            failure — and the highest stiffness of any tested joint at 3304.5
+            N/mm.
+          </p>
+
+          <!-- INFOGRAPHICS START 4 -->
+
+          <div class="st-root nj-outer-wrap">
+            <div class="st-header">
+              <div class="st-label">Mechanical Performance</div>
+              <p class="st-title">Stiffness & Toughness — All Six Joints</p>
+              <p class="st-subtitle">
+                Ordered lowest to highest — aluminium–nylon interlocked joints,
+                control vs. novel designs
+              </p>
+            </div>
+
+            <div class="st-panels">
+              <!-- STIFFNESS PANEL -->
+              <div class="st-panel" id="stiffPanel" data-panel-delay="0">
+                <div class="st-panel-title">Stiffness</div>
+                <div class="st-panel-unit">N / mm</div>
+                <div class="st-rows">
+                  <div class="st-row" data-delay="0">
+                    <div class="st-name">
+                      Adapted Dovetail <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="33.6"
+                          style="background: #9d9d9c"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">1110.1</div>
+                  </div>
+
+                  <div class="st-row" data-delay="1">
+                    <div class="st-name">
+                      Dovetail <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="26.2"
+                          style="background: #9d9d9c; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">865.7</div>
+                  </div>
+
+                  <div class="st-row" data-delay="2">
+                    <div class="st-name">
+                      Elliptical <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="77.4"
+                          style="background: #47577c; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">2559.4</div>
+                  </div>
+
+                  <div class="st-row" data-delay="3">
+                    <div class="st-name">
+                      T-Slot <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="92.8"
+                          style="background: #47577c"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">3067.6</div>
+                  </div>
+
+                  <div class="st-row" data-delay="4">
+                    <div class="st-name">
+                      Humps Scarf <span class="st-name-tag novel">Novel</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="96.1"
+                          style="background: #bf3425; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">3174.9</div>
+                  </div>
+
+                  <div class="st-row" data-delay="5">
+                    <div class="st-name">
+                      Humps Wavy <span class="st-name-tag novel">Novel</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="100"
+                          style="background: #bf3425; position: relative"
+                        >
+                          <span class="st-highest">◄ Highest</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="st-val">3304.5</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TOUGHNESS PANEL -->
+              <div class="st-panel" id="toughPanel" data-panel-delay="1">
+                <div class="st-panel-title">Toughness</div>
+                <div class="st-panel-unit">MJ / m³</div>
+                <div class="st-rows">
+                  <div class="st-row" data-delay="0">
+                    <div class="st-name">
+                      Adapted Dovetail <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="26.6"
+                          style="background: #9d9d9c"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">1.06</div>
+                  </div>
+
+                  <div class="st-row" data-delay="1">
+                    <div class="st-name">
+                      Dovetail <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="41.1"
+                          style="background: #9d9d9c; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">1.64</div>
+                  </div>
+
+                  <div class="st-row" data-delay="2">
+                    <div class="st-name">
+                      Elliptical <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="47.4"
+                          style="background: #47577c; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">1.89</div>
+                  </div>
+
+                  <div class="st-row" data-delay="3">
+                    <div class="st-name">
+                      T-Slot <span class="st-name-tag">Control</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="48.4"
+                          style="background: #47577c"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">1.93</div>
+                  </div>
+
+                  <div class="st-row" data-delay="4">
+                    <div class="st-name">
+                      Humps Scarf <span class="st-name-tag novel">Novel</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="80.7"
+                          style="background: #bf3425; opacity: 0.75"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="st-val">3.22</div>
+                  </div>
+
+                  <div class="st-row" data-delay="5">
+                    <div class="st-name">
+                      Humps Wavy <span class="st-name-tag novel">Novel</span>
+                    </div>
+                    <div class="st-bar-area">
+                      <div class="st-bar-track">
+                        <div
+                          class="st-bar-fill"
+                          data-pct="100"
+                          style="background: #bf3425; position: relative"
+                        >
+                          <span class="st-highest">◄ Highest</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="st-val">3.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /panels -->
+
+            <!-- Insight banner -->
+            <div class="st-insight" id="stInsight">
+              <div class="st-insight-icon">↑</div>
+              <div class="st-insight-text">
+                Humps Wavy toughness represents a
+                <strong>~2× improvement over T-Slot</strong> (3.99 vs 1.93
+                MJ/m³) — demonstrating that auxiliary interlocking with curved,
+                compliant geometry substantially enhances energy absorption
+                beyond primary-only designs.
+              </div>
+            </div>
+          </div>
+
+          <p>
+            The practical implication: these are not simply better and worse
+            versions of the same design. The humps scarf joint and the humps
+            wavy joint occupy different positions in the strength-toughness
+            design space, and the choice between them is a function of the
+            structural requirement — maximum load capacity, or maximum energy
+            absorption before failure.
+          </p>
+        </section>
+
+        <!-- Section: Benchmarking -->
+        <section id="benchmarking">
+          <h2>Benchmarking Against Everything Else</h2>
+          <p>
+            A standout feature of the Davaasambuu et al. paper is its normalized
+            comparison of aluminium-nylon joint performance across 18
+            configurations drawn from the literature, spanning friction stir
+            welding, injection moulding, hot pressing, laser welding, additive
+            manufacturing, and adhesive bonding. Because those studies use nylon
+            grades with bulk strengths ranging from 81 MPa to 404 MPa (depending
+            on fiber reinforcement content), raw MPa comparisons are misleading.
+            The paper normalizes each joint's measured strength by its own nylon
+            material's bulk tensile strength.
+          </p>
+
+          <!-- INFOGRAPHICS START 5 -->
+
+          <div class="njs-root nj-outer-wrap">
+            <div class="njs-header">
+              <div class="njs-label">Benchmarking — Table 3 / Figure 10c</div>
+              <p class="njs-title">Normalised Joint Strength</p>
+              <div class="njs-formula">
+                Joint UTS <span>÷</span> Nylon Bulk UTS
+              </div>
+              <p class="njs-subtitle">
+                Selected configurations — this study vs. external literature
+                techniques
+              </p>
+            </div>
+
+            <div class="njs-card" id="njsCard">
+              <div class="njs-legend">
+                <div class="njs-legend-item">
+                  <div class="njs-legend-dot" style="background: #47577c"></div>
+                  This Study
+                </div>
+                <div class="njs-legend-item">
+                  <div class="njs-legend-dot" style="background: #9d9d9c"></div>
+                  External Literature
+                </div>
+                <div class="njs-legend-item">
+                  <div class="njs-legend-dot" style="background: #bf3425"></div>
+                  Top Performers
+                </div>
+              </div>
+
+              <!-- EXTERNAL TOP -->
+              <div class="njs-section-label ext">External Literature</div>
+
+              <!-- Wang 2023 — 0.31 → 100% -->
+              <div class="njs-row" data-delay="0">
+                <div class="njs-name">
+                  <span class="njs-name-text external">Injection Moulding</span>
+                  <span class="njs-name-ref">Wang (2023)</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="100"
+                      style="background: #bf3425"
+                    >
+                      <span class="njs-badge">← Highest</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="njs-val">0.31</div>
+              </div>
+
+              <!-- THIS STUDY — novel -->
+              <div class="njs-section-label study">
+                This Study — Novel Designs
+              </div>
+
+              <!-- Humps Scarf — 0.27 → 87.1% -->
+              <div class="njs-row" data-delay="1">
+                <div class="njs-name">
+                  <span class="njs-name-text">Humps Scarf</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="87.1"
+                      style="background: #bf3425; opacity: 0.8"
+                    >
+                      <span class="njs-badge">← 2nd Overall</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="njs-val">0.27</div>
+              </div>
+
+              <!-- Humps Wavy — 0.20 → 64.5% -->
+              <div class="njs-row" data-delay="2">
+                <div class="njs-name">
+                  <span class="njs-name-text">Humps Wavy</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="64.5"
+                      style="background: #47577c"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.20</div>
+              </div>
+
+              <!-- THIS STUDY — control -->
+              <div class="njs-section-label study">
+                This Study — Control Designs
+              </div>
+
+              <!-- T-Slot — 0.19 → 61.3% -->
+              <div class="njs-row" data-delay="3">
+                <div class="njs-name">
+                  <span class="njs-name-text">T-Slot</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="61.3"
+                      style="background: #47577c; opacity: 0.85"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.19</div>
+              </div>
+
+              <!-- Elliptical — 0.16 → 51.6% -->
+              <div class="njs-row" data-delay="4">
+                <div class="njs-name">
+                  <span class="njs-name-text">Elliptical</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="51.6"
+                      style="background: #47577c; opacity: 0.7"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.16</div>
+              </div>
+
+              <!-- EXTERNAL MID -->
+              <div class="njs-section-label ext">External Literature</div>
+
+              <!-- Adhesive Bonding — 0.16 → 51.6% -->
+              <div class="njs-row" data-delay="5">
+                <div class="njs-name">
+                  <span class="njs-name-text external">Adhesive Bonding</span>
+                  <span class="njs-name-ref">Polat (2018)</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="51.6"
+                      style="background: #9d9d9c"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.16</div>
+              </div>
+
+              <!-- FSW2 — 0.10 → 32.3% -->
+              <div class="njs-row" data-delay="6">
+                <div class="njs-name">
+                  <span class="njs-name-text external">Friction Stir Weld</span>
+                  <span class="njs-name-ref">FSW2</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="32.3"
+                      style="background: #9d9d9c; opacity: 0.8"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.10</div>
+              </div>
+
+              <!-- Additive Manufacturing — 0.09 → 29% -->
+              <div class="njs-row" data-delay="7">
+                <div class="njs-name">
+                  <span class="njs-name-text external"
+                    >Additive Manufacturing</span
+                  >
+                  <span class="njs-name-ref">Literature</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="29.0"
+                      style="background: #9d9d9c; opacity: 0.65"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.09</div>
+              </div>
+
+              <!-- THIS STUDY — lowest control -->
+              <div class="njs-section-label study">
+                This Study — Control Designs
+              </div>
+
+              <!-- Dovetail — 0.06 → 19.4% -->
+              <div class="njs-row" data-delay="8">
+                <div class="njs-name">
+                  <span class="njs-name-text">Dovetail</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="19.4"
+                      style="background: #9d9d9c; opacity: 0.7"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.06</div>
+              </div>
+
+              <!-- Adapted Dovetail — 0.05 → 16.1% -->
+              <div class="njs-row" data-delay="9">
+                <div class="njs-name">
+                  <span class="njs-name-text">Adapted Dovetail</span>
+                  <span class="njs-name-ref this">This Study</span>
+                </div>
+                <div class="njs-bar-area">
+                  <div class="njs-bar-track">
+                    <div
+                      class="njs-bar-fill"
+                      data-pct="16.1"
+                      style="background: #9d9d9c; opacity: 0.55"
+                    ></div>
+                  </div>
+                </div>
+                <div class="njs-val">0.05</div>
+              </div>
+            </div>
+            <!-- /card -->
+
+            <div class="njs-footnote" id="njsFootnote">
+              <strong>Note:</strong> Some FSW and hot press studies did not
+              report nylon bulk UTS and appear as N/A in the paper's Figure 10c
+              — those entries are excluded here. Bars scaled to Wang (2023)
+              injection moulding result (0.31), the highest reported normalised
+              strength in the benchmark set.
+            </div>
+          </div>
+          <p>
+            The injection moulding result at the top of the chart (Wang et al.,
+            2023) uses chemically functionalized aluminium with reactive epoxide
+            silane coupling to create what is effectively a hybrid
+            mechanical-chemical bond — a fundamentally different mechanism from
+            purely geometric interlocking. Setting that aside, the humps scarf
+            joint leads all mechanical interlocking configurations, and both
+            novel designs outperform friction stir welded, adhesive bonded, and
+            additively manufactured joint configurations on a normalised basis.
+            The paper's authors read these results as support for rethinking how
+            dissimilar-material joints are made — geometric interlocking without
+            chemical treatment or welding heat can reach normalised strength
+            levels that process-intensive methods spend significant
+            manufacturing cost to achieve.
+          </p>
+        </section>
+
+        <!-- Section: AFP Perspective -->
+        <section id="afp-perspective">
+          <h2>
+            Addcomposites' Perspective: From Machined Specimens to AFP Tow Paths
+          </h2>
+
+          <div class="highlight-box">
+            <p>
+              The analysis below reflects Addcomposites' own interpretation of
+              the research implications for AFP-manufactured CFRP structures.
+              The paper's authors make no claims about AFP manufacturing, and
+              this section should not be read as representing their views or
+              conclusions.
+            </p>
+          </div>
+
+          <p>
+            The Davaasambuu et al. study was conducted on machined
+            aluminium-nylon specimens. The nylon male parts were produced by CNC
+            machining, not fiber placement. The conclusions — that auxiliary
+            interlocking features suppress mortise groove bending, shift failure
+            into the material, and can double joint toughness relative to
+            conventional designs — are geometric and mechanical, and they
+            transfer to any material system where the interlocking geometry can
+            be realized at the required dimensional tolerance.
+          </p>
+          <p>
+            For AFP-manufactured CFRP panels and frames joined to metallic
+            substructures, the path is direct. The aluminium female part is
+            CNC-machined — exactly as in the experimental program. The CFRP male
+            part, today typically drilled for fasteners, can instead be
+            AFP-layered with tow paths that build the interlocking hump geometry
+            into the panel edge or beam end during part fabrication. Fiber
+            orientation in the neck region carries the primary tensile load; ply
+            management at the shoulder feeds load into the auxiliary
+            interlocking feature rather than into a hole.
+          </p>
+
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f14ce130f66c8b7c8b2_4.png"
+                alt="The AFP-XS head depositing carbon fiber tow onto a profiled CFRP preform"
+              />
+              <p class="image-caption">
+                The AFP-XS head depositing carbon fiber tow onto a profiled CFRP
+                preform — tow path orientation and layup sequence are
+                programmable parameters, making edge geometry a design variable
+                rather than a post-machining step.
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                This matters most at two specific failure modes the paper
+                identifies. First, the neck fracture failure mode that the humps
+                scarf joint achieves is essentially an in-plane tensile fiber
+                failure — the mode that continuous-fiber AFP layups are most
+                efficient at resisting. AFP tow path orientation in the neck can
+                be aligned with the load direction with a precision unachievable
+                by hand layup or by post-machining. Second, the paper's
+                conclusions flag neck width as the primary geometric lever for
+                further improvement — a wider neck expands the load-bearing
+                cross-section and reduces the stress concentration that caused
+                fracture in the humps scarf design. In AFP, neck width is a tow
+                path parameter, not a tooling change.
+              </p>
+              <p>
+                The paper also notes that both novel designs enable
+                interference-fit assembly without generating the local stress at
+                mortise grooves that conventional interlocking joints produce
+                under press-fit conditions. This is significant for
+                AFP-manufactured parts: it means the CFRP male component can be
+                assembled into the aluminium female without inducing
+                delamination-promoting compressive stress at the joint interface
+                during assembly.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            The dimensional tolerance requirements are real — all specimens in
+            the paper were assembled at zero clearance, and all were machined by
+            CNC and EDM to achieve that fit. AFP-XS part-to-part repeatability,
+            combined with a machined aluminium female part, provides the
+            dimensional consistency this design principle requires. That same
+            repeatability is what makes iterating on neck width, hump geometry,
+            or auxiliary feature angle a practical design exploration rather
+            than a one-off fabrication exercise.
+          </p>
+        </section>
+
+        <!-- Section: Three Takeaways -->
+        <section id="three-takeaways">
+          <h2>Three Takeaways for Joint Design</h2>
+          <p>
+            The research published by Davaasambuu et al. supports three
+            conclusions that are directly applicable to structural composite
+            joint design, independent of the AFP context:
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4>Interlocking angle is not the primary design variable</h4>
+                <p>
+                  The paper demonstrates that a 65° adapted dovetail performs
+                  worse than a 79° standard dovetail — reversing the expected
+                  trend. Bending resistance of the female mortise groove matters
+                  at least as much as the angle, and for some configurations,
+                  more. Optimizing angle without addressing bending produces
+                  unpredictable results.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4>
+                  Auxiliary features are load path engineering, not decoration
+                </h4>
+                <p>
+                  The performance gap between the novel joints and the
+                  conventional bionic joints — 1.7× to 6× depending on the
+                  comparison — is attributable entirely to one structural
+                  feature that required no increase in joint complexity: a
+                  shoulder that prevents the female part from rotating. In load
+                  path terms, it eliminates the dominant failure mechanism
+                  rather than working around it.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h4>
+              The design target is material failure, not interface failure
+            </h4>
+            <p>
+              Any joint that fails at the aluminium-polymer interface is failing
+              because of geometry, not because of the materials. The humps scarf
+              joint's failure mode — fracture through the nylon neck — means the
+              geometry was successful. Future optimization of that joint is a
+              material optimization problem, which is a solved problem in
+              engineering. Future optimization of a joint that fails at the
+              interface is a geometry problem that has not been solved.
+            </p>
+          </div>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a16bcdb3787970fe6e381d4_7.png"
+            alt="DIC axial strain sequence for the humps scarf joint showing progressive strain concentration in the nylon neck and final fracture"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            DIC axial strain sequence for the humps scarf joint: (e) uniform
+            strain at initial load, (f–g) strain concentrating progressively in
+            the nylon neck while the aluminium mortise grooves remain unbent,
+            (h) final fracture through the nylon neck — the aluminium part
+            intact. Failure inside the material, not at the interface. Figure 6
+            (panels e–h) from: Davaasambuu, K.; Basak, A.K.; Dong, Y.; Pramanik,
+            A. "Bio-Inspired Novel Joints with Superior Mechanical Performance."
+            <em>J. Compos. Sci.</em> 2025, 9, 501.
+            <a
+              href="https://doi.org/10.3390/jcs9090501"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/jcs9090501</a
+            >
+            — © 2025 by the authors. Licensed under
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CC BY 4.0</a
+            >.
+          </p>
+        </section>
+
+        <!-- Section: Read the Research -->
+        <section id="read-the-research">
+          <h2>Read the Research</h2>
+          <p>
+            All experimental data, figures, and joint geometry descriptions
+            referenced in this post are drawn from:
+          </p>
+          <p>
+            Davaasambuu, K.; Basak, A.K.; Dong, Y.; Pramanik, A. "Bio-Inspired
+            Novel Joints with Superior Mechanical Performance."
+            <em>Journal of Composites Science</em> 2025, 9, 501. Full text and
+            DOI:
+            <a
+              href="https://doi.org/10.3390/jcs9090501"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/jcs9090501</a
+            >
+            Open Access — © 2025 by the authors. Licensed under
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CC BY 4.0</a
+            >.
+          </p>
+
+          <p>
+            If you're designing CFRP-to-metal connections and want to discuss
+            how AFP tow path programming can translate interlocking geometry
+            into manufactured parts, contact the Addcomposites team.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="AFP manufacturing of composite components"
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Compact, plug-and-play AFP system</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon
+                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  ></polygon>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <p>
+              Get in touch to discuss your CFRP-to-metal connection and AFP tow
+              path programming application →
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              style="color: white"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>References</h2>
+          <ol class="references-list">
+            <li>
+              Davaasambuu, K.; Basak, A.K.; Dong, Y.; Pramanik, A. "Bio-Inspired
+              Novel Joints with Superior Mechanical Performance."
+              <em>Journal of Composites Science</em> 2025, 9, 501.
+              <a
+                href="https://doi.org/10.3390/jcs9090501"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/jcs9090501</a
+              >
+            </li>
+            <li>
+              Rivera, J. et al. "Toughening mechanisms of the elytra of the
+              diabolical ironclad beetle." <em>Nature</em> 2020, 586, 543–548.
+              <a
+                href="https://doi.org/10.1038/s41586-020-2813-8"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.1038/s41586-020-2813-8</a
+              >
+            </li>
+            <li>
+              Xing, Y. et al. "Mechanics of elliptical interlocking sutures in
+              biological interfaces." <em>Acta Biomaterialia</em> 2024, 192,
+              90–100.
+            </li>
+            <li>
+              Mirkhalaf, M.; Dastjerdi, A.K.; Barthelat, F. "Overcoming the
+              brittleness of glass through bio-inspiration and
+              micro-architecture." <em>Nature Communications</em> 2014, 5, 3166.
+            </li>
+            <li>
+              Wang, B. et al. "Functionalization of aluminum alloy surface with
+              reactive epoxide silane to induce ultra-high strength polyamide
+              6/aluminum alloy composite joint."
+              <em>Applied Surface Science</em> 2023, 626, 157231.
+            </li>
+          </ol>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
