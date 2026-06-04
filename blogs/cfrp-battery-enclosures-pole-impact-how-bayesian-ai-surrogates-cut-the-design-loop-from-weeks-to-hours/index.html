@@ -1,0 +1,2265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CFRP Battery Enclosures for −40 °C Side-Pole Impact: How Bayesian AI
+      Surrogates Cut the Design Loop From Weeks to Hours | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A new open-access study trains machine-learning surrogates on just 50 crash simulations to map an entire lightweight CFRP enclosure design space against China's incoming GB 38031-2025 safety regime."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#regulatory-clock" class="blog-sidebar-link active"
+            >Regulatory Clock</a
+          >
+          <a href="#cold-weather-trap" class="blog-sidebar-link"
+            >Cold-Weather Data Trap</a
+          >
+          <a href="#workflow" class="blog-sidebar-link">Workflow at a Glance</a>
+          <a href="#surrogate-training" class="blog-sidebar-link"
+            >Training on 50 Runs</a
+          >
+          <a href="#pof-gate" class="blog-sidebar-link">Probability Gate</a>
+          <a href="#bimodal-pareto" class="blog-sidebar-link">Bimodal Pareto</a>
+          <a href="#fe-reruns" class="blog-sidebar-link"
+            >Reality Check: FE Reruns</a
+          >
+          <a href="#hours-not-weeks" class="blog-sidebar-link"
+            >Hours, Not Weeks</a
+          >
+          <a href="#afp-fit" class="blog-sidebar-link">Where AFP Fits</a>
+          <a href="#paper-limits" class="blog-sidebar-link">Paper's Limits</a>
+          <a href="#takeaway" class="blog-sidebar-link">Takeaway</a>
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          CFRP Battery Enclosures for −40 °C Side-Pole Impact: How Bayesian AI
+          Surrogates Cut the Design Loop From Weeks to Hours
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            June 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            18 min read
+          </span>
+        </div>
+
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212128b75fd2c9d1726822_1.png"
+          alt="CFRP Battery Enclosures for −40 °C Side-Pole Impact"
+          class="full-width-image"
+        />
+
+        <!-- Introduction -->
+        <section id="introduction">
+          <p class="drop-cap">
+            A new open-access study trains machine-learning surrogates on just
+            50 crash simulations to map an entire lightweight CFRP enclosure
+            design space against China's incoming GB 38031-2025 safety regime —
+            and shows why "probably safe" beats "passes on paper" for
+            cold-weather composites.
+          </p>
+          <p>
+            When an electric vehicle is built to survive a cold-climate market,
+            the battery enclosure has a harder job than the spec sheet suggests.
+            Carbon fiber reinforced polymer (CFRP) is the obvious lightweighting
+            candidate — high specific stiffness, high specific strength — but
+            the same material behaves differently at −40 °C than it does in a
+            comfortable lab. And the regulatory bar it has to clear is moving.
+          </p>
+          <p>
+            A study published 13 February 2026 in <em>Batteries</em> (MDPI),
+            open access under CC BY 4.0, tackles exactly this intersection.
+            Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin Sun, and Han Zhang
+            set out to jointly minimize two things for a CFRP-enabled battery
+            pack enclosure — total mass and peak intrusion — under an
+            extreme-cold side-pole extrusion scenario aligned to China's GB
+            38031-2025 standard. The twist is how they do it: instead of
+            grinding through hundreds of expensive finite element (FE) crash
+            runs, they train Bayesian surrogate models on a deliberately tiny
+            dataset and let probability, not a single deterministic number,
+            decide what counts as safe.
+          </p>
+          <p>
+            This post walks through what the paper actually demonstrates,
+            visualizes its real numbers, and — kept clearly separate — offers
+            our own read on what it means for teams manufacturing CFRP
+            enclosures with automated fiber placement.
+          </p>
+          <div class="highlight-box">
+            <h4>A note on framing</h4>
+            <p>
+              Throughout, "the paper shows" or "according to the authors" marks
+              findings from the study itself. "Our perspective" marks
+              Addcomposites' own commentary. The study's authors did not review,
+              endorse, or contribute to this post, and nothing here should be
+              read as their validation of Addcomposites or its products.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 1: Regulatory Clock -->
+        <section id="regulatory-clock">
+          <h2>The regulatory clock that makes this urgent</h2>
+          <p>
+            China's revised mandatory national standard GB 38031-2025 ("Safety
+            Requirements for Power Batteries Used in Electric Vehicles") was
+            released in 2025 and applies to all newly type-approved EV models in
+            China from 1 July 2026, with existing type-approved models required
+            to comply from 1 July 2027. It is widely described as the strictest
+            battery-safety standard yet, comprising 7 single-cell tests and 17
+            battery pack or system tests, including a newly added battery
+            bottom-impact test and a post-fast-charge safety test. Its headline
+            change is the elevation of a mandatory "no fire, no explosion"
+            criterion: batteries must not catch fire or explode during or after
+            an internal thermal runaway event.
+          </p>
+          <p>
+            Mechanical abuse is one of the paths to that thermal runaway. The
+            paper's contribution sits on the structural side of the problem: it
+            adopts the standard's lateral rigid-pole extrusion protocol and
+            studies it at a deliberately punishing −40 °C, because cold changes
+            how composite enclosures absorb and resist intrusion. The −40 °C
+            condition is the authors' chosen extreme-cold design scenario
+            layered onto the standard's mechanical test — not a separate
+            temperature mandated by the regulation.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a21212749647b450a68225b_2.png"
+            alt="GB 38031-2025 regulatory context"
+            class="full-width-image"
+          />
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              For any supplier with an EV program touching the Chinese market,
+              July 2026 is no longer abstract. Structure-level verification of
+              the enclosure is now a gate, not a nice-to-have — and that raises
+              the value of any methodology that can qualify a CFRP design
+              without an open-ended simulation budget.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Cold-Weather Data Trap -->
+        <section id="cold-weather-trap">
+          <h2>The cold-weather composite data trap</h2>
+          <p>
+            Here is the engineering knot the paper describes. CFRP at low
+            temperature is, in the authors' framing, "available but not
+            self-consistent." Plenty of low-temperature coupon data exists, but
+            the results shift with which fibre–resin pairing is used, how the
+            plies are stacked, how the laminate was cured, and even how the test
+            itself is defined. Stitching parameters together from multiple
+            sources risks importing hidden inconsistencies that quietly corrupt
+            a simulation. Building a fully consistent −40 °C database for every
+            candidate layup, on the other hand, is cost-prohibitive.
+          </p>
+          <p>
+            The paper's response is a single-anchor strategy: pick one
+            coupon-level dataset with measured −40 °C properties, use it
+            consistently across every run, record the provenance of each
+            parameter — and then, rather than pretend the inputs are certain,
+            treat that scatter as a first-class part of the design problem
+            instead of a footnote.
+          </p>
+          <p>
+            The second bottleneck is compute. Explicit-dynamics pole-crash
+            simulations are slow because the solver's safe step size is dictated
+            by the tiniest element and how fast a wave crosses it, so the dense
+            meshing around the contact zone drags runtimes up. Multiply that by
+            nine design variables and brute-force FE simply cannot afford to
+            explore the space.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 1 -->
+
+          <div class="tb-container">
+            <!-- Header -->
+            <div class="tb-header tb-reveal">
+              <div class="tb-eyebrow">Paper Analysis</div>
+              <div class="tb-title">The Two Bottlenecks</div>
+              <div class="tb-subtitle">
+                Two independent sources of friction — one in data, one in
+                compute — converge on a single methodological answer
+              </div>
+            </div>
+
+            <!-- Two bottleneck cards -->
+            <div class="tb-columns">
+              <!-- Left: Cold-weather data -->
+              <div class="tb-card navy tb-reveal tb-reveal-delay-1">
+                <div class="tb-card-header">
+                  <div class="tb-card-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07l14.14-14.14"
+                      />
+                    </svg>
+                  </div>
+                  <span class="tb-card-label">Cold-Weather Data</span>
+                </div>
+                <div class="tb-card-body">
+                  <div class="tb-trigger-label">Scatter caused by</div>
+                  <ul class="tb-scatter-list">
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Fiber / resin variation</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Layup differences</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Cure route variation</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Test metric used</span>
+                    </li>
+                  </ul>
+                  <div class="tb-problem-tag">system-mismatch uncertainty</div>
+                </div>
+              </div>
+
+              <!-- Right: Compute cost -->
+              <div class="tb-card red tb-reveal tb-reveal-delay-2">
+                <div class="tb-card-header">
+                  <div class="tb-card-icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <path d="M8 21h8M12 17v4" />
+                    </svg>
+                  </div>
+                  <span class="tb-card-label">Compute Cost</span>
+                </div>
+                <div class="tb-card-body">
+                  <div class="tb-trigger-label">Bottleneck factors</div>
+                  <ul class="tb-scatter-list">
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Tiny stable time step (explicit FE crash run)</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Fine contact meshing required</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>9 design variables</span>
+                    </li>
+                    <li class="tb-scatter-item">
+                      <span class="tb-scatter-dot"></span>
+                      <span>Repeat per scenario</span>
+                    </li>
+                  </ul>
+                  <div class="tb-problem-tag">
+                    brute-force multi-objective search = unaffordable
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SVG convergence funnel -->
+            <div class="tb-converge-wrap tb-reveal tb-reveal-delay-3">
+              <svg
+                class="tb-converge-svg"
+                viewBox="0 0 900 72"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Left stream: from center of left card to center bottom -->
+                <line
+                  x1="225"
+                  y1="0"
+                  x2="450"
+                  y2="60"
+                  stroke="#47577c"
+                  stroke-width="2.5"
+                  stroke-dasharray="6 4"
+                  opacity="0.7"
+                />
+                <!-- Right stream: from center of right card to center bottom -->
+                <line
+                  x1="675"
+                  y1="0"
+                  x2="450"
+                  y2="60"
+                  stroke="#bf3425"
+                  stroke-width="2.5"
+                  stroke-dasharray="6 4"
+                  opacity="0.7"
+                />
+                <!-- Arrowhead down -->
+                <polygon
+                  points="442,56 450,70 458,56"
+                  fill="#47577c"
+                  opacity="0.85"
+                />
+              </svg>
+            </div>
+
+            <!-- Resolution -->
+            <div class="tb-resolution tb-reveal tb-reveal-delay-4">
+              <div class="tb-res-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </div>
+              <div class="tb-res-text">
+                <div class="tb-res-label">Answer</div>
+                <div class="tb-res-answer">
+                  Model the uncertainty, and spend FE runs sparingly
+                </div>
+                <div class="tb-res-sub">
+                  Address both bottlenecks with a single methodological shift
+                </div>
+              </div>
+            </div>
+
+            <!-- Two outcome pills -->
+            <div class="tb-outcomes tb-reveal tb-reveal-delay-5">
+              <div class="tb-outcome">
+                <div class="tb-outcome-num">1</div>
+                <div class="tb-outcome-body">
+                  <div class="tb-outcome-title">Model the uncertainty</div>
+                  <div class="tb-outcome-desc">
+                    Treat −40°C coupon scatter as a quantifiable input
+                    distribution, not noise to be eliminated
+                  </div>
+                </div>
+              </div>
+              <div class="tb-outcome">
+                <div class="tb-outcome-num">2</div>
+                <div class="tb-outcome-body">
+                  <div class="tb-outcome-title">Spend FE runs sparingly</div>
+                  <div class="tb-outcome-desc">
+                    Replace brute-force multi-objective search with a
+                    surrogate-guided strategy
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Workflow at a Glance -->
+        <section id="workflow">
+          <h2>The workflow at a glance</h2>
+          <p>
+            The study spends a fixed budget of exactly 50 high-fidelity FE runs
+            and never exceeds it. Those 50 runs are partitioned
+            deterministically — using a fixed seed so the split is reproducible
+            — into a 37 / 5 / 5 / 3 structure: 37 runs to train the first
+            surrogate, two enrichment batches of 5 runs each that grow the
+            training set to 42 and then 47, and a strict 3-run hold-out that is
+            quarantined from all fitting, tuning, and selection.
+          </p>
+
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212127c4a790a40cbdbe54_3.png"
+                alt="Six-stage workflow overview"
+              />
+
+              <p class="image-caption">
+                Six-stage workflow overview: −40 °C side-pole impact scenario
+                (battery enclosure with rigid pole) → high-fidelity FE DOE
+                (wireframe mesh model) → Bayesian surrogate modeling with
+                uncertainty band (GPR/BART) → PoF screening against threshold η
+                → bimodal Pareto front (two separate dot clusters) → selected
+                design with FE rerun confirmation (shield + checkmark).
+                Graphical abstract from: Desheng Zhang, Jieguo Liao, Longbin
+                Wang, Zhenxin Sun, Han Zhang. "Uncertainty-Aware Lightweight
+                Design of CFRP Battery Enclosure Under Extreme Cold Side-Pole
+                Impact via Bayesian Surrogates." Batteries 2026, 12, 61.
+                <a
+                  href="https://doi.org/10.3390/batteries12020061"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/batteries12020061</a
+                >
+                — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Six-stage surrogate workflow</h3>
+
+              <p>
+                Diagram built by Addcomposites from the 37/5/5/3 protocol
+                described in Zhang et al., Batteries 2026, 12, 61 (
+                <a
+                  href="https://doi.org/10.3390/batteries12020061"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/batteries12020061</a
+                >) .
+              </p>
+              <p>
+                Three scalar responses come out of every FE run: enclosure mass
+                M, peak intrusion L along the loading direction, and peak von
+                Mises stress in the lateral anti-collision beam (Stress). Mass
+                and intrusion are the two objectives to minimize; stress is
+                treated as a feasibility constraint rather than an objective.
+              </p>
+              <p>
+                The design vector has nine variables: five are component
+                thicknesses (end bulkhead, cooling plate, load-distribution
+                support plate, lower case, and lateral anti-collision beam), and
+                four are CFRP layup weights for the 0°, +45°, −45°, and 90° ply
+                orientations. Those four weights are normalized into ply ratios
+                that sum to one and then mapped to integer ply counts with a
+                rounding-and-repair step that, among other things, keeps the
+                ±45° plies balanced.
+              </p>
+            </div>
+          </div>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 2 -->
+
+          <div class="sc-container">
+            <!-- Header -->
+            <div class="sc-header sc-reveal">
+              <div class="sc-eyebrow">Surrogate Modelling Strategy</div>
+              <div class="sc-title">
+                50-Run FE Budget, Spent as a Sequential Campaign
+              </div>
+              <div class="sc-subtitle">
+                Each arrow = test-then-update: score the batch the model has NOT
+                seen, record error, THEN absorb it
+              </div>
+            </div>
+
+            <!-- Budget bar -->
+            <div class="sc-budget-bar-wrap sc-reveal sc-d1">
+              <div class="sc-budget-label-row">
+                <span class="sc-budget-label">Total FE Budget</span>
+                <span class="sc-budget-total">50 runs</span>
+              </div>
+              <div class="sc-budget-track">
+                <div class="sc-budget-fill" id="scBudgetFill"></div>
+              </div>
+              <div class="sc-budget-segments">
+                <div class="sc-seg">
+                  <div class="sc-seg-dot sc-seg-navy"></div>
+                  <span class="sc-seg-text">37 initial</span>
+                </div>
+                <div class="sc-seg">
+                  <div class="sc-seg-dot sc-seg-gray"></div>
+                  <span class="sc-seg-text">+5 enrichment ×2</span>
+                </div>
+                <div class="sc-seg">
+                  <div class="sc-seg-dot sc-seg-red"></div>
+                  <span class="sc-seg-text">3 hold-out (locked)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pipeline -->
+            <div class="sc-pipeline">
+              <!-- STAGE 1: 37 Initial -->
+              <div class="sc-stage sc-reveal sc-d2">
+                <div class="sc-rail">
+                  <div class="sc-node sc-node-navy">1</div>
+                  <div class="sc-connector"></div>
+                </div>
+                <div class="sc-card navy">
+                  <div class="sc-card-top">
+                    <span class="sc-card-label">Initial Training Set</span>
+                    <div class="sc-run-badge">
+                      <span class="sc-run-count navy">37</span>
+                      <span class="sc-run-label">runs</span>
+                    </div>
+                  </div>
+                  <div class="sc-dots" id="scDots1"></div>
+                  <div class="sc-action-row">
+                    <div class="sc-action-pill sc-pill-train">
+                      <span class="sc-pill-icon">⚙</span>Train surrogate
+                    </div>
+                    <div class="sc-action-pill sc-pill-test">
+                      <span class="sc-pill-icon">→</span>Test on next 5
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arrow 1 -->
+              <div class="sc-arrow-wrap sc-reveal sc-d3">
+                <div class="sc-arrow-rail">
+                  <div
+                    class="sc-connector dashed"
+                    style="width: 3px; height: 36px"
+                  ></div>
+                </div>
+                <div class="sc-arrow-body">
+                  <div class="sc-arrow-line"></div>
+                  <div class="sc-arrow-tag">retrain → test on next 5</div>
+                  <div class="sc-arrow-line"></div>
+                </div>
+              </div>
+
+              <!-- STAGE 2: +5 → 42 Enrichment Round 1 -->
+              <div class="sc-stage sc-reveal sc-d4">
+                <div class="sc-rail">
+                  <div class="sc-node sc-node-mid">2</div>
+                  <div class="sc-connector"></div>
+                </div>
+                <div class="sc-card mid">
+                  <div class="sc-card-top">
+                    <span class="sc-card-label">Enrichment Round 1</span>
+                    <div class="sc-run-badge">
+                      <span class="sc-run-count mid">42</span>
+                      <span class="sc-run-label"
+                        >runs<br /><span style="font-size: 9px; color: #9d9d9c"
+                          >(+5 → 42)</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div class="sc-dots" id="scDots2"></div>
+                  <div class="sc-action-row">
+                    <div class="sc-action-pill sc-pill-train">
+                      <span class="sc-pill-icon">⚙</span>Retrain surrogate
+                    </div>
+                    <div class="sc-action-pill sc-pill-test">
+                      <span class="sc-pill-icon">→</span>Test on next 5
+                    </div>
+                  </div>
+                  <div class="sc-note">
+                    <strong>Score</strong> the batch the model has NOT seen →
+                    record error → absorb into training
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arrow 2 -->
+              <div class="sc-arrow-wrap sc-reveal sc-d5">
+                <div class="sc-arrow-rail">
+                  <div
+                    class="sc-connector dashed"
+                    style="width: 3px; height: 36px"
+                  ></div>
+                </div>
+                <div class="sc-arrow-body">
+                  <div class="sc-arrow-line"></div>
+                  <div class="sc-arrow-tag">final surrogate</div>
+                  <div class="sc-arrow-line"></div>
+                </div>
+              </div>
+
+              <!-- STAGE 3: +5 → 47 Enrichment Round 2 -->
+              <div class="sc-stage sc-reveal sc-d5">
+                <div class="sc-rail">
+                  <div class="sc-node sc-node-gray">3</div>
+                  <div class="sc-connector"></div>
+                </div>
+                <div class="sc-card gray">
+                  <div class="sc-card-top">
+                    <span class="sc-card-label">Enrichment Round 2</span>
+                    <div class="sc-run-badge">
+                      <span class="sc-run-count gray">47</span>
+                      <span class="sc-run-label"
+                        >runs<br /><span style="font-size: 9px; color: #9d9d9c"
+                          >(+5 → 47)</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div class="sc-dots" id="scDots3"></div>
+                  <div class="sc-action-row">
+                    <div class="sc-action-pill sc-pill-train">
+                      <span class="sc-pill-icon">⚙</span>Final surrogate
+                    </div>
+                  </div>
+                  <div class="sc-note">
+                    <strong>Score</strong> the batch the model has NOT seen →
+                    record error → absorb into training
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arrow 3 to hold-out -->
+              <div class="sc-arrow-wrap sc-reveal sc-d6">
+                <div class="sc-arrow-rail">
+                  <div
+                    class="sc-connector dashed"
+                    style="width: 3px; height: 36px"
+                  ></div>
+                </div>
+                <div class="sc-arrow-body">
+                  <div class="sc-arrow-line"></div>
+                  <div class="sc-arrow-tag red">
+                    independent validation only — used ONCE
+                  </div>
+                  <div class="sc-arrow-line"></div>
+                </div>
+              </div>
+
+              <!-- STAGE 4: 3 Hold-out -->
+              <div class="sc-stage sc-reveal sc-d7">
+                <div class="sc-rail">
+                  <div class="sc-node sc-node-red">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="11" width="18" height="11" rx="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="sc-card locked">
+                  <div class="sc-card-top">
+                    <span class="sc-card-label" style="color: #bf3425"
+                      >Hold-Out Set — Locked</span
+                    >
+                    <div class="sc-run-badge">
+                      <span class="sc-run-count red">3</span>
+                      <span class="sc-run-label"
+                        >runs<br /><span style="font-size: 9px; color: #bf3425"
+                          >reserved</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div class="sc-dots" id="scDots4"></div>
+                  <div class="sc-action-row">
+                    <div class="sc-action-pill sc-pill-lock">
+                      <span class="sc-pill-icon">🔒</span>Locked away
+                    </div>
+                  </div>
+                  <div
+                    class="sc-note"
+                    style="color: #bf3425; border-color: #f0b8b2"
+                  >
+                    <strong style="color: #bf3425"
+                      >Locked away from the start.</strong
+                    >
+                    Used <strong style="color: #bf3425">ONCE</strong>, for
+                    independent validation only — never seen during surrogate
+                    training or enrichment.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end pipeline -->
+          </div>
+
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a21212749647b450a682271_4.png"
+                alt="FE setup — battery enclosure pole-crash simulation"
+              />
+              <p class="image-caption">
+                Figure 1 from: Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin
+                Sun, Han Zhang. "Uncertainty-Aware Lightweight Design of CFRP
+                Battery Enclosure Under Extreme Cold Side-Pole Impact via
+                Bayesian Surrogates." Batteries 2026, 12, 61.
+                <a
+                  href="https://doi.org/10.3390/batteries12020061"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/batteries12020061</a
+                >
+                — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>FE setup</h3>
+
+              <p>
+                The paper's Figure 1 shows the assembly-level model: a 150
+                mm-diameter rigid pole is pushed along −Z into the long side of
+                the enclosure under controlled displacement, with the enclosure
+                held between two rigid walls;
+              </p>
+              <p>
+                the run halts at whichever limit comes first — 100 kN of
+                reaction force, or intrusion equal to 30 % of the loaded
+                dimension. An application-level protection rule is added on top
+                of the standard pass/fail criteria — intrusion must stay below
+                the 20 mm packaging clearance between the enclosure and the
+                modules.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Teaching a model on only 50 crash runs -->
+        <section id="surrogate-training">
+          <h2>Teaching a model on only 50 crash runs</h2>
+          <p>
+            The primary surrogate is BART (Bayesian Additive Regression Trees),
+            chosen because it copes with sharply nonlinear behaviour and
+            interacting variables even on a thin dataset, and — critically — it
+            hands back a spread of possible values rather than one lone number.
+            A separate BART model is fit for each of M, L, and Stress. As a
+            guard against leaning on one model family, the authors also fit a
+            Gaussian process regression (GPR / Kriging) surrogate with a Matérn
+            kernel as an independent cross-check on the same data split.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a21212722fbfd23150b4511_5.png"
+            alt="Flowchart of the full surrogate workflow"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Flowchart of the full surrogate workflow: 50-run DOE split
+            (37/5/5/3) → input normalisation → BART primary surrogate trained
+            sequentially at n = 37, 42, 47 → GPR reference model on the same
+            splits (dashed consistency-check arrow) → downstream outputs:
+            retrospective replay and feasibility-guided enrichment (PoF ×
+            uncertainty, top-5 per round). Figure 5 from: Desheng Zhang, Jieguo
+            Liao, Longbin Wang, Zhenxin Sun, Han Zhang. "Uncertainty-Aware
+            Lightweight Design of CFRP Battery Enclosure Under Extreme Cold
+            Side-Pole Impact via Bayesian Surrogates." Batteries 2026, 12, 61.
+            <a
+              href="https://doi.org/10.3390/batteries12020061"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/batteries12020061</a
+            >
+            — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p>
+            To track how accuracy evolves as data is added, the paper uses a
+            prequential (test-then-update) replay and reports normalized RMSE at
+            each stage. The pattern is the interesting part. According to the
+            authors, intrusion L becomes easier to predict as runs accumulate,
+            mass M stays low-error throughout, and stress stays hard to pin
+            down, which they tie to how sharply it concentrates at the contact
+            point.
+          </p>
+          <p>
+            The paper notes that the GPR cross-check follows the same trends — L
+            learns reliably, Stress stays difficult — which is the point of
+            running it. That divergence in difficulty between L and Stress is
+            what drives the entire feasibility strategy.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 3 -->
+
+          <div class="nrmse-container">
+            <div class="nrmse-header nrmse-reveal">
+              <div class="nrmse-eyebrow">BART Surrogate — Table 4</div>
+              <div class="nrmse-title">NRMSE vs Cumulative Training Size</div>
+              <div class="nrmse-subtitle">
+                Lower = better &nbsp;·&nbsp; Three output quantities tracked
+                across sequential enrichment rounds
+              </div>
+            </div>
+
+            <div class="nrmse-chart-wrap nrmse-reveal nrmse-d1">
+              <canvas id="nrmseChart"></canvas>
+            </div>
+
+            <div class="nrmse-verdicts nrmse-reveal nrmse-d2">
+              <!-- Stress -->
+              <div class="nrmse-verdict">
+                <div class="nrmse-verdict-top">
+                  <div
+                    class="nrmse-verdict-dot"
+                    style="background: #bf3425"
+                  ></div>
+                  <span class="nrmse-verdict-name">Stress (S)</span>
+                </div>
+                <div class="nrmse-verdict-values">
+                  37 runs → 0.541<br />
+                  42 runs → 0.545<br />
+                  47 runs → 0.523
+                </div>
+                <span class="nrmse-verdict-tag tag-high">stays high</span>
+              </div>
+              <!-- Mass -->
+              <div class="nrmse-verdict">
+                <div class="nrmse-verdict-top">
+                  <div
+                    class="nrmse-verdict-dot"
+                    style="background: #9d9d9c"
+                  ></div>
+                  <span class="nrmse-verdict-name">Mass (M)</span>
+                </div>
+                <div class="nrmse-verdict-values">
+                  37 runs → 0.165<br />
+                  42 runs → 0.091<br />
+                  47 runs → 0.180
+                </div>
+                <span class="nrmse-verdict-tag tag-noisy">low, noisy</span>
+              </div>
+              <!-- Intrusion -->
+              <div class="nrmse-verdict">
+                <div class="nrmse-verdict-top">
+                  <div
+                    class="nrmse-verdict-dot"
+                    style="background: #47577c"
+                  ></div>
+                  <span class="nrmse-verdict-name">Intrusion L (L)</span>
+                </div>
+                <div class="nrmse-verdict-values">
+                  37 runs → 0.220<br />
+                  42 runs → 0.170<br />
+                  47 runs → 0.071
+                </div>
+                <span class="nrmse-verdict-tag tag-good">improves clearly</span>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </section>
+
+        <!-- Section 5: Probability Gate -->
+        <section id="pof-gate">
+          <h2>Why stress gets a probability, not a hard line</h2>
+          <p>
+            The reasoning the paper builds on: if your stress predictor is the
+            least reliable model you have, enforcing it as a crisp pass/fail
+            line on a single predicted number is asking for trouble. A design
+            that looks fine under the mean prediction might tip over the limit
+            once you actually re-run the high-fidelity simulation.
+          </p>
+          <p>
+            The paper's answer is a probability-of-feasibility (PoF) gate.
+            Instead of checking whether the single predicted stress is below the
+            cap, it asks: across the surrogate's full posterior of predicted
+            stresses, what fraction fall below the cap? That fraction is the
+            PoF, tallied directly from the BART posterior draws by Monte Carlo
+            counting — with no bell-curve assumption layered on top.
+          </p>
+          <p>
+            A design is admitted to the feasible set only if its PoF is at least
+            η = 0.90. The stress cap itself is anchored to the baseline design:
+            σ_lim = 1.20 × σ_base, where σ_base = 342.0 MPa is the baseline's
+            peak stress under the same −40 °C setup, giving σ_lim = 410.4 MPa
+            with a deliberate 20 % screening margin.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 4 -->
+
+          <div class="gate-container">
+            <div class="gate-header gate-reveal">
+              <div class="gate-eyebrow">Probabilistic Feasibility Filter</div>
+              <div class="gate-title">
+                How a Candidate Gets Through the Gate
+              </div>
+              <div class="gate-subtitle">
+                Probability of Feasibility (PoF) replaces a single FE call —
+                uncertainty is kept visible until final sign-off
+              </div>
+            </div>
+
+            <div class="gate-flow">
+              <!-- Step 1: Candidate design -->
+              <div
+                class="gate-node gate-node-input gate-reveal gate-d1"
+                style="max-width: 300px"
+              >
+                <div class="gate-node-title">Candidate Design x</div>
+                <div class="gate-node-sub">
+                  A point in the 9-variable design space
+                </div>
+              </div>
+
+              <div class="gate-arrow-straight gate-reveal gate-d1">
+                <div class="gate-arrow-shaft"></div>
+                <div class="gate-arrow-head"></div>
+              </div>
+
+              <!-- Step 2: BART posterior -->
+              <div class="gate-node gate-node-process gate-reveal gate-d2">
+                <div class="gate-node-title">BART Posterior of Stress(x)</div>
+                <div class="gate-node-sub">
+                  Many draws from the surrogate — not one number, but a
+                  distribution capturing model uncertainty
+                </div>
+              </div>
+
+              <div class="gate-arrow-straight gate-reveal gate-d2">
+                <div class="gate-arrow-shaft"></div>
+                <div class="gate-arrow-head"></div>
+              </div>
+
+              <!-- Step 3: PoF computation -->
+              <div
+                class="gate-node gate-node-process gate-reveal gate-d3"
+                style="max-width: 460px"
+              >
+                <div class="gate-node-title">
+                  PoF = fraction of draws with Stress ≤ 410.4 MPa
+                </div>
+                <div class="gate-node-sub">
+                  Posterior samples below the stress limit → probability the
+                  design is structurally feasible
+                </div>
+              </div>
+
+              <div class="gate-arrow-straight gate-reveal gate-d3">
+                <div class="gate-arrow-shaft"></div>
+                <div class="gate-arrow-head"></div>
+              </div>
+
+              <!-- Step 4: Gate decision — branching -->
+              <div
+                class="gate-node gate-node-gate gate-reveal gate-d4"
+                style="max-width: 340px"
+              >
+                <div class="gate-node-title">PoF ≥ 0.90?</div>
+                <div class="gate-node-sub">Feasibility threshold check</div>
+              </div>
+
+              <!-- Branch split -->
+              <div class="gate-branch-wrap gate-reveal gate-d5">
+                <div class="gate-split-bar">
+                  <!-- vertical stem + horizontal bar drawn with absolute positioning -->
+                  <div class="gate-v-down"></div>
+                  <div class="gate-h-bar"></div>
+
+                  <!-- LEFT branch: FEASIBLE -->
+                  <div class="gate-branch-col">
+                    <div class="gate-drop">
+                      <div class="gate-drop-shaft"></div>
+                      <div class="gate-drop-head"></div>
+                    </div>
+                    <div class="gate-branch-card feasible">
+                      <div class="gate-branch-verdict">✓ Feasible</div>
+                      <div class="gate-branch-condition">PoF ≥ 0.90</div>
+                      <div class="gate-branch-detail">
+                        Keep for Pareto front<br />
+                        Passed to NSGA-II multi-objective optimisation
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RIGHT branch: INFEASIBLE -->
+                  <div class="gate-branch-col">
+                    <div class="gate-drop">
+                      <div class="gate-drop-shaft"></div>
+                      <div class="gate-drop-head"></div>
+                    </div>
+                    <div class="gate-branch-card infeasible">
+                      <div class="gate-branch-verdict">✗ Infeasible</div>
+                      <div class="gate-branch-condition">PoF &lt; 0.90</div>
+                      <div class="gate-branch-detail">
+                        Ranked after all feasible solutions<br />
+                        Effectively dropped from consideration
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reconverge arrows via SVG -->
+              <div
+                style="
+                  width: 100%;
+                  max-width: 700px;
+                  height: 36px;
+                  position: relative;
+                "
+                class="gate-reveal gate-d6"
+              >
+                <svg
+                  width="100%"
+                  height="36"
+                  viewBox="0 0 700 36"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- left leg: up from ~175 (left branch center) to center 350 -->
+                  <polyline
+                    points="175,0 175,28 350,28 350,36"
+                    fill="none"
+                    stroke="#c5cde0"
+                    stroke-width="2"
+                  />
+                  <!-- arrowhead at 350,36 -->
+                  <polygon points="344,30 350,36 356,30" fill="#c5cde0" />
+                </svg>
+              </div>
+
+              <!-- Step 5: Packaging clearance -->
+              <div
+                class="gate-node gate-node-clearance gate-reveal gate-d6"
+                style="max-width: 400px"
+              >
+                <div class="gate-node-title">Also require: L ≤ 20 mm</div>
+                <div class="gate-node-sub">
+                  Packaging clearance constraint — intrusion limit applied in
+                  addition to PoF gate
+                </div>
+              </div>
+
+              <div class="gate-arrow-straight gate-reveal gate-d7">
+                <div class="gate-arrow-shaft" style="background: #e8c96a"></div>
+                <div
+                  class="gate-arrow-head"
+                  style="border-top-color: #e8c96a"
+                ></div>
+              </div>
+
+              <!-- Step 6: Final sign-off -->
+              <div
+                class="gate-node gate-node-final gate-reveal gate-d8"
+                style="
+                  max-width: 480px;
+                  background: #47577c;
+                  border-color: #47577c;
+                "
+              >
+                <div class="gate-node-title" style="font-size: 14px">
+                  Final Sign-off
+                </div>
+                <div
+                  class="gate-node-sub"
+                  style="color: rgba(255, 255, 255, 0.8)"
+                >
+                  Independent FE rerun — not PoF alone.<br />
+                  Ground-truth simulation confirms the shortlisted design.
+                </div>
+              </div>
+            </div>
+            <!-- end flow -->
+          </div>
+
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212127473ced2bdd1d0376_6.png"
+                alt="Scatter plot of PoF vs mass for candidate designs"
+              />
+              <p class="image-caption">
+                Scatter plot (n = 200 candidate designs) with PoF of the stress
+                constraint on the y-axis (0.90–0.97) and enclosure mass M on the
+                x-axis (100–114 kg); a horizontal line marks the η = 0.90
+                screening gate. Dots cluster densely just above the threshold at
+                lower masses (100–106 kg) and shift to higher PoF values at
+                heavier masses (110–114 kg), showing where feasibility
+                confidence is tight versus comfortable. Figure A1 from: Desheng
+                Zhang, Jieguo Liao, Longbin Wang, Zhenxin Sun, Han Zhang.
+                "Uncertainty-Aware Lightweight Design of CFRP Battery Enclosure
+                Under Extreme Cold Side-Pole Impact via Bayesian Surrogates."
+                Batteries 2026, 12, 61.
+                <a
+                  href="https://doi.org/10.3390/batteries12020061"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/batteries12020061</a
+                >
+                — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Pragmatic balance of the gate</h3>
+              <p>
+                The authors are explicit that 0.90 is a pragmatic balance —
+                tight enough to block risky candidates, loose enough that good
+                lightweight options aren't discarded while the stress model is
+                still shaky. They recommend a stricter η = 0.95 for
+                stress-critical sign-off, and they stress that PoF is for
+                screening only; final acceptance is a deterministic check
+                against σ_lim from a fresh FE run.
+              </p>
+              <p>
+                Feasible candidates are found by running NSGA-II (a standard
+                multi-objective evolutionary optimizer; population 200, 400
+                generations, fixed seed) over the surrogate landscape, with the
+                discrete thickness levels and the layup-to-ply mapping repaired
+                on every offspring before evaluation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Bimodal Pareto -->
+        <section id="bimodal-pareto">
+          <h2>Two designs, not one: the bimodal Pareto</h2>
+          <p>
+            One of the more visually striking results is that the feasible
+            non-dominated set does not form a single smooth trade-off curve. It
+            splits into two separate branches, and the paper traces the split to
+            a single variable: the lower-case thickness, x₄, which turns out to
+            be bimodal in the data and effectively acts as a regime selector.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 5 -->
+
+          <div class="pareto-container">
+            <div class="pareto-header pareto-reveal">
+              <div class="pareto-eyebrow">NSGA-II Optimisation Result</div>
+              <div class="pareto-title">Feasible Pareto Set: Two Branches</div>
+              <div class="pareto-subtitle">
+                Intrusion L (mm) vs Mass M (kg) · PoF gate erases the middle,
+                splitting the front into two discrete branches
+              </div>
+            </div>
+
+            <div class="pareto-chart-wrap pareto-reveal pareto-d1">
+              <canvas id="paretoChart"></canvas>
+            </div>
+
+            <div class="pareto-cards">
+              <div class="pareto-card branch-i pareto-reveal pareto-d2">
+                <div class="pareto-card-header">
+                  <div
+                    class="pareto-card-dot"
+                    style="background: #47577c"
+                  ></div>
+                  <span class="pareto-card-label">Branch I — Low Mass</span>
+                  <span class="pareto-card-badge">n = 106</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Lay-up</span><span>thin ×4 ~ 5.60 mm</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Mass range</span><span>100.6 – 104.8 kg</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Intrusion range</span><span>5.430 – 5.516 mm</span>
+                </div>
+              </div>
+              <div class="pareto-card branch-ii pareto-reveal pareto-d3">
+                <div class="pareto-card-header">
+                  <div
+                    class="pareto-card-dot"
+                    style="background: #bf3425"
+                  ></div>
+                  <span class="pareto-card-label"
+                    >Branch II — Low Intrusion</span
+                  >
+                  <span class="pareto-card-badge">n = 94</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Lay-up</span><span>thick ×4 ~ 8.00 mm</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Mass range</span><span>110.7 – 115.1 kg</span>
+                </div>
+                <div class="pareto-stat-row">
+                  <span>Intrusion range</span><span>5.362 – 5.430 mm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pareto-gap-note pareto-reveal pareto-d4">
+              <strong>Why the gap?</strong> The PoF gate removes candidates
+              where feasibility confidence drops below 0.90 — the middle region
+              between branches is not a smooth trade-off zone but a
+              low-confidence zone that was filtered out, leaving two
+              structurally distinct laminate families.
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+          <p>
+            The authors explain the two regimes mechanically. Branch I — thinner
+            lower case, lighter — is more compliant in out-of-plane bending, so
+            it spreads the pole load over a broader path and reduces intrusion
+            mainly by raising overall structural stiffness (a "global
+            compliance" response). Branch II — thicker lower case, heavier —
+            stiffens the region near the pole contact, holds off local crumpling
+            and cross-section flattening, and funnels load into the neighbouring
+            rails and cross-members, buying slightly lower intrusion at the cost
+            of more mass and greater sensitivity to contact-driven stress peaks.
+            Notably, the paper observes that feasible designs grow scarce at the
+            lightest extreme, which it reads as stress compliance becoming the
+            binding factor there.
+          </p>
+          <p>
+            The paper's Figure 7 plots this feasibility-aware Pareto set at −40
+            °C, distinguishing feasible non-dominated points from infeasible
+            ones under the PoF ≥ 0.90 gate.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a21212752b758d1d53c6e19_7.png"
+            alt="Figure 7 — feasibility-aware Pareto set"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Figure 7 from: Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin
+            Sun, Han Zhang. "Uncertainty-Aware Lightweight Design of CFRP
+            Battery Enclosure Under Extreme Cold Side-Pole Impact via Bayesian
+            Surrogates." Batteries 2026, 12, 61.
+            <a
+              href="https://doi.org/10.3390/batteries12020061"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/batteries12020061</a
+            >
+            — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p>
+            To pick a representative design without hand-waving, the paper
+            reduces each branch to six candidates by interval filtering (12
+            total), then ranks them with TOPSIS using mass and intrusion as
+            equally weighted cost criteria. Re-running the ranking with a
+            GPR-based variant gives a Kendall's τ of 0.606 — moderate agreement
+            — and design C02 from Branch I emerges as the representative pick.
+          </p>
+        </section>
+
+        <!-- Section 7: FE Reruns -->
+        <section id="fe-reruns">
+          <h2>The reality check: independent FE reruns</h2>
+          <p>
+            This is where the probabilistic framing earns its keep. The authors
+            take three surrogate-selected candidates back to full FE simulation:
+            C02 (the Branch I TOPSIS pick), C12 (a Branch II design sitting
+            right at the PoF ≈ 0.90 boundary), and C09 (a higher-margin Branch
+            II design at PoF ≈ 0.95). Acceptance is judged deterministically
+            against σ_lim = 410.4 MPa.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 6 -->
+
+          <div class="fev-container">
+            <div class="fev-header fev-reveal">
+              <div class="fev-eyebrow">Independent Validation</div>
+              <div class="fev-title">FE Rerun Verdicts</div>
+              <div class="fev-subtitle">
+                StressFE compared against the structural cap — PoF screen vs
+                ground-truth result
+              </div>
+            </div>
+
+            <div class="fev-cap-strip fev-reveal fev-d1">
+              <div class="fev-cap-icon">⚠</div>
+              <div class="fev-cap-text">
+                <strong>Stress cap = 410.4 MPa</strong><br />
+                Any candidate whose FE-verified stress exceeds this threshold is
+                rejected — regardless of PoF score
+              </div>
+            </div>
+
+            <div class="fev-rows">
+              <!-- C02 -->
+              <div class="fev-row accept fev-reveal fev-d2">
+                <div class="fev-meta">
+                  <span class="fev-candidate">C02</span>
+                  <span class="fev-branch-pill fev-branch-i">Branch I</span>
+                  <span class="fev-pof-pill">PoF <span>0.903</span></span>
+                  <span class="fev-verdict-badge">✓ Accept</span>
+                </div>
+                <div class="fev-bar-wrap">
+                  <div class="fev-bar-track">
+                    <!-- cap at 410.4/500 = 82.1% of track (max = 500 MPa) -->
+                    <div class="fev-cap-line" style="left: 82.1%"></div>
+                    <!-- fill: 357.5/500 = 71.5% -->
+                    <div class="fev-bar-fill" data-width="71.5"></div>
+                    <div class="fev-stress-label" style="right: 4px">
+                      357.5 MPa
+                    </div>
+                  </div>
+                  <div class="fev-axis">
+                    <span>0</span><span>100</span><span>200</span
+                    ><span>300</span><span>400</span><span>500</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- C09 -->
+              <div class="fev-row accept fev-reveal fev-d3">
+                <div class="fev-meta">
+                  <span class="fev-candidate">C09</span>
+                  <span class="fev-branch-pill fev-branch-ii">Branch II</span>
+                  <span class="fev-pof-pill">PoF <span>0.949</span></span>
+                  <span class="fev-verdict-badge">✓ Accept</span>
+                </div>
+                <div class="fev-bar-wrap">
+                  <div class="fev-bar-track">
+                    <div class="fev-cap-line" style="left: 82.1%"></div>
+                    <!-- fill: 389.5/500 = 77.9% -->
+                    <div class="fev-bar-fill" data-width="77.9"></div>
+                    <div class="fev-stress-label" style="right: 4px">
+                      389.5 MPa
+                    </div>
+                  </div>
+                  <div class="fev-axis">
+                    <span>0</span><span>100</span><span>200</span
+                    ><span>300</span><span>400</span><span>500</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- C12 -->
+              <div class="fev-row reject fev-reveal fev-d4">
+                <div class="fev-meta">
+                  <span class="fev-candidate">C12</span>
+                  <span class="fev-branch-pill fev-branch-ii">Branch II</span>
+                  <span class="fev-pof-pill"
+                    >PoF <span style="color: #bf3425">0.900</span></span
+                  >
+                  <span class="fev-verdict-badge">✗ Reject</span>
+                </div>
+                <div class="fev-bar-wrap">
+                  <div class="fev-bar-track">
+                    <div class="fev-cap-line" style="left: 82.1%"></div>
+                    <!-- fill to cap: 82.1%, overflow: (417.8-410.4)/500 = 1.48% extra -->
+                    <div
+                      class="fev-bar-fill"
+                      data-width="82.1"
+                      style="border-radius: 4px 0 0 4px"
+                    ></div>
+                    <div
+                      class="fev-bar-overflow"
+                      data-width="1.48"
+                      style="left: 82.1%"
+                    ></div>
+                    <div class="fev-stress-label" style="right: 4px">
+                      417.8 MPa !
+                    </div>
+                  </div>
+                  <div class="fev-axis">
+                    <span>0</span><span>100</span><span>200</span
+                    ><span>300</span><span>400</span><span>500</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insight -->
+            <div class="fev-insight fev-reveal fev-d5">
+              <strong
+                >C12 cleared the 0.90 PoF screen but failed the real FE
+                check.</strong
+              >
+              At exactly the minimum threshold (PoF = 0.900), the surrogate's
+              uncertainty margin left just enough room for the true stress to
+              breach the cap.
+              <span class="red">C09</span>, with the higher 0.949 margin, passed
+              comfortably — illustrating why PoF is a filter, not a guarantee.
+            </div>
+          </div>
+
+          <p>
+            The C12 result is the cautionary tale the paper leans on. A
+            candidate that satisfied the 0.90 screen nonetheless exceeded the
+            stress cap once independently re-simulated (417.8 MPa against the
+            410.4 MPa limit). The authors' reading is that designs sitting right
+            at the gate keep a genuine chance of failing, precisely because the
+            governing stress is so concentrated at the contact; that a
+            point-estimate model discarding the spread would have waved C12
+            through; and that stress-critical components therefore warrant the
+            stricter η = 0.95 gate — which would have favored a higher-margin
+            design like C09.
+          </p>
+          <p>
+            The reruns also surfaced a systematic quirk: intrusion L was
+            consistently underpredicted by the surrogate (by roughly 9–13 % on
+            these candidates), making the surrogate's intrusion estimates
+            slightly optimistic in this local region, even as the relative
+            ordering between designs held up. Mass tracked the FE results within
+            about ±6 %.
+          </p>
+          <p>
+            The paper's Figure 10 shows the −40 °C stress contours on the
+            lateral anti-collision beam for the baseline, C02, and C12, with the
+            stress concentration confined to the pole-contact zone.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212127bcb0584e71527736_8.png"
+            alt="Figure 10 — stress contours on lateral anti-collision beam"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Figure 10 from: Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin
+            Sun, Han Zhang. "Uncertainty-Aware Lightweight Design of CFRP
+            Battery Enclosure Under Extreme Cold Side-Pole Impact via Bayesian
+            Surrogates." Batteries 2026, 12, 61.
+            <a
+              href="https://doi.org/10.3390/batteries12020061"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/batteries12020061</a
+            >
+            — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >). Described, not reproduced.
+          </p>
+        </section>
+
+        <!-- Section 8: Hours, Not Weeks -->
+        <section id="hours-not-weeks">
+          <h2>Hours, not weeks</h2>
+          <p>
+            The economic argument is blunt. The paper reports that one
+            high-fidelity FE evaluation of this −40 °C side-pole case takes
+            about 23 minutes on the workstation used, while a trained surrogate
+            evaluation is sub-second — a median of 0.394 s per design, or 0.160
+            s when amortized over batch scoring.
+          </p>
+
+          <!-- INFOGRAPHIC PLACEHOLDER 7 -->
+          <div class="spd-container">
+            <div class="spd-header spd-reveal">
+              <div class="spd-eyebrow">Computational Efficiency</div>
+              <div class="spd-title">One Evaluation: FE vs Surrogate</div>
+              <div class="spd-subtitle">
+                Wall-clock time per design query — the gap that makes the
+                optimisation tractable
+              </div>
+            </div>
+
+            <!-- Timeline bars -->
+            <div class="spd-bars spd-reveal spd-d1">
+              <!-- FE crash run -->
+              <div class="spd-bar-row">
+                <div class="spd-bar-meta">
+                  <span class="spd-bar-label">
+                    <span
+                      class="spd-bar-label-dot"
+                      style="background: #47577c"
+                    ></span>
+                    FE Crash Run
+                  </span>
+                  <span class="spd-bar-time navy">~23 minutes</span>
+                </div>
+                <div class="spd-bar-track">
+                  <!-- fill to 100% — FE is the reference -->
+                  <div class="spd-bar-fill fe" data-width="100" id="feBar">
+                    explicit solver · fine contact mesh · 9 variables
+                  </div>
+                </div>
+                <div class="spd-ticks">
+                  <span>0</span><span>5 min</span><span>10 min</span
+                  ><span>15 min</span><span>20 min</span><span>23 min</span>
+                </div>
+              </div>
+
+              <!-- Surrogate -->
+              <div class="spd-bar-row">
+                <div class="spd-bar-meta">
+                  <span class="spd-bar-label">
+                    <span
+                      class="spd-bar-label-dot"
+                      style="background: #9d9d9c"
+                    ></span>
+                    BART Surrogate
+                  </span>
+                  <span class="spd-bar-time gray">&lt; 1 second</span>
+                </div>
+                <div class="spd-bar-track">
+                  <!-- surrogate bar is ~0.07% of FE time; show as minimal visible sliver -->
+                  <div
+                    class="spd-bar-fill surr"
+                    data-width="0.55"
+                    id="surrBar"
+                  ></div>
+                  <!-- floating label outside bar -->
+                  <span
+                    style="
+                      position: absolute;
+                      left: 14px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      font-size: 10.5px;
+                      font-weight: 700;
+                      color: #9d9d9c;
+                      pointer-events: none;
+                    "
+                  >
+                    &lt; 1 s
+                  </span>
+                </div>
+                <div class="spd-ticks">
+                  <span>0</span><span></span><span></span><span></span
+                  ><span></span><span>23 min</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Speedup cards -->
+            <div class="spd-speedup-title spd-reveal spd-d2">
+              Reported Acceleration per Evaluation
+            </div>
+            <div class="spd-speedup-grid spd-reveal spd-d3">
+              <div class="spd-speedup-card card-a">
+                <div class="spd-speedup-mode">Single-Point</div>
+                <div class="spd-speedup-num">~3.5 × 10<sup>3</sup></div>
+                <div class="spd-speedup-sub">Single-point median speedup</div>
+              </div>
+
+              <div class="spd-speedup-card card-b">
+                <div class="spd-speedup-mode">Batch-Amortized</div>
+                <div class="spd-speedup-num">~8.6 × 10<sup>3</sup></div>
+                <div class="spd-speedup-sub">
+                  Batch-amortized median speedup
+                </div>
+              </div>
+            </div>
+
+            <!-- Production-grade note -->
+            <div class="spd-prod-note spd-reveal spd-d4">
+              <div class="spd-prod-text">
+                In the Conclusions, the authors frame
+                <strong>production-grade FE at ~30 min/run</strong>
+                and surrogate inference as sub-second — yielding a
+                workflow-level speedup of
+                <strong>roughly 10<sup>4</sup> – 10<sup>5</sup></strong> for the
+                full optimisation campaign.
+              </div>
+              <div class="spd-prod-badge">
+                <div class="spd-prod-badge-num">10<sup>4–5</sup></div>
+                <div class="spd-prod-badge-label">workflow speedup</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212127263afc97352c4b8d_9.png"
+                alt="Reaction force vs intrusion for three FE runs"
+              />
+              <p class="image-caption">
+                Reaction force (kN, y-axis, 0–100) versus intrusion/displacement
+                (model units, x-axis, 0–6) for three −40 °C FE runs — baseline
+                Run 13, C02, and C12 — plus a horizontal dashed line marking the
+                100 kN termination threshold; all three curves rise from near
+                zero and intercept the stop line at different intrusion values,
+                showing that each run terminates as soon as the reaction force
+                criterion is met rather than running to a fixed displacement.
+                Figure 11 from: Desheng Zhang, Jieguo Liao, Longbin Wang,
+                Zhenxin Sun, Han Zhang. "Uncertainty-Aware Lightweight Design of
+                CFRP Battery Enclosure Under Extreme Cold Side-Pole Impact via
+                Bayesian Surrogates." Batteries 2026, 12, 61.
+                <a
+                  href="https://doi.org/10.3390/batteries12020061"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/batteries12020061</a
+                >
+                — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>The portable asset is the workflow</h3>
+              <p>
+                The crucial caveat, which the paper makes itself: the surrogate
+                does not replace FE. It replaces the exploration — letting an
+                optimizer roam over thousands of candidate laminates cheaply —
+                while the final, safety-relevant decision still comes from a
+                small number of independent high-fidelity reruns.
+              </p>
+              <p>
+                The authors frame the portable asset as the workflow, not the
+                model: you can reuse the recipe at another temperature, but you
+                cannot reuse a model that only ever saw −40 °C data.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: Where AFP Fits -->
+        <section id="afp-fit">
+          <h2>Where automated fiber placement fits in</h2>
+          <div class="highlight-box">
+            <p>
+              The following is Addcomposites' own analysis, not a claim from the
+              paper.
+            </p>
+          </div>
+          <p>
+            What stands out to us is that the paper's design knobs are precisely
+            the things a manufacturing process has to be able to deliver. Two of
+            the variables that move the answer most are CFRP component
+            thicknesses — the lower case and the lateral anti-collision beam —
+            and four more are layup orientation weights that get mapped to
+            discrete 0° / +45° / −45° / 90° ply counts with balanced ±45° plies
+            enforced. An optimizer can propose any laminate it likes; the
+            question is whether the shop floor can build that laminate
+            repeatably.
+          </p>
+
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a212127d5ce150393d5aeaf_10.jpeg"
+                alt="AFP-XS depositing CFRP tape"
+              />
+              <p class="image-caption">
+                AFP-XS automated fiber placement head depositing CFRP tape, with
+                multiple ply orientations visible on the laminate surface. ©
+                Addcomposites.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Closing the manufacturing gap</h3>
+              <p>
+                That is the gap automated fiber placement is built to close. The
+                AFP-XS system lays carbon fiber tape with controlled,
+                programmable ply orientation and thickness build-up, and AddPath
+                lets you define and verify the stacking sequence digitally
+                before a single ply is placed. The kind of orientation-grouped,
+                ply-count-specific laminate the study optimizes over is exactly
+                the class of design AFP is suited to produce — and to produce
+                consistently enough that an FE-qualified configuration and the
+                as-built part are the same part.
+              </p>
+            </div>
+          </div>
+
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a2121278bd7186d74f18543_11.png"
+                alt="AddPath workflow: geometry, tow-path planning, robot simulation"
+              />
+              <p class="image-caption">
+                AddPath workflow: part geometry definition (1), automated
+                tow-path planning across the laminate surface (2), and full
+                robot motion simulation for pre-build verification (3). ©
+                Addcomposites.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Process repeatability and material model credibility</h3>
+              <p>
+                There is a second, subtler connection. The paper's whole premise
+                is that −40 °C material data is scattered and process-dependent.
+                Process repeatability is therefore not just a manufacturing
+                virtue; it is what makes a single-anchor material model
+                defensible — the more controlled the layup process, the more
+                credible the assumption that one consistent property set
+                describes every build.
+              </p>
+              <p>
+                Our perspective: For teams staring down GB 38031-2025 with a
+                CFRP enclosure on the roadmap, the lesson we take from this
+                study is that the design methodology and the manufacturing
+                methodology have to be co-designed. A probabilistic, FE-frugal
+                optimization loop tells you which laminate to build; a
+                controllable AFP process is what lets you actually build the
+                laminate the loop recommends — and lets you trust that the part
+                you verify is the part you ship. Again, the study's authors make
+                no claim about AFP, Addcomposites, or any commercial system;
+                this connection is ours.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 10: Paper's Limits -->
+        <section id="paper-limits">
+          <h2>What the paper is careful not to claim</h2>
+          <p>
+            Good research states its own limits, and this one does. A few worth
+            flagging, in the authors' own framing:
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                  />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <div>
+                <h4>No physical crash test</h4>
+                <p>
+                  The work rests on FE driven by literature-derived −40 °C
+                  material properties; there is no component-level physical
+                  validation of these specific enclosure designs. The Bayesian
+                  framework quantifies surrogate uncertainty but cannot remove
+                  the epistemic uncertainty baked into the material inputs.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+              </div>
+              <div>
+                <h4>Elastic stress is a screening proxy</h4>
+                <p>
+                  CFRP is modeled with linear orthotropic elasticity only — no
+                  progressive damage, no delamination — a choice that holds the
+                  explicit-dynamics campaign within budget and sidesteps the
+                  need for low-temperature damage and fracture inputs the
+                  authors say aren't reliably available. The reported stress is
+                  therefore an engineering indicator.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <div>
+                <h4>Two-branch structure vs. stress ranking</h4>
+                <p>
+                  The authors expect the x₄-governed regime split to stay
+                  qualitatively stable because it is driven by load-path
+                  stiffness, while near-threshold feasibility decisions could
+                  move under a damage-aware model.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div>
+                <h4>Single-temperature surrogate</h4>
+                <p>
+                  Extending to other temperatures requires a
+                  temperature-specific anchor property set, a fresh FE DOE at
+                  the target temperature, and re-evaluation of the feasibility
+                  thresholds.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a21212704d6b0310d74a4ee_12.png"
+            alt="Three parity plots for surrogate vs FE outputs"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Three side-by-side parity plots with surrogate posterior mean on the
+            y-axis and FE output on the x-axis, each overlaid with a 1:1
+            reference line; the Mass (M, kg) panel shows six dots sitting close
+            to the diagonal (R² = 0.952), the Peak Displacement (L, mm) panel
+            shows moderate scatter with most points near the line, and the Peak
+            Stress (MPa) panel shows wide deviation from the diagonal with a
+            near-flat point cloud (R² = −0.701) — making the relative prediction
+            difficulty of the three responses immediately visible in a single
+            glance. Figure A3 from: Desheng Zhang, Jieguo Liao, Longbin Wang,
+            Zhenxin Sun, Han Zhang. "Uncertainty-Aware Lightweight Design of
+            CFRP Battery Enclosure Under Extreme Cold Side-Pole Impact via
+            Bayesian Surrogates." Batteries 2026, 12, 61.
+            <a
+              href="https://doi.org/10.3390/batteries12020061"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/batteries12020061</a
+            >
+            — © 2026 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              None of this undercuts the contribution — it sharpens it. The
+              honest separation of "screening" from "sign-off," and the explicit
+              C12 failure, are exactly what make the methodology trustworthy
+              rather than oversold.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 11: Takeaway -->
+        <section id="takeaway">
+          <h2>The takeaway</h2>
+          <p>
+            The paper demonstrates a traceable, uncertainty-aware route to
+            lightweight CFRP enclosure design under extreme cold, on a fixed
+            budget of 50 FE runs, with a probability-of-feasibility gate doing
+            the work that a brittle deterministic stress check could not. It
+            shows that intrusion is learnable from sparse data while peak stress
+            is not, that the feasible design space can split into interpretable
+            regimes, and that one borderline candidate (C12) really does fail
+            when you check it honestly.
+          </p>
+          <p>
+            For anyone building toward GB 38031-2025 with composites, that is a
+            usable template: explore cheaply and probabilistically, then verify
+            the few designs that matter with full simulation — and, in our view,
+            pair that loop with a manufacturing process precise enough to build
+            what the loop chooses.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="Addcomposites AFP manufacturing"
+            class="full-width-image"
+          />
+
+          <div class="highlight-box dark">
+            <h4>Read the Research</h4>
+            <p>
+              Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin Sun, Han Zhang.
+              "Uncertainty-Aware Lightweight Design of CFRP Battery Enclosure
+              Under Extreme Cold Side-Pole Impact via Bayesian Surrogates."
+              <em>Batteries</em> 2026, 12, 61.
+              <a
+                href="https://doi.org/10.3390/batteries12020061"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #93c5fd"
+                >https://doi.org/10.3390/batteries12020061</a
+              >
+            </p>
+          </div>
+        </section>
+
+        <!-- Learn More -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"
+                  ></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Compact automated fiber placement system</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon
+                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  ></polygon>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <p>Get in touch to discuss your CFRP enclosure AFP application →</p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>References</h2>
+          <ol class="references-list">
+            <li>
+              Desheng Zhang, Jieguo Liao, Longbin Wang, Zhenxin Sun, Han Zhang.
+              "Uncertainty-Aware Lightweight Design of CFRP Battery Enclosure
+              Under Extreme Cold Side-Pole Impact via Bayesian Surrogates."
+              <em>Batteries</em> 2026, 12, 61.
+              <a
+                href="https://doi.org/10.3390/batteries12020061"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/batteries12020061</a
+              >
+            </li>
+            <li>
+              Open access, published 13 February 2026 by MDPI under the Creative
+              Commons Attribution (CC BY 4.0) license (<a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >). All figures referenced above are © 2026 by the authors and
+              used under CC BY 4.0; figure descriptions and ASCII visualizations
+              in this post are Addcomposites' own renderings of the paper's data
+              and concepts.
+            </li>
+            <li>
+              Regulatory context on GB 38031-2025 drawn from public reporting,
+              including TÜV Rheinland and Chinese government summaries of the
+              standard's 1 July 2026 implementation.
+            </li>
+            <li>
+              This article summarizes and interprets independent academic
+              research. The study's authors are not affiliated with
+              Addcomposites and have not endorsed this post or any Addcomposites
+              product.
+            </li>
+            <li>
+              Addcomposites. AFP-XS Automated Fiber Placement System.
+              <a
+                href="https://www.addcomposites.com/afp-xs"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://www.addcomposites.com/afp-xs</a
+              >
+            </li>
+          </ol>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
