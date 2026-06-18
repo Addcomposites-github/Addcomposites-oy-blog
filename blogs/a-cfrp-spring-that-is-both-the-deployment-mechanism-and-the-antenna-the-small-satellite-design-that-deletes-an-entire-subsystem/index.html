@@ -1,0 +1,2801 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      A CFRP Spring That Is Both the Deployment Mechanism and the Antenna |
+      Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A March 2025 open-access paper in Aerospace (MDPI) built a UHF antenna where the part that springs the antenna open and the part that radiates the signal are the same CFRP structure. A fully-tested example of multifunctional CFRP for small spacecraft."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#the-problem" class="blog-sidebar-link active"
+            >The Problem</a
+          >
+          <a href="#one-structure" class="blog-sidebar-link"
+            >One Structure, Several Jobs</a
+          >
+          <a href="#two-designs" class="blog-sidebar-link"
+            >Two Designs by Cone Angle</a
+          >
+          <a href="#infinite-balun" class="blog-sidebar-link"
+            >The Infinite Balun</a
+          >
+          <a href="#impedance-matching" class="blog-sidebar-link"
+            >Impedance Matching</a
+          >
+          <a href="#inside-the-wall" class="blog-sidebar-link"
+            >Inside the Wall</a
+          >
+          <a href="#surviving-deployment" class="blog-sidebar-link"
+            >Surviving Deployment</a
+          >
+          <a href="#how-it-performed" class="blog-sidebar-link"
+            >How It Performed</a
+          >
+          <a href="#our-perspective" class="blog-sidebar-link"
+            >Our Perspective</a
+          >
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">Read the Research</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          A CFRP Spring That Is Both the Deployment Mechanism and the Antenna:
+          The Small-Satellite Design That Deletes an Entire Subsystem
+        </h1>
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            June 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Addcomposites
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            11 min read
+          </span>
+        </div>
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a8213d4f1624f94ba388_1.png"
+          alt="A CFRP spring that is both the deployment mechanism and the antenna"
+          class="full-width-image"
+        />
+
+        <!-- Introduction -->
+        <section id="introduction">
+          <p class="drop-cap">
+            On most small satellites, an antenna is a passenger. It rides up
+            folded against the bus, waits for a separate mechanism to push it
+            out, relies on a separate feed cable to carry the signal, and
+            depends on a separate ground plane to point the beam in the right
+            direction. Each of those is a part. Each part has mass, a failure
+            mode, and an assembly step.
+          </p>
+          <p>
+            A March 2025 open-access paper in <em>Aerospace</em> (MDPI) takes a
+            different route. The authors built a UHF antenna where the part that
+            springs the antenna open and the part that radiates the signal are
+            the same carbon-fiber-reinforced polymer (CFRP) structure. The
+            spring is the antenna. There is no separate deployment boom, no
+            cable run to the tip of the cone, and no purpose-sized ground plane.
+          </p>
+          <p>
+            For anyone working in composites for space hardware, this is a
+            clean, fully-tested example of a trend worth paying attention to:
+            the structural part and the functional component collapsing into one
+            piece of CFRP.
+          </p>
+
+          <!-- Attribution note (editorial / scope — clearly distinguished) -->
+          <div class="highlight-box">
+            <h4>A Note on Attribution</h4>
+            <p>
+              A note on attribution before we start. Everything described as the
+              design, method, or result below comes from the cited paper by
+              Williams and colleagues. Sections labeled "Our perspective" are
+              commentary from Addcomposites and do not represent the views of
+              the paper's authors, who have not reviewed, endorsed, or been
+              involved with this article in any way.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 1: The problem -->
+        <section id="the-problem">
+          <h2>The problem the authors set out to solve</h2>
+          <p>
+            The paper opens by surveying what already exists. According to the
+            authors, the UHF antennas that have actually flown on small
+            satellites tend to be narrowband types — dipoles, monopoles,
+            Yagi-Uda, and helical designs. Broadband UHF antennas are attractive
+            because a single satellite carrying one, paired with a
+            software-defined radio, could cover several jobs at once: talking to
+            Internet-of-Things sensors, taking radiometric measurements,
+            handling communications. The catch is size. A broadband UHF antenna
+            can be physically larger than the satellite itself, which forces a
+            deployment mechanism, and every added mechanism adds complexity and
+            risk.
+          </p>
+          <p>
+            The authors walk through a range of deployable broadband concepts
+            from the literature — tightly coupled dipole arrays, several
+            variants of the helix family, crossed log-periodic dipole arrays,
+            and conical log spiral antennas. Their assessment is that, as far as
+            they were aware, none of those concepts had yet been proven in
+            actual spaceflight.
+          </p>
+          <p>
+            They zero in on the Conical Log Spiral Antenna (CLSA) because, in
+            their account, it lands close to a crossed log-periodic array on
+            performance while being easier to build mechanically. But a
+            traditional CLSA has an awkward feeding problem. It is normally fed
+            at the apex (the narrow tip), and it radiates back toward that feed
+            point. On a satellite, feeding the tip means running a transmission
+            line all the way from the bus up to the top of a deployed structure
+            — more deployable hardware. The alternative, feeding it at the base,
+            normally requires a ground plane sized roughly as large as the
+            antenna is tall, to bounce the signal away from the spacecraft. On a
+            small bus, that plane may not fit, so it too might need to deploy.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33aa720f4ca917c900a542_2.png"
+            alt="Conventional small-satellite antennas split their job across many separate parts"
+            class="full-width-image"
+          />
+          <p class="image-caption" style="margin-top: 10px">
+            Conventional small-satellite antennas split their job across many
+            separate parts — a deployment boom, hinges, a release latch, a feed
+            cable, a connector, and often a ground plane. Each one adds mass, an
+            assembly step, and a potential failure point. (AI-generated
+            illustration)
+          </p>
+
+          <p>
+            So the design goal, as stated by the authors, was to get rid of both
+            headaches at once: the antenna should need neither a fold-out cable
+            reaching the cone tip nor a ground plane cut to a particular size.
+          </p>
+        </section>
+
+        <!-- Section 2: One structure, several jobs -->
+        <section id="one-structure">
+          <h2>One structure, several jobs</h2>
+          <p>
+            The authors' solution is to make the radiating element out of
+            coaxial cable, embed that cable inside a carbon-fiber spring, and
+            use a feeding trick called an infinite balun so the whole thing can
+            be fed at the base while still radiating toward the apex — with no
+            ground plane required.
+          </p>
+          <p>
+            The result is a single CFRP structure doing the work that is
+            conventionally split across several separate parts. The diagram
+            below maps the conventional split against the integrated approach
+            described in the paper.
+          </p>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 1 — Conventional vs. Integrated CLSA             -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+
+          <br />
+          <div class="clsa-container" id="clsaRoot">
+            <div class="clsa-header">
+              <h2 style="border-bottom: none">
+                Conventional Deployable UHF Antenna vs. Integrated CLSA
+              </h2>
+              <p>
+                Four discrete components merged into a single carbon-fiber
+                composite spring
+              </p>
+            </div>
+
+            <div class="clsa-layout">
+              <!-- LEFT: Conventional system -->
+              <div class="clsa-left-col">
+                <div class="clsa-left-label">
+                  Conventional Deployable UHF Antenna
+                </div>
+                <p style="font-size: 12px; color: #9d9d9c; margin: 0 0 12px 0">
+                  (functions handled by separate parts)
+                </p>
+                <div class="clsa-components" id="clsaComponents">
+                  <div class="clsa-component-card" data-delay="0">
+                    <div class="clsa-component-dot"></div>
+                    <div class="clsa-component-text">
+                      Deployment mechanism / boom
+                    </div>
+                  </div>
+                  <div class="clsa-component-card" data-delay="100">
+                    <div class="clsa-component-dot"></div>
+                    <div class="clsa-component-text">
+                      Support / structural element
+                    </div>
+                  </div>
+                  <div class="clsa-component-card" data-delay="200">
+                    <div class="clsa-component-dot"></div>
+                    <div class="clsa-component-text">Radiating element</div>
+                  </div>
+                  <div class="clsa-component-card" data-delay="300">
+                    <div class="clsa-component-dot"></div>
+                    <div class="clsa-component-text">Feed line run to apex</div>
+                  </div>
+                  <div class="clsa-component-card eliminated" data-delay="400">
+                    <div class="clsa-component-dot"></div>
+                    <div class="clsa-component-text">Sized ground plane</div>
+                    <div class="clsa-eliminated-tag">eliminated</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CENTER: Merge arrow -->
+              <div class="clsa-arrow-col">
+                <svg
+                  class="clsa-merge-svg"
+                  viewBox="0 0 64 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="clsaSvg"
+                >
+                  <!-- converging lines from 5 component rows into one point -->
+                  <path
+                    d="M4 20 Q32 20 44 100"
+                    stroke="#c8cdd8"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 3"
+                    fill="none"
+                    id="clsaLine1"
+                    style="opacity: 0"
+                  />
+                  <path
+                    d="M4 60 Q32 60 44 100"
+                    stroke="#c8cdd8"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 3"
+                    fill="none"
+                    id="clsaLine2"
+                    style="opacity: 0"
+                  />
+                  <path
+                    d="M4 100 L44 100"
+                    stroke="#c8cdd8"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 3"
+                    fill="none"
+                    id="clsaLine3"
+                    style="opacity: 0"
+                  />
+                  <path
+                    d="M4 140 Q32 140 44 100"
+                    stroke="#c8cdd8"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 3"
+                    fill="none"
+                    id="clsaLine4"
+                    style="opacity: 0"
+                  />
+                  <path
+                    d="M4 180 Q32 180 44 100"
+                    stroke="#e2e8f0"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 3"
+                    fill="none"
+                    id="clsaLine5"
+                    style="opacity: 0"
+                  />
+                  <!-- main arrow -->
+                  <path
+                    d="M44 100 L58 100"
+                    stroke="#bf3425"
+                    stroke-width="2.5"
+                    fill="none"
+                    id="clsaArrow"
+                    style="opacity: 0"
+                  />
+                  <polygon
+                    points="56,95 64,100 56,105"
+                    fill="#bf3425"
+                    id="clsaArrowHead"
+                    style="opacity: 0"
+                  />
+                  <!-- merge dot -->
+                  <circle
+                    cx="44"
+                    cy="100"
+                    r="4"
+                    fill="#47577c"
+                    id="clsaDot"
+                    style="opacity: 0"
+                  />
+                </svg>
+                <div
+                  class="clsa-merge-label"
+                  id="clsaMergeLabel"
+                  style="opacity: 0"
+                >
+                  merge
+                </div>
+              </div>
+
+              <!-- RIGHT: Integrated CLSA -->
+              <div class="clsa-right-col">
+                <div class="clsa-right-label">Paper's Integrated CLSA</div>
+                <p style="font-size: 12px; color: #9d9d9c; margin: 0 0 12px 0">
+                  (functions in one CFRP spring)
+                </p>
+                <div class="clsa-unified-card" id="clsaUnified">
+                  <div class="clsa-unified-badge">
+                    Carbon-fiber + epoxy composite SPRING
+                  </div>
+                  <div class="clsa-unified-title">
+                    All functions, one structure
+                  </div>
+                  <ul class="clsa-function-list" id="clsaFnList">
+                    <li class="clsa-function-item" data-delay="700">
+                      <div class="clsa-fn-bullet"></div>
+                      <span>springs open on orbit</span>
+                    </li>
+                    <li class="clsa-function-item" data-delay="820">
+                      <div class="clsa-fn-bullet"></div>
+                      <span>is the structure</span>
+                    </li>
+                    <li class="clsa-function-item" data-delay="940">
+                      <div class="clsa-fn-bullet"></div>
+                      <span>houses the radiator (embedded coax)</span>
+                    </li>
+                    <li class="clsa-function-item" data-delay="1060">
+                      <div class="clsa-fn-bullet"></div>
+                      <span>fed at the base</span>
+                    </li>
+                    <li class="clsa-function-item" data-delay="1180">
+                      <div class="clsa-fn-bullet"></div>
+                      <span>no ground plane</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stat row -->
+            <div class="clsa-stat-row" id="clsaStats">
+              <div class="clsa-stat-pill">
+                <div class="clsa-stat-num">5 <span>→ 1</span></div>
+                <div class="clsa-stat-desc">
+                  Parts consolidated into a single CFRP spring
+                </div>
+              </div>
+              <div class="clsa-stat-pill">
+                <div class="clsa-stat-num" style="color: #bf3425">0</div>
+                <div class="clsa-stat-desc">
+                  Ground plane required — eliminated entirely
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <p>
+            The carbon composite supplies the spring behavior that opens the
+            antenna on orbit. The coaxial cable threaded through it is
+            simultaneously the radiating element and the balun. And because of
+            how that balun is arranged, the electrical feed point sits at the
+            base even though, electrically, the two halves of the antenna meet
+            at the apex.
+          </p>
+        </section>
+
+        <!-- Section 3: Two designs -->
+        <section id="two-designs">
+          <h2>Two designs, dialed in by cone angle</h2>
+
+          <!-- Split (reverse)-->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a821b711e3fa514b5fcd_3.png"
+                alt="Side-by-side renders of the two 500–1500 MHz designs mounted on their square base plates"
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                Side-by-side renders of the two 500–1500 MHz designs mounted on
+                their square base plates: (a) the "long" design with a 10° cone
+                angle, 75° wrap angle, 2.8 cm top diameter, and 45.7 cm height;
+                (b) the "short" design with a 15° cone angle, 78° wrap angle,
+                2.6 cm top diameter, and 33.5 cm height. Figure 1 from:
+                Williams, L.R.; Hoel, K.V.; Bråten, L.E.; Romeijer, A.;
+                Hjermann, N.; Sagsveen, B. "A Deployable Conical Log Spiral
+                Antenna for Small Spacecraft: Electronic Design and Test."
+                Aerospace 2025, 12, 218.
+                <a
+                  href="https://doi.org/10.3390/aerospace12030218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/aerospace12030218</a
+                >
+                — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                The authors built and tested two versions, both covering 500 to
+                1500 MHz and both right-hand circularly polarized. They are
+                structurally similar but differ mainly in cone angle, which
+                trades RF performance against physical size and stiffness.
+              </p>
+              <br />
+              <p>
+                The "long" design uses a 10° cone angle and a 75° wrap angle.
+                The "short" design uses a 15° cone angle and a 78° wrap angle.
+                The authors note that narrowing the cone angle should sharpen
+                the RF behavior, but it pays for that with extra height and a
+                spring that resists compression more. Each antenna is made of a
+                pair of matching conical spirals set half a turn (180°) apart,
+                and both sit on a 20 cm × 20 cm square base plate.
+              </p>
+              <br />
+              <p>
+                The figure shows both prototypes as built, with the cone angles,
+                wrap angles, and overall dimensions marked by the authors.
+              </p>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 2 — Long vs. Short Design                        -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+
+          <div class="clsa2-container" id="clsa2Root">
+            <div class="clsa2-header">
+              <h2 style="border-bottom: none">
+                CLSA Geometry: Long Design vs. Short Design
+              </h2>
+              <p>
+                Trade-offs in spring angle, height, base width, and RF
+                performance
+              </p>
+            </div>
+
+            <div class="clsa2-panels">
+              <!-- LONG DESIGN -->
+              <div
+                class="clsa2-panel clsa2-panel--long"
+                id="clsa2PanelL"
+                data-panel-delay="0"
+              >
+                <div class="clsa2-panel-label">Long Design</div>
+                <div class="clsa2-params">
+                  <div class="clsa2-param-chip">α = 10°</div>
+                  <div class="clsa2-param-chip">θ₀ = 75°</div>
+                </div>
+
+                <!-- SVG cone: tall & narrow -->
+                <div class="clsa2-svg-wrap">
+                  <svg
+                    width="160"
+                    height="160"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- cone body -->
+                    <polygon
+                      points="80,14 137,140 23,140"
+                      fill="rgba(71,87,124,0.08)"
+                      stroke="#47577c"
+                      stroke-width="1.8"
+                    />
+                    <!-- apex dot -->
+                    <circle cx="80" cy="14" r="3.5" fill="#47577c" />
+                    <!-- height arrow left -->
+                    <line
+                      x1="16"
+                      y1="14"
+                      x2="16"
+                      y2="140"
+                      stroke="#9d9d9c"
+                      stroke-width="1"
+                      stroke-dasharray="3 2"
+                    />
+                    <polygon points="12,20 16,10 20,20" fill="#9d9d9c" />
+                    <polygon points="12,134 16,144 20,134" fill="#9d9d9c" />
+                    <!-- height label -->
+                    <text
+                      x="8"
+                      y="82"
+                      font-size="9"
+                      fill="#9d9d9c"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                      transform="rotate(-90,8,82)"
+                    >
+                      45.7 cm
+                    </text>
+                    <!-- base arrow -->
+                    <line
+                      x1="23"
+                      y1="152"
+                      x2="137"
+                      y2="152"
+                      stroke="#9d9d9c"
+                      stroke-width="1"
+                      stroke-dasharray="3 2"
+                    />
+                    <polygon points="29,148 19,152 29,156" fill="#9d9d9c" />
+                    <polygon points="131,148 141,152 131,156" fill="#9d9d9c" />
+                    <!-- base label -->
+                    <text
+                      x="80"
+                      y="160"
+                      font-size="9"
+                      fill="#9d9d9c"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                    >
+                      18.9 cm
+                    </text>
+                    <!-- top width arrow -->
+                    <line
+                      x1="70"
+                      y1="6"
+                      x2="90"
+                      y2="6"
+                      stroke="#47577c"
+                      stroke-width="1"
+                      stroke-dasharray="2 2"
+                    />
+                    <text
+                      x="80"
+                      y="4"
+                      font-size="8.5"
+                      fill="#47577c"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                      font-weight="700"
+                    >
+                      2.8 cm
+                    </text>
+                    <!-- alpha angle arc -->
+                    <path
+                      d="M80,140 Q105,115 100,105"
+                      stroke="#47577c"
+                      stroke-width="1.2"
+                      fill="none"
+                    />
+                    <text
+                      x="108"
+                      y="120"
+                      font-size="8.5"
+                      fill="#47577c"
+                      font-family="Inter,sans-serif"
+                      font-weight="700"
+                    >
+                      α=10°
+                    </text>
+                  </svg>
+                </div>
+
+                <div class="clsa2-dims">
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">45.7</div>
+                    <div class="clsa2-dim-lbl">cm height</div>
+                  </div>
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">18.9</div>
+                    <div class="clsa2-dim-lbl">cm base</div>
+                  </div>
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">215</div>
+                    <div class="clsa2-dim-lbl">cm coax</div>
+                  </div>
+                </div>
+
+                <div class="clsa2-div"></div>
+
+                <ul class="clsa2-traits" id="clsa2TraitsL">
+                  <li class="clsa2-trait" data-delay="200">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>taller, stiffer</span>
+                  </li>
+                  <li class="clsa2-trait" data-delay="300">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>longer coax run (215 cm)</span>
+                  </li>
+                  <li class="clsa2-trait" data-delay="400">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>better directivity / F-to-B</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- SHORT DESIGN -->
+              <div
+                class="clsa2-panel clsa2-panel--short"
+                id="clsa2PanelS"
+                data-panel-delay="150"
+              >
+                <div class="clsa2-panel-label">Short Design</div>
+                <div class="clsa2-params">
+                  <div class="clsa2-param-chip">α = 15°</div>
+                  <div class="clsa2-param-chip">θ₀ = 78°</div>
+                </div>
+
+                <!-- SVG cone: shorter & wider -->
+                <div class="clsa2-svg-wrap">
+                  <svg
+                    width="160"
+                    height="160"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- cone body — shorter, wider base -->
+                    <polygon
+                      points="80,34 145,140 15,140"
+                      fill="rgba(191,52,37,0.07)"
+                      stroke="#bf3425"
+                      stroke-width="1.8"
+                    />
+                    <!-- apex dot -->
+                    <circle cx="80" cy="34" r="3.5" fill="#bf3425" />
+                    <!-- height arrow left -->
+                    <line
+                      x1="8"
+                      y1="34"
+                      x2="8"
+                      y2="140"
+                      stroke="#9d9d9c"
+                      stroke-width="1"
+                      stroke-dasharray="3 2"
+                    />
+                    <polygon points="4,40 8,30 12,40" fill="#9d9d9c" />
+                    <polygon points="4,134 8,144 12,134" fill="#9d9d9c" />
+                    <text
+                      x="0"
+                      y="90"
+                      font-size="9"
+                      fill="#9d9d9c"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                      transform="rotate(-90,0,90)"
+                    >
+                      33.5 cm
+                    </text>
+                    <!-- base arrow -->
+                    <line
+                      x1="15"
+                      y1="152"
+                      x2="145"
+                      y2="152"
+                      stroke="#9d9d9c"
+                      stroke-width="1"
+                      stroke-dasharray="3 2"
+                    />
+                    <polygon points="21,148 11,152 21,156" fill="#9d9d9c" />
+                    <polygon points="139,148 149,152 139,156" fill="#9d9d9c" />
+                    <text
+                      x="80"
+                      y="160"
+                      font-size="9"
+                      fill="#9d9d9c"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                    >
+                      20.6 cm
+                    </text>
+                    <!-- top width -->
+                    <line
+                      x1="70"
+                      y1="26"
+                      x2="90"
+                      y2="26"
+                      stroke="#bf3425"
+                      stroke-width="1"
+                      stroke-dasharray="2 2"
+                    />
+                    <text
+                      x="80"
+                      y="24"
+                      font-size="8.5"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      text-anchor="middle"
+                      font-weight="700"
+                    >
+                      2.6 cm
+                    </text>
+                    <!-- alpha angle arc -->
+                    <path
+                      d="M80,140 Q112,110 108,98"
+                      stroke="#bf3425"
+                      stroke-width="1.2"
+                      fill="none"
+                    />
+                    <text
+                      x="116"
+                      y="114"
+                      font-size="8.5"
+                      fill="#bf3425"
+                      font-family="Inter,sans-serif"
+                      font-weight="700"
+                    >
+                      α=15°
+                    </text>
+                  </svg>
+                </div>
+
+                <div class="clsa2-dims">
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">33.5</div>
+                    <div class="clsa2-dim-lbl">cm height</div>
+                  </div>
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">20.6</div>
+                    <div class="clsa2-dim-lbl">cm base</div>
+                  </div>
+                  <div class="clsa2-dim-box">
+                    <div class="clsa2-dim-val">190</div>
+                    <div class="clsa2-dim-lbl">cm coax</div>
+                  </div>
+                </div>
+
+                <div class="clsa2-div"></div>
+
+                <ul class="clsa2-traits" id="clsa2TraitsS">
+                  <li class="clsa2-trait" data-delay="350">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>shorter, softer</span>
+                  </li>
+                  <li class="clsa2-trait" data-delay="450">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>shorter coax run (190 cm)</span>
+                  </li>
+                  <li class="clsa2-trait" data-delay="550">
+                    <div class="clsa2-trait-dot"></div>
+                    <span>easier to compress</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Comparison bars -->
+            <div class="clsa2-bars-section" id="clsa2Bars">
+              <div class="clsa2-bars-title">
+                Side-by-Side Dimension Comparison
+              </div>
+
+              <!-- legend -->
+              <div style="display: flex; gap: 16px; margin-bottom: 14px">
+                <div class="clsa2-bar-legend">
+                  <div
+                    class="clsa2-legend-dot"
+                    style="background: #47577c"
+                  ></div>
+                  Long Design
+                </div>
+                <div class="clsa2-bar-legend">
+                  <div
+                    class="clsa2-legend-dot"
+                    style="background: #bf3425"
+                  ></div>
+                  Short Design
+                </div>
+              </div>
+
+              <!-- Height -->
+              <div
+                style="
+                  margin-bottom: 4px;
+                  font-size: 11.5px;
+                  font-weight: 600;
+                  color: #2d3a50;
+                "
+              >
+                Height
+              </div>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr;
+                  gap: 5px;
+                  margin-bottom: 12px;
+                "
+              >
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Long
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--long"
+                      id="clsa2B1"
+                      data-target="88"
+                    >
+                      <span class="clsa2-bar-val">45.7 cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Short
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--short"
+                      id="clsa2B2"
+                      data-target="65"
+                    >
+                      <span class="clsa2-bar-val">33.5 cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Base width -->
+              <div
+                style="
+                  margin-bottom: 4px;
+                  font-size: 11.5px;
+                  font-weight: 600;
+                  color: #2d3a50;
+                "
+              >
+                Base Width
+              </div>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr;
+                  gap: 5px;
+                  margin-bottom: 12px;
+                "
+              >
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Long
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--long"
+                      id="clsa2B3"
+                      data-target="74"
+                    >
+                      <span class="clsa2-bar-val">18.9 cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Short
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--short"
+                      id="clsa2B4"
+                      data-target="80"
+                    >
+                      <span class="clsa2-bar-val">20.6 cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Coax run -->
+              <div
+                style="
+                  margin-bottom: 4px;
+                  font-size: 11.5px;
+                  font-weight: 600;
+                  color: #2d3a50;
+                "
+              >
+                Coax Run Length
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 5px">
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Long
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--long"
+                      id="clsa2B5"
+                      data-target="90"
+                    >
+                      <span class="clsa2-bar-val">215 cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div
+                    style="
+                      width: 60px;
+                      font-size: 11px;
+                      color: #9d9d9c;
+                      text-align: right;
+                    "
+                  >
+                    Short
+                  </div>
+                  <div class="clsa2-bar-track" style="flex: 1">
+                    <div
+                      class="clsa2-bar-fill clsa2-bar-fill--short"
+                      id="clsa2B6"
+                      data-target="79"
+                    >
+                      <span class="clsa2-bar-val">190 cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: The infinite balun -->
+        <section id="infinite-balun">
+          <h2>Feeding it without a ground plane: the infinite balun</h2>
+          <p>
+            This is the electrical heart of the design. The authors use a
+            feeding arrangement, originally introduced by Dyson, called an
+            infinite balun, in which the coaxial cable itself serves as both the
+            feed and the radiating conductor.
+          </p>
+          <p>
+            Here is how the paper describes the current path. The drive current
+            enters the coaxial cable of the first spiral arm down at the base of
+            the cone and travels up to the tip. There the cable ends, and its
+            center conductor jumps across to drive the braid of the second arm.
+            That second arm is built from the same kind of coaxial cable, used
+            to keep the two arms symmetric. Current then flows back down along
+            the outside of the second arm's braid, and where that arm reaches
+            the base the cable simply terminates open.
+          </p>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 3 — Infinite Balun Current Path                  -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+          <br />
+
+          <div class="clsa3-container" id="clsa3Root">
+            <div class="clsa3-header">
+              <h2 style="border-bottom: none">
+                CLSA Bifilar Feed: How Current Travels
+              </h2>
+              <p>
+                Inner conductor and outer shield carry opposing currents up
+                opposite spirals — they meet and bridge at the apex
+              </p>
+            </div>
+
+            <div class="clsa3-diagram-wrap" id="clsa3Diag">
+              <svg
+                viewBox="0 0 760 420"
+                width="100%"
+                style="max-width: 760px; overflow: visible"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- ── CONE SILHOUETTE ── -->
+                <polygon
+                  points="380,34 680,390 80,390"
+                  fill="rgba(71,87,124,0.04)"
+                  stroke="#c8cdd8"
+                  stroke-width="1.5"
+                />
+
+                <!-- ── BASE LINE ── -->
+                <line
+                  x1="80"
+                  y1="390"
+                  x2="680"
+                  y2="390"
+                  stroke="#c8cdd8"
+                  stroke-width="1.5"
+                />
+
+                <!-- BASE labels -->
+                <text
+                  x="72"
+                  y="406"
+                  font-size="11"
+                  fill="#9d9d9c"
+                  font-family="Inter,sans-serif"
+                  text-anchor="middle"
+                >
+                  BASE
+                </text>
+                <text
+                  x="690"
+                  y="406"
+                  font-size="11"
+                  fill="#9d9d9c"
+                  font-family="Inter,sans-serif"
+                  text-anchor="start"
+                >
+                  BASE
+                </text>
+
+                <!-- ── APEX label ── -->
+                <text
+                  x="380"
+                  y="20"
+                  font-size="11.5"
+                  fill="#47577c"
+                  font-family="Inter,sans-serif"
+                  text-anchor="middle"
+                  font-weight="700"
+                >
+                  APEX (cone tip)
+                </text>
+                <text
+                  x="380"
+                  y="32"
+                  font-size="10"
+                  fill="#9d9d9c"
+                  font-family="Inter,sans-serif"
+                  text-anchor="middle"
+                >
+                  spirals meet here · inner conductor bridges across
+                </text>
+
+                <!-- ── SPIRAL 1 PATH (navy, left side, up) ── -->
+                <!-- Wavy path climbing left inside of cone, from base-left upward to apex -->
+                <path
+                  id="clsa3Path1"
+                  d="M155,370 C170,340 200,320 215,295
+           C230,270 210,250 225,225
+           C240,200 270,185 280,160
+           C290,135 275,118 290,98
+           C305,78 340,58 370,44"
+                  stroke="#47577c"
+                  stroke-width="2.5"
+                  fill="none"
+                  stroke-dasharray="600"
+                  stroke-dashoffset="600"
+                  stroke-linecap="round"
+                />
+
+                <!-- Spiral 1 arrows (upward direction) -->
+                <polygon
+                  points="216,294 225,282 230,298"
+                  fill="#47577c"
+                  opacity="0"
+                  id="clsa3Arr1a"
+                />
+                <polygon
+                  points="281,159 290,147 295,163"
+                  fill="#47577c"
+                  opacity="0"
+                  id="clsa3Arr1b"
+                />
+
+                <!-- ── SPIRAL 2 PATH (red, right side, down) ── -->
+                <path
+                  id="clsa3Path2"
+                  d="M390,44 C420,58 455,78 470,98
+           C485,118 470,135 480,160
+           C490,185 520,200 535,225
+           C550,250 530,270 545,295
+           C560,320 590,340 605,370"
+                  stroke="#bf3425"
+                  stroke-width="2.5"
+                  fill="none"
+                  stroke-dasharray="600"
+                  stroke-dashoffset="600"
+                  stroke-linecap="round"
+                />
+
+                <!-- Spiral 2 arrows (downward direction) -->
+                <polygon
+                  points="480,161 471,173 476,157"
+                  fill="#bf3425"
+                  opacity="0"
+                  id="clsa3Arr2a"
+                />
+                <polygon
+                  points="546,296 537,308 542,292"
+                  fill="#bf3425"
+                  opacity="0"
+                  id="clsa3Arr2b"
+                />
+
+                <!-- ── APEX BRIDGE ── -->
+                <path
+                  id="clsa3Bridge"
+                  d="M370,44 Q380,38 390,44"
+                  stroke="#9d9d9c"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-dasharray="30"
+                  stroke-dashoffset="30"
+                  stroke-linecap="round"
+                />
+
+                <!-- ── CURRENT DIRECTION LABELS ── -->
+                <!-- Left: current up -->
+                <g id="clsa3LabelUp" opacity="0">
+                  <rect
+                    x="82"
+                    y="240"
+                    width="120"
+                    height="34"
+                    rx="6"
+                    fill="rgba(71,87,124,0.07)"
+                    stroke="rgba(71,87,124,0.2)"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="142"
+                    y="253"
+                    font-size="10"
+                    fill="#47577c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                    font-weight="700"
+                  >
+                    current up
+                  </text>
+                  <text
+                    x="142"
+                    y="266"
+                    font-size="9.5"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                  >
+                    (inside coax)
+                  </text>
+                </g>
+                <!-- Right: current down -->
+                <g id="clsa3LabelDown" opacity="0">
+                  <rect
+                    x="558"
+                    y="240"
+                    width="130"
+                    height="34"
+                    rx="6"
+                    fill="rgba(191,52,37,0.07)"
+                    stroke="rgba(191,52,37,0.2)"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="623"
+                    y="253"
+                    font-size="10"
+                    fill="#bf3425"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                    font-weight="700"
+                  >
+                    current down
+                  </text>
+                  <text
+                    x="623"
+                    y="266"
+                    font-size="9.5"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                  >
+                    (outside shield)
+                  </text>
+                </g>
+
+                <!-- ── FEED POINT (left base) ── -->
+                <circle
+                  id="clsa3FeedDot"
+                  cx="155"
+                  cy="390"
+                  r="7"
+                  fill="#47577c"
+                  opacity="0"
+                />
+                <g id="clsa3FeedLabel" opacity="0">
+                  <line
+                    x1="155"
+                    y1="383"
+                    x2="155"
+                    y2="350"
+                    stroke="#47577c"
+                    stroke-width="1"
+                    stroke-dasharray="3 2"
+                  />
+                  <text
+                    x="80"
+                    y="348"
+                    font-size="10.5"
+                    fill="#47577c"
+                    font-family="Inter,sans-serif"
+                    font-weight="700"
+                  >
+                    feed point
+                  </text>
+                  <text
+                    x="80"
+                    y="362"
+                    font-size="10"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                  >
+                    I_in (drive)
+                  </text>
+                  <!-- small arrow into feed dot -->
+                  <path
+                    d="M95,388 L148,388"
+                    stroke="#47577c"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <polygon points="143,384 153,388 143,392" fill="#47577c" />
+                </g>
+
+                <!-- spiral 1 label -->
+                <g id="clsa3S1label" opacity="0">
+                  <text
+                    x="130"
+                    y="415"
+                    font-size="10.5"
+                    fill="#47577c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                    font-weight="600"
+                  >
+                    spiral 1
+                  </text>
+                </g>
+
+                <!-- ── OPEN END (right base) ── -->
+                <circle
+                  id="clsa3OpenDot"
+                  cx="605"
+                  cy="390"
+                  r="7"
+                  fill="none"
+                  stroke="#bf3425"
+                  stroke-width="2"
+                  opacity="0"
+                />
+                <g id="clsa3OpenLabel" opacity="0">
+                  <text
+                    x="635"
+                    y="372"
+                    font-size="10.5"
+                    fill="#bf3425"
+                    font-family="Inter,sans-serif"
+                    font-weight="700"
+                  >
+                    left open
+                  </text>
+                  <text
+                    x="635"
+                    y="385"
+                    font-size="10"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                  >
+                    (truncated)
+                  </text>
+                  <text
+                    x="635"
+                    y="415"
+                    font-size="10.5"
+                    fill="#bf3425"
+                    font-family="Inter,sans-serif"
+                    font-weight="600"
+                  >
+                    spiral 2
+                  </text>
+                </g>
+
+                <!-- ── CUT ANNOTATION at apex ── -->
+                <g id="clsa3CutLabel" opacity="0">
+                  <rect
+                    x="180"
+                    y="55"
+                    width="190"
+                    height="26"
+                    rx="5"
+                    fill="rgba(71,87,124,0.06)"
+                    stroke="#c8cdd8"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="275"
+                    y="72"
+                    font-size="10"
+                    fill="#47577c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                  >
+                    spiral 1 cut here → feeds shield of spiral 2
+                  </text>
+                </g>
+                <!-- dotted connector from cut label to apex -->
+                <line
+                  id="clsa3CutLine"
+                  x1="275"
+                  y1="81"
+                  x2="360"
+                  y2="40"
+                  stroke="#c8cdd8"
+                  stroke-width="1"
+                  stroke-dasharray="3 2"
+                  opacity="0"
+                />
+              </svg>
+            </div>
+
+            <!-- Legend cards -->
+            <div class="clsa3-legend">
+              <div class="clsa3-legend-card" id="clsa3LC1" data-delay="700">
+                <div class="clsa3-lc-title">
+                  <div class="clsa3-lc-dot" style="background: #47577c"></div>
+                  <span style="color: #47577c">Spiral 1 — Inner Conductor</span>
+                </div>
+                <div class="clsa3-lc-body">
+                  Current travels <strong>up</strong> through the inside of the
+                  coaxial feed from the drive point at the base toward the apex.
+                </div>
+              </div>
+              <div class="clsa3-legend-card" id="clsa3LC2" data-delay="850">
+                <div class="clsa3-lc-title">
+                  <div class="clsa3-lc-dot" style="background: #bf3425"></div>
+                  <span style="color: #bf3425">Spiral 2 — Outer Shield</span>
+                </div>
+                <div class="clsa3-lc-body">
+                  At the apex the inner conductor bridges across. Current
+                  returns <strong>down</strong> along the outer shield of spiral
+                  2, which is left open (truncated) at the base.
+                </div>
+              </div>
+              <div class="clsa3-legend-card" id="clsa3LC3" data-delay="1000">
+                <div class="clsa3-lc-title">
+                  <div class="clsa3-lc-dot" style="background: #9d9d9c"></div>
+                  <span style="color: #9d9d9c">Apex Bridge</span>
+                </div>
+                <div class="clsa3-lc-body">
+                  The cut at the apex connects spiral 1's inner conductor to
+                  spiral 2's outer shield, completing the bifilar current loop
+                  with no separate ground plane.
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <p>
+            The clever part, from a systems point of view, is the consequence of
+            all this. The authors point out that although, in strict electrical
+            terms, the drive point lives at the cone tip where the two arms
+            join, embedding the cable in the structure means the actual feed
+            network and connection sit down at the base. That is exactly what
+            lets the antenna be fed at the bottom while still radiating toward
+            the top — and it removes the need to run any cable up to the apex
+            after deployment.
+          </p>
+          <p>
+            For a balanced feed, the current arriving from the apex has to fade
+            away to almost nothing before it reaches that open base of spiral
+            two. As we will see in the results, the shorter design does not
+            quite give the current enough length to decay, which shows up in its
+            radiation pattern.
+          </p>
+
+          <!-- Full width: current path schematic (Figure 2) -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a821cf7d8d919bddbd46_4.png"
+            alt="Schematic of the current path through the two coaxial spiral arms"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The schematic traces the current path through the two coaxial spiral
+            arms: drive current (I_in) enters spiral one at the cone base,
+            travels to the apex, and the inner conductor bridges across to feed
+            the shield of spiral two, with the feed gap (w_feed) and conductor
+            diameter marked. Figure 2 from: Williams, L.R.; Hoel, K.V.; Bråten,
+            L.E.; Romeijer, A.; Hjermann, N.; Sagsveen, B. "A Deployable Conical
+            Log Spiral Antenna for Small Spacecraft: Electronic Design and
+            Test." Aerospace 2025, 12, 218.
+            <a
+              href="https://doi.org/10.3390/aerospace12030218"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12030218</a
+            >
+            — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+        </section>
+
+        <!-- Section 5: Impedance matching -->
+        <section id="impedance-matching">
+          <h2>Matching the impedance: a four-stage Chebyshev transformer</h2>
+          <p>
+            A conical log spiral does not present a single clean impedance
+            across its whole band. Drawing on Dyson's earlier measurements, the
+            authors take the antenna's characteristic impedance to fall
+            somewhere between roughly 80 and 320 Ω, with the conductor diameter
+            being the main lever for controlling it — a fatter conductor pushes
+            the impedance down.
+          </p>
+          <p>
+            They chose to feed the structure with 95 Ω coaxial cable. The appeal
+            was practical: the value falls inside that 80–320 Ω workable band,
+            the cable is readily available off the shelf, and its body is wider
+            than a 50 Ω cable, which is an advantage here. To get from a
+            standard 50 Ω source up to 95 Ω, they designed a four-stage
+            Chebyshev transformer printed on Rogers 4350B substrate.
+          </p>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 4 — Four-Stage Chebyshev Transformer             -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+          <br />
+          <div class="clsa4-container" id="clsa4Root">
+            <div class="clsa4-header">
+              <h2 style="border-bottom: none">
+                Stepped Impedance Transformer: 50 Ω → 95 Ω
+              </h2>
+              <p>
+                Four quarter-wave stages widen the microstrip trace to match the
+                source to the coax feed
+              </p>
+            </div>
+
+            <!-- Flow: source -> stages -> coax -->
+            <div class="clsa4-flow">
+              <div class="clsa4-port clsa4-port--src" id="clsa4PortSrc">
+                <div class="clsa4-port-val">50 Ω</div>
+                <div class="clsa4-port-lbl">source</div>
+              </div>
+
+              <div class="clsa4-arrow" id="clsa4Arr1">→</div>
+
+              <div class="clsa4-stages">
+                <div class="clsa4-stage">
+                  <div class="clsa4-stage-bar" data-h="55" id="clsa4S1">
+                    <div class="clsa4-stage-tooltip">
+                      Stage 1 · 39.2 mm · 1.0 mm wide
+                    </div>
+                  </div>
+                  <div class="clsa4-stage-name">Stage 1</div>
+                </div>
+                <div class="clsa4-stage">
+                  <div class="clsa4-stage-bar" data-h="70" id="clsa4S2">
+                    <div class="clsa4-stage-tooltip">
+                      Stage 2 · 39.2 mm · 1.6 mm wide
+                    </div>
+                  </div>
+                  <div class="clsa4-stage-name">Stage 2</div>
+                </div>
+                <div class="clsa4-stage">
+                  <div class="clsa4-stage-bar" data-h="85" id="clsa4S3">
+                    <div class="clsa4-stage-tooltip">
+                      Stage 3 · 39.2 mm · 2.25 mm wide
+                    </div>
+                  </div>
+                  <div class="clsa4-stage-name">Stage 3</div>
+                </div>
+                <div class="clsa4-stage">
+                  <div class="clsa4-stage-bar" data-h="100" id="clsa4S4">
+                    <div class="clsa4-stage-tooltip">
+                      Stage 4 · 39.2 mm · 2.85 mm wide
+                    </div>
+                  </div>
+                  <div class="clsa4-stage-name">Stage 4</div>
+                </div>
+              </div>
+
+              <div class="clsa4-arrow" id="clsa4Arr2">→</div>
+
+              <div class="clsa4-port clsa4-port--coax" id="clsa4PortCoax">
+                <div class="clsa4-port-val">95 Ω</div>
+                <div class="clsa4-port-lbl">to coax</div>
+              </div>
+            </div>
+
+            <!-- Trace width panel -->
+            <div class="clsa4-width-panel" id="clsa4WidthPanel">
+              <div class="clsa4-width-title">
+                Trace Width per Stage (each 39.2 mm long)
+              </div>
+              <div class="clsa4-width-row">
+                <div class="clsa4-trace-cell">
+                  <div class="clsa4-trace-vis">
+                    <div
+                      class="clsa4-trace-bar"
+                      data-w="35"
+                      style="height: 1px; min-height: 5px"
+                      id="clsa4T1"
+                    ></div>
+                  </div>
+                  <div class="clsa4-trace-w">1.0 mm</div>
+                  <div class="clsa4-trace-stage">Stage 1</div>
+                </div>
+                <div class="clsa4-trace-cell">
+                  <div class="clsa4-trace-vis">
+                    <div
+                      class="clsa4-trace-bar"
+                      data-w="56"
+                      style="height: 8px"
+                      id="clsa4T2"
+                    ></div>
+                  </div>
+                  <div class="clsa4-trace-w">1.6 mm</div>
+                  <div class="clsa4-trace-stage">Stage 2</div>
+                </div>
+                <div class="clsa4-trace-cell">
+                  <div class="clsa4-trace-vis">
+                    <div
+                      class="clsa4-trace-bar"
+                      data-w="79"
+                      style="height: 12px"
+                      id="clsa4T3"
+                    ></div>
+                  </div>
+                  <div class="clsa4-trace-w">2.25 mm</div>
+                  <div class="clsa4-trace-stage">Stage 3</div>
+                </div>
+                <div class="clsa4-trace-cell">
+                  <div class="clsa4-trace-vis">
+                    <div
+                      class="clsa4-trace-bar"
+                      data-w="100"
+                      style="height: 16px"
+                      id="clsa4T4"
+                    ></div>
+                  </div>
+                  <div class="clsa4-trace-w">2.85 mm</div>
+                  <div class="clsa4-trace-stage">Stage 4</div>
+                </div>
+              </div>
+              <div class="clsa4-narrow-wide">
+                <span>← narrow</span>
+                <span>wider →</span>
+              </div>
+            </div>
+
+            <!-- Footer specs -->
+            <div class="clsa4-footer" id="clsa4Footer">
+              <div class="clsa4-spec-chip">
+                <div class="clsa4-spec-dot"></div>
+                Total length <strong>163 mm</strong>
+              </div>
+              <div class="clsa4-spec-chip">
+                <div class="clsa4-spec-dot"></div>
+                Substrate <strong>Rogers 4350B</strong>
+              </div>
+              <div class="clsa4-spec-chip">
+                <div class="clsa4-spec-dot"></div>
+                Thickness <strong>1.524 mm</strong>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <p>
+            The authors report that, across the design band, the transformer's
+            S11 stayed under −15 dB, with insertion loss (S12) sitting around
+            0.1 to 0.25 dB. They describe it as good enough for prototype
+            testing and note it could be improved with a longer transformer
+            carrying more stages.
+          </p>
+          <p>
+            For the spiral arms themselves, the prototypes used Huber+Suhner
+            RG195 A/U coaxial cable with the outer jacket stripped off. The
+            authors are candid about the trade-off here: the RG195 jacket
+            material is not especially radiation-resistant, and its specified
+            maximum operating frequency is only 1 GHz. They tested the cable up
+            to 6 GHz on a network analyzer and found it worked fine across their
+            band, and they note that the closely related RG180 cable — with a
+            jacket better suited to space — would be the flight choice, but it
+            was skipped here because of longer lead time.
+          </p>
+        </section>
+
+        <!-- Section 6: Inside the wall -->
+        <section id="inside-the-wall">
+          <h2>Inside the wall: what the structure is made of</h2>
+
+          <!-- Split (reverse)-->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a821f9e5913fecffd71b_5.png"
+                alt="A cross-section cut through one spiral arm showing the stripped coaxial cable inside the carbon-fiber epoxy composite"
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                A cross-section cut through one spiral arm shows the stripped
+                RG195 coaxial cable sitting inside the carbon-fiber epoxy
+                composite, with the inner feature measuring roughly 3.1 mm and
+                the outer wall about 5 mm across. Figure 5 from: Williams, L.R.;
+                Hoel, K.V.; Bråten, L.E.; Romeijer, A.; Hjermann, N.; Sagsveen,
+                B. "A Deployable Conical Log Spiral Antenna for Small
+                Spacecraft: Electronic Design and Test." Aerospace 2025, 12,
+                218.
+                <a
+                  href="https://doi.org/10.3390/aerospace12030218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/aerospace12030218</a
+                >
+                — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                The antenna wall is a carbon-fiber epoxy composite that
+                physically contains the coaxial radiator and behaves as a
+                spring. The authors built it from a braided carbon-fiber tube
+                (Dowaksa A38 3K braid) infused with a SikaBiresin epoxy system.
+                A cross-section through the wall shows the stripped coaxial
+                cable sitting inside the composite.
+              </p>
+              <br />
+
+              <p>
+                A cross-section cut through one spiral arm shows the stripped
+                RG195 coaxial cable sitting inside the carbon-fiber epoxy
+                composite, with the inner feature measuring roughly 3.1 mm and
+                the outer wall about 5 mm across. Figure 5 from: Williams, L.R.;
+                Hoel, K.V.; Bråten, L.E.; Romeijer, A.; Hjermann, N.; Sagsveen,
+                B. "A Deployable Conical Log Spiral Antenna for Small
+                Spacecraft: Electronic Design and Test." Aerospace 2025, 12,
+                218.
+              </p>
+              <br />
+              <p>
+                At the apex, the two spiral arms are soldered together, with the
+                feed gap squeezed to below a millimeter. That joint is wrapped
+                in a Kevlar-braided tube and epoxy. The authors picked Kevlar
+                rather than carbon fiber there precisely because it does not
+                conduct: the reinforcement has to keep the two arms electrically
+                separated while still stiffening and protecting the joint. To
+                close out the build, that lower spiral-one end is joined
+                straight to the transformer board, and a structural epoxy
+                adhesive is added at the solder points for extra protection.
+              </p>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 5 — Spiral Arm Cross-Section                     -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+
+          <div class="clsa5-container" id="clsa5Root">
+            <div class="clsa5-header">
+              <h2 style="border-bottom: none">
+                Cross-Section Through One Spiral Arm
+              </h2>
+              <p>
+                The composite wall provides the spring force; the embedded coax
+                does the radiating <em>(not to scale)</em>
+              </p>
+            </div>
+
+            <div class="clsa5-main">
+              <!-- SVG concentric cross-section -->
+              <div class="clsa5-svg-wrap" id="clsa5Svg">
+                <svg
+                  viewBox="0 0 300 300"
+                  width="300"
+                  height="300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="max-width: 100%"
+                >
+                  <!-- Outer CFRP wall -->
+                  <circle
+                    class="clsa5-layer"
+                    data-layer="cfrp"
+                    cx="150"
+                    cy="150"
+                    r="120"
+                    fill="rgba(71,87,124,0.10)"
+                    stroke="#47577c"
+                    stroke-width="2.5"
+                  />
+
+                  <!-- crosshatch texture hint for composite -->
+                  <g stroke="#47577c" stroke-width="0.6" opacity="0.18">
+                    <line x1="60" y1="90" x2="240" y2="90" />
+                    <line x1="45" y1="120" x2="255" y2="120" />
+                    <line x1="40" y1="150" x2="260" y2="150" />
+                    <line x1="45" y1="180" x2="255" y2="180" />
+                    <line x1="60" y1="210" x2="240" y2="210" />
+                  </g>
+
+                  <!-- Coax outer (jacket removed) -->
+                  <circle
+                    class="clsa5-layer"
+                    data-layer="coax"
+                    cx="150"
+                    cy="150"
+                    r="66"
+                    fill="rgba(191,52,37,0.08)"
+                    stroke="#bf3425"
+                    stroke-width="2.2"
+                  />
+
+                  <!-- Coax dielectric -->
+                  <circle
+                    cx="150"
+                    cy="150"
+                    r="42"
+                    fill="#ffffff"
+                    stroke="#bf3425"
+                    stroke-width="1.4"
+                    stroke-dasharray="4 3"
+                  />
+
+                  <!-- Inner conductor -->
+                  <circle
+                    class="clsa5-layer"
+                    data-layer="inner"
+                    cx="150"
+                    cy="150"
+                    r="14"
+                    fill="#bf3425"
+                    stroke="#bf3425"
+                    stroke-width="1"
+                  />
+
+                  <!-- ── DIMENSION: OD ~5mm ── -->
+                  <line
+                    x1="30"
+                    y1="150"
+                    x2="270"
+                    y2="150"
+                    stroke="#9d9d9c"
+                    stroke-width="1"
+                    stroke-dasharray="3 2"
+                    opacity="0.5"
+                  />
+                  <line
+                    x1="30"
+                    y1="145"
+                    x2="30"
+                    y2="155"
+                    stroke="#9d9d9c"
+                    stroke-width="1.2"
+                  />
+                  <line
+                    x1="270"
+                    y1="145"
+                    x2="270"
+                    y2="155"
+                    stroke="#9d9d9c"
+                    stroke-width="1.2"
+                  />
+                  <rect
+                    x="118"
+                    y="142"
+                    width="64"
+                    height="16"
+                    rx="3"
+                    fill="#fff"
+                  />
+                  <text
+                    x="150"
+                    y="154"
+                    font-size="10"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                    font-weight="600"
+                  >
+                    ~5 mm OD
+                  </text>
+
+                  <!-- ── DIMENSION: inner ~3.1mm ── -->
+                  <line
+                    x1="216"
+                    y1="150"
+                    x2="278"
+                    y2="98"
+                    stroke="#bf3425"
+                    stroke-width="1"
+                    stroke-dasharray="3 2"
+                  />
+                  <text
+                    x="282"
+                    y="94"
+                    font-size="10"
+                    fill="#bf3425"
+                    font-family="Inter,sans-serif"
+                    font-weight="700"
+                  >
+                    ~3.1 mm
+                  </text>
+                  <text
+                    x="282"
+                    y="106"
+                    font-size="9"
+                    fill="#9d9d9c"
+                    font-family="Inter,sans-serif"
+                  >
+                    inner feature
+                  </text>
+
+                  <!-- labels inside -->
+                  <text
+                    x="150"
+                    y="58"
+                    font-size="10"
+                    fill="#47577c"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                    font-weight="700"
+                  >
+                    carbon-fiber + epoxy wall
+                  </text>
+                  <text
+                    x="150"
+                    y="206"
+                    font-size="9.5"
+                    fill="#bf3425"
+                    font-family="Inter,sans-serif"
+                    text-anchor="middle"
+                  >
+                    coax (jacket removed)
+                  </text>
+                </svg>
+              </div>
+
+              <!-- Annotation cards -->
+              <div class="clsa5-cards">
+                <div class="clsa5-card" id="clsa5C1" data-target="cfrp">
+                  <div class="clsa5-card-title">
+                    <div
+                      class="clsa5-card-swatch"
+                      style="
+                        background: rgba(71, 87, 124, 0.5);
+                        border: 1.5px solid #47577c;
+                      "
+                    ></div>
+                    <span style="color: #47577c"
+                      >Carbon-fiber + epoxy wall</span
+                    >
+                  </div>
+                  <div class="clsa5-card-body">
+                    The outer composite shell forms the structural body of the
+                    spiral arm and provides the spring force that deploys the
+                    antenna.
+                  </div>
+                </div>
+
+                <div class="clsa5-card" id="clsa5C2" data-target="coax">
+                  <div class="clsa5-card-title">
+                    <div
+                      class="clsa5-card-swatch"
+                      style="
+                        background: rgba(191, 52, 37, 0.4);
+                        border: 1.5px solid #bf3425;
+                      "
+                    ></div>
+                    <span style="color: #bf3425"
+                      >Embedded coax (jacket removed)</span
+                    >
+                  </div>
+                  <div class="clsa5-card-body">
+                    The coaxial line is embedded inside the wall with its jacket
+                    removed. It serves as both the radiating element and the
+                    balun.
+                  </div>
+                </div>
+
+                <div class="clsa5-card" id="clsa5C3" data-target="inner">
+                  <div class="clsa5-card-title">
+                    <div
+                      class="clsa5-card-swatch"
+                      style="background: #bf3425"
+                    ></div>
+                    <span style="color: #bf3425">Inner feature (~3.1 mm)</span>
+                  </div>
+                  <div class="clsa5-card-body">
+                    The inner conductor and dielectric core measure roughly 3.1
+                    mm, sitting within the ~5 mm overall outer diameter.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dimension pills -->
+            <div class="clsa5-dims" id="clsa5Dims">
+              <div class="clsa5-dim-pill">
+                <div class="clsa5-dim-val">~5 mm</div>
+                <div class="clsa5-dim-lbl">overall OD</div>
+              </div>
+              <div class="clsa5-dim-pill">
+                <div class="clsa5-dim-val" style="color: #bf3425">~3.1 mm</div>
+                <div class="clsa5-dim-lbl">inner feature</div>
+              </div>
+            </div>
+
+            <!-- Takeaway banner -->
+            <div class="clsa5-banner" id="clsa5Banner">
+              <div class="clsa5-banner-row">
+                <div class="clsa5-banner-dot" style="background: #47577c"></div>
+                <span>The composite provides the spring force.</span>
+              </div>
+              <div class="clsa5-banner-row">
+                <div class="clsa5-banner-dot" style="background: #bf3425"></div>
+                <span
+                  >The embedded coax is the radiating element
+                  <strong>AND</strong> the balun.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Full width: apex solder joint (Figure 6) -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a821cdce1a7be83d912f_6.png"
+            alt="The two coaxial spiral arms soldered together at the apex, then wrapped in a Kevlar-braided tube and epoxy"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            (a) shows the two coaxial spiral arms soldered together at the apex
+            of the cone, where the feed gap is squeezed to below a millimeter;
+            (b) shows that solder joint wrapped in a Kevlar-braided tube and
+            epoxy, used in place of carbon fiber so the reinforcement stiffens
+            and protects the joint without electrically connecting the two arms.
+            Figure 6 from: Williams, L.R.; Hoel, K.V.; Bråten, L.E.; Romeijer,
+            A.; Hjermann, N.; Sagsveen, B. "A Deployable Conical Log Spiral
+            Antenna for Small Spacecraft: Electronic Design and Test." Aerospace
+            2025, 12, 218.
+            <a
+              href="https://doi.org/10.3390/aerospace12030218"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12030218</a
+            >
+            — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p>
+            The authors note that the full mechanical story — how the part is
+            made and how it holds up to environmental testing — is covered in a
+            separate companion paper; this one stays on the electronic design
+            and RF testing.
+          </p>
+        </section>
+
+        <!-- Section 7: Surviving deployment -->
+        <section id="surviving-deployment">
+          <h2>Surviving deployment: what 200 compressions did</h2>
+          <p>
+            A deployable spring antenna has to be squashed flat for launch and
+            then released. The authors describe holding the compressed spring
+            down with a burn-wire device; once on orbit, the wire is cut and the
+            antenna extends to its working length. A non-conductive standoff
+            keeps the antenna off the (prototype) PLA base plate electrically.
+          </p>
+          <p>
+            Composite springs settle a little the first few times they are
+            compressed, so the authors deliberately cycled the antennas and
+            tracked what happened. They 3D-scanned the long antenna before and
+            after 200 compressions and measured a permanent shortening from
+            about 45.7 cm to 44.4 cm, with the change concentrated toward the
+            stiffer apex end.
+          </p>
+
+          <!-- Full width: compression / 3D-scan overlay (Figure 7) -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a821a269851d911aaf9f_7.png"
+            alt="The long antenna compressed for stowage, with a 3D-scan overlay before and after 200 compressions"
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            (a) shows the long antenna (α = 10°) physically compressed for
+            stowage; (b) overlays 3D-scan geometry before and after 200
+            compressions, capturing the permanent shortening from about 457.5 mm
+            to 443.9 mm, concentrated toward the stiffer apex. Figure 7 from:
+            Williams, L.R.; Hoel, K.V.; Bråten, L.E.; Romeijer, A.; Hjermann,
+            N.; Sagsveen, B. "A Deployable Conical Log Spiral Antenna for Small
+            Spacecraft: Electronic Design and Test." Aerospace 2025, 12, 218.
+            <a
+              href="https://doi.org/10.3390/aerospace12030218"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12030218</a
+            >
+            — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 6 — Compression Settling Result                  -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+
+          <div class="clsa6-container" id="clsa6Root">
+            <div class="clsa6-header">
+              <h2 style="border-bottom: none">
+                Long Antenna Height After Repeated Compression
+              </h2>
+              <p>3D-scan result comparing height before and after cycling</p>
+            </div>
+
+            <!-- Cycle count -->
+            <div class="clsa6-cycle">
+              <div class="clsa6-cycle-badge" id="clsa6Badge">
+                <strong>200×</strong> compression cycles
+              </div>
+            </div>
+
+            <!-- Bars -->
+            <div class="clsa6-bars">
+              <div class="clsa6-bar-block">
+                <div class="clsa6-bar-head">
+                  <span class="clsa6-bar-name">Before</span>
+                  <span class="clsa6-bar-val" style="color: #47577c"
+                    >45.7 cm</span
+                  >
+                </div>
+                <div class="clsa6-bar-track">
+                  <div
+                    class="clsa6-bar-fill clsa6-bar-fill--before"
+                    id="clsa6Before"
+                    data-target="100"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="clsa6-bar-block">
+                <div class="clsa6-bar-head">
+                  <span class="clsa6-bar-name">After</span>
+                  <span class="clsa6-bar-val" style="color: #9d9d9c"
+                    >44.4 cm</span
+                  >
+                </div>
+                <div class="clsa6-bar-track">
+                  <div
+                    class="clsa6-bar-fill clsa6-bar-fill--after"
+                    id="clsa6After"
+                    data-target="97.2"
+                  ></div>
+                </div>
+                <!-- gap annotation -->
+                <div class="clsa6-gap" id="clsa6Gap">
+                  <div class="clsa6-gap-bracket" id="clsa6Bracket"></div>
+                  <div class="clsa6-gap-label" id="clsa6GapLabel">
+                    −1.3 cm (2.8%)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settling location note -->
+            <div class="clsa6-settle" id="clsa6Settle">
+              <svg
+                class="clsa6-settle-svg"
+                width="54"
+                height="70"
+                viewBox="0 0 54 70"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- cone -->
+                <polygon
+                  points="27,4 50,66 4,66"
+                  fill="rgba(71,87,124,0.06)"
+                  stroke="#47577c"
+                  stroke-width="1.5"
+                />
+                <!-- apex settling zone highlight -->
+                <polygon
+                  points="27,4 38,34 16,34"
+                  fill="rgba(191,52,37,0.18)"
+                  stroke="#bf3425"
+                  stroke-width="1.2"
+                />
+                <!-- apex marker -->
+                <circle cx="27" cy="4" r="3" fill="#bf3425" />
+                <text
+                  x="27"
+                  y="48"
+                  font-size="7"
+                  fill="#9d9d9c"
+                  font-family="Inter,sans-serif"
+                  text-anchor="middle"
+                >
+                  apex
+                </text>
+              </svg>
+              <div class="clsa6-settle-text">
+                <strong>Settling concentrated near the apex.</strong> The small
+                height loss after 200× cycles is localized at the tip of the
+                cone rather than spread along the body.
+              </div>
+            </div>
+
+            <!-- Verdict -->
+            <div class="clsa6-verdict" id="clsa6Verdict">
+              <div class="clsa6-verdict-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12.5l4.5 4.5L19 7.5"
+                    stroke="#fff"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="clsa6-verdict-text">
+                Effect on RF (directivity and S11): <strong>negligible.</strong>
+              </div>
+            </div>
+          </div>
+          <br />
+          <p>
+            The reassuring finding, according to the authors, is that this
+            geometric settling barely touched the electrical performance. They
+            measured the antennas before compression and again after 10, 20, 50,
+            100, and 200 cycles, and report that the effect on both directivity
+            and reflection coefficient was negligible. From that point on, they
+            only present the post-200-compression data, on the logic that any
+            real flight unit will have been cycled many times during testing.
+          </p>
+        </section>
+
+        <!-- Section 8: How it performed -->
+        <section id="how-it-performed">
+          <h2>How it actually performed</h2>
+
+          <!-- Split -->
+          <div class="split-layout">
+            <div class="split-image">
+              <!-- Full width: anechoic chamber (Figure 8) -->
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33aa723d4f1624f94d1ac3_8.png"
+                alt="The deployed conical spring antenna hanging from its apex inside an anechoic chamber"
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                The deployed conical spring antenna hangs from its apex above
+                its square base plate, with the blue coaxial feed cable attached
+                at the base, inside the anechoic chamber. It is surrounded by
+                pyramidal RF absorbers — dark grey on the walls and bright green
+                in the foreground — that suppress reflections during the
+                directivity, efficiency, axial ratio, and radiation pattern
+                measurements. Figure 8 from: Williams, L.R.; Hoel, K.V.; Bråten,
+                L.E.; Romeijer, A.; Hjermann, N.; Sagsveen, B. "A Deployable
+                Conical Log Spiral Antenna for Small Spacecraft: Electronic
+                Design and Test." Aerospace 2025, 12, 218.
+                <a
+                  href="https://doi.org/10.3390/aerospace12030218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/aerospace12030218</a
+                >
+                — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                The antennas were characterized thoroughly. For S11, the team
+                probed the transformer's input port with a Rohde &amp; Schwarz
+                vector network analyzer, while directivity, efficiency, axial
+                ratio, and radiation patterns were measured by Pulsaart by AGC
+                Glass Europe on a multi-probe spherical near-field range in
+                Belgium, with simulations run in Ansys HFSS. The authors note
+                the test facility is certified to ISO 17025:2017.
+              </p>
+              <br />
+              <p>A few headline results, all as reported by the authors:</p>
+              <br />
+              <p>
+                <strong>Directivity.</strong> The long design held a higher and
+                flatter directivity across the band, hovering near 8.5 dBi
+                toward the edges and easing to about 7 dBi through the middle;
+                the short design dropped a little further, down to roughly 6
+                dBi. The simulations tracked the measurements well.
+              </p>
+              <br />
+              <p>
+                <strong>Efficiency and realized gain.</strong> The long
+                antenna's extra length means a longer internal coax run and
+                slightly more loss, which eats into its directivity advantage.
+                The net effect is that, in terms of realized gain, the two
+                designs end up performing similarly across the band.
+              </p>
+            </div>
+          </div>
+
+          <!-- Split (reverse)-->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a33a8210345e6b43322316c_9.png"
+                alt="Two stacked plots showing measured realized gain versus frequency for the long and short antennas"
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                Two stacked plots show measured realized gain in dBi versus
+                frequency from 500 to 1500 MHz, with both maximum and boresight
+                traces given for the long antenna (top) and the short antenna
+                (bottom). The gain sits roughly in the 3 to 6 dBi range across
+                the band, and the maximum value does not always fall exactly at
+                boresight. Figure 13 from: Williams, L.R.; Hoel, K.V.; Bråten,
+                L.E.; Romeijer, A.; Hjermann, N.; Sagsveen, B. "A Deployable
+                Conical Log Spiral Antenna for Small Spacecraft: Electronic
+                Design and Test." Aerospace 2025, 12, 218.
+                <a
+                  href="https://doi.org/10.3390/aerospace12030218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/aerospace12030218</a
+                >
+                — © 2025 by the authors. Licensed under CC BY 4.0 (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <p>
+                <strong>Polarization.</strong> Both antennas held an axial ratio
+                below 3 dB — the usual mark of clean circular polarization —
+                both at boresight and within ±30° of it.
+              </p>
+              <br />
+              <p>
+                <strong>The short design's tilt.</strong> Here is where the
+                balun length matters. The authors observed that the short
+                antenna's radiation pattern was slightly tilted, in both
+                simulation and measurement. Their explanation: the shorter
+                structure does not give the residual current enough distance to
+                decay before it reaches the open base, leaving the feed slightly
+                unbalanced. The long antenna, with more length, stayed properly
+                balanced and showed essentially no tilt.
+              </p>
+              <br />
+              <p>
+                <strong>No ground plane needed — checked.</strong> Because the
+                whole point was to avoid a sized ground plane, the authors
+                simulated the long antenna sitting 3 mm above a 20 cm × 20 cm
+                aluminum plate (the footprint of the prototype) to mimic a
+                spacecraft surface. Across most of the band the plate barely
+                changed the patterns; the one exception was the bottom of the
+                band, at 500 MHz, where some distortion crept in — consistent,
+                they note, with Dyson's much earlier observation.
+              </p>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- INFOGRAPHIC 7 — Realized Gain Across the Band                -->
+          <!-- Paste infographic code below this comment block.             -->
+          <!-- ============================================================ -->
+
+          <div class="clsa7-container" id="clsa7Root">
+            <div class="clsa7-header">
+              <h2 style="border-bottom: none">Realized Gain Across the Band</h2>
+              <p>Approximate envelope for both designs, 500–1500 MHz</p>
+            </div>
+
+            <div class="clsa7-chart-wrap">
+              <canvas id="clsa7Chart"></canvas>
+            </div>
+
+            <div class="clsa7-chips" id="clsa7Chips">
+              <div class="clsa7-chip">
+                <div class="clsa7-chip-dot" style="background: #47577c"></div>
+                Reported envelope <strong>~3 to 6 dBi</strong>
+              </div>
+              <div class="clsa7-chip">
+                <div class="clsa7-chip-dot" style="background: #bf3425"></div>
+                Dip near <strong>1.0–1.2 GHz</strong>
+              </div>
+              <div class="clsa7-chip">
+                <div class="clsa7-chip-dot" style="background: #9d9d9c"></div>
+                Band <strong>500–1500 MHz</strong>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <br />
+
+          <p>
+            The authors also mention that the University of Oslo lodged an
+            initial patent filing covering the work in March 2025, and that the
+            project was funded by the Research Council of Norway through the
+            Centre for Space Sensors and Systems.
+          </p>
+        </section>
+
+        <!-- Section 9: Our perspective -->
+        <section id="our-perspective">
+          <h2>Our perspective: this is multifunctional CFRP, fully tested</h2>
+
+          <!-- Editorial note — clearly distinguished from cited research -->
+          <div class="highlight-box">
+            <p>
+              The following is commentary from Addcomposites. It is our own
+              analysis and is not drawn from, or endorsed by, the paper's
+              authors.
+            </p>
+          </div>
+
+          <p>
+            What makes this paper worth a composites manufacturer's attention is
+            not the antenna specialism — it is the design philosophy underneath
+            it. The team didn't bolt a radiator onto a structure. They made one
+            CFRP part carry the structural load, provide the deployment spring
+            force, and host the radiating element, and then they verified that
+            all three jobs survive together through 200 deployment cycles and a
+            full RF characterization campaign.
+          </p>
+          <p>
+            That is the direction small-satellite structures are heading. In a
+            sector where the design driver is mass and part count per function,
+            the most valuable composite part is increasingly the one that stops
+            being "a structure that holds other components" and becomes "the
+            component." Every subsystem that folds into the primary structure is
+            mass removed, an interface deleted, and a failure mode retired.
+          </p>
+          <p>
+            It is worth being precise about how this specific prototype was
+            built: the authors used a braided carbon-fiber tube infused with
+            epoxy, not automated fiber placement. So this is not a story about
+            how the part was manufactured — it is a demonstration that a
+            multifunctional CFRP part of this kind works.
+          </p>
+          <p>
+            Where we think the manufacturing question gets interesting is in
+            what comes next for parts like these. The spring behavior here is
+            governed by the composite's stiffness, which in turn depends on
+            fiber orientation, fiber volume fraction, and local laminate
+            architecture. Those are exactly the variables that automated fiber
+            placement is built to control precisely and repeatably. As
+            multifunctional CFRP parts move from one-off research prototypes
+            toward small-series production — satellite bus panels, structural
+            tubes, brackets, and integrated structures where the part has to hit
+            a mechanical spec and a second functional spec at once — the ability
+            to place fiber deterministically becomes a way to tune both
+            behaviors at the same time.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a13cbdb726362a0fe5e49bd_10.png"
+            alt="An Addcomposites AFP-XS head laying carbon fiber tow along defined paths on a curved mould"
+            class="full-width-image"
+          />
+          <p class="image-caption" style="margin-top: 10px">
+            An Addcomposites AFP-XS head lays carbon fiber tow along defined
+            paths on a curved mould. Fiber orientation, coverage, and
+            architecture are all set in the toolpath, the same deterministic
+            control the deck research depends on.
+          </p>
+          <p>
+            That is the bet behind tools like the AFP-XS and the ADDX platform:
+            giving teams accessible, programmable control over the laminate so
+            that "the structure is the component" parts can be designed,
+            iterated, and produced without a heavy industrial footprint. This
+            paper is a clean, peer-reviewed proof point that the underlying idea
+            — one CFRP structure, several jobs — is not just plausible but
+            testable and mission-relevant.
+          </p>
+
+          <!-- Final full-width image -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="Addcomposites AFP-XS automated fiber placement"
+            class="full-width-image"
+          />
+
+          <div class="cta-section">
+            <p>
+              If you are working on integrated or multifunctional composite
+              structures for space hardware and want to talk through how fiber
+              placement could help you hit two specs in one part, we would like
+              to hear what you are building.
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Entry-level automated fiber placement</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>Read the Research</h2>
+          <ol class="references-list">
+            <li>
+              Williams, L.R.; Hoel, K.V.; Bråten, L.E.; Romeijer, A.; Hjermann,
+              N.; Sagsveen, B. "A Deployable Conical Log Spiral Antenna for
+              Small Spacecraft: Electronic Design and Test." Aerospace 2025, 12,
+              218.
+              <a
+                href="https://doi.org/10.3390/aerospace12030218"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/aerospace12030218</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            Published 7 March 2025 by MDPI. Open access under the Creative
+            Commons Attribution (CC BY 4.0) license (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1rem">
+            All technical claims, figures, and results above are the work of the
+            cited authors. Commentary attributed to Addcomposites is our own and
+            does not represent the views of the authors or their institutions.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
