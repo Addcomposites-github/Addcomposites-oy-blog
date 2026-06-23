@@ -1179,3 +1179,116 @@ body,
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+/* infographic 1 */
+.visc-wrap {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 860px;
+  margin: 0 auto;
+}
+ 
+.visc-header {
+  margin-bottom: 6px;
+}
+ 
+.visc-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9d9d9c;
+  margin-bottom: 6px;
+}
+ 
+.visc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #47577c;
+  margin: 0 0 4px 0;
+}
+ 
+.visc-subtitle {
+  font-size: 12.5px;
+  color: #9d9d9c;
+  margin: 0 0 20px 0;
+}
+ 
+.visc-chart-outer {
+  position: relative;
+  width: 100%;
+  height: 340px;
+}
+ 
+.visc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+ 
+.visc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #475569;
+}
+ 
+.visc-legend-swatch {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+ 
+.visc-legend-swatch.dashed {
+  background: repeating-linear-gradient(90deg, #bf3425 0 6px, transparent 6px 10px);
+}
+ 
+.visc-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ 
+/* Tooltip card */
+.visc-tooltip-card {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 12px;
+  color: #1e293b;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 180px;
+  z-index: 10;
+}
+.visc-tooltip-card strong {
+  display: block;
+  color: #47577c;
+  font-size: 12.5px;
+  margin-bottom: 3px;
+}
+ 
+/* Animate on scroll */
+.visc-wrap {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.visc-wrap.visc-visible {
+  opacity: 1;
+  transform: none;
+}
