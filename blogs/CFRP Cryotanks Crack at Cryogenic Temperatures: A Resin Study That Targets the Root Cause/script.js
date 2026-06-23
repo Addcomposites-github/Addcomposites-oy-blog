@@ -266,3 +266,193 @@ document.addEventListener("DOMContentLoaded", function () {
    Per-infographic JS goes here when infographic markup is injected
    into the INFOGRAPHIC SECTION placeholders in the HTML.
    ============================================ */
+
+/* infographic 1 */
+(function() {
+  // Scroll-reveal
+  var wrap = document.getElementById('viscWrap');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { wrap.classList.add('visc-visible'); io.disconnect(); }
+    });
+  }, { threshold: 0.15 });
+  io.observe(wrap);
+ 
+  // Data points — bath-tub curve matching ASCII spec
+  // Points: RT ~800 → drops to ~85 at 60°C → rises back to ~800 at ~105°C then surges
+  var tempLabels = [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120];
+  var viscData   = [800,600,380,220,145,108, 92, 85, 88, 95,110,135,175,240,340,500,700,820,900,950];
+ 
+  // Threshold line (flat at 850)
+  var thresholdData = tempLabels.map(function() { return 850; });
+ 
+  // Processing window fill (plugin)
+  var windowPlugin = {
+    id: 'processingWindow',
+    beforeDraw: function(chart) {
+      var ctx = chart.ctx;
+      var xAxis = chart.scales.x;
+      var yAxis = chart.scales.y;
+      var xStart = xAxis.getPixelForValue(25);
+      var xEnd   = xAxis.getPixelForValue(120);
+      // Find where viscosity crosses 850 on the way up (right side ~104°C approx)
+      var xCross = xAxis.getPixelForValue(104);
+      var yTop   = chart.chartArea.top;
+      var yBottom = yAxis.getPixelForValue(850);
+ 
+      ctx.save();
+      ctx.fillStyle = 'rgba(71, 87, 124, 0.07)';
+      ctx.fillRect(xStart, yTop, xCross - xStart, yBottom - yTop);
+      ctx.restore();
+    }
+  };
+ 
+  // Annotations (vertical event lines) as a custom plugin
+  var eventPlugin = {
+    id: 'eventMarkers',
+    afterDraw: function(chart) {
+      var ctx = chart.ctx;
+      var xAxis = chart.scales.x;
+      var yAxis = chart.scales.y;
+      var chartArea = chart.chartArea;
+ 
+      // Best flow zone label at 60°C
+      var x60 = xAxis.getPixelForValue(60);
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(71,87,124,0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x60, chartArea.top); ctx.lineTo(x60, chartArea.bottom); ctx.stroke();
+      ctx.restore();
+ 
+      // Gelation dot at ~120°C, viscosity surging
+      var xGel = xAxis.getPixelForValue(120);
+      var yGel = yAxis.getPixelForValue(950);
+      ctx.save();
+      ctx.fillStyle = '#bf3425';
+      ctx.beginPath(); ctx.arc(xGel, yGel, 6, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+ 
+      // Exotherm onset dot at ~105°C
+      var xExo = xAxis.getPixelForValue(105);
+      var yExo = yAxis.getPixelForValue(700);
+      ctx.save();
+      ctx.fillStyle = '#9d9d9c';
+      ctx.beginPath(); ctx.arc(xExo, yExo, 6, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+ 
+      // Labels
+      ctx.save();
+      ctx.font = '600 11px Inter, sans-serif';
+      ctx.fillStyle = '#9d9d9c';
+      ctx.textAlign = 'center';
+      ctx.fillText('Best wet-out', x60, chartArea.top + 14);
+      ctx.fillText('~60 °C', x60, chartArea.top + 27);
+ 
+      ctx.fillStyle = '#bf3425';
+      ctx.textAlign = 'right';
+      ctx.fillText('Gelation', xGel - 10, yGel - 10);
+ 
+      ctx.fillStyle = '#9d9d9c';
+      ctx.textAlign = 'right';
+      ctx.fillText('Exotherm onset', xExo - 10, yExo - 10);
+      ctx.restore();
+    }
+  };
+ 
+  var ctx = document.getElementById('viscCanvas').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: tempLabels,
+      datasets: [
+        {
+          label: 'Viscosity (mPa·s)',
+          data: viscData,
+          borderColor: '#47577c',
+          backgroundColor: 'transparent',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: '#47577c',
+          tension: 0.4,
+          order: 1
+        },
+        {
+          label: 'Threshold 850 mPa·s',
+          data: thresholdData,
+          borderColor: '#bf3425',
+          borderDash: [6, 4],
+          borderWidth: 1.5,
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          backgroundColor: 'transparent',
+          order: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      animation: {
+        duration: 1200,
+        easing: 'easeInOutQuart'
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          min: 25,
+          max: 120,
+          title: {
+            display: true,
+            text: 'Temperature (°C)',
+            color: '#475569',
+            font: { size: 12, weight: '600' }
+          },
+          ticks: {
+            color: '#64748b',
+            stepSize: 10,
+            callback: function(v) { return v + ' °C'; }
+          },
+          grid: { color: '#f1f5f9' }
+        },
+        y: {
+          type: 'linear',
+          min: 0,
+          max: 1000,
+          title: {
+            display: true,
+            text: 'Viscosity (mPa·s)',
+            color: '#475569',
+            font: { size: 12, weight: '600' }
+          },
+          ticks: {
+            color: '#64748b',
+            callback: function(v) { return v; }
+          },
+          grid: { color: '#f1f5f9' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#ffffff',
+          titleColor: '#47577c',
+          bodyColor: '#1e293b',
+          borderColor: '#e2e8f0',
+          borderWidth: 1,
+          padding: 12,
+          callbacks: {
+            title: function(items) { return items[0].label + ' °C'; },
+            label: function(item) {
+              if (item.datasetIndex === 0) return 'Viscosity: ' + item.raw + ' mPa·s';
+              return 'Threshold: 850 mPa·s';
+            }
+          }
+        }
+      }
+    },
+    plugins: [windowPlugin, eventPlugin]
+  });
+})();
