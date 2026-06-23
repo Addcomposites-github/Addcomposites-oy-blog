@@ -436,6 +436,45 @@
             not a reproduction of the paper's figure.
           -->
 
+          
+<div class="visc-wrap" id="viscWrap">
+  <div class="visc-header">
+    <div class="visc-eyebrow">Resin Processing Characterisation</div>
+    <h3 class="visc-title">Viscosity vs. Temperature</h3>
+    <p class="visc-subtitle">Modified DGEBA / T5000 / CY179 system &nbsp;·&nbsp; Qi et al., <em>Polymers</em> 2025</p>
+  </div>
+ 
+  <div class="visc-chart-outer">
+    <canvas id="viscCanvas"></canvas>
+    <div class="visc-tooltip-card" id="viscTooltip"></div>
+  </div>
+ 
+  <div class="visc-legend">
+    <div class="visc-legend-item">
+      <div class="visc-legend-swatch" style="background:#47577c;height:3px;"></div>
+      Viscosity curve
+    </div>
+    <div class="visc-legend-item">
+      <div class="visc-legend-swatch" style="background:rgba(71,87,124,0.15);width:28px;height:14px;border-radius:3px;"></div>
+      Usable processing window (25 – 120 °C)
+    </div>
+    <div class="visc-legend-item">
+      <div class="visc-legend-swatch dashed"></div>
+      Wet-winding threshold (850 mPa·s)
+    </div>
+    <div class="visc-legend-item">
+      <div class="visc-legend-dot" style="background:#bf3425;"></div>
+      Gelation onset
+    </div>
+    <div class="visc-legend-item">
+      <div class="visc-legend-dot" style="background:#9d9d9c;"></div>
+      Exotherm onset
+    </div>
+  </div>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
           <p>
             From the DSC and rheology, the authors built a four-stage cure — a
             pre-cure hold, two primary crosslinking stages, and a post-cure above
