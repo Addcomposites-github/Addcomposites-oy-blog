@@ -1,1 +1,1043 @@
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CFRP Cryotanks Crack at Cryogenic Temperatures: A Resin Study That Targets
+      the Root Cause | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A peer-reviewed, open-access study in Polymers (MDPI) goes after the root cause of cryogenic CFRP tank cracking — the matrix. Here is the full breakdown and what it means for AFP and filament-wound cryogenic structures."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#weak-link" class="blog-sidebar-link active"
+            >Why the Matrix Fails</a
+          >
+          <a href="#study-method" class="blog-sidebar-link"
+            >What the Study Did</a
+          >
+          <a href="#processing" class="blog-sidebar-link">Processing Window</a>
+          <a href="#neat-resin" class="blog-sidebar-link">The Neat Resin</a>
+          <a href="#thermal-mismatch" class="blog-sidebar-link"
+            >Thermal Mismatch</a
+          >
+          <a href="#orientation-split" class="blog-sidebar-link"
+            >0° vs 90°</a
+          >
+          <a href="#mechanisms" class="blog-sidebar-link"
+            >Competing Mechanisms</a
+          >
+          <a href="#afp-relevance" class="blog-sidebar-link"
+            >Why It Matters for AFP</a
+          >
+          <a href="#next-steps" class="blog-sidebar-link">Next Steps</a>
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          CFRP Cryotanks Crack at Cryogenic Temperatures: A Resin Study That
+          Targets the Root Cause
+        </h1>
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            August 2025
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Addcomposites
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+        </div>
+
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3a21b5075a828ddd812651_1.png"
+          alt="CFRP cryotanks and cryogenic resin study"
+          class="full-width-image"
+        />
+
+        <!-- Introduction -->
+        <section id="introduction">
+          <p class="drop-cap">
+            When carbon fibre-reinforced polymer (CFRP) replaces metal in a
+            cryogenic tank, the carbon fibres are rarely the problem. The matrix
+            is. At liquid-oxygen and liquid-hydrogen temperatures, conventional
+            epoxy resins lose the small amount of molecular mobility that lets
+            them tolerate strain, turn brittle, and crack between the fibres.
+            Those matrix microcracks then link up into leak paths — the failure
+            mode that has historically kept composite tanks out of the most
+            demanding spaceflight roles.
+          </p>
+          <p>
+            A peer-reviewed, open-access study published in August 2025 in
+            <em>Polymers</em> (MDPI) goes after exactly that root cause. A team
+            from Zhejiang University's Institute of Advanced Equipment and
+            Hydrogen Energy Institute set out to design an epoxy system that
+            stays processable enough for wet filament winding and keeps usable
+            toughness deep into cryogenic territory, then characterised both the
+            neat resin and the resulting CFRP from room temperature down to
+            90&nbsp;K.
+          </p>
+          <p>
+            The work is framed around onboard cryo-compressed hydrogen (CcH₂)
+            storage vessels. But the underlying physics — matrix embrittlement,
+            thermal-contraction mismatch, and the competition between cryogenic
+            strengthening and thermal-stress damage — is the same physics that
+            governs CFRP propellant tanks for launch vehicles and spacecraft.
+            That overlap is what makes the paper worth a close read for anyone
+            building cryogenic composite pressure structures.
+          </p>
+
+          <div class="highlight-box">
+            <h4>A note on scope</h4>
+            <p>
+              Everything attributed below to "the paper," "the study," or "the
+              authors" comes from Qi et al. Anything labelled
+              <strong>Our perspective</strong> is Addcomposites' own analysis
+              and does not represent a view, recommendation, or endorsement from
+              the authors. Full citation and DOI are at the end.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 1: Why the matrix is the weak link -->
+        <section id="weak-link">
+          <h2>Why the Matrix Is the Weak Link at Cryogenic Temperatures</h2>
+
+          <!-- Split: pressure vessel image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3a22b31de4757f9328ffd8_2.png"
+                alt="A filament-wound composite pressure vessel."
+              />
+              <p class="image-caption">
+                A filament-wound composite pressure vessel. The helical and hoop
+                carbon fibre give the shell its strength; the matrix binding
+                those fibres is what has to survive cryogenic thermal stress
+                without cracking.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Decades of Evidence Point at the Matrix</h3>
+              <p>
+                The historical evidence for matrix-driven failure in composite
+                cryotanks is hard to ignore. NASA's X-33 single-stage-to-orbit
+                program saw its composite liquid-hydrogen tank fail in part
+                because matrix microcracking opened permeation paths through the
+                inner skin, as documented in NASA technical reporting from that
+                investigation.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Later work through NASA's Composite Cryotank Technology
+            Demonstration project showed that the problem is tractable — among
+            other findings, that automated fibre placement (AFP) could fabricate
+            large cryotanks at roughly 20–25% lower cost than baseline metallic
+            approaches, and that thinner plies help resist the microcracks that
+            drive hydrogen permeation. Reusability makes the stakes higher
+            still: every fill-and-drain cycle reloads the structure with thermal
+            stress born from the mismatch in contraction between fibre and
+            matrix.
+          </p>
+          <p>
+            The mechanism is the same one the paper investigates. A vessel cured
+            at elevated temperature and then cooled to cryogenic service
+            experiences a large temperature drop. Because the resin contracts
+            far more than the fibre, internal stress builds at the fibre–matrix
+            boundary. The paper notes that for onboard vessels this cooling span
+            can exceed 250&nbsp;K, and that the resulting stresses can crack a
+            brittle matrix — a risk that compounds when internal pressure is
+            added on top.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              The lesson across two decades of cryotank programs is that you do
+              not solve a cryogenic matrix problem with laminate design alone.
+              You solve it at the resin level, then verify it survives
+              processing. That is precisely the order in which this study is
+              structured, which is why it reads as a useful template rather than
+              a one-off material result.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: What the study did -->
+        <section id="study-method">
+          <h2>What the Study Actually Did</h2>
+          <p>
+            The authors started from a standard bisphenol-A epoxy (DGEBA, grade
+            E51) and co-modified it with two additives chosen to balance
+            flexibility against stiffness: a polyetheramine (Huntsman T5000) and
+            a cycloaliphatic epoxy, CY179. The system was cured with methyl
+            nadic anhydride (MNA) and accelerated with DMP-30. By weight, the
+            formulation ran 80 parts E51, 20 parts T5000, 20 parts CY179, 93
+            parts MNA, and 1 part DMP-30 (parts per hundred resin).
+          </p>
+
+          <!-- Full width: molecular models + prep flow -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3a21b4e50548e00cf1efb4_3.png"
+            alt="Ball-and-stick molecular models of the five resin components and the preparation flow of the modified epoxy."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Ball-and-stick molecular models of the five resin components — DGEBA
+            base epoxy, CY179 cycloaliphatic epoxy, MNA hardener, DMP-30
+            accelerator, and T5000 polyetheramine — alongside the step-by-step
+            preparation flow of the modified epoxy, from mixing in a heated
+            three-necked flask through the staged oven cure and casting. Figure
+            1 from: Qi, L.; Wang, K.; Ge, Z.; Cao, Z.; Hu, P.; He, Y.; Yasin,
+            S.; Shi, J. "Investigation of Cryogenic Mechanical Performance of
+            Epoxy Resin and Carbon Fibre-Reinforced Polymer Composites for
+            Cryo-Compressed Hydrogen Storage Onboard Gas Vessels." Polymers
+            2025, 17, 2296.
+            <a
+              href="https://doi.org/10.3390/polym17172296"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/polym17172296</a
+            >
+            — © 2025 by the authors. Licensed under CC BY 4.0
+            (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p>
+            The intent behind the polyetheramine is structural. The paper
+            describes it reacting with the epoxy as the system cures, growing
+            branched, pliable chains that spread through the finished network —
+            in effect seeding soft pockets inside an otherwise rigid thermoset,
+            an interpenetrating-network approach meant to absorb energy and blunt
+            cracks rather than let them run.
+          </p>
+
+          <!-- Split reverse: VARI schematic right, text left -->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3a21b45651db385b93159e_4.png"
+                alt="Cross-sectional schematic of the vacuum-assisted resin infusion (VARI) setup."
+              />
+              <p class="image-caption">
+                Cross-sectional schematic of the vacuum-assisted resin infusion
+                (VARI) setup, showing the vacuum pump, sealant, vacuum bag,
+                carbon fibre layup, release cloth, diversion net, and heated
+                mold, with the resin reservoir feeding in from the side. Figure
+                2 from: Qi, L.; Wang, K.; Ge, Z.; Cao, Z.; Hu, P.; He, Y.;
+                Yasin, S.; Shi, J. "Investigation of Cryogenic Mechanical
+                Performance of Epoxy Resin and Carbon Fibre-Reinforced Polymer
+                Composites for Cryo-Compressed Hydrogen Storage Onboard Gas
+                Vessels." Polymers 2025, 17, 2296.
+                <a
+                  href="https://doi.org/10.3390/polym17172296"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://doi.org/10.3390/polym17172296</a
+                >
+                — © 2025 by the authors. Licensed under CC BY 4.0
+                (<a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://creativecommons.org/licenses/by/4.0/</a
+                >).
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>From Resin to Composite Coupons</h3>
+              <p>
+                To make the composite specimens, the team used vacuum-assisted
+                resin infusion (VARI) with T700 unidirectional carbon fibre,
+                producing both longitudinal (0°, fibre-aligned) and transverse
+                (90°, across-the-fibre) coupons. They then ran tensile tests and
+                coefficient-of-thermal-expansion (CTE) measurements at five
+                temperatures — 300&nbsp;K, 250&nbsp;K, 200&nbsp;K, 150&nbsp;K,
+                and 90&nbsp;K — and examined every fracture surface under SEM.
+              </p>
+            </div>
+          </div>
+
+          <!-- Full width: cryogenic tensile testing setup -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3a21b519f740216dab97f3_5.png"
+            alt="Photographs of the cryogenic tensile testing setup."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Photographs of the cryogenic tensile testing setup — the
+            servo-hydraulic testing machine, the cryogenic plate fixture, the
+            liquid-nitrogen control system, and the cooled chamber with the
+            mounted specimen, extensometer, and temperature sensor. Figure 3
+            from: Qi, L.; Wang, K.; Ge, Z.; Cao, Z.; Hu, P.; He, Y.; Yasin, S.;
+            Shi, J. "Investigation of Cryogenic Mechanical Performance of Epoxy
+            Resin and Carbon Fibre-Reinforced Polymer Composites for
+            Cryo-Compressed Hydrogen Storage Onboard Gas Vessels." Polymers
+            2025, 17, 2296.
+            <a
+              href="https://doi.org/10.3390/polym17172296"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/polym17172296</a
+            >
+            — © 2025 by the authors. Licensed under CC BY 4.0
+            (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <p>
+            A point worth flagging for relevance: the authors measured a fibre
+            volume fraction of roughly 41% in their VARI laminates and reported
+            this closely matched the ~43.6% they measured in actual
+            wet-filament-wound vessel specimens, which is their argument that the
+            coupon data transfers to real wound hardware.
+          </p>
+        </section>
+
+        <!-- Section 3: Processing first -->
+        <section id="processing">
+          <h2>Processing First: The Viscosity Window That Makes It Windable</h2>
+          <p>
+            A resin that performs beautifully at 90&nbsp;K is useless if it
+            cannot impregnate fibre during layup. So the authors characterised
+            flow before they characterised strength.
+          </p>
+          <p>
+            The paper reports the modified system at roughly 800&nbsp;mPa·s at
+            room temperature, sitting under the ≤850&nbsp;mPa·s ceiling commonly
+            specified for wet filament winding, and dropping to about
+            100&nbsp;mPa·s near 60&nbsp;°C — low enough for thorough fibre
+            wet-out before the exotherm kicks in and viscosity climbs sharply
+            toward gelation. The curing window itself, extrapolated from
+            differential scanning calorimetry, runs from about 72.9&nbsp;°C
+            onset to 210.9&nbsp;°C, which the authors describe as broad enough to
+            allow flow before crosslinking locks the network.
+          </p>
+
+          <!-- INFOGRAPHIC 1 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 1 — VISCOSITY vs TEMPERATURE
+            modified DGEBA/T5000/CY179 system (reconstructed from values reported
+            by Qi et al., Polymers 2025). Show usable processing window between RT
+            (~800 mPa·s) and ~60 C (~100 mPa·s best wet-out), exotherm onset and
+            gelation rise, with the <= 850 mPa·s threshold for wet filament winding
+            marked. Data source: viscosity–temperature and curing-window values in
+            Qi et al., Polymers 2025, 17, 2296 (Section 3.1). Original schematic,
+            not a reproduction of the paper's figure.
+          -->
+
+          <p>
+            From the DSC and rheology, the authors built a four-stage cure — a
+            pre-cure hold, two primary crosslinking stages, and a post-cure above
+            the peak exotherm temperature — to drive the network toward full
+            conversion while managing the thermal stress that develops during
+            cool-down.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              This is the detail that should catch a process engineer's eye. The
+              headline result is cryogenic toughness, but the enabling result is
+              that ~800&nbsp;mPa·s number. A system that hits cryogenic targets
+              yet behaves like honey at the tow is a lab curiosity; a system that
+              wets out cleanly on a winding head is a manufacturing input. The
+              paper treats processability as a gating requirement rather than an
+              afterthought, and that ordering is the right one.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4: The neat resin -->
+        <section id="neat-resin">
+          <h2>The Neat Resin: Stronger and Stiffer as It Gets Colder</h2>
+          <p>
+            Tested on its own, the modified resin did what a well-designed
+            cryogenic thermoset should do — it got stronger and stiffer as
+            temperature fell, with the trade-off showing up as reduced
+            elongation.
+          </p>
+          <p>
+            The paper reports tensile strength rising from 69.2&nbsp;MPa at
+            300&nbsp;K to about 122.6&nbsp;MPa at 90&nbsp;K — roughly a 77% gain
+            — while elastic modulus climbed from 2,433&nbsp;MPa to
+            6,802&nbsp;MPa, an increase near 180%. Both followed an essentially
+            linear dependence on temperature, with the authors fitting strength
+            and modulus against temperature at correlation coefficients around
+            0.98.
+          </p>
+
+          <!-- INFOGRAPHIC 2 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 2 — NEAT MODIFIED RESIN tensile properties vs temperature
+            (values from Qi et al., Polymers 2025, Table 3). Strength (MPa) and
+            modulus (MPa) at 300/250/200/150/90 K: strength 69.2 / 83.9 / 92.1 /
+            103.8 / 122.6 (+~77% colder); modulus 2433 / 3650 / 4631 / 5921 / 6802
+            (+~180% colder). Data source: Qi et al., Polymers 2025, 17, 2296,
+            Table 3. Original chart; not a reproduction of the paper's figure.
+          -->
+
+          <p>
+            What stops this from being a simple "colder is better" story is what
+            happens to ductility. Above ~200&nbsp;K the resin still yields and
+            deforms noticeably; below 150&nbsp;K, the authors attribute the
+            change to the polymer running out of the internal room its chains
+            need to move — so instead of yielding, it breaks. That is the
+            embrittlement trap the modification is designed to soften.
+          </p>
+          <p>
+            And it does soften it, according to the fracture analysis. SEM of
+            the resin's fracture surfaces showed dimples — a signature of plastic
+            deformation — at every temperature tested, broad and open when warm
+            and compressed into flatter, plate-shaped features when cold, but
+            never gone entirely. The authors attribute this partly to phase
+            separation: the polyetheramine does not disperse perfectly, leaving a
+            "soft phase / hard phase" morphology. Small soft domains act as
+            pinning points that catch and redirect advancing cracks, and the
+            surfaces show the resulting toughening behaviour — cracks that change
+            direction, particles tearing loose from the matrix, and debonding at
+            the fibre–resin interface. The authors are careful to note the limit
+            of this: too high a density of phase-separated regions creates stress
+            concentrations that can seed cracks instead of stopping them.
+          </p>
+        </section>
+
+        <!-- Section 5: The thermal-mismatch problem -->
+        <section id="thermal-mismatch">
+          <h2>The Thermal-Mismatch Problem, Quantified</h2>
+          <p>
+            Before the composite results make sense, the CTE story has to be on
+            the table — because the thermal mismatch between fibre and matrix is
+            the source of the internal stress that drives cryogenic cracking.
+          </p>
+          <p>
+            The paper reports the carbon fibre as nearly thermally inert along
+            its axis (axial CTE around −0.9 × 10⁻⁶/K) and modestly expansive
+            across it (transverse CTE about 7.2 × 10⁻⁶/K). The resin, by
+            contrast, moves on cooling by something close to ten times that
+            amount. That gap is exactly why a wound or laid-up laminate develops
+            residual stress on cooling: two bonded materials want to shrink by
+            very different amounts.
+          </p>
+
+          <!-- INFOGRAPHIC 3 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 3 — CTE COMPARISON: why the matrix drives thermal stress
+            (representative values, Qi et al., Polymers 2025, Tables 2 & 6).
+            Carbon fibre axial ~ -0.9e-6/K (essentially inert); carbon fibre
+            transverse ~7.2e-6/K; CFRP-0 (fibre-aligned) ~4-6e-6/K (fibre-
+            dominated); CFRP-90 (across fibre) ~30-42e-6/K; neat resin (120-275 K)
+            ~29-56e-6/K. Larger CTE -> more contraction on cooling -> more internal
+            stress at the interface. Data source: Qi et al., Polymers 2025, 17,
+            2296, Tables 2 and 6, plus fibre CTE values cited in Section 3.3.2.
+            Original schematic.
+          -->
+
+          <p>
+            In the fibre direction, the composite's contraction is governed by
+            the near-inert fibres, so the longitudinal CTE stayed low and barely
+            changed with temperature. Across the fibres, the matrix dominates, so
+            the transverse CTE was much higher — and it decreased as the resin
+            stiffened on cooling. This asymmetry is the seed of the most
+            important composite-level finding.
+          </p>
+        </section>
+
+        <!-- Section 6: The headline 0 vs 90 -->
+        <section id="orientation-split">
+          <h2>The Headline: 0° Barely Moves, 90° Transforms</h2>
+          <p>
+            When the authors tested the actual CFRP, the two fibre orientations
+            behaved like almost different materials — and that contrast is the
+            practical core of the paper.
+          </p>
+          <p>
+            <strong>Longitudinal (0°, load along the fibres).</strong> Properties
+            were dominated by the carbon fibre, which the authors note is only
+            minimally temperature-sensitive. From 300&nbsp;K to 90&nbsp;K,
+            tensile strength rose only about 4.3% (1,928.9 → 2,010.4&nbsp;MPa)
+            and modulus about 7.7%, with elongation down slightly. Stable,
+            predictable, fibre-controlled.
+          </p>
+          <p>
+            <strong>Transverse (90°, load across the fibres).</strong> Here the
+            matrix and the interface carry the load, so the resin's cryogenic
+            strengthening showed up directly. The paper reports transverse
+            tensile strength up about 52.2% (43.1 → 65.6&nbsp;MPa) and transverse
+            modulus up about 82.4% (6,561 → 11,969&nbsp;MPa) over the same span.
+          </p>
+
+          <!-- INFOGRAPHIC 4 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 4 — PROPERTY GAIN FROM 300 K -> 90 K, by orientation
+            (Qi et al., Polymers 2025, Tables 7 & 9). STRENGTH: 0 longitudinal
+            +4.3% (fibre-controlled, near flat); 90 transverse +52.2%. MODULUS: 0
+            longitudinal +7.7% (non-monotonic, see infographic 5); 90 transverse
+            +82.4%. The matrix improvement is invisible along the fibre and
+            decisive across it — the 90 direction *is* the matrix test. Data
+            source: Qi et al., Polymers 2025, 17, 2296, Tables 7 and 9. Original
+            chart.
+          -->
+
+          <p>
+            There is a subtlety in the longitudinal modulus that the simple
+            percentage hides. Rather than rising monotonically, it climbed to a
+            peak near 150&nbsp;K and then dipped slightly. The paper reports it
+            going from 95.8&nbsp;GPa at 300&nbsp;K up to 104.8&nbsp;GPa at
+            150&nbsp;K, then back down to 103.3&nbsp;GPa at 90&nbsp;K.
+          </p>
+
+          <!-- INFOGRAPHIC 5 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 5 — CFRP-0 LONGITUDINAL MODULUS: non-monotonic, peak near
+            150 K (Qi et al., Polymers 2025, Table 7 / Figure 12b). 300 K ~95.8
+            GPa rising to ~104.8 GPa peak at 150 K, then slight drop to ~103.3 GPa
+            at 90 K. Rising leg: better fibre-matrix bonding shares load. Falling
+            leg: accumulated thermal-stress microdamage. Data source: Qi et al.,
+            Polymers 2025, 17, 2296, Table 7 and Section 3.3.3. Original schematic.
+          -->
+        </section>
+
+        <!-- Section 7: The two competing mechanisms -->
+        <section id="mechanisms">
+          <h2>The Two Competing Mechanisms</h2>
+          <p>
+            The authors explain all of this through a tug-of-war between two
+            effects that both intensify as temperature drops.
+          </p>
+          <p>
+            <strong>Mechanism 1 — cryogenic strengthening.</strong> Resin and
+            fibre both stiffen, and matrix contraction tightens the grip on the
+            fibres ("encapsulation"), so the bond carries load better between the
+            two. This pushes strength and modulus up.
+          </p>
+          <p>
+            <strong>Mechanism 2 — thermal-stress microdamage.</strong> The same
+            contraction mismatch that improves encapsulation also builds internal
+            stress, which can debond the interface and crack the matrix. This
+            pulls properties down.
+          </p>
+
+          <!-- INFOGRAPHIC 6 PLACEHOLDER -->
+          <!--
+            INFOGRAPHIC 6 — WHICH MECHANISM WINS depends on what carries the load.
+            Mech 1 (strengthening): stiffer resin + tighter interface bonding (+).
+            Mech 2 (microdamage): thermal-stress cracks + interfacial debonding
+            (-). 0 longitudinal (fibre-dominated): fibre carries load -> both
+            effects small; net nearly flat, Mech 2 overtaking just enough near
+            150 K to dip the modulus. 90 transverse (matrix-dominated): matrix +
+            interface carry load -> Mech 1 dominates throughout; net is a strong,
+            roughly linear rise in strength and modulus. Conceptual summary of the
+            mechanism discussion in Qi et al., Polymers 2025, Sections 3.3.3–3.3.5.
+            Original schematic.
+          -->
+
+          <p>
+            The fracture surfaces backed this up. In the 0° coupons, the authors
+            saw failure driven by the fibres themselves snapping, with resin
+            clinging to and linking the fibres. The 90° surfaces showed a mix of
+            matrix cracking and interfacial debonding, with shear bands forming
+            because resin trapped between fibres is too constrained to deform in
+            simple tension. The telling detail: at colder temperatures, the
+            broken surfaces carried more clinging resin and a coarser texture —
+            evidence that the bond was getting stronger, not weaker, in the
+            transverse direction, even as the count of microcracks climbed
+            alongside it. That coexistence is the whole point: toughening does
+            not eliminate thermal-stress damage; it tips the balance so
+            strengthening wins.
+          </p>
+        </section>
+
+        <!-- Section 8: Why this matters for AFP -->
+        <section id="afp-relevance">
+          <h2>
+            Why This Matters for AFP and Filament-Wound Cryogenic Structures
+          </h2>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              The finding that lands hardest for a manufacturer is the
+              orientation split. In a real wound vessel or tank, hoop and helical
+              plies put the matrix and interface in the load path — the
+              conditions that map onto the 90° coupon, where this resin showed
+              its biggest gains. The directions most vulnerable to cryogenic
+              matrix cracking are exactly the directions where the modification
+              did the most work. For anyone designing winding patterns or AFP
+              layups for cryogenic service, that is an argument for treating the
+              resin system as a first-class design variable, not a fixed input.
+            </p>
+          </div>
+
+          <!-- Split: AFP head image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6968c73f61f65945581b62d9_5.png"
+                alt="The Addcomposites AFP head placing a carbon fibre course during automated fibre placement."
+              />
+              <p class="image-caption">
+                The Addcomposites AFP head placing a carbon fibre course during
+                automated fibre placement. The same head also runs filament
+                winding — switching between them is set in software, not new
+                hardware.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>One Cell, AFP and Filament Winding</h3>
+              <p>
+                It also reinforces a position we hold about process choice. The
+                Addcomposites AFP head is configurable for both automated fibre
+                placement and filament winding — switching between them is a
+                software and materials decision in AddPath (toolpath planning and
+                simulation) and AddWind (filament winding simulation), not a
+                separate capital purchase. A resin characterised here for wet
+                filament winding, at a viscosity our customers' processes can
+                handle, sits naturally inside that flexibility. The same cell
+                that lays AFP courses onto a mandrel can wind hoop and helical
+                layers with a wet system in this viscosity class.
+              </p>
+            </div>
+          </div>
+
+          <!-- Full width: winding + AddPath -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fcdd4105dfea71deace3_10.png"
+            alt="The cell winds hoop and helical carbon fibre onto a mandrel while the same layup is planned and simulated in AddPath."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The cell winds hoop and helical carbon fibre onto a mandrel while the
+            same layup is planned and simulated in AddPath on the laptop. The
+            choice between AFP and filament winding is made here, in software —
+            not with new hardware. The same head winding hoop and helical carbon
+            fibre layers onto a mandrel. A wet resin in the viscosity class
+            characterised in this paper fits naturally into this process.
+          </p>
+
+          <p>
+            A few honest boundaries, because the marketing angle should not
+            outrun the data:
+          </p>
+          <ul>
+            <li>
+              The paper is about hydrogen storage vessels, not propellant tanks.
+              The physics transfers cleanly — matrix embrittlement and CTE
+              mismatch behave the same way regardless of what is inside the tank
+              — but the authors did not test propellant-tank hardware, and
+              nothing here should be read as their endorsement of any spaceflight
+              application.
+            </li>
+            <li>
+              The tested floor is 90&nbsp;K. That is close to liquid-oxygen
+              service (~90&nbsp;K). Liquid hydrogen sits near 20&nbsp;K, below the
+              range these tests cover. Extending the trends to 20&nbsp;K is
+              extrapolation on our part, not a measured result, and matrix
+              behaviour can change in ways linear fits will not predict.
+            </li>
+            <li>
+              This is a wet-infusion / wound system. The authors fabricated
+              coupons by VARI and validated against wound vessels. We are not
+              claiming the paper proves out a prepreg AFP process; the relevance
+              runs through the wet filament winding pathway and the shared
+              physics.
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <h4>Our perspective on the bigger picture</h4>
+            <p>
+              The value of work like this to an AFP or filament-winding operation
+              is that it narrows the materials search. When a customer asks
+              whether composite can replace metal in a cryogenic tank, the honest
+              historical answer has been "the fibres can, but the matrix is a
+              liability." Studies that quantify a processable resin's cryogenic
+              behaviour — and explain why it behaves that way, mechanism by
+              mechanism — are how that liability gets retired. Pairing a
+              characterised resin system with deterministic toolpath and winding
+              simulation is how a promising chemistry becomes a repeatable,
+              qualifiable part.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 9: What the authors flagged as next steps -->
+        <section id="next-steps">
+          <h2>What the Authors Flagged as Next Steps</h2>
+          <p>
+            The paper closes by pointing forward, not declaring the problem
+            solved. The authors flag two open questions: how the balance of resin
+            to fibre shapes the interface and the way the laminate expands and
+            behaves in the cold, and — importantly for reusable hardware — how
+            the material holds up across repeated cold cycles rather than a single
+            cool-down. That last point matters: as the broader cryotank
+            literature shows, it is repeated fill-and-drain cycling, not a single
+            cold soak, that historically accumulates the microcrack networks
+            responsible for leakage.
+          </p>
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Entry-level automated fiber placement</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <p>Get in touch to discuss your cryogenic composite application →</p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>Read the Research</h2>
+          <p>
+            This article summarises and comments on the following open-access
+            paper. For the full methodology, figures, and data, read the
+            original:
+          </p>
+          <ol class="references-list">
+            <li>
+              Qi, L.; Wang, K.; Ge, Z.; Cao, Z.; Hu, P.; He, Y.; Yasin, S.; Shi,
+              J. "Investigation of Cryogenic Mechanical Performance of Epoxy
+              Resin and Carbon Fibre-Reinforced Polymer Composites for
+              Cryo-Compressed Hydrogen Storage Onboard Gas Vessels."
+              <em>Polymers</em> 2025, 17, 2296.
+              <a
+                href="https://doi.org/10.3390/polym17172296"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/polym17172296</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            © 2025 by the authors. Published by MDPI, Basel, Switzerland. This is
+            an open-access article distributed under the terms of the Creative
+            Commons Attribution (CC BY 4.0) license
+            (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+          <p style="font-size: 0.9375rem; color: #475569">
+            Addcomposites is not affiliated with the authors or their
+            institutions. References to NASA programs and other cryotank
+            literature are drawn from publicly available technical reporting and
+            are used here for context only.
+          </p>
+
+          <!-- Final full-width image -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="Addcomposites automated fiber placement and filament winding"
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing on
+                the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
