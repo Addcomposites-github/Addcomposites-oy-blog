@@ -515,3 +515,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { threshold: 0.15 });
   io.observe(wrap);
 })();
+/*info 4*/
+(function() {
+  var wrap = document.getElementById('pgWrap');
+  var animated = false;
+  function animateBars() {
+    if (animated) return;
+    animated = true;
+    wrap.querySelectorAll('.pg-fill').forEach(function(el, i) {
+      setTimeout(function() {
+        el.style.width = el.getAttribute('data-pct') + '%';
+      }, i * 140);
+    });
+  }
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        wrap.classList.add('pg-visible');
+        setTimeout(animateBars, 300);
+      }
+    });
+  }, { threshold: 0.15 }).observe(wrap);
+})();
