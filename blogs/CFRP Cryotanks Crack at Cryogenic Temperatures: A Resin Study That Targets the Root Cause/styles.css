@@ -1678,3 +1678,74 @@ section {
   font-size: 12.5px; color: rgba(255,255,255,0.9); line-height: 1.6;
 }
 .pg-verdict-text strong { color: #ffffff; }
+
+/*info 5*/
+.nmm-wrap {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 860px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.nmm-wrap.nmm-visible { opacity: 1; transform: none; }
+ 
+.nmm-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #9d9d9c; margin-bottom: 6px;
+}
+.nmm-title {
+  font-size: 17px; font-weight: 700; color: #47577c; margin: 0 0 4px 0;
+}
+.nmm-subtitle {
+  font-size: 12.5px; color: #9d9d9c; margin: 0 0 20px 0;
+}
+ 
+.nmm-chart-outer {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+ 
+/* Two-column explanation cards */
+.nmm-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+@media (max-width: 560px) { .nmm-cards { grid-template-columns: 1fr; } }
+ 
+.nmm-card {
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: default;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.nmm-card:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+ 
+.nmm-card-icon {
+  font-size: 20px; flex-shrink: 0; line-height: 1; margin-top: 2px;
+}
+.nmm-card-body {}
+.nmm-card-leg {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.nmm-card-leg.rising { color: #47577c; }
+.nmm-card-leg.falling { color: #bf3425; }
+.nmm-card-desc {
+  font-size: 12px; color: #475569; line-height: 1.5;
+}
