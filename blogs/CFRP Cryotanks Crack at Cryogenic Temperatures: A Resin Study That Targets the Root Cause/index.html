@@ -691,6 +691,110 @@
             Original schematic.
           -->
 
+           
+<div class="cte-wrap" id="cteWrap">
+  <div class="cte-eyebrow">Thermal Compatibility</div>
+  <h3 class="cte-title">CTE Comparison — Why the Matrix Drives Thermal Stress</h3>
+  <p class="cte-subtitle">Representative values &nbsp;·&nbsp; Qi et al., <em>Polymers</em> 2025, Tables 2 & 6</p>
+ 
+  <!-- Axis ticks -->
+  <div class="cte-axis">
+    <span>0</span>
+    <span>14</span>
+    <span>28</span>
+    <span>42</span>
+    <span>56 ×10⁻⁶ /K</span>
+  </div>
+ 
+  <!-- Group: Carbon Fibre -->
+  <div class="cte-group-label">Carbon Fibre</div>
+ 
+  <div class="cte-row">
+    <div class="cte-row-label">
+      Axial (∥ fibre)
+      <span class="cte-row-sub">essentially inert</span>
+    </div>
+    <div class="cte-bar-track">
+      <!-- near-zero: show a tiny negative indicator -->
+      <div class="cte-bar-fill cte-inert" data-pct="1.6" style="background:#9d9d9c;"></div>
+    </div>
+    <div class="cte-val-label cte-val-inert">≈ −0.9 ×10⁻⁶ /K</div>
+  </div>
+ 
+  <div class="cte-row">
+    <div class="cte-row-label">
+      Transverse (⊥ fibre)
+    </div>
+    <div class="cte-bar-track">
+      <div class="cte-bar-fill cte-fibre" data-pct="12.9"></div>
+    </div>
+    <div class="cte-val-label cte-val-fibre">≈ 7.2 ×10⁻⁶ /K</div>
+  </div>
+ 
+  <hr class="cte-divider">
+ 
+  <!-- Group: CFRP Laminate -->
+  <div class="cte-group-label">CFRP Laminate</div>
+ 
+  <div class="cte-row">
+    <div class="cte-row-label">
+      CFRP-0°
+      <span class="cte-row-sub">fibre-aligned, fibre-dominated</span>
+    </div>
+    <div class="cte-bar-track">
+      <!-- mid-point of 4–6 = 5 -->
+      <div class="cte-bar-fill cte-cfrp-low" data-pct="8.9" style="position:relative;">
+        <!-- range overlay -->
+        <div class="cte-bar-range" style="left:7.1%;width:3.6%;background:#6b7da0;border-radius:0 7px 7px 0;"></div>
+      </div>
+    </div>
+    <div class="cte-val-label cte-val-cfrp-low">4 – 6 ×10⁻⁶ /K</div>
+  </div>
+ 
+  <div class="cte-row">
+    <div class="cte-row-label">
+      CFRP-90°
+      <span class="cte-row-sub">across fibre, matrix-dominated</span>
+    </div>
+    <div class="cte-bar-track">
+      <!-- mid-point 36, max pct = 36/56 = 64.3%; range 30–42 -->
+      <div class="cte-bar-fill cte-matrix" data-pct="64.3" style="position:relative;">
+        <div class="cte-bar-range" style="left:53.6%;width:21.4%;background:#bf3425;border-radius:0 7px 7px 0;"></div>
+      </div>
+    </div>
+    <div class="cte-val-label cte-val-matrix">30 – 42 ×10⁻⁶ /K</div>
+  </div>
+ 
+  <hr class="cte-divider">
+ 
+  <!-- Group: Neat Resin -->
+  <div class="cte-group-label">Neat Resin (120 – 275 K)</div>
+ 
+  <div class="cte-row">
+    <div class="cte-row-label">
+      Modified DGEBA/T5000/CY179
+      <span class="cte-row-sub">temperature-dependent range</span>
+    </div>
+    <div class="cte-bar-track">
+      <!-- mid-point ~42.5; range 29–56 -->
+      <div class="cte-bar-fill cte-matrix" data-pct="75.9" style="position:relative;">
+        <div class="cte-bar-range" style="left:51.8%;width:48.2%;background:#bf3425;border-radius:0 7px 7px 0;"></div>
+      </div>
+    </div>
+    <div class="cte-val-label cte-val-matrix">29 – 56 ×10⁻⁶ /K</div>
+  </div>
+ 
+  <!-- Insight footer -->
+  <div class="cte-insight">
+    <div class="cte-insight-icon">⚠️</div>
+    <div class="cte-insight-text">
+      Larger CTE → more thermal contraction on cooling → <strong>greater internal stress at the fibre–matrix interface.</strong>
+      The resin and off-axis plies contract up to <strong>60× more</strong> than the axial fibre direction,
+      driving the cryogenic failure modes in CFRP pressure vessels.
+    </div>
+  </div>
+</div>
+
           <p>
             In the fibre direction, the composite's contraction is governed by
             the near-inert fibres, so the longitudinal CTE stayed low and barely
