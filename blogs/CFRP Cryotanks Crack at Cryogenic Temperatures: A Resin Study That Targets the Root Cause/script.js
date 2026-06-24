@@ -761,3 +761,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, { threshold: 0.15 }).observe(wrap);
 })();
+
+
+/*info 6*/
+(function() {
+  var wrap = document.getElementById('mwWrap');
+  var animated = false;
+  function animateBars() {
+    if (animated) return;
+    animated = true;
+    wrap.querySelectorAll('.mw-balance-left, .mw-balance-right').forEach(function(el, i) {
+      var pct = parseFloat(el.getAttribute('data-pct'));
+      setTimeout(function() { el.style.width = pct + '%'; }, i * 120);
+    });
+  }
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        wrap.classList.add('mw-visible');
+        setTimeout(animateBars, 300);
+      }
+    });
+  }, { threshold: 0.15 }).observe(wrap);
+})();
