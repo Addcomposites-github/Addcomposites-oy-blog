@@ -928,6 +928,34 @@
             leg: accumulated thermal-stress microdamage. Data source: Qi et al.,
             Polymers 2025, 17, 2296, Table 7 and Section 3.3.3. Original schematic.
           -->
+          <div class="nmm-wrap" id="nmmWrap">
+  <div class="nmm-eyebrow">Non-Monotonic Cryogenic Response</div>
+  <h3 class="nmm-title">CFRP-0° Longitudinal Modulus — Peak near 150 K</h3>
+  <p class="nmm-subtitle">Qi et al., <em>Polymers</em> 2025, Table 7 / Figure 12b</p>
+ 
+  <div class="nmm-chart-outer">
+    <canvas id="nmmCanvas"></canvas>
+  </div>
+ 
+  <div class="nmm-cards">
+    <div class="nmm-card">
+      <div class="nmm-card-icon">📈</div>
+      <div class="nmm-card-body">
+        <div class="nmm-card-leg rising">Rising leg · 300 K → 150 K</div>
+        <div class="nmm-card-desc">Better fibre–matrix bonding at low temperature shares load more effectively, driving the modulus upward.</div>
+      </div>
+    </div>
+    <div class="nmm-card">
+      <div class="nmm-card-icon">⚠️</div>
+      <div class="nmm-card-body">
+        <div class="nmm-card-leg falling">Falling leg · 150 K → 90 K</div>
+        <div class="nmm-card-desc">Accumulated thermal-stress microdamage offsets bonding gains, causing a slight drop back to 103.3 GPa.</div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
         </section>
 
         <!-- Section 7: The two competing mechanisms -->
