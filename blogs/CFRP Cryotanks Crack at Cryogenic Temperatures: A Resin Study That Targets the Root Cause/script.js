@@ -537,3 +537,227 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, { threshold: 0.15 }).observe(wrap);
 })();
+
+/*info 5*/
+
+(function() {
+  var wrap = document.getElementById('nmmWrap');
+ 
+  // Data: x = Temperature (K), plotted right-to-left (warm → cold)
+  // We'll flip x-axis so 300 is left, 90 is right — matching the ASCII spec
+  var temps   = [300, 250, 200, 150, 90];
+  var modulus = [95.8, 100.5, 102.8, 104.8, 103.3];
+ 
+  // Custom plugins
+  var annotationPlugin = {
+    id: 'nmmAnnotations',
+    afterDraw: function(chart) {
+      var ctx = chart.ctx;
+      var xAxis = chart.scales.x;
+      var yAxis = chart.scales.y;
+ 
+      function dot(tempVal, modVal, color, label, labelPos) {
+        var px = xAxis.getPixelForValue(tempVal);
+        var py = yAxis.getPixelForValue(modVal);
+ 
+        // Dot
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(px, py, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+ 
+        // Label
+        ctx.save();
+        ctx.font = '600 11px Inter, sans-serif';
+        ctx.fillStyle = color;
+        var lx = px + (labelPos === 'left' ? -10 : 10);
+        var ly = py - 14;
+        ctx.textAlign = labelPos === 'left' ? 'right' : 'left';
+        ctx.fillText(label, lx, ly);
+        ctx.restore();
+      }
+ 
+      // Peak at 150 K
+      var peakX = xAxis.getPixelForValue(150);
+      var peakY = yAxis.getPixelForValue(104.8);
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(71,87,124,0.3)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(peakX, peakY + 8); ctx.lineTo(peakX, yAxis.bottom); ctx.stroke();
+      ctx.restore();
+ 
+      // Peak label badge
+      ctx.save();
+      var badgeW = 90, badgeH = 34;
+      var bx = peakX - badgeW / 2, by = peakY - badgeH - 14;
+      ctx.fillStyle = '#47577c';
+      roundRect(ctx, bx, by, badgeW, badgeH, 6);
+      ctx.fill();
+      ctx.font = '700 11px Inter, sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.fillText('PEAK  150 K', peakX, by + 13);
+      ctx.font = '600 12px Inter, sans-serif';
+      ctx.fillText('104.8 GPa', peakX, by + 27);
+      ctx.restore();
+ 
+      // Rising arrow region label
+      var midRiseX = xAxis.getPixelForValue(220);
+      ctx.save();
+      ctx.font = '600 10.5px Inter, sans-serif';
+      ctx.fillStyle = '#47577c';
+      ctx.textAlign = 'center';
+      ctx.fillText('Rising leg', midRiseX, yAxis.top + 18);
+      ctx.fillText('better bonding', midRiseX, yAxis.top + 31);
+      ctx.restore();
+ 
+      // Falling arrow region label
+      var midFallX = xAxis.getPixelForValue(118);
+      ctx.save();
+      ctx.font = '600 10.5px Inter, sans-serif';
+      ctx.fillStyle = '#bf3425';
+      ctx.textAlign = 'center';
+      ctx.fillText('Falling leg', midFallX, yAxis.top + 18);
+      ctx.fillText('microdamage', midFallX, yAxis.top + 31);
+      ctx.restore();
+ 
+      // Data point dots
+      dot(300, 95.8,  '#9d9d9c', '95.8 GPa', 'right');
+      dot(150, 104.8, '#47577c', '', 'right');  // peak already labelled
+      dot(90,  103.3, '#bf3425', '103.3 GPa', 'left');
+    }
+  };
+ 
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+ 
+  // Background region shading plugin
+  var shadingPlugin = {
+    id: 'nmmShading',
+    beforeDraw: function(chart) {
+      var ctx = chart.ctx;
+      var xAxis = chart.scales.x;
+      var yAxis = chart.scales.y;
+      var peakX = xAxis.getPixelForValue(150);
+      var top   = chart.chartArea.top;
+      var bot   = chart.chartArea.bottom;
+      var left  = chart.chartArea.left;
+      var right = chart.chartArea.right;
+ 
+      ctx.save();
+      ctx.fillStyle = 'rgba(71,87,124,0.05)';
+      ctx.fillRect(left, top, peakX - left, bot - top);
+      ctx.fillStyle = 'rgba(191,52,37,0.05)';
+      ctx.fillRect(peakX, top, right - peakX, bot - top);
+      ctx.restore();
+    }
+  };
+ 
+  var ctx = document.getElementById('nmmCanvas').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: temps,
+      datasets: [{
+        label: 'E₁ Longitudinal Modulus (GPa)',
+        data: modulus,
+        borderColor: '#47577c',
+        backgroundColor: 'transparent',
+        borderWidth: 2.5,
+        pointRadius: 5,
+        pointBackgroundColor: '#47577c',
+        pointHoverRadius: 7,
+        tension: 0.4,
+        segment: {
+          borderColor: function(ctx) {
+            // Colour the falling segment red
+            return ctx.p0DataIndex >= 2 ? '#bf3425' : '#47577c';
+          }
+        }
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1200, easing: 'easeInOutQuart' },
+      scales: {
+        x: {
+          type: 'linear',
+          reverse: false,
+          min: 80,
+          max: 310,
+          title: {
+            display: true,
+            text: 'Temperature (K)',
+            color: '#475569',
+            font: { size: 12, weight: '600' }
+          },
+          ticks: {
+            color: '#64748b',
+            callback: function(v) {
+              return [90,150,200,250,300].includes(v) ? v + ' K' : '';
+            },
+            stepSize: 10
+          },
+          grid: { color: '#f1f5f9' }
+        },
+        y: {
+          min: 94,
+          max: 106,
+          title: {
+            display: true,
+            text: 'E₁ Modulus (GPa)',
+            color: '#475569',
+            font: { size: 12, weight: '600' }
+          },
+          ticks: {
+            color: '#64748b',
+            callback: function(v) { return v + ' GPa'; },
+            stepSize: 2
+          },
+          grid: { color: '#f1f5f9' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#ffffff',
+          titleColor: '#47577c',
+          bodyColor: '#1e293b',
+          borderColor: '#e2e8f0',
+          borderWidth: 1,
+          padding: 12,
+          callbacks: {
+            title: function(items) { return items[0].label + ' K'; },
+            label: function(item) { return 'E₁ = ' + item.raw + ' GPa'; }
+          }
+        }
+      }
+    },
+    plugins: [shadingPlugin, annotationPlugin]
+  });
+ 
+  // Scroll reveal
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { wrap.classList.add('nmm-visible'); }
+    });
+  }, { threshold: 0.15 }).observe(wrap);
+})();
