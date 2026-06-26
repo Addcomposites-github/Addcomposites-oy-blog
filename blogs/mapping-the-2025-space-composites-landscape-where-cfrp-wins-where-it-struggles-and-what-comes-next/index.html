@@ -1,0 +1,1856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Mapping the 2025 Space Composites Landscape: Where CFRP Wins, Where It
+      Struggles, and What Comes Next | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A March 2025 open-access review in Aerospace (MDPI) maps the whole terrain of space-grade composites — flagging where CFRP is clearly winning and where current composites still fall short."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#why-space" class="blog-sidebar-link active"
+            >Hardest Design Environment</a
+          >
+          <a href="#cfrp-winning" class="blog-sidebar-link"
+            >Where CFRP Is Winning</a
+          >
+          <a href="#mechanical-response" class="blog-sidebar-link"
+            >Mechanical Response</a
+          >
+          <a href="#thermal-electrical-radiation" class="blog-sidebar-link"
+            >Thermal, Electrical &amp; Radiation</a
+          >
+          <a href="#aging" class="blog-sidebar-link">Aging in Orbit</a>
+          <a href="#advanced-composites" class="blog-sidebar-link"
+            >Advanced Composites</a
+          >
+          <a href="#deployable-structures" class="blog-sidebar-link"
+            >Deployables &amp; Computational Gap</a
+          >
+          <a href="#three-challenges" class="blog-sidebar-link"
+            >The Three Challenges</a
+          >
+          <a href="#worth-your-time" class="blog-sidebar-link"
+            >Why It's Worth Your Time</a
+          >
+          <a href="#learn-more" class="blog-sidebar-link">Learn More</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          Mapping the 2025 Space Composites Landscape: Where CFRP Wins, Where It
+          Struggles, and What Comes Next
+        </h1>
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            March 2025
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Addcomposites
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+        </div>
+        <!-- Hero Image -->
+        <img
+          src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3e22ec4db793b2ba2f6314_1.png"
+          alt="Mapping the 2025 space composites landscape"
+          class="full-width-image"
+        />
+
+        <!-- Introduction -->
+        <section id="introduction">
+          <p class="drop-cap">
+            In March 2025, the journal <em>Aerospace</em> (MDPI) published an
+            open-access review that pulls the scattered literature on
+            space-grade composites into a single picture. Written by
+            Konstantinos Tserpes and Ioannis Sioutis of the Laboratory of
+            Technology &amp; Strength of Materials at the University of Patras,
+            the paper surveys composite materials across the full range of space
+            structures — from launch vehicle airframes and satellite buses to
+            deployable booms, cryogenic tanks, and deep-space instruments — and,
+            unusually for a review of this kind, it also examines the
+            computational models engineers use to design and analyse those
+            structures.
+          </p>
+          <p>
+            For anyone building or specifying composite hardware for space, it
+            is a rare reference: one document that maps the whole terrain, flags
+            where carbon-fiber-reinforced polymers (CFRP) are clearly winning,
+            and is honest about the places where current composites still fall
+            short.
+          </p>
+          <p>
+            A note on the visuals below: the diagrams in this post are original
+            visualizations we built to make the review's reported data easier to
+            scan. They are not reproductions of the paper's own figures. Where a
+            number, ranking, or finding comes from the paper, we say so
+            explicitly and attribute it. Where the comment is our own, we fence
+            it as "Our perspective."
+          </p>
+        </section>
+
+        <!-- Section 1: Hardest design environment -->
+        <section id="why-space">
+          <h2>Why space is the hardest design environment there is</h2>
+          <p>
+            The review's framing argument is that space hardware has to survive
+            several very different worlds in sequence. According to the authors,
+            a mission breaks into three stages — on the ground, in flight, and
+            in space — and the load picture is different in each. They treat
+            ground handling as the gentlest stage for the structure; flight
+            covers launch and the climb through the atmosphere; and, for
+            spacecraft, the in-space stage adds vacuum transit, touchdown on
+            another body, and the mission's exploration tasks.
+          </p>
+          <p>
+            What makes this useful for materials selection is seeing how the
+            loading set changes as the mission progresses. We reorganised the
+            conditions the paper lists for each phase into a single matrix:
+          </p>
+
+          <!-- INFOGRAPHIC 1 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 1: Loading conditions matrix (Ground / Flight / Space) — source: Tserpes & Sioutis, Aerospace 2025, 12, 215, Figure 1 -->
+
+          <div class="lcm-wrap" id="lcmWrap">
+            <div class="lcm-header">
+              <p class="lcm-title">Loading Conditions Across Mission Phases</p>
+              <p class="lcm-subtitle">
+                Environmental and mechanical loads encountered at each
+                operational stage
+              </p>
+            </div>
+
+            <div class="lcm-grid">
+              <!-- Header row -->
+              <div class="lcm-label-header"></div>
+
+              <div class="lcm-phase-header">
+                <div class="lcm-phase-icon ground">
+                  <!-- Ground icon: surface/terrain -->
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="2"
+                      y="13"
+                      width="16"
+                      height="3"
+                      rx="1"
+                      fill="#47577c"
+                    />
+                    <path
+                      d="M5 13 Q10 7 15 13"
+                      stroke="#47577c"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <span class="lcm-phase-label">Ground</span>
+              </div>
+
+              <div class="lcm-phase-header">
+                <div class="lcm-phase-icon flight">
+                  <!-- Flight icon: simple aircraft -->
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 12 L10 5 L17 8 L11 10 L13 15 L9 14 L8 17 L6 16 L7 12 Z"
+                      fill="#47577c"
+                    />
+                  </svg>
+                </div>
+                <span class="lcm-phase-label">Flight</span>
+              </div>
+
+              <div class="lcm-phase-header">
+                <div class="lcm-phase-icon space">
+                  <!-- Space icon: orbit ring + dot -->
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="10" cy="10" r="3" fill="#47577c" />
+                    <ellipse
+                      cx="10"
+                      cy="10"
+                      rx="8"
+                      ry="4"
+                      stroke="#47577c"
+                      stroke-width="1.4"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+                <span class="lcm-phase-label">Space</span>
+              </div>
+
+              <!-- Data rows: [label, ground, flight, space] -->
+              <!-- Row 1 -->
+              <div class="lcm-row-label lcm-row">Vibrations</div>
+              <div class="lcm-cell lcm-row">
+                <div
+                  class="lcm-dot present"
+                  data-label="Ground: Vibrations — Present"
+                ></div>
+                <span class="lcm-tooltip">Ground · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div
+                  class="lcm-dot present"
+                  data-label="Flight: Vibrations — Present"
+                ></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div
+                  class="lcm-dot present"
+                  data-label="Space: Vibrations — Present"
+                ></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="lcm-row-label lcm-row">
+                Mechanical loading / shock
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Ground · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="lcm-row-label lcm-row">Thermal fluctuation</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="lcm-row-label lcm-row">Hail impact</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Ground · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Space · Not listed</span>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="lcm-row-label lcm-row">Rain / rain erosion</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Space · Not listed</span>
+              </div>
+
+              <!-- Row 6 -->
+              <div class="lcm-row-label lcm-row">Bird strike</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Space · Not listed</span>
+              </div>
+
+              <!-- Row 7 -->
+              <div class="lcm-row-label lcm-row">Lightning strike</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Ground · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Space · Not listed</span>
+              </div>
+
+              <!-- Row 8 -->
+              <div class="lcm-row-label lcm-row">Fire</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Ground · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 9 -->
+              <div class="lcm-row-label lcm-row">Space debris impact</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Flight · Present</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 10 -->
+              <div class="lcm-row-label lcm-row">Atomic oxygen</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Flight · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 11 -->
+              <div class="lcm-row-label lcm-row">Vacuum conditions</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Flight · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+
+              <!-- Row 12 -->
+              <div class="lcm-row-label lcm-row">Space dust</div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Ground · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot absent"></div>
+                <span class="lcm-tooltip">Flight · Not listed</span>
+              </div>
+              <div class="lcm-cell lcm-row">
+                <div class="lcm-dot present"></div>
+                <span class="lcm-tooltip">Space · Present</span>
+              </div>
+            </div>
+            <!-- end grid -->
+
+            <div class="lcm-legend">
+              <div class="lcm-legend-item">
+                <div class="lcm-legend-dot present"></div>
+                <span>Listed for that phase</span>
+              </div>
+              <div class="lcm-legend-item">
+                <div class="lcm-legend-dot absent"></div>
+                <span>Not listed for that phase</span>
+              </div>
+              <span class="lcm-source"
+                >Source: Tserpes &amp; Sioutis, Aerospace 2025, 12, 215, Fig.
+                1</span
+              >
+            </div>
+          </div>
+          <p>
+            The shift from left to right is the whole problem in one view. A
+            material chosen only for launch loads is not automatically a
+            material that survives years of atomic oxygen, vacuum outgassing,
+            and micro-debris in orbit. The authors use this to argue that
+            composites for space need to be optimised against a combined set of
+            phenomena rather than any single load case.
+          </p>
+          <p>
+            From that premise, the review enumerates the material properties it
+            considers most in need of optimisation. We grouped the ten
+            properties the paper lists into rough functional families:
+          </p>
+
+          <!-- INFOGRAPHIC 2 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 2: Ten properties grouped into functional families (Surviving the Environment / Structural Efficiency / Protection + Longevity / Function + Maintenance) — property list as enumerated by Tserpes & Sioutis, Aerospace 2025, 12, 215 -->
+          <div class="cap-wrap" id="capWrap">
+            <p class="cap-title">Material Requirements for Aerospace CFRP</p>
+
+            <div class="cap-grid">
+              <!-- Card 1: Surviving the Environment -->
+              <div class="cap-card" id="capCard1">
+                <div class="cap-card-head">
+                  <div class="cap-icon">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- shield -->
+                      <path
+                        d="M10 2 L17 5 V10 C17 14 10 18 10 18 C10 18 3 14 3 10 V5 Z"
+                        stroke="#47577c"
+                        stroke-width="1.5"
+                        fill="rgba(71,87,124,0.12)"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span class="cap-card-label">Surviving the Environment</span>
+                </div>
+                <ul class="cap-items">
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Radiation resistance
+                  </li>
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Thermal stability
+                  </li>
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Atomic oxygen durability
+                  </li>
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Low outgassing
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Card 2: Structural Efficiency + Function & Maintenance (accent) -->
+              <div class="cap-card accent" id="capCard2">
+                <div class="cap-card-head">
+                  <div class="cap-icon">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- truss / structural -->
+                      <line
+                        x1="3"
+                        y1="16"
+                        x2="10"
+                        y2="4"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="10"
+                        y1="4"
+                        x2="17"
+                        y2="16"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="3"
+                        y1="16"
+                        x2="17"
+                        y2="16"
+                        stroke="#bf3425"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="7"
+                        y1="16"
+                        x2="10"
+                        y2="10"
+                        stroke="#bf3425"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="13"
+                        y1="16"
+                        x2="10"
+                        y2="10"
+                        stroke="#bf3425"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <span class="cap-card-label">Structural Efficiency</span>
+                </div>
+                <ul class="cap-items">
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Strength (light + strong)
+                  </li>
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Cryogenic toughness
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Card 3: Protection + Longevity -->
+              <div class="cap-card" id="capCard3">
+                <div class="cap-card-head">
+                  <div class="cap-icon">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- layers -->
+                      <ellipse
+                        cx="10"
+                        cy="6"
+                        rx="7"
+                        ry="2.5"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        fill="none"
+                      />
+                      <path
+                        d="M3 6 C3 8.5 17 8.5 17 6"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        fill="none"
+                      />
+                      <path
+                        d="M3 9.5 C3 12 17 12 17 9.5"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        fill="none"
+                      />
+                      <path
+                        d="M3 13 C3 15.5 17 15.5 17 13"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        fill="none"
+                      />
+                    </svg>
+                  </div>
+                  <span class="cap-card-label">Protection + Longevity</span>
+                </div>
+                <ul class="cap-items">
+                  <li class="cap-item">
+                    <span class="cap-bullet"></span>Coating adhesion and wear
+                    resistance
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Second row: Function + Maintenance as a wide card -->
+            <div style="margin-top: 14px">
+              <div class="cap-card" id="capCard4" style="max-width: 100%">
+                <div class="cap-card-head">
+                  <div class="cap-icon">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- wrench + signal -->
+                      <circle
+                        cx="13.5"
+                        cy="6.5"
+                        r="3"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        fill="none"
+                      />
+                      <line
+                        x1="11"
+                        y1="9"
+                        x2="5"
+                        y2="15"
+                        stroke="#47577c"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="5"
+                        y1="13"
+                        x2="7"
+                        y2="15"
+                        stroke="#47577c"
+                        stroke-width="1.4"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <span class="cap-card-label">Function + Maintenance</span>
+                </div>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 8px;
+                  "
+                >
+                  <ul class="cap-items">
+                    <li class="cap-item">
+                      <span class="cap-bullet"></span>EMI / electromagnetic
+                      protection
+                    </li>
+                  </ul>
+                  <ul class="cap-items">
+                    <li class="cap-item">
+                      <span class="cap-bullet"></span>Self-healing / repairable
+                      surfaces
+                    </li>
+                  </ul>
+                  <ul class="cap-items">
+                    <li class="cap-item">
+                      <span class="cap-bullet"></span>3D printability / in-situ
+                      manufacturing adaptability
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            The review's point is that no single material checks every box,
+            which is exactly why composites — with their tailorable matrix and
+            reinforcement combinations — have, over roughly the last ten years,
+            moved the sector away from solid metals toward composite
+            construction.
+          </p>
+        </section>
+
+        <!-- Section 2: Where CFRP is winning -->
+        <section id="cfrp-winning">
+          <h2>Where CFRP is winning: the material-application map</h2>
+          <p>
+            The heart of the survey is a catalogue of which composite types have
+            been studied for which space jobs. The paper presents this as a
+            large table covering everything from CFRPs and Kevlar/epoxy to
+            metal-matrix composites, ceramic-matrix composites, and 3D-printed
+            metal-polymer blends.
+          </p>
+          <p>
+            What stands out is the spread of CFRP. Across the review,
+            carbon-fiber-reinforced polymers appear against a wider set of
+            applications than any other single material family. We counted the
+            distinct application areas the paper attaches to plain CFRP and
+            rendered them as a relative footprint:
+          </p>
+
+          <!-- INFOGRAPHIC 3 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 3: CFRP application footprint (per Table 1, Tserpes & Sioutis 2025) — qualitative breadth of coverage, not a quantitative metric -->
+
+          <div class="afp3-wrap" id="afp3Wrap">
+            <p class="afp3-title">CFRP Application Footprint in Aerospace</p>
+            <p class="afp3-subtitle">
+              Qualitative breadth of coverage per Tserpes &amp; Sioutis,
+              Aerospace 2025, 12, 215, Table 1
+            </p>
+
+            <div class="afp3-rows">
+              <!-- data: [label, blocks out of 8, tier] -->
+              <div class="afp3-row">
+                <span class="afp3-label">Load-bearing structure</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-1" data-pct="100"></div>
+                </div>
+                <span class="afp3-count">████████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Deployable structures</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-1" data-pct="75"></div>
+                </div>
+                <span class="afp3-count">██████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Grid structures</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-2" data-pct="62.5"></div>
+                </div>
+                <span class="afp3-count">█████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Radiation shielding</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-2" data-pct="62.5"></div>
+                </div>
+                <span class="afp3-count">█████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Damping / vibration</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-2" data-pct="62.5"></div>
+                </div>
+                <span class="afp3-count">█████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Outgassing &amp; contamination</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-2" data-pct="50"></div>
+                </div>
+                <span class="afp3-count">████</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Hydrogen permeability</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Coatings</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Radiator</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Electronic box</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Hypervelocity impact</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Aging / degradation</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="37.5"></div>
+                </div>
+                <span class="afp3-count">███</span>
+              </div>
+              <div class="afp3-row">
+                <span class="afp3-label">Erosion</span>
+                <div class="afp3-bar-track">
+                  <div class="afp3-bar-fill tier-3" data-pct="25"></div>
+                </div>
+                <span class="afp3-count">██</span>
+              </div>
+            </div>
+
+            <p class="afp3-note">
+              Bar length = qualitative breadth of coverage, not a quantitative
+              metric
+            </p>
+          </div>
+          <p>
+            Other families occupy narrower but important niches that the paper
+            documents: Kevlar/epoxy for damping and thermoelastic behaviour;
+            metal-matrix composites for melting/solidification and radiation
+            studies; ceramic-matrix and carbon/carbon systems for
+            extreme-temperature applications; GFRPs for self-lubrication, EMI
+            shielding, and deployable beams; and nanofilled CFRPs for radiation
+            shielding and thermal-electrical functions. The review also lists
+            newer entrants such as bio-based CFRPs, hybrid CFRPs for spacecraft
+            fuselages, and 3D-printed silver/epoxy and iron/PEEK for thermal and
+            magnetic functions.
+          </p>
+
+          <!-- Full width: AFP-XS head -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69e5fc57ec138ca36ffb0618_8.png"
+            alt="An Addcomposites AFP-XS head depositing carbon fiber tow onto a curved mold, with the compaction and heating zone visible at the nip point."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            An Addcomposites AFP-XS head depositing carbon fiber tow onto a
+            curved mold, with the compaction and heating zone visible at the nip
+            point. What changes most between CFRP's many space roles is the
+            layup — fiber orientation, local thickness, and ply transitions —
+            which is where automated fiber placement earns its keep.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective (Addcomposites)</h4>
+            <p>
+              The breadth of CFRP across this map is, for us, the signal worth
+              dwelling on. The same fiber system shows up in primary load paths,
+              deployable mechanisms, shielding, and thermal management. What
+              changes between those jobs is largely the layup — fiber
+              orientation, local thickness, and ply transitions — rather than
+              the base material. That is the regime where automated fiber
+              placement earns its keep, because consistent orientation control
+              is what lets one material serve very different structural roles.
+              To be clear, this is our commentary; the review does not name AFP
+              or evaluate any specific manufacturing vendor.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Mechanical response -->
+        <section id="mechanical-response">
+          <h2>Mechanical response: damping, properties, and impact survival</h2>
+          <p>
+            The review splits mechanical behaviour into static loads (driven by
+            gravity) and dynamic loads — the latter grouping fatigue, repeated
+            high-strain-rate events, vibration and impact — and observes that
+            the dynamic side has drawn most of the published attention.
+          </p>
+
+          <!-- Split: vibration test image left, text right -->
+          <div class="split-layout">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3e2ea2c5cc469172c6e6b4_3.png"
+                alt="A satellite structure mounted on an electrodynamic shaker table during vibration qualification testing, with accelerometers and sensor wiring distributed across its carbon-fiber composite panels."
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                A satellite structure mounted on an electrodynamic shaker table
+                during vibration qualification testing, with accelerometers and
+                sensor wiring distributed across its carbon-fiber composite
+                panels. Dynamic loads such as launch vibration are where most
+                published research on space composites has concentrated.
+                AI-generated illustration.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>Vibration and damping</h3>
+              <p>
+                On vibration and damping, the authors describe only a handful of
+                studies. Among them, the paper reports that Cao et al. analysed
+                how a spacecraft's flexible composite drive shaft and its
+                attached solar panels vibrate together, with their method
+                agreeing to within about 4% on the higher-order modes — though,
+                as the review observes, this was checked only on a simplified
+                1D-shaft / 2D-panel model, so broader use still needs testing.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            On mechanical properties, the paper rounds up both characterisation
+            studies and hybrid-material developments. A few of the quantitative
+            results it documents:
+          </p>
+
+          <!-- INFOGRAPHIC 4 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 4: Selected mechanical findings table (as reported by Tserpes & Sioutis 2025) — Peter et al. [22], Sun et al. [44], Vartak et al. [39], Seibers et al. [36], De O.C. Cintra et al. [9] -->
+          <div class="smf-wrap" id="smfWrap">
+            <p class="smf-title">Selected Mechanical &amp; Material Findings</p>
+            <p class="smf-subtitle">
+              As reported by Tserpes &amp; Sioutis, Aerospace 2025, 12, 215
+            </p>
+
+            <div class="smf-grid">
+              <!-- Card 1: Peter et al. -->
+              <div class="smf-card" data-delay="0">
+                <span class="smf-ref">Peter et al. [22]</span>
+                <div class="smf-metric">
+                  +6%<span>&nbsp;tensile strength</span>
+                </div>
+                <p class="smf-desc">
+                  From fluorinated CF before a 500 kGy irradiation dose
+                </p>
+                <span class="smf-tag">Radiation · Tensile</span>
+              </div>
+
+              <!-- Card 2: Sun et al. -->
+              <div class="smf-card" data-delay="80">
+                <span class="smf-ref">Sun et al. [44]</span>
+                <div class="smf-metric">
+                  0.85 MPa<span>&nbsp;compressive</span>
+                </div>
+                <p class="smf-desc">
+                  Polyimide aerogel: 0.85 MPa compressive strength, 3.93 MPa
+                  compressive modulus
+                </p>
+                <span class="smf-tag">Aerogel · Compression</span>
+              </div>
+
+              <!-- Card 3: Vartak et al. -->
+              <div class="smf-card" data-delay="160">
+                <span class="smf-ref">Vartak et al. [39]</span>
+                <div class="smf-metric">
+                  500–625%<span>&nbsp;conductivity</span>
+                </div>
+                <p class="smf-desc">
+                  0.4% MWCNT addition lifted CFRP thermal and electrical
+                  conductivity
+                </p>
+                <span class="smf-tag">MWCNT · Multifunctional</span>
+              </div>
+
+              <!-- Card 4: Seibers et al. -->
+              <div class="smf-card" data-delay="240">
+                <span class="smf-ref">Seibers et al. [36]</span>
+                <div class="smf-metric">
+                  10–15%<span>&nbsp;tensile modulus</span>
+                </div>
+                <p class="smf-desc">
+                  Alkylated reduced graphene oxide raised tensile modulus
+                </p>
+                <span class="smf-tag">rGO · Modulus</span>
+              </div>
+
+              <!-- Card 5: De O.C. Cintra et al. -->
+              <div class="smf-card" data-delay="320">
+                <span class="smf-ref">De O.C. Cintra et al. [9]</span>
+                <div class="smf-metric">~275 nm<span>&nbsp;coating</span></div>
+                <p class="smf-desc">
+                  Silicon nitride coating (±53 nm) deposited on CF/PPS composite
+                </p>
+                <span class="smf-tag">Coating · CF/PPS</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            The authors also point to friction-and-wear research where
+            carbon/polyimide held its behaviour fairly steady under simulated
+            space irradiation, and to a self-lubrication study that singled out
+            a PTFE blend (10% MoS₂, 25% glass fibers) as the front-runner to
+            take over from today's self-lubricating bearing materials.
+          </p>
+          <p>
+            Hypervelocity impact — damage from debris or micro-meteoroids — gets
+            its own section, and the review is candid that only a thin body of
+            work exists on it so far. The studies it summarises tested composite
+            bumpers across a range of velocities:
+          </p>
+
+          <!-- INFOGRAPHIC 5 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 5: Hypervelocity impact test velocities (per studies cited in the review) — Nam/Kim, Huang et al.; reported outcomes incl. TiB2 bumpers, composite vs pure-metal shields at ~3.3 km/s, CNTs +2.5-3% impact toughness -->
+
+          <div class="hvi-wrap" id="hviWrap">
+            <p class="hvi-title">Hypervelocity Impact Test Velocities</p>
+            <p class="hvi-subtitle">
+              Per studies cited in Tserpes &amp; Sioutis, Aerospace 2025, 12,
+              215
+            </p>
+
+            <!-- Timeline -->
+            <div class="hvi-timeline-wrap">
+              <div class="hvi-axis" id="hviAxis">
+                <div class="hvi-axis-fill" id="hviAxisFill"></div>
+
+                <!-- Tick marks overlaid on axis -->
+                <div class="hvi-ticks">
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">2 km/s</span>
+                  </div>
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">3 km/s</span>
+                  </div>
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">4 km/s</span>
+                  </div>
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">5 km/s</span>
+                  </div>
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">6 km/s</span>
+                  </div>
+                  <div class="hvi-tick">
+                    <div class="hvi-tick-line"></div>
+                    <span class="hvi-tick-label">7 km/s</span>
+                  </div>
+                </div>
+
+                <!-- Study markers: axis spans 2–7 km/s = 5 km/s range = 100% -->
+                <!-- pct = (v - 2) / 5 * 100 -->
+
+                <!-- Nam/Kim range: 2.7–3.3 km/s → 14%–26% -->
+                <div class="hvi-range" style="left: 14%; width: 12%"></div>
+
+                <!-- Nam/Kim midpoint label ~3.0 km/s → 20% -->
+                <div class="hvi-markers">
+                  <div class="hvi-marker" style="left: 20%">
+                    <div class="hvi-marker-label">
+                      Nam / Kim<br />2.7–3.3 km/s
+                    </div>
+                    <div class="hvi-marker-dot"></div>
+                  </div>
+
+                  <!-- Huang et al. 3 km/s → 20% — offset label upward to avoid clash -->
+                  <div class="hvi-marker" style="left: 20%; top: 0">
+                    <!-- already represented by the range above; separate point -->
+                  </div>
+
+                  <!-- Huang 3 km/s → (3-2)/5*100 = 20% -->
+                  <!-- Show as distinct dot slightly offset -->
+                  <div class="hvi-marker" style="left: 33%">
+                    <div class="hvi-marker-label">Huang et al.<br />3 km/s</div>
+                    <div
+                      class="hvi-marker-dot"
+                      style="background: #9d9d9c; box-shadow: 0 0 0 2px #9d9d9c"
+                    ></div>
+                  </div>
+
+                  <!-- Huang 5 km/s → (5-2)/5*100 = 60% -->
+                  <div class="hvi-marker" style="left: 60%">
+                    <div class="hvi-marker-label">Huang<br />5 km/s</div>
+                    <div class="hvi-marker-dot"></div>
+                  </div>
+
+                  <!-- Huang 7 km/s → (7-2)/5*100 = 100% -->
+                  <div class="hvi-marker" style="left: 100%">
+                    <div class="hvi-marker-label">Huang<br />7 km/s</div>
+                    <div class="hvi-marker-dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Outcome cards -->
+            <div class="hvi-outcomes">
+              <div class="hvi-card" data-delay="0">
+                <div class="hvi-card-ref">Huang et al.</div>
+                <div class="hvi-card-stat">
+                  TiB₂<span>&nbsp;vs Al bumpers</span>
+                </div>
+                <p class="hvi-card-body">
+                  TiB₂-based composite bumpers broke incoming projectiles into
+                  finer debris than aluminium shields
+                </p>
+              </div>
+              <div class="hvi-card" data-delay="100">
+                <div class="hvi-card-ref">Kim et al.</div>
+                <div class="hvi-card-stat">
+                  ~3.3 km/s<span>&nbsp;test</span>
+                </div>
+                <p class="hvi-card-body">
+                  Composite bumpers outperformed pure-metal shields in
+                  inflatable-structure tests
+                </p>
+              </div>
+              <div class="hvi-card" data-delay="200">
+                <div class="hvi-card-ref">Kobzev et al.</div>
+                <div class="hvi-card-stat">
+                  +2.5–3%<span>&nbsp;toughness</span>
+                </div>
+                <p class="hvi-card-body">
+                  CNT addition raised impact toughness of CFRP composite by
+                  2.5–3%
+                </p>
+              </div>
+            </div>
+          </div>
+          <p>
+            The review additionally points to a stealth-oriented shield
+            combining hypervelocity protection with microwave absorption, which
+            the authors report performed comparably to an aramid/epoxy baseline
+            while absorbing across roughly 6.65 GHz to 18 GHz.
+          </p>
+        </section>
+
+        <!-- Section 4: Thermal, electrical, radiation -->
+        <section id="thermal-electrical-radiation">
+          <h2>Thermal, electrical, and radiation behaviour</h2>
+          <p>
+            The thermal section gathers work on protection systems, heat
+            storage, and conductive housings. One result the review highlights:
+            a pitch-based CFRP electronic housing, built with an
+            out-of-autoclave process, that the authors report ran roughly 23%
+            lighter than its aluminium equivalent while still moving heat
+            efficiently (Martins et al.). The paper also flags a
+            ceramic/glass-matrix line of work that puts these materials forward
+            as strong space candidates — valued for holding their shape,
+            tolerating damage, and absorbing sudden temperature shocks.
+          </p>
+          <p>
+            On the electrical, electromagnetic, and radiation-shielding front,
+            the review again separates conventional-material characterisation
+            from new hybrid proposals. Several shielding results it documents
+            are worth putting side by side:
+          </p>
+
+          <!-- INFOGRAPHIC 6 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 6: Radiation & shielding results (as summarised in the review) — Naito et al. [15], Cha et al. [38], O'Connor et al. [30], Khan et al. [35], Earp et al. [40] -->
+
+          <div class="rsr-wrap" id="rsrWrap">
+            <p class="rsr-title">Radiation &amp; Shielding Results</p>
+            <p class="rsr-subtitle">
+              As summarised in Tserpes &amp; Sioutis, Aerospace 2025, 12, 215
+            </p>
+
+            <div class="rsr-grid">
+              <!-- Naito et al. -->
+              <div class="rsr-card" data-delay="0">
+                <span class="rsr-ref">Naito et al. [15]</span>
+                <span class="rsr-material">CF / PEEK</span>
+                <div class="rsr-metric-primary">
+                  &gt;30%<span>&nbsp;more effective</span>
+                </div>
+                <p class="rsr-body">
+                  Shielded more effectively than an aluminium baseline
+                </p>
+                <span class="rsr-tag">Radiation · CF/PEEK</span>
+              </div>
+
+              <!-- Cha et al. -->
+              <div class="rsr-card" data-delay="80">
+                <span class="rsr-ref">Cha et al. [38]</span>
+                <span class="rsr-material">HRB / UHMWPE</span>
+                <div class="rsr-metrics-row">
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">16.2%</span>
+                    <span class="rsr-pill-label">dose cut</span>
+                  </div>
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">22.9%</span>
+                    <span class="rsr-pill-label">lighter</span>
+                  </div>
+                </div>
+                <p class="rsr-body">
+                  Radiation dose reduction with weight reduction vs current
+                  technology
+                </p>
+                <span class="rsr-tag">Shielding · Mass</span>
+              </div>
+
+              <!-- O'Connor et al. -->
+              <div class="rsr-card" data-delay="160">
+                <span class="rsr-ref">O'Connor et al. [30]</span>
+                <span class="rsr-material">Boron-carbide composites</span>
+                <div class="rsr-metrics-row">
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">~5%</span>
+                    <span class="rsr-pill-label">low density</span>
+                  </div>
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">10–15%</span>
+                    <span class="rsr-pill-label">&gt;50 g/cm²</span>
+                  </div>
+                </div>
+                <p class="rsr-body">
+                  Dose cut at small areal density, rising to 10–15% above 50
+                  g/cm²
+                </p>
+                <span class="rsr-tag">B₄C · Areal density</span>
+              </div>
+
+              <!-- Khan et al. — multi-metric, accent red -->
+              <div class="rsr-card multi" data-delay="240">
+                <span class="rsr-ref">Khan et al. [35]</span>
+                <span class="rsr-material"
+                  >GNP / Elium glass-fiber vs pristine GFRP</span
+                >
+                <div class="rsr-metrics-row">
+                  <div
+                    class="rsr-metric-pill"
+                    style="background: rgba(191, 52, 37, 0.07)"
+                  >
+                    <span class="rsr-pill-value" style="color: #bf3425"
+                      >+105%</span
+                    >
+                    <span class="rsr-pill-label">impact</span>
+                  </div>
+                  <div
+                    class="rsr-metric-pill"
+                    style="background: rgba(191, 52, 37, 0.07)"
+                  >
+                    <span class="rsr-pill-value" style="color: #bf3425"
+                      >+48%</span
+                    >
+                    <span class="rsr-pill-label">strength</span>
+                  </div>
+                  <div
+                    class="rsr-metric-pill"
+                    style="background: rgba(191, 52, 37, 0.07)"
+                  >
+                    <span class="rsr-pill-value" style="color: #bf3425"
+                      >+45%</span
+                    >
+                    <span class="rsr-pill-label">stiffness</span>
+                  </div>
+                </div>
+                <p class="rsr-body">
+                  All three properties improved vs pristine GFRP
+                </p>
+                <span class="rsr-tag red">GNP · Multimetric</span>
+              </div>
+
+              <!-- Earp et al. -->
+              <div class="rsr-card" data-delay="320">
+                <span class="rsr-ref">Earp et al. [40]</span>
+                <span class="rsr-material">CNT / epoxy</span>
+                <div class="rsr-metrics-row">
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">40%</span>
+                    <span class="rsr-pill-label">resistivity ↓</span>
+                  </div>
+                  <div class="rsr-metric-pill">
+                    <span class="rsr-pill-value">58%</span>
+                    <span class="rsr-pill-label">sunlight</span>
+                  </div>
+                </div>
+                <p class="rsr-body">
+                  Resistivity dropped 40% under heat + low pressure; up to 58%
+                  under simulated sunlight
+                </p>
+                <span class="rsr-tag">CNT · Resistivity</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            The authors also describe an oxidation-resistance study in which
+            diboride composites with tantalum disilicide held up to 2170 K — yet
+            the same study concluded the material would not cope with the
+            demands of fast atmospheric re-entry, a useful reminder that a
+            headline temperature alone does not qualify a material for every
+            space duty.
+          </p>
+        </section>
+
+        <!-- Section 5: Aging in orbit -->
+        <section id="aging">
+          <h2>How composites age in orbit</h2>
+          <p>
+            One of the most grounding parts of the review is its treatment of
+            long-duration degradation, because it draws on actual flight
+            exposure rather than only ground simulation. The paper lays out a
+            spread of exposure durations:
+          </p>
+
+          <!-- INFOGRAPHIC 7 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 7: Exposure durations in aging studies (per the review) — He et al. [25] at 20 days and 43 days; Startsev & Nikishin [23] real-space exposure at 1501 days -->
+          <div class="edu2-wrap" id="edu2Wrap">
+            <p class="edu2-title">Exposure Durations in Aging Studies</p>
+            <p class="edu2-subtitle">
+              Per studies cited in Tserpes &amp; Sioutis, Aerospace 2025, 12,
+              215
+            </p>
+
+            <div class="edu2-timeline">
+              <!-- Spine -->
+              <div class="edu2-spine">
+                <div class="edu2-spine-fill" id="edu2SpineFill"></div>
+              </div>
+
+              <!-- Row 1: 20 days -->
+              <div class="edu2-row" data-delay="0">
+                <div class="edu2-dot"></div>
+                <div class="edu2-connector"></div>
+                <div class="edu2-card">
+                  <div class="edu2-card-top">
+                    <span class="edu2-day">20</span
+                    ><span class="edu2-day-unit">days</span>
+                    <span class="edu2-ref">He et al. [25]</span>
+                  </div>
+                  <p class="edu2-body">
+                    Flexural rigidity and modulus reduced by 5–10% after first
+                    exposure
+                  </p>
+                </div>
+              </div>
+
+              <!-- Row 2: 43 days -->
+              <div class="edu2-row" data-delay="120">
+                <div class="edu2-dot"></div>
+                <div class="edu2-connector"></div>
+                <div class="edu2-card">
+                  <div class="edu2-card-top">
+                    <span class="edu2-day">43</span
+                    ><span class="edu2-day-unit">days</span>
+                    <span class="edu2-ref">He et al. [25]</span>
+                  </div>
+                  <p class="edu2-body">
+                    Total simulated AO fluence of 3.82×10²⁰ atom/cm² —
+                    equivalent to 43 days in low Earth orbit
+                  </p>
+                </div>
+              </div>
+
+              <!-- Row 3: 1501 days -->
+              <div class="edu2-row distant" data-delay="260">
+                <div class="edu2-dot"></div>
+                <div class="edu2-connector"></div>
+                <div class="edu2-card">
+                  <div class="edu2-card-top">
+                    <span class="edu2-day">1,501</span
+                    ><span class="edu2-day-unit">days</span>
+                    <span class="edu2-ref">Startsev &amp; Nikishin [23]</span>
+                  </div>
+                  <p class="edu2-body">
+                    Real-space exposure on a spacecraft — representing
+                    long-duration in-orbit aging
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            According to the authors, what altered the material most over the
+            long flight study was not impact damage but the resin's slow
+            continued curing in orbit, which carried mechanical consequences of
+            its own. Separately, the review reports that simulated atomic oxygen
+            at early-orbit levels ate into the surface and dragged down flexural
+            performance, while pairing electron radiation with thermal cycling
+            broke the resin down — bonds splitting, others over-linking, and
+            micro-cracks forming. The throughline: it is the matrix, not the
+            fiber, that usually takes the slow damage in space.
+          </p>
+        </section>
+
+        <!-- Section 6: Advanced composites -->
+        <section id="advanced-composites">
+          <h2>
+            Advanced composites: shape memory, self-healing, and embedded
+            sensing
+          </h2>
+
+          <!-- Split: reflector image right, text left -->
+          <div class="split-layout reverse">
+            <div class="split-image">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a3e2ea29cba19f947c76d88_4.png"
+                alt="A deployed mesh reflector antenna, its gold reflective mesh stretched over slender carbon-fiber composite ribs that fan from a central hub."
+              />
+              <p class="image-caption" style="margin-top: 10px">
+                A deployed mesh reflector antenna, its gold reflective mesh
+                stretched over slender carbon-fiber composite ribs that fan from
+                a central hub. Reflectors like this fold for launch and expand
+                in orbit, the kind of reconfigurable structure shape-memory and
+                smart composites aim to enable. AI-generated illustration.
+              </p>
+            </div>
+            <div class="split-text">
+              <h3>"Smart" behaviour</h3>
+              <p>
+                The review devotes a full section to "smart" behaviour, which is
+                where some of the most forward-looking work sits.
+              </p>
+              <p>
+                For shape-memory composites, the authors report a composite that
+                recovered as much as a tenth of its deformation across
+                temperature swings — enough, in their framing, to make
+                reconfigurable space hardware a realistic goal.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            For shape-memory composites, the authors report a composite that
+            recovered as much as a tenth of its deformation across temperature
+            swings — enough, in their framing, to make reconfigurable space
+            hardware a realistic goal — alongside work on shape-memory antenna
+            reflectors and a carbon-resistive-heating actuator that, in an
+            aluminium-coated form, the review says deployed faster while drawing
+            24% less electrical power. A flight study on the MISSE-FF platform
+            retrieved samples after a year in low Earth orbit and found that
+            sample orientation strongly affected shape recovery.
+          </p>
+          <p>
+            For self-healing, the review is measured: it notes that a published
+            self-healing review exists but that much of the surveyed work does
+            not actually relate to space. The clearest space-relevant example it
+            describes embedded healing microcapsules and single-walled carbon
+            nanotubes into CFRP, then subjected specimens to hypervelocity
+            impact, with the nanotubes reported as central to both mechanical
+            reinforcement and the healing process.
+          </p>
+          <p>
+            For smart / sensorized composites, the paper covers piezoelectric
+            transducers built into the laminate for on-board ultrasonic damage
+            checks, plus graphite-PDMS sensing elements that read micro-strain
+            and temperature from resistance changes. With just three articles
+            falling into this bucket, the authors underline how young the field
+            still is.
+          </p>
+        </section>
+
+        <!-- Section 7: Deployable structures and the computational gap -->
+        <section id="deployable-structures">
+          <h2>Deployable structures and the computational gap</h2>
+          <p>
+            Deployable structures — booms, antennas, solar arrays, and habitats
+            that fold for launch and expand in orbit — get the review's most
+            active treatment, and the authors describe activity in this area as
+            having picked up sharply of late. The studies they summarise span
+            multifunctional hinges with integrated piezoelectric actuation,
+            deployable telescope dynamics, ultra-thin shell booms analysed with
+            the Carrera Unified Formulation, anisogrid lattice reflector spokes,
+            deployable habitat cabins, and machine-learning-driven optimisation
+            of bistable C-section structures for roll-out solar arrays.
+          </p>
+
+          <!-- Full width: AddPath simulation -->
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/6a2121278bd7186d74f18543_11.png"
+            alt="AddPath simulating fiber placement on a composite part: defining the surface, generating fiber paths across the geometry, then verifying the robot motion before anything is manufactured."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            AddPath simulating fiber placement on a composite part: defining the
+            surface, generating fiber paths across the geometry, then verifying
+            the robot motion before anything is manufactured. Simulation-driven
+            design like this is exactly what the review argues space composites
+            still need more of.
+          </p>
+
+          <p>
+            That last point connects to the review's most pointed observation.
+            In its computational models section, the authors argue that
+            modelling has reached space composites far less than it has aircraft
+            composites, and that most of the work done so far sits in one place:
+            the dynamics of deployable hardware. Effects such as rain erosion,
+            debris strikes and atomic-oxygen attack, they note, still resist
+            clean mathematical or simulation treatment. In their conclusions,
+            they single out modelling paired with artificial intelligence as a
+            promising way to design the next wave of composites through
+            simulation rather than trial and error.
+          </p>
+        </section>
+
+        <!-- Section 8: Three challenges -->
+        <section id="three-challenges">
+          <h2>The three challenges that will define the next decade</h2>
+          <p>
+            Pulling the conclusions together, the review is direct about where
+            current composites still fall short. The authors state that, for all
+            the property gains achieved, today's composites still turn brittle
+            and lose strength at cryogenic temperatures and degrade when hot,
+            and that these weaknesses bite hardest in large-volume parts. They
+            also observe that the open literature is thinner than the activity
+            would suggest, in part because a good deal of the work happens
+            inside government or partner space programmes that keep results from
+            public release.
+          </p>
+          <p>
+            Reading across the survey, three design challenges recur as the open
+            frontier:
+          </p>
+
+          <!-- INFOGRAPHIC 8 PLACEHOLDER -->
+          <!-- INFOGRAPHIC 8: Next-generation design challenges (synthesised from the review) — 1. Thermal Dimensional Control; 2. Radiation & Matrix Resilience; 3. Multifunctional Integration -->
+
+          <div class="highlight-box">
+            <h4>Our perspective (Addcomposites)</h4>
+            <p>
+              Each of these challenges is, at root, a fiber-architecture
+              problem. Near-zero CTE depends on precise, balanced laminate
+              design. Resilience against microcracking depends on consistent ply
+              quality and orientation through complex geometries.
+              Multifunctional integration depends on placing functional plies,
+              sensors, or conductive paths exactly where the design calls for
+              them, ply by ply. Automated fiber placement is the manufacturing
+              route that turns those design intents into repeatable hardware,
+              and our AFP systems (AFP-XS, AFP-X, ADDX) together with our
+              AddPath software are built around exactly that kind of orientation
+              control. We offer this as our own engineering view of where the
+              manufacturing leverage sits. The review by Tserpes and Sioutis
+              does not endorse Addcomposites, name AFP, or evaluate any specific
+              product, and nothing here should be read as their recommendation.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 9: Why this review is worth your time -->
+        <section id="worth-your-time">
+          <h2>Why this review is worth your time</h2>
+          <p>
+            In our view, what makes the Tserpes and Sioutis review valuable is
+            its honesty. It does not oversell composites for space. It maps
+            where CFRP and its relatives are genuinely winning, documents the
+            quantitative gains with sources attached, and then says plainly
+            where the materials still struggle and where the modelling tools
+            have not caught up. For teams positioning composite capability for
+            space programs — satellite structures, launch airframes,
+            deployables, payload supports — it is one of the few current
+            references that lets you see the whole field and the open problems
+            at once.
+          </p>
+          <p>
+            From our side at Addcomposites: if you are weighing composite
+            manufacturing strategy against the challenges this review
+            identifies, that landscape is exactly the conversation we have with
+            customers every day. But the place to start is the source itself.
+          </p>
+
+          <img
+            src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/69df3f134e33fe3e76584724_8.png"
+            alt="Mapping the 2025 space composites landscape"
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- Learn More Section -->
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <div class="learn-more-container">
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-xs"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-XS</span>
+                <span class="learn-more-desc"
+                  >Entry-level automated fiber placement</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/all-products/afp-x"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AFP-X</span>
+                <span class="learn-more-desc">Advanced multi-tow system</span>
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/addpath"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">AddPath</span>
+                <span class="learn-more-desc"
+                  >AI-powered path planning software</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              class="learn-more-card"
+            >
+              <div class="learn-more-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <div class="learn-more-text">
+                <span class="learn-more-title">Complete Guide</span>
+                <span class="learn-more-desc"
+                  >The Complete Guide to AFP Machines</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <p>
+              Get in touch to discuss your composite manufacturing strategy →
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/contact-us"
+              class="cta-button"
+              >Contact Us for a Consultation</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>Read the Research</h2>
+          <ol class="references-list">
+            <li>
+              Tserpes, K.; Sioutis, I. "Advances in Composite Materials for
+              Space Applications: A Comprehensive Literature Review."
+              <em>Aerospace</em>
+              2025, 12, 215.
+              <a
+                href="https://doi.org/10.3390/aerospace12030215"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/aerospace12030215</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            Open access, published 7 March 2025 by MDPI under the Creative
+            Commons Attribution (CC BY 4.0) license (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >). All data, findings, and figures referenced above are the work of
+            the original authors.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
