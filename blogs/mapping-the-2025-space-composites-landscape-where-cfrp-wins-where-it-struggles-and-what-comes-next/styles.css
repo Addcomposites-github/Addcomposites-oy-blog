@@ -2446,3 +2446,15 @@ section {
   letter-spacing: 0.03em;
   top: -10px;
 }
+
+/**/
+.cap-subgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+@media (max-width: 600px) {
+  .cap-subgrid {
+    grid-template-columns: 1fr;
+  }
+}
