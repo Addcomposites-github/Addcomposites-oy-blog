@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Designing Formula Student CFRP Wheel Rims by Simulation, Not by Breaking
+      Parts | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="An Addcomposites engineering deep-dive into a 2025 open-access study that reached a finished Formula Student CFRP wheel-rim laminate in 11 documented FEA iterations instead of 35-60, and where automated fiber placement fits a simulation-first workflow."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#process" class="blog-sidebar-link"
+            >Why the process is the subject</a
+          >
+          <a href="#methodology" class="blog-sidebar-link"
+            >The methodology loop</a
+          >
+          <a href="#loads" class="blog-sidebar-link">Loads from the car</a>
+          <a href="#materials" class="blog-sidebar-link">Material cards</a>
+          <a href="#geometry" class="blog-sidebar-link">Geometry &amp; FEM</a>
+          <a href="#iterations" class="blog-sidebar-link"
+            >The 11 iterations</a
+          >
+          <a href="#payoff" class="blog-sidebar-link"
+            >Final laminate &amp; payoff</a
+          >
+          <a href="#afp" class="blog-sidebar-link">Where AFP fits</a>
+          <a href="#references" class="blog-sidebar-link">Read the research</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          Designing Formula Student CFRP Wheel Rims by Simulation, Not by
+          Breaking Parts: Inside an 11-Iteration FEA Layup Method
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            2025
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview">
+          <p class="drop-cap">
+            A carbon-fiber wheel rim is one of the meaner structural problems in
+            motorsport composites. It spins, it carries the entire vehicle's
+            vertical load through a tiny contact patch, it transmits drive and
+            braking torque, it sits next to a brake disc that can glow past
+            400&nbsp;&deg;C, and it has to survive cornering loads that change
+            direction several times a second. Get the laminate wrong and the
+            failure mode is not a cracked bracket &mdash; it is a wheel coming
+            apart at speed.
+          </p>
+
+          <p>
+            For most university and club racing teams, the way that laminate
+            gets "validated" is depressingly analog: lay up a candidate stack,
+            build the part, load it until it breaks, look at the pieces, guess
+            at a change, and repeat. It is slow, it is expensive, and the part
+            you eventually race is rarely the lightest one you could have built
+            &mdash; it is just the first one that didn't fail.
+          </p>
+
+          <p>
+            A team from the Department of Vehicle Development at Sz&eacute;chenyi
+            Istv&aacute;n University in Gy&#337;r, Hungary &mdash;
+            <strong>D&aacute;niel B&aacute;rsony, Martin Kaszab, and D&aacute;niel
+            Feszty</strong> &mdash; published a paper in October 2025 that
+            tackles this head-on. Working with the university's Arrabona Racing
+            Team (ART), they laid out a full simulation-driven design loop for a
+            10-inch Formula Student rim and, importantly, <em>documented the
+            decision logic</em> most papers leave out. The result reached a
+            finished, requirement-satisfying laminate in <strong>11 manual
+            iterations</strong> rather than the 35&ndash;60 typically reported
+            for algorithm-based optimization.
+          </p>
+
+          <p>
+            This post walks through what the authors did, recreates their key
+            data as ASCII visualizations, and &mdash; clearly separated as our
+            own commentary &mdash; looks at where automated fiber placement fits
+            a workflow like this. Full citation and license are at the end.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong>A note on sourcing.</strong> Everything attributed to "the
+              paper," "the authors," or "the study" comes from B&aacute;rsony,
+              Kaszab &amp; Feszty (2025), cited in full at the end. Sections
+              labelled <strong>"Our perspective"</strong> are Addcomposites' own
+              editorial commentary and are not claims made by, or endorsed by,
+              the paper's authors.
+            </p>
+          </div>
+        </section>
+
+        <!-- Why the process is the subject -->
+        <section id="process">
+          <h2>Why the design process is the real subject</h2>
+
+          <p>
+            The authors open by surveying the published state of the art in CFRP
+            race-wheel design, and their critique is pointed: most prior work
+            either uses manual iteration without ever explaining <em>how</em> the
+            layup was changed between cycles, or uses optimization algorithms
+            that report impressive iteration counts but skip the practical
+            realities of manufacturing &mdash; sometimes producing fiber angles
+            that no real layup could reproduce. The paper argues that the
+            missing ingredient across the literature is a transparent,
+            repeatable account of the iteration logic itself: which result
+            triggers which change to the stack.
+          </p>
+
+          <p>
+            That is the gap the study sets out to fill. What the authors present
+            as their main contribution is a spelled-out rulebook for changing
+            the stack between cycles &mdash; the specific conditions under which
+            a twill ply is added, a twill ply removed, or a UD ply introduced
+            &mdash; shown working from start to finish on an actual component.
+          </p>
+
+          <p class="image-caption">
+            A silver aluminum disc-shaped laminating tool sits beside a finished
+            three-piece CFRP rim with a star-spoked metal 3D-printed center and
+            a glossy woven-carbon barrel. Figure 1 from B&aacute;rsony, Kaszab
+            &amp; Feszty (2025), <em>Applied Sciences</em> 2025, 15, 11434.
+            <a
+              href="https://doi.org/10.3390/app152111434"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app152111434</a
+            >
+            &mdash; &copy; 2025 by the authors, CC BY 4.0.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              This framing matters to anyone running a composites program on a
+              budget. The expensive part of composite development is rarely the
+              material; it is the <em>number of build-and-break cycles</em> you
+              burn before converging. A documented decision rule turns iteration
+              from guesswork into something a new team member can pick up and
+              run.
+            </p>
+          </div>
+        </section>
+
+        <!-- The methodology loop -->
+        <section id="methodology">
+          <h2>The methodology loop</h2>
+
+          <p>
+            The study structures the work as a cyclic, four-phase process. We
+            recreated the logic from the paper's Figure 2 below as an ASCII
+            flowchart.
+          </p>
+
+          <pre class="ascii-viz">            &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+            &#9474;   REQUIREMENTS    &#9474;
+            &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                     &#9474;
+        &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+        &#9660;                         &#9660;
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;         &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474; Geometry      &#9474;         &#9474; Load calculations&#9474;
+&#9474; design        &#9474;         &#9474; (lap-time sim)   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;         &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+        &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                     &#9660;
+            &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;  &#9668;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+            &#9474;   FEM ANALYSIS   &#9474;                           &#9474;
+            &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;                           &#9474;
+                     &#9660;                                     &#9474;
+        evaluate: failure criterion /                      &#9474;
+        stress distribution / displacement                &#9474;
+                     &#9660;                                     &#9474;
+            &#9556;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9559;                           &#9474;
+            &#9553; All 3 satisfied? &#9553;                           &#9474;
+            &#9562;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9569;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9569;&#9552;&#9552;&#9552;&#9552;&#9565;                           &#9474;
+                YES&#9474;      &#9474;NO  &#8594; which requirement failed?  &#9474;
+                   &#9660;      &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;                 &#9474;
+          &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;               &#9660;                 &#9474;
+          &#9474; MANUFACTURING &#9474;   &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;    &#9474;
+          &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;   &#9660;           &#9660;           &#9660;     &#9474;
+                        High disp/    High safety  Stress OK&#9474;
+                        stress/fail   factor       but high &#9474;
+                          &#9474;             &#9474;          disp.    &#9474;
+                          &#9660;             &#9660;            &#9660;       &#9474;
+                     Add twill    Remove twill   Add UD &#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                       layer         layer         layer</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of the iterative methodology
+            described in B&aacute;rsony, Kaszab &amp; Feszty (2025), Figure 2.
+            Recreated from the paper's data; not a reproduction of the original
+            figure.
+          </p>
+
+          <p>
+            The loop is simple to state, and that is the point. The first phase
+            assembles the virtual prototype &mdash; the geometry, a first-guess
+            stack, and the load set. The second runs the model and grades it on
+            three fronts at once: the Tsai&ndash;Wu failure margin, how the
+            stress spreads through the part, and whether peak deflection stays
+            under the cap. The third phase fires only when something falls
+            short, routing to one of three distinct moves depending on
+            <em>which</em> of the three came up wanting. Round and round until
+            they all pass together.
+          </p>
+
+          <p>
+            The three modification rules, as described in the study, work like
+            this. If displacement, stress, and the failure factor are all too
+            high, the laminate is too weak and a woven (twill) layer goes in. If
+            the safety factor has overshot &mdash; the part is stronger, and
+            therefore heavier, than it needs to be &mdash; a twill layer comes
+            out. And if strength is already adequate but the part still flexes
+            too much, a unidirectional layer is added in the stiffness-critical
+            direction. <em>(Our gloss on why that last rule works: UD fiber buys
+            directional stiffness far more cheaply, by weight, than a balanced
+            weave does.)</em>
+          </p>
+        </section>
+
+        <!-- Loads from the car -->
+        <section id="loads">
+          <h2>Loads that come from the car, not from a handbook</h2>
+
+          <p>
+            One of the study's clearest departures from prior work is where the
+            load cases come from. Rather than hand-calculating forces or
+            borrowing values from road-vehicle standards, the team derived them
+            from multibody lap-time simulation in IPG CarMaker, building a
+            vehicle model that mirrored the real car's suspension geometry, mass
+            distribution, and drivetrain.
+          </p>
+
+          <p>
+            They ran three driving scenarios to bracket the loading: a
+            full-throttle-then-full-braking run on high-grip tarmac for peak
+            longitudinal force, a 30-metre-diameter skidpad for peak lateral
+            force, and a lap of the Formula Student Germany autocross course for
+            the combined longitudinal-and-lateral case. The forces at the
+            contact patch, and the safety factors the team assigned, came out as
+            follows.
+          </p>
+
+          <pre class="ascii-viz">CONTACT-PATCH FORCES (ART_11)        separate   simultaneous   safety
+                                       [N]          [N]         factor
+ Longitudinal  Fx   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  &#177;2400        +1050         2.3
+ Lateral       Fy   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  &#177;2300        +1800         1.25
+ Vertical      Fz   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  +2650        +1600         1.65
+
+ Drivetrain torque (with gear ratios + margin) ......... ~1000 Nm
+ Mounting tire pressure on rim surface ................. 4 bar
+ Thermal: brake disc &gt;400 &deg;C, but inner wheel face &lt;50 &deg;C
+          &#8594; heat load judged unnecessary to simulate</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of load data from B&aacute;rsony,
+            Kaszab &amp; Feszty (2025), Table 2 and Section 5.
+          </p>
+
+          <p>
+            The torque figure is worth a comment. With no measured engine value
+            to work from, the team plugged in 1000 Nm &mdash; a deliberately high
+            stand-in that already bakes in the drivetrain's gear multiplication
+            plus a margin. The reasoning was forward-looking: a future turbo or
+            hub-motor drivetrain could feed the wheel considerably more torque
+            than today's combustion engine, and they wanted the rim to survive
+            that. The tire itself wasn't modeled; instead they loaded the rim
+            face with 4 bar, the peak pressure seen when a tire is forced over
+            the bead during mounting.
+          </p>
+
+          <p>
+            The thermal decision is a nice example of <em>not</em> over-modeling.
+            Indicators fitted to earlier cars never logged more than 50 &deg;C at
+            the wheel's inner face &mdash; the neighbouring brake disc might be
+            glowing past 400 &deg;C, but that heat simply doesn't reach the
+            laminate &mdash; so thermal loading was kept out of the structural
+            runs entirely.
+          </p>
+
+          <h3>Validating the virtual car</h3>
+
+          <p>
+            Crucially, the loads were not taken on faith. The team re-ran an
+            earlier car (codenamed ART_09) through the same simulation and
+            checked the peak accelerations against telemetry logged on the real
+            car at the 2022 FSG event.
+          </p>
+
+          <pre class="ascii-viz">                          IPG sim [G]   FSG telemetry [G]   diff
+ Peak longitudinal accel    &#8722;1.91           &#8722;1.89          +1.59 %
+ Peak lateral accel          2.06            2.11          &#8722;2.84 %</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of validation data from
+            B&aacute;rsony, Kaszab &amp; Feszty (2025), Table 3.
+          </p>
+
+          <p>
+            Under 3% disagreement on both axes is a strong result. The authors
+            put the small residual down to the simulated lap letting the driving
+            line clip apexes that a virtual track has no cones to police, where
+            the real FSG course does.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              This validation step is the quiet hero of the whole paper. A layup
+              optimized against fictional loads is just confidently wrong. Tying
+              the load cases back to measured telemetry is what makes the
+              downstream iteration trustworthy &mdash; and it is exactly the
+              discipline we'd want to see before any laminate goes into
+              production.
+            </p>
+          </div>
+        </section>
+
+        <!-- Material cards -->
+        <section id="materials">
+          <h2>Material cards from the actual prepreg</h2>
+
+          <p>
+            The next departure: the team measured their own materials. A
+            datasheet, the authors note, only tells you so much &mdash; the real
+            numbers for a woven or unidirectional carbon depend on which weave
+            and resin you use, how much fiber sits in the matrix, and how the
+            laminate is processed. So they cut coupons from the exact fabrics
+            destined for the wheel &mdash; a 2&times;2 twill prepreg and a UD
+            prepreg &mdash; and tested them under ASTM D 3039 (tension) and ASTM
+            D 3518M (in-plane shear), pulling at 2 mm/min in a 20 &deg;C room.
+          </p>
+
+          <p>
+            Twill was pulled along its main axis, UD both along and across the
+            fibers, and a rotated coupon gave the in-plane shear. Compression was
+            the one property that never made it onto the test bench &mdash;
+            budget ruled it out &mdash; so those figures were borrowed from
+            datasheets and comparable laminates instead. Everything was then
+            folded into a pair of orthotropic material cards covering stiffness,
+            shear, Poisson's ratio, the strength limits, and density for each
+            fabric.
+          </p>
+
+          <p>
+            The headline contrast between the two materials is what drives the
+            whole layup strategy:
+          </p>
+
+          <pre class="ascii-viz">        TWILL (2&times;2 woven)              UD (unidirectional)
+        &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;            &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;
+ E1     &#8776; balanced, both axes         very high along fibers
+ E2     &#8776; same as E1 (woven           low across fibers
+        is quasi-balanced)            (highly directional)
+ Use &#8594;  general coverage,             targeted stiffness in
+        handles multi-direction       one chosen direction
+        load, easy to drape           at minimum added weight</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of the qualitative material
+            behavior characterized in B&aacute;rsony, Kaszab &amp; Feszty (2025),
+            Tables 4&ndash;5 and Section 7. Numerical values are reported in the
+            original paper.
+          </p>
+
+          <p>
+            Our reading is that this difference is the engine of the whole
+            iteration logic. Twill is the workhorse: balanced in two directions,
+            forgiving to drape over curvature, useful wherever load arrives from
+            several directions at once. UD is the scalpel &mdash; huge stiffness
+            along the fiber, very little across it &mdash; so it earns its place
+            only where one specific direction needs to stop deflecting. Seen
+            that way, the "add a UD layer when strength is fine but it still
+            flexes" rule is a direct consequence of the material data the paper
+            reports.
+          </p>
+        </section>
+
+        <!-- Geometry & FEM -->
+        <section id="geometry">
+          <h2>Geometry and the FEM model</h2>
+
+          <p>
+            To save time and tooling cost, a single rim profile serves both
+            axles. Most of it carries over from the old wheel; the one
+            substantial change is a wider barrel &mdash; 7.25&Prime; out to
+            8&Prime; &mdash; which the suspension group asked for to spread the
+            tire's footprint. Although a race rim needn't obey road-car rules,
+            the team still leaned on ETRTO street-rim guidelines as a sound
+            reference for sizing the bead seat and keeping a tire seated safely.
+            A clearance check in Autodesk Inventor left a 3 mm-plus gap to the
+            nearest suspension hardware &mdash; enough headroom over the 2.7 mm
+            of rim-edge flex the analysis predicted.
+          </p>
+
+          <p>
+            For the FEM work, the CAD went into ANSA for cleanup and meshing.
+            Only a 60&deg; wedge of the rim was modeled &mdash; a one-sixth
+            rotational slice &mdash; meshed at its mid-surface with first-order
+            shells. A short convergence study across 4, 2 and 1 mm elements
+            landed on a 1 mm mesh throughout, tightened further around the
+            center. The center itself, being less critical, was left coarser at
+            2 mm tets to hold down the element count. Abaqus ran the solves. The
+            wheel loads entered through a single reference node at the patch
+            centroid, coupled out to the rim; drive torque was fed in through the
+            center the same way; and Abaqus's pressure load acted on the rim's
+            inner walls.
+          </p>
+        </section>
+
+        <!-- The 11 iterations -->
+        <section id="iterations">
+          <h2>The 11 iterations, visualized</h2>
+
+          <p>
+            Here is where the documented logic earns its keep. The starting
+            laminate was deliberately plain and symmetric: twenty twill plies
+            alternating 0&deg;/45&deg;, ten of each. They picked it for two
+            practical reasons &mdash; plies are trivial to add or pull from a
+            stack like that, and starting deliberately under-built means the
+            first cycles can only improve. The finish line was set at 3.00 mm of
+            global displacement and a Tsai&ndash;Wu index of 0.833 &mdash; which
+            is simply 1 &divide; 1.2, the inverse of the required safety factor.
+          </p>
+
+          <p>
+            Tracking the two governing metrics across all eleven cycles tells the
+            story. We recreated the trends from the paper's Figures 9 and 10:
+          </p>
+
+          <pre class="ascii-viz">GLOBAL DISPLACEMENT [mm]            target &#8804; 3.00 &#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;
+4.0 &#9474;                  &#9679;&#9472;&#9472;&#9679;
+3.5 &#9474;                 &#9581;    &#9584;
+3.0 &#9474;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9581;&#183;&#183;&#183;&#183;&#183;&#183;&#9584;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;  &#8592; settles at 2.763 mm
+2.5 &#9474;               &#9581;
+2.0 &#9474;              &#9581;
+1.5 &#9474;            &#9581;
+1.0 &#9474;      &#9679;&#9472;&#9472;&#9679;&#9472;&#9581;
+0.5 &#9474;&#9679;&#9472;&#9472;&#9679;&#9584;
+    &#9492;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;
+       1  2  3  4  5  6  7  8  9  10 11   ITERATION
+
+TSAI&ndash;WU FAILURE INDEX [-]           target &#8804; 0.833 &#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;
+0.9 &#9474;                &#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;
+0.8 &#9474;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9581;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9679;&#9472;&#9472;&#9679;  &#8592; settles ~0.72
+0.7 &#9474;              &#9581;
+0.6 &#9474;           &#9679;&#9581;
+0.5 &#9474;          &#9581;
+0.4 &#9474;   &#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9584;
+0.3 &#9474;&#9679;&#9472;&#9584;
+    &#9492;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;
+       1  2  3  4  5  6  7  8  9  10 11   ITERATION</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of iteration trends from
+            B&aacute;rsony, Kaszab &amp; Feszty (2025), Figures 9 and 10. Values
+            read approximately from the published charts.
+          </p>
+
+          <p>
+            The sharp step between cycles 5 and 6 is the turning point of the
+            whole run. According to the authors, it was triggered by shuffling
+            the stacking order in several zones simultaneously &mdash; a change
+            big enough to swing both displacement and the failure index hard,
+            dropping the design close to target in a single move. Cycles 7
+            through 11 are then housekeeping: shaving off the overshoot and
+            moving material around until both curves sit below their limits at
+            the same time.
+          </p>
+
+          <p>
+            To make those zone-by-zone changes tractable, the rim was divided
+            into six layup zones, each able to carry a different stack:
+          </p>
+
+          <pre class="ascii-viz">                RIM CROSS-SECTION (six independent layup zones)
+
+   outer  &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+   bead &#8594; &#9474; Rim outer                                 &#9474;
+          &#9474;   &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488; &#9474;
+          &#9474;   &#9474; Rim inner1 &#9474; inner2 &#9474; inner3        &#9474; &#9474;  &#8592; barrel
+          &#9474;   &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496; &#9474;
+          &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                           &#9474; Rim center1  &#9474;
+                           &#9474; Rim center2  &#9474;  &#8592; spoke / hub
+                           &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;     interface</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of the six rim layup zones
+            defined in B&aacute;rsony, Kaszab &amp; Feszty (2025), Tables
+            6&ndash;7.
+          </p>
+
+          <p>
+            Each zone evolved on its own track through the iterations &mdash; the
+            outer rim, for instance, shed twill plies as the design matured and
+            picked up a single UD ply late in the process, while the deeper
+            barrel zones (inner1&ndash;inner3) layered in directional UD plies at
+            angles like &plusmn;45&deg; and 90&deg; to fight specific deflection
+            modes. The center zones, carrying the bolted interface to the wheel
+            center, ended up as the thickest, most heavily woven stacks.
+          </p>
+        </section>
+
+        <!-- Final laminate & payoff -->
+        <section id="payoff">
+          <h2>The final laminate and the payoff</h2>
+
+          <p>
+            The converged design is symmetric, mixing twill and UD differently
+            in each zone. Two detailing choices stand out: the plies are
+            sequenced so the bead-seat region gets folded into the heart of the
+            laminate rather than tacked on, and the edges of adjacent zones
+            overlap so fibers run unbroken from one section into the next. As a
+            schematic, the final per-zone stacks look roughly like this:
+          </p>
+
+          <pre class="ascii-viz">FINAL PLYBOOK (schematic, outer face &#8594; inner)   T=twill  U=UD
+
+ Rim outer    : T0 T45 T0 T45 [U0] T0 T45 T0 T45            (~9 plies)
+ Rim inner1   : T0 T45 T0 T45 [U90 U0 U90] T45 T0 T45 T0    (~11 plies)
+ Rim inner2   : T0 T45 T0 T45 [U+45 U0 U&#8722;45] T45 T0 T45 T0  (~11 plies)
+ Rim inner3   : T0 T45 T0 T45 [U90 U0 U90] T45 T0 T45 T0    (~11 plies)
+ Rim center1  : T0 T45 T0 T45 T0 T45 T0 T45 T0 T45          (~10 plies)
+ Rim center2  : T0 T45 &times;11 alternating                      (~22 plies)</pre>
+          <p class="image-caption">
+            Caption: Addcomposites schematic of the final layup described in
+            B&aacute;rsony, Kaszab &amp; Feszty (2025), Table 7. Simplified for
+            readability; consult the paper for the exact ply-by-ply book.
+          </p>
+
+          <p>
+            On the final laminate the worst Tsai&ndash;Wu value was 1.015, but
+            the authors treat that as a numerical edge artifact rather than a
+            real hotspot and set it aside. The meaningful results: 2.763 mm of
+            global displacement (under the 3 mm ceiling) and a worst-case index
+            of 0.796 in the separate torque case. All three criteria clear at the
+            same time &mdash; which is the only definition of "finished" this
+            loop recognizes.
+          </p>
+
+          <p>
+            The weight result is the headline. The rim by itself lands at roughly
+            850 g &mdash; which the authors put at 35% under the aluminum rim and
+            a further 15% below the team's earlier carbon one. Fold in the center
+            and fasteners and those gaps widen to 41% and 19%. As full
+            assemblies:
+          </p>
+
+          <pre class="ascii-viz">WHEEL ASSEMBLY MASS [g]            vs. ART_11
+ 3-piece aluminum  &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  2200   (+41% heavier)
+ 1-piece magnesium &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;        1660   (+22%)
+ ART_09 (prev CFRP)&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;         1600   (+19%)
+ ART_11 (new CFRP) &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;             1300   (baseline)</pre>
+          <p class="image-caption">
+            Caption: Addcomposites visualization of mass data from B&aacute;rsony,
+            Kaszab &amp; Feszty (2025), Table 8.
+          </p>
+
+          <p>
+            The authors also make a resource-cost argument against pure
+            algorithmic optimization: their manual, logic-driven route reached a
+            finished laminate in 11 iterations, against the 35&ndash;60 commonly
+            reported for algorithm-based methods in the literature &mdash; while
+            keeping every intermediate layup manufacturable, with integer fiber
+            angles a real layup process can actually achieve.
+          </p>
+        </section>
+
+        <!-- Where AFP fits -->
+        <section id="afp">
+          <h2>Where automated fiber placement enters the picture</h2>
+
+          <div class="highlight-box">
+            <p>
+              <strong>This section is Addcomposites' own commentary. The paper
+              does not discuss, recommend, or endorse AFP, Addcomposites, or any
+              manufacturing equipment &mdash; it concerns the design methodology
+              and does not detail a manufacturing route, though its prepreg
+              materials and the laminating tools pictured in its Figure 1 point
+              to conventional hand layup.</strong>
+            </p>
+          </div>
+
+          <p>
+            What strikes us, reading the final plybook, is how <em>specific</em>
+            it is. Six zones, each with its own ply count, and several of them
+            calling for unidirectional plies at exact angles &mdash; 90&deg;,
+            +45&deg;, &minus;45&deg; &mdash; sandwiched between woven layers, with
+            overlaps engineered to preserve fiber continuity across zone
+            boundaries. That is precisely the kind of laminate where the gap
+            between <em>the stack you designed</em> and <em>the stack you can
+            actually build by hand</em> tends to open up.
+          </p>
+
+          <p>
+            Manual layup over a rotating rim mandrel struggles to hold a UD ply at
+            a true 90&deg; or &plusmn;45&deg; around compound curvature; angles
+            drift, thickness wanders ply-to-ply, and the carefully placed
+            directional reinforcement that the FEA counted on ends up smeared.
+            When the part that comes off the tool no longer matches the model,
+            the eleven iterations of analysis lose some of their meaning.
+          </p>
+
+          <p>
+            This is the class of problem automated fiber placement is built for.
+            An AFP system places tape along programmed paths with controlled
+            fiber angle, controlled compaction force, and controlled ply
+            boundaries &mdash; so the +45&deg;/0&deg;/&minus;45&deg; UD sequence in
+            "Rim inner2," or the local overlaps that maintain continuity, can be
+            reproduced as designed rather than approximated. Our
+            <strong>AFP-XS</strong> system was made specifically to put that
+            capability within reach of the kind of teams who'd be designing a
+            part like this: it mounts onto a standard industrial robot rather
+            than requiring a dedicated multi-million-dollar gantry, works across
+            thermoset, thermoplastic, and dry-fiber materials in tape widths from
+            &frac14;&Prime; to 1&Prime;, and is driven by our
+            <strong>AddPath</strong> software for path planning, simulation, and
+            digital-twin monitoring &mdash; including direct control over heat,
+            ply drop-off, and tool tilt.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              A documented FEA loop like this one and a programmable layup
+              process are natural complements. The simulation tells you exactly
+              which fiber should go where; AFP is how you make sure it actually
+              ends up there. For a Formula Student or club-motorsport program,
+              that combination is what turns a clever paper into a repeatable,
+              lighter, genuinely optimized part &mdash; without the
+              build-and-break tax.
+            </p>
+          </div>
+
+          <div class="cta-section">
+            <p>
+              If you're developing rotating or load-introducing composite
+              structures and want to talk through how a programmable layup fits a
+              simulation-first workflow, get in touch with the Addcomposites team
+              &rarr;
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/"
+              class="cta-button"
+              >Get in Touch with Addcomposites</a
+            >
+          </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>Read the research</h2>
+
+          <p>
+            This article summarizes and comments on independent academic work.
+            All technical findings belong to the original authors. We encourage
+            you to read the open-access paper in full:
+          </p>
+
+          <ol class="references-list">
+            <li>
+              <strong>B&aacute;rsony, D.; Kaszab, M.; Feszty, D.</strong> "An
+              Iterative Method for the Design of Carbon-Fiber Reinforced Polymer
+              Wheel Rims." <em>Applied Sciences</em> <strong>2025</strong>,
+              <em>15</em>, 11434.
+              <a
+                href="https://doi.org/10.3390/app152111434"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/app152111434</a
+              >
+              Published 26 October 2025 by MDPI. &copy; 2025 by the authors. Open
+              access under the Creative Commons Attribution (CC BY 4.0) license:
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            The authors have not reviewed or endorsed this article,
+            Addcomposites, or its products.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing
+                on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
