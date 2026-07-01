@@ -269,39 +269,72 @@
             flowchart.
           </p>
 
-          <pre class="ascii-viz">            &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
-            &#9474;   REQUIREMENTS    &#9474;
-            &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
-                     &#9474;
-        &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
-        &#9660;                         &#9660;
-&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;         &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
-&#9474; Geometry      &#9474;         &#9474; Load calculations&#9474;
-&#9474; design        &#9474;         &#9474; (lap-time sim)   &#9474;
-&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;         &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
-        &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
-                     &#9660;
-            &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;  &#9668;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
-            &#9474;   FEM ANALYSIS   &#9474;                           &#9474;
-            &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;                           &#9474;
-                     &#9660;                                     &#9474;
-        evaluate: failure criterion /                      &#9474;
-        stress distribution / displacement                &#9474;
-                     &#9660;                                     &#9474;
-            &#9556;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9559;                           &#9474;
-            &#9553; All 3 satisfied? &#9553;                           &#9474;
-            &#9562;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9569;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9569;&#9552;&#9552;&#9552;&#9552;&#9565;                           &#9474;
-                YES&#9474;      &#9474;NO  &#8594; which requirement failed?  &#9474;
-                   &#9660;      &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;                 &#9474;
-          &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;               &#9660;                 &#9474;
-          &#9474; MANUFACTURING &#9474;   &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;    &#9474;
-          &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;   &#9660;           &#9660;           &#9660;     &#9474;
-                        High disp/    High safety  Stress OK&#9474;
-                        stress/fail   factor       but high &#9474;
-                          &#9474;             &#9474;          disp.    &#9474;
-                          &#9660;             &#9660;            &#9660;       &#9474;
-                     Add twill    Remove twill   Add UD &#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
-                       layer         layer         layer</pre>
+                    <div class="wrflow-root" id="wrflow-root">
+            <p class="wrflow-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Figure 2</p>
+            <h3 class="wrflow-title">The iterative design loop</h3>
+            <p class="wrflow-subtitle">A cyclic, four-phase process — grade on three criteria at once, then route the one move that fixes what failed.</p>
+
+            <div class="wrflow-chart-area">
+              <!-- Phase 1: Requirements -->
+              <div class="wrflow-node wrflow-req" data-step="0">
+                <span class="wrflow-node-kicker">Phase 1</span>
+                <span class="wrflow-node-title">Requirements</span>
+              </div>
+              <div class="wrflow-conn wrflow-conn-down" data-step="0"></div>
+
+              <!-- Split into two inputs -->
+              <div class="wrflow-split" data-step="1">
+                <div class="wrflow-node wrflow-input">
+                  <span class="wrflow-node-title">Geometry design</span>
+                  <span class="wrflow-node-desc">first-guess stack + profile</span>
+                </div>
+                <div class="wrflow-node wrflow-input">
+                  <span class="wrflow-node-title">Load calculations</span>
+                  <span class="wrflow-node-desc">lap-time simulation</span>
+                </div>
+              </div>
+              <div class="wrflow-conn wrflow-conn-merge" data-step="2"></div>
+
+              <!-- Phase 2: FEM -->
+              <div class="wrflow-node wrflow-fem" data-step="3">
+                <span class="wrflow-node-kicker">Phase 2</span>
+                <span class="wrflow-node-title">FEM analysis</span>
+                <span class="wrflow-node-desc">failure criterion · stress distribution · displacement</span>
+                <span class="wrflow-loop-tag">◄ loops back</span>
+              </div>
+              <div class="wrflow-conn wrflow-conn-down" data-step="4"></div>
+
+              <!-- Decision -->
+              <div class="wrflow-node wrflow-decision" data-step="5">
+                <span class="wrflow-decision-q">All 3 satisfied?</span>
+                <div class="wrflow-decision-branches">
+                  <span class="wrflow-branch-yes">YES → Manufacturing</span>
+                  <span class="wrflow-branch-no">NO → which failed?</span>
+                </div>
+              </div>
+              <div class="wrflow-conn wrflow-conn-down" data-step="6"></div>
+
+              <!-- Three modification rules -->
+              <div class="wrflow-rules" data-step="7">
+                <div class="wrflow-rule">
+                  <span class="wrflow-rule-cond">High disp / stress / fail</span>
+                  <span class="wrflow-rule-arrow">▼</span>
+                  <span class="wrflow-rule-move wrflow-move-add">Add twill layer</span>
+                </div>
+                <div class="wrflow-rule">
+                  <span class="wrflow-rule-cond">High safety factor</span>
+                  <span class="wrflow-rule-arrow">▼</span>
+                  <span class="wrflow-rule-move wrflow-move-remove">Remove twill layer</span>
+                </div>
+                <div class="wrflow-rule">
+                  <span class="wrflow-rule-cond">Stress OK but high disp.</span>
+                  <span class="wrflow-rule-arrow">▼</span>
+                  <span class="wrflow-rule-move wrflow-move-ud">Add UD layer</span>
+                </div>
+              </div>
+              <p class="wrflow-loopback" data-step="8">↺ Any modification loops back to FEM analysis — round and round until all three pass together.</p>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of the iterative methodology
             described in B&aacute;rsony, Kaszab &amp; Feszty (2025), Figure 2.
@@ -379,16 +412,65 @@
             follows.
           </p>
 
-          <pre class="ascii-viz">CONTACT-PATCH FORCES (ART_11)        separate   simultaneous   safety
-                                       [N]          [N]         factor
- Longitudinal  Fx   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  &#177;2400        +1050         2.3
- Lateral       Fy   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  &#177;2300        +1800         1.25
- Vertical      Fz   &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;  +2650        +1600         1.65
+                    <div class="wrforce-root" id="wrforce-root">
+            <p class="wrforce-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Table 2 &amp; Section 5</p>
+            <h3 class="wrforce-title">Contact-patch forces (ART_11)</h3>
+            <p class="wrforce-subtitle">Loads derived from IPG CarMaker lap-time simulation, with the team's assigned safety factors.</p>
 
- Drivetrain torque (with gear ratios + margin) ......... ~1000 Nm
- Mounting tire pressure on rim surface ................. 4 bar
- Thermal: brake disc &gt;400 &deg;C, but inner wheel face &lt;50 &deg;C
-          &#8594; heat load judged unnecessary to simulate</pre>
+            <div class="wrforce-chart-area">
+              <div class="wrforce-head">
+                <span class="wrforce-head-axis">Force at contact patch [N]</span>
+                <span class="wrforce-head-sep">separate</span>
+                <span class="wrforce-head-sep">simultaneous</span>
+                <span class="wrforce-head-sf">safety factor</span>
+              </div>
+
+              <div class="wrforce-row" data-mag="2400" data-max="2650">
+                <span class="wrforce-label">Longitudinal <strong>Fx</strong></span>
+                <div class="wrforce-bar-track">
+                  <div class="wrforce-bar-fill wrforce-fill-blue"><span class="wrforce-bar-val">±2400</span></div>
+                </div>
+                <span class="wrforce-sim">+1050</span>
+                <span class="wrforce-sf">2.3</span>
+              </div>
+
+              <div class="wrforce-row" data-mag="2300" data-max="2650">
+                <span class="wrforce-label">Lateral <strong>Fy</strong></span>
+                <div class="wrforce-bar-track">
+                  <div class="wrforce-bar-fill wrforce-fill-blue"><span class="wrforce-bar-val">±2300</span></div>
+                </div>
+                <span class="wrforce-sim">+1800</span>
+                <span class="wrforce-sf">1.25</span>
+              </div>
+
+              <div class="wrforce-row" data-mag="2650" data-max="2650">
+                <span class="wrforce-label">Vertical <strong>Fz</strong></span>
+                <div class="wrforce-bar-track">
+                  <div class="wrforce-bar-fill wrforce-fill-red"><span class="wrforce-bar-val">+2650</span></div>
+                </div>
+                <span class="wrforce-sim">+1600</span>
+                <span class="wrforce-sf">1.65</span>
+              </div>
+
+              <div class="wrforce-notes">
+                <div class="wrforce-note">
+                  <span class="wrforce-note-k">Drivetrain torque</span>
+                  <span class="wrforce-note-v">~1000 Nm</span>
+                  <span class="wrforce-note-d">gear ratios + margin (future turbo / hub-motor headroom)</span>
+                </div>
+                <div class="wrforce-note">
+                  <span class="wrforce-note-k">Mounting pressure</span>
+                  <span class="wrforce-note-v">4 bar</span>
+                  <span class="wrforce-note-d">peak tire-over-bead pressure on rim surface</span>
+                </div>
+                <div class="wrforce-note">
+                  <span class="wrforce-note-k">Thermal</span>
+                  <span class="wrforce-note-v wrforce-note-v-muted">skipped</span>
+                  <span class="wrforce-note-d">disc &gt;400 °C but inner face &lt;50 °C → heat load unnecessary to simulate</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of load data from B&aacute;rsony,
             Kaszab &amp; Feszty (2025), Table 2 and Section 5.
@@ -444,9 +526,58 @@
             car at the 2022 FSG event.
           </p>
 
-          <pre class="ascii-viz">                          IPG sim [G]   FSG telemetry [G]   diff
- Peak longitudinal accel    &#8722;1.91           &#8722;1.89          +1.59 %
- Peak lateral accel          2.06            2.11          &#8722;2.84 %</pre>
+                    <div class="wrval-root" id="wrval-root">
+            <p class="wrval-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Table 3</p>
+            <h3 class="wrval-title">Validating the virtual car (ART_09)</h3>
+            <p class="wrval-subtitle">Simulated peak accelerations vs. telemetry logged on the real car at 2022 FSG — under 3% disagreement on both axes.</p>
+
+            <div class="wrval-chart-area">
+              <div class="wrval-legend">
+                <span class="wrval-legend-item"><span class="wrval-dot wrval-dot-sim"></span>IPG simulation</span>
+                <span class="wrval-legend-item"><span class="wrval-dot wrval-dot-tel"></span>FSG telemetry</span>
+              </div>
+
+              <div class="wrval-group" data-max="2.11">
+                <div class="wrval-group-head">
+                  <span class="wrval-group-name">Peak longitudinal accel</span>
+                  <span class="wrval-diff wrval-diff-pos">+1.59%</span>
+                </div>
+                <div class="wrval-pair">
+                  <div class="wrval-bar-row" data-val="1.91">
+                    <span class="wrval-bar-tag">Sim</span>
+                    <div class="wrval-bar-track"><div class="wrval-bar-fill wrval-fill-sim"></div></div>
+                    <span class="wrval-bar-num">−1.91 G</span>
+                  </div>
+                  <div class="wrval-bar-row" data-val="1.89">
+                    <span class="wrval-bar-tag">Tel</span>
+                    <div class="wrval-bar-track"><div class="wrval-bar-fill wrval-fill-tel"></div></div>
+                    <span class="wrval-bar-num">−1.89 G</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wrval-group" data-max="2.11">
+                <div class="wrval-group-head">
+                  <span class="wrval-group-name">Peak lateral accel</span>
+                  <span class="wrval-diff wrval-diff-neg">−2.84%</span>
+                </div>
+                <div class="wrval-pair">
+                  <div class="wrval-bar-row" data-val="2.06">
+                    <span class="wrval-bar-tag">Sim</span>
+                    <div class="wrval-bar-track"><div class="wrval-bar-fill wrval-fill-sim"></div></div>
+                    <span class="wrval-bar-num">2.06 G</span>
+                  </div>
+                  <div class="wrval-bar-row" data-val="2.11">
+                    <span class="wrval-bar-tag">Tel</span>
+                    <div class="wrval-bar-track"><div class="wrval-bar-fill wrval-fill-tel"></div></div>
+                    <span class="wrval-bar-num">2.11 G</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="wrval-foot">Both axes agree to within 3% — the residual traced to the simulated lap clipping apexes a real cone-lined course polices.</p>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of validation data from
             B&aacute;rsony, Kaszab &amp; Feszty (2025), Table 3.
@@ -543,14 +674,42 @@
             whole layup strategy:
           </p>
 
-          <pre class="ascii-viz">        TWILL (2&times;2 woven)              UD (unidirectional)
-        &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;            &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;
- E1     &#8776; balanced, both axes         very high along fibers
- E2     &#8776; same as E1 (woven           low across fibers
-        is quasi-balanced)            (highly directional)
- Use &#8594;  general coverage,             targeted stiffness in
-        handles multi-direction       one chosen direction
-        load, easy to drape           at minimum added weight</pre>
+                    <div class="wrmat-root" id="wrmat-root">
+            <p class="wrmat-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Tables 4–5 &amp; Section 7</p>
+            <h3 class="wrmat-title">Twill vs. UD — the contrast that drives the layup</h3>
+            <p class="wrmat-subtitle">Qualitative behaviour of the two measured fabrics. Numerical values are reported in the original paper.</p>
+
+            <div class="wrmat-chart-area">
+              <div class="wrmat-grid">
+                <div class="wrmat-corner"></div>
+                <div class="wrmat-colhead wrmat-colhead-twill">
+                  <span class="wrmat-col-name">Twill</span>
+                  <span class="wrmat-col-sub">2×2 woven</span>
+                </div>
+                <div class="wrmat-colhead wrmat-colhead-ud">
+                  <span class="wrmat-col-name">UD</span>
+                  <span class="wrmat-col-sub">unidirectional</span>
+                </div>
+
+                <div class="wrmat-rowhead">E1</div>
+                <div class="wrmat-cell" data-cell="0"><span class="wrmat-cell-main">Balanced</span><span class="wrmat-cell-sub">both axes</span></div>
+                <div class="wrmat-cell wrmat-cell-hi" data-cell="1"><span class="wrmat-cell-main">Very high</span><span class="wrmat-cell-sub">along fibers</span></div>
+
+                <div class="wrmat-rowhead">E2</div>
+                <div class="wrmat-cell" data-cell="2"><span class="wrmat-cell-main">≈ same as E1</span><span class="wrmat-cell-sub">quasi-balanced weave</span></div>
+                <div class="wrmat-cell wrmat-cell-lo" data-cell="3"><span class="wrmat-cell-main">Low</span><span class="wrmat-cell-sub">across fibers (directional)</span></div>
+
+                <div class="wrmat-rowhead">Use</div>
+                <div class="wrmat-cell" data-cell="4"><span class="wrmat-cell-main">General coverage</span><span class="wrmat-cell-sub">multi-direction load · easy to drape</span></div>
+                <div class="wrmat-cell wrmat-cell-accent" data-cell="5"><span class="wrmat-cell-main">Targeted stiffness</span><span class="wrmat-cell-sub">one chosen direction · minimum added weight</span></div>
+              </div>
+
+              <div class="wrmat-legend">
+                <span class="wrmat-legend-item"><span class="wrmat-swatch wrmat-swatch-twill"></span>Workhorse — balanced &amp; drapeable</span>
+                <span class="wrmat-legend-item"><span class="wrmat-swatch wrmat-swatch-ud"></span>Scalpel — directional stiffness per gram</span>
+              </div>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of the qualitative material
             behavior characterized in B&aacute;rsony, Kaszab &amp; Feszty (2025),
@@ -664,28 +823,71 @@
             story. We recreated the trends from the paper's Figures 9 and 10:
           </p>
 
-          <pre class="ascii-viz">GLOBAL DISPLACEMENT [mm]            target &#8804; 3.00 &#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;
-4.0 &#9474;                  &#9679;&#9472;&#9472;&#9679;
-3.5 &#9474;                 &#9581;    &#9584;
-3.0 &#9474;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9581;&#183;&#183;&#183;&#183;&#183;&#183;&#9584;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;  &#8592; settles at 2.763 mm
-2.5 &#9474;               &#9581;
-2.0 &#9474;              &#9581;
-1.5 &#9474;            &#9581;
-1.0 &#9474;      &#9679;&#9472;&#9472;&#9679;&#9472;&#9581;
-0.5 &#9474;&#9679;&#9472;&#9472;&#9679;&#9584;
-    &#9492;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;
-       1  2  3  4  5  6  7  8  9  10 11   ITERATION
+                    <div class="writer-root" id="writer-root">
+            <p class="writer-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Figures 9 &amp; 10</p>
+            <h3 class="writer-title">Eleven iterations, two governing metrics</h3>
+            <p class="writer-subtitle">Both curves must sit below their limits at the same time. The sharp step at cycles 5→6 — a simultaneous restacking — is the turning point. Values read approximately from the published charts.</p>
 
-TSAI&ndash;WU FAILURE INDEX [-]           target &#8804; 0.833 &#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;
-0.9 &#9474;                &#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9679;
-0.8 &#9474;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9581;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183;&#9679;&#9472;&#9472;&#9679;  &#8592; settles ~0.72
-0.7 &#9474;              &#9581;
-0.6 &#9474;           &#9679;&#9581;
-0.5 &#9474;          &#9581;
-0.4 &#9474;   &#9679;&#9472;&#9472;&#9679;&#9472;&#9472;&#9584;
-0.3 &#9474;&#9679;&#9472;&#9584;
-    &#9492;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;&#9516;&#9472;&#9472;
-       1  2  3  4  5  6  7  8  9  10 11   ITERATION</pre>
+            <div class="writer-chart-area">
+              <!-- Chart 1: Global displacement -->
+              <div class="writer-chart">
+                <div class="writer-chart-head">
+                  <span class="writer-chart-name">Global displacement</span>
+                  <span class="writer-chart-target">target ≤ 3.00 mm</span>
+                  <span class="writer-chart-settle">settles at <strong>2.763 mm</strong></span>
+                </div>
+                <svg class="writer-svg" viewBox="0 0 620 220" preserveAspectRatio="none" role="img" aria-label="Global displacement over 11 iterations, settling at 2.763 mm">
+                  <!-- y gridlines -->
+                  <line class="writer-grid" x1="40" y1="20" x2="600" y2="20"/>
+                  <line class="writer-grid" x1="40" y1="70" x2="600" y2="70"/>
+                  <line class="writer-grid" x1="40" y1="120" x2="600" y2="120"/>
+                  <line class="writer-grid" x1="40" y1="170" x2="600" y2="170"/>
+                  <!-- target line (3.00) dotted -->
+                  <line class="writer-target-line" id="writer-disp-target" x1="40" y1="70" x2="600" y2="70"/>
+                  <!-- step marker 5->6 -->
+                  <line class="writer-step-marker" id="writer-disp-step" x1="288" y1="20" x2="288" y2="200"/>
+                  <!-- data polyline (points set as real coords; animated via dashoffset) -->
+                  <polyline class="writer-line writer-line-disp" id="writer-disp-line"
+                    points="40,180 96,180 152,150 208,150 264,105 320,20 376,70 432,88 488,88 544,88 600,88"/>
+                </svg>
+                <div class="writer-axis-x">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                </div>
+                <div class="writer-axis-caption">
+                  <span>Iteration</span>
+                  <span class="writer-yhint">0.5 → peak 4.0 → 2.763 mm</span>
+                </div>
+              </div>
+
+              <!-- Chart 2: Tsai-Wu index -->
+              <div class="writer-chart">
+                <div class="writer-chart-head">
+                  <span class="writer-chart-name">Tsai–Wu failure index</span>
+                  <span class="writer-chart-target">target ≤ 0.833</span>
+                  <span class="writer-chart-settle">settles ~<strong>0.72</strong></span>
+                </div>
+                <svg class="writer-svg" viewBox="0 0 620 220" preserveAspectRatio="none" role="img" aria-label="Tsai-Wu failure index over 11 iterations, settling at about 0.72">
+                  <line class="writer-grid" x1="40" y1="20" x2="600" y2="20"/>
+                  <line class="writer-grid" x1="40" y1="70" x2="600" y2="70"/>
+                  <line class="writer-grid" x1="40" y1="120" x2="600" y2="120"/>
+                  <line class="writer-grid" x1="40" y1="170" x2="600" y2="170"/>
+                  <line class="writer-target-line" id="writer-tw-target" x1="40" y1="88" x2="600" y2="88"/>
+                  <line class="writer-step-marker" id="writer-tw-step" x1="288" y1="20" x2="288" y2="200"/>
+                  <polyline class="writer-line writer-line-tw" id="writer-tw-line"
+                    points="40,185 96,155 152,155 208,110 264,60 320,30 376,30 432,30 488,30 544,105 600,105"/>
+                </svg>
+                <div class="writer-axis-x">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                </div>
+                <div class="writer-axis-caption">
+                  <span>Iteration</span>
+                  <span class="writer-yhint">0.3 → plateau 0.9 → 0.72</span>
+                </div>
+              </div>
+
+              <p class="writer-foot"><span class="writer-foot-marker">|</span> The vertical marker at cycles 5→6 is where a simultaneous restacking swung both metrics hard, dropping the design close to target in a single move.</p>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of iteration trends from
             B&aacute;rsony, Kaszab &amp; Feszty (2025), Figures 9 and 10. Values
@@ -708,17 +910,46 @@ TSAI&ndash;WU FAILURE INDEX [-]           target &#8804; 0.833 &#183;&#183;&#183
             into six layup zones, each able to carry a different stack:
           </p>
 
-          <pre class="ascii-viz">                RIM CROSS-SECTION (six independent layup zones)
+                    <div class="wrzone-root" id="wrzone-root">
+            <p class="wrzone-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Tables 6–7</p>
+            <h3 class="wrzone-title">Six independent layup zones</h3>
+            <p class="wrzone-subtitle">The rim cross-section divided so each region can carry its own stack — the unit that made the zone-by-zone iteration tractable.</p>
 
-   outer  &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
-   bead &#8594; &#9474; Rim outer                                 &#9474;
-          &#9474;   &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488; &#9474;
-          &#9474;   &#9474; Rim inner1 &#9474; inner2 &#9474; inner3        &#9474; &#9474;  &#8592; barrel
-          &#9474;   &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496; &#9474;
-          &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
-                           &#9474; Rim center1  &#9474;
-                           &#9474; Rim center2  &#9474;  &#8592; spoke / hub
-                           &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;     interface</pre>
+            <div class="wrzone-chart-area">
+              <div class="wrzone-diagram">
+                <!-- Outer shell -->
+                <div class="wrzone-outer" data-zone="0">
+                  <span class="wrzone-tag wrzone-tag-outer">Rim outer</span>
+                  <span class="wrzone-bead">◄ outer bead</span>
+
+                  <!-- Barrel row -->
+                  <div class="wrzone-barrel" data-zone="1">
+                    <span class="wrzone-barrel-label">barrel ►</span>
+                    <div class="wrzone-inner" data-zone="2"><span class="wrzone-tag">inner1</span></div>
+                    <div class="wrzone-inner" data-zone="3"><span class="wrzone-tag">inner2</span></div>
+                    <div class="wrzone-inner" data-zone="4"><span class="wrzone-tag">inner3</span></div>
+                  </div>
+
+                  <!-- Center / hub -->
+                  <div class="wrzone-center-wrap" data-zone="5">
+                    <div class="wrzone-center">
+                      <span class="wrzone-tag wrzone-tag-center">center1</span>
+                    </div>
+                    <div class="wrzone-center">
+                      <span class="wrzone-tag wrzone-tag-center">center2</span>
+                    </div>
+                    <span class="wrzone-hub-label">spoke / hub interface ►</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wrzone-legend">
+                <span class="wrzone-legend-item"><span class="wrzone-key wrzone-key-outer"></span>Outer bead — sheds twill, gains one late UD ply</span>
+                <span class="wrzone-legend-item"><span class="wrzone-key wrzone-key-barrel"></span>Barrel (inner1–3) — directional UD at ±45° / 90°</span>
+                <span class="wrzone-legend-item"><span class="wrzone-key wrzone-key-center"></span>Center1–2 — thickest, most heavily woven; bolted interface</span>
+              </div>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of the six rim layup zones
             defined in B&aacute;rsony, Kaszab &amp; Feszty (2025), Tables
@@ -749,14 +980,68 @@ TSAI&ndash;WU FAILURE INDEX [-]           target &#8804; 0.833 &#183;&#183;&#183
             schematic, the final per-zone stacks look roughly like this:
           </p>
 
-          <pre class="ascii-viz">FINAL PLYBOOK (schematic, outer face &#8594; inner)   T=twill  U=UD
+                    <div class="wrply-root" id="wrply-root">
+            <p class="wrply-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Table 7</p>
+            <h3 class="wrply-title">Final per-zone plybook</h3>
+            <p class="wrply-subtitle">Schematic, outer face → inner. T = twill, U = UD. UD plies (bracketed, in red) are the directional reinforcement the FEA counted on. Simplified for readability.</p>
 
- Rim outer    : T0 T45 T0 T45 [U0] T0 T45 T0 T45            (~9 plies)
- Rim inner1   : T0 T45 T0 T45 [U90 U0 U90] T45 T0 T45 T0    (~11 plies)
- Rim inner2   : T0 T45 T0 T45 [U+45 U0 U&#8722;45] T45 T0 T45 T0  (~11 plies)
- Rim inner3   : T0 T45 T0 T45 [U90 U0 U90] T45 T0 T45 T0    (~11 plies)
- Rim center1  : T0 T45 T0 T45 T0 T45 T0 T45 T0 T45          (~10 plies)
- Rim center2  : T0 T45 &times;11 alternating                      (~22 plies)</pre>
+            <div class="wrply-chart-area">
+              <div class="wrply-legend">
+                <span class="wrply-legend-item"><span class="wrply-chip wrply-chip-t">T</span>twill</span>
+                <span class="wrply-legend-item"><span class="wrply-chip wrply-chip-u">U</span>UD (directional)</span>
+              </div>
+
+              <div class="wrply-table">
+                <div class="wrply-prow" data-row="0">
+                  <span class="wrply-zone">Rim outer</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-u">[U0]</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span>
+                  </span>
+                  <span class="wrply-count">~9 plies</span>
+                </div>
+
+                <div class="wrply-prow" data-row="1">
+                  <span class="wrply-zone">Rim inner1</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-u">[U90</span><span class="wrply-p wrply-u">U0</span><span class="wrply-p wrply-u">U90]</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span>
+                  </span>
+                  <span class="wrply-count">~11 plies</span>
+                </div>
+
+                <div class="wrply-prow" data-row="2">
+                  <span class="wrply-zone">Rim inner2</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-u">[U+45</span><span class="wrply-p wrply-u">U0</span><span class="wrply-p wrply-u">U−45]</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span>
+                  </span>
+                  <span class="wrply-count">~11 plies</span>
+                </div>
+
+                <div class="wrply-prow" data-row="3">
+                  <span class="wrply-zone">Rim inner3</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-u">[U90</span><span class="wrply-p wrply-u">U0</span><span class="wrply-p wrply-u">U90]</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span>
+                  </span>
+                  <span class="wrply-count">~11 plies</span>
+                </div>
+
+                <div class="wrply-prow" data-row="4">
+                  <span class="wrply-zone">Rim center1</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span>
+                  </span>
+                  <span class="wrply-count">~10 plies</span>
+                </div>
+
+                <div class="wrply-prow" data-row="5">
+                  <span class="wrply-zone">Rim center2</span>
+                  <span class="wrply-stack">
+                    <span class="wrply-p wrply-t">T0</span><span class="wrply-p wrply-t">T45</span><span class="wrply-p wrply-more">× 11 alternating</span>
+                  </span>
+                  <span class="wrply-count">~22 plies</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites schematic of the final layup described in
             B&aacute;rsony, Kaszab &amp; Feszty (2025), Table 7. Simplified for
@@ -781,11 +1066,47 @@ TSAI&ndash;WU FAILURE INDEX [-]           target &#8804; 0.833 &#183;&#183;&#183
             assemblies:
           </p>
 
-          <pre class="ascii-viz">WHEEL ASSEMBLY MASS [g]            vs. ART_11
- 3-piece aluminum  &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  2200   (+41% heavier)
- 1-piece magnesium &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;        1660   (+22%)
- ART_09 (prev CFRP)&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;         1600   (+19%)
- ART_11 (new CFRP) &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;             1300   (baseline)</pre>
+                    <div class="wrmass-root" id="wrmass-root">
+            <p class="wrmass-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Table 8</p>
+            <h3 class="wrmass-title">Wheel assembly mass</h3>
+            <p class="wrmass-subtitle">Full assembly, grams — including center and fasteners. The new CFRP wheel (ART_11) is the baseline; every alternative is heavier.</p>
+
+            <div class="wrmass-chart-area">
+              <div class="wrmass-row" data-mass="2200" data-max="2200">
+                <span class="wrmass-label">3-piece aluminum</span>
+                <div class="wrmass-bar-track">
+                  <div class="wrmass-bar-fill wrmass-fill-alt"><span class="wrmass-bar-val">2200 g</span></div>
+                </div>
+                <span class="wrmass-delta">+41%</span>
+              </div>
+
+              <div class="wrmass-row" data-mass="1660" data-max="2200">
+                <span class="wrmass-label">1-piece magnesium</span>
+                <div class="wrmass-bar-track">
+                  <div class="wrmass-bar-fill wrmass-fill-alt"><span class="wrmass-bar-val">1660 g</span></div>
+                </div>
+                <span class="wrmass-delta">+22%</span>
+              </div>
+
+              <div class="wrmass-row" data-mass="1600" data-max="2200">
+                <span class="wrmass-label">ART_09 <em>(prev CFRP)</em></span>
+                <div class="wrmass-bar-track">
+                  <div class="wrmass-bar-fill wrmass-fill-alt"><span class="wrmass-bar-val">1600 g</span></div>
+                </div>
+                <span class="wrmass-delta">+19%</span>
+              </div>
+
+              <div class="wrmass-row wrmass-row-base" data-mass="1300" data-max="2200">
+                <span class="wrmass-label">ART_11 <em>(new CFRP)</em></span>
+                <div class="wrmass-bar-track">
+                  <div class="wrmass-bar-fill wrmass-fill-base"><span class="wrmass-bar-val">1300 g</span></div>
+                </div>
+                <span class="wrmass-delta wrmass-delta-base">baseline</span>
+              </div>
+
+              <p class="wrmass-foot">The rim alone lands at ~850 g — 35% under aluminum and 15% below the team's earlier carbon rim; folding in the center and fasteners widens the gaps to 41% and 19%.</p>
+            </div>
+          </div>
           <p class="image-caption">
             Caption: Addcomposites visualization of mass data from B&aacute;rsony,
             Kaszab &amp; Feszty (2025), Table 8.

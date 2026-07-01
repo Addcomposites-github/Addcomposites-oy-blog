@@ -654,3 +654,239 @@ document.addEventListener("DOMContentLoaded", function () {
   if (root) obs.observe(root);
   else animate();
 })();
+
+/* ===== wheel-rim infographics ===== */
+/* ============================================================
+   ADDCOMPOSITES BLOG — CFRP WHEEL RIM INFOGRAPHICS · JS
+   8 isolated IIFEs. Each observes its own #NS-root; on entry
+   it adds the .NS-animated class (CSS drives the transitions).
+   Each includes an immediate on-load viewport check so a
+   component already in view animates without needing a scroll.
+   ============================================================ */
+
+/* ---------- BLOCK 1 — wrflow · process flowchart ---------- */
+(function () {
+  var root = document.getElementById("wrflow-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrflow-animated");
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.15 }
+  );
+  obs.observe(root);
+  // Immediate on-load check
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 2 — wrforce · force bars ----------
+   Bars animate width from data-mag / data-max (max = 2650 N). */
+(function () {
+  var root = document.getElementById("wrforce-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrforce-animated");
+    root.querySelectorAll(".wrforce-row").forEach(function (row, i) {
+      var mag = parseFloat(row.getAttribute("data-mag"));
+      var max = parseFloat(row.getAttribute("data-max"));
+      var fill = row.querySelector(".wrforce-bar-fill");
+      setTimeout(function () {
+        fill.style.width = (mag / max) * 100 + "%";
+      }, i * 120);
+    });
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.2 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 3 — wrval · paired validation bars ----------
+   Bars scale against a shared max (2.11 G) so sim/tel are comparable. */
+(function () {
+  var root = document.getElementById("wrval-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrval-animated");
+    var rows = root.querySelectorAll(".wrval-bar-row");
+    rows.forEach(function (row, i) {
+      var val = parseFloat(row.getAttribute("data-val"));
+      var group = row.closest(".wrval-group");
+      var max = parseFloat(group.getAttribute("data-max"));
+      var fill = row.querySelector(".wrval-bar-fill");
+      setTimeout(function () {
+        fill.style.width = (val / max) * 100 + "%";
+      }, i * 110);
+    });
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.2 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 4 — wrmat · material matrix (cells reveal) ---------- */
+(function () {
+  var root = document.getElementById("wrmat-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrmat-animated");
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.15 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 5 — writer · two trend lines (stroke-dashoffset draw) ----------
+   Each polyline is prepped with its own path length so it draws left-to-right. */
+(function () {
+  var root = document.getElementById("writer-root");
+  if (!root) return;
+  var lines = root.querySelectorAll(".writer-line");
+  // Prep dash so lines start hidden and draw on animate.
+  lines.forEach(function (line) {
+    var len = line.getTotalLength();
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
+    line.style.transition = "stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)";
+  });
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("writer-animated");
+    lines.forEach(function (line, i) {
+      setTimeout(function () {
+        line.style.strokeDashoffset = "0";
+      }, i * 250);
+    });
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.2 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 6 — wrzone · rim cross-section (nested reveal) ---------- */
+(function () {
+  var root = document.getElementById("wrzone-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrzone-animated");
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.15 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 7 — wrply · plybook rows (staggered slide-in) ---------- */
+(function () {
+  var root = document.getElementById("wrply-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrply-animated");
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.12 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
+
+/* ---------- BLOCK 8 — wrmass · mass bars (width grow vs 2200 g max) ---------- */
+(function () {
+  var root = document.getElementById("wrmass-root");
+  if (!root) return;
+  var animated = false;
+  function animate() {
+    if (animated) return;
+    animated = true;
+    root.classList.add("wrmass-animated");
+    root.querySelectorAll(".wrmass-row").forEach(function (row, i) {
+      var mass = parseFloat(row.getAttribute("data-mass"));
+      var max = parseFloat(row.getAttribute("data-max"));
+      var fill = row.querySelector(".wrmass-bar-fill");
+      setTimeout(function () {
+        fill.style.width = (mass / max) * 100 + "%";
+      }, i * 120);
+    });
+  }
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) animate();
+      });
+    },
+    { threshold: 0.2 }
+  );
+  obs.observe(root);
+  var r = root.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom >= 0) animate();
+})();
