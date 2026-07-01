@@ -269,30 +269,6 @@ document.addEventListener("DOMContentLoaded", function () {
    component already in view animates without needing a scroll.
    ============================================================ */
 
-/* ---------- BLOCK 1 — wrflow · process flowchart ---------- */
-(function () {
-  var root = document.getElementById("wrflow-root");
-  if (!root) return;
-  var animated = false;
-  function animate() {
-    if (animated) return;
-    animated = true;
-    root.classList.add("wrflow-animated");
-  }
-  var obs = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) animate();
-      });
-    },
-    { threshold: 0.15 }
-  );
-  obs.observe(root);
-  // Immediate on-load check
-  var r = root.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom >= 0) animate();
-})();
-
 /* ---------- BLOCK 2 — wrforce · force bars ----------
    Bars animate width from data-mag / data-max (max = 2650 N). */
 (function () {
