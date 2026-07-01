@@ -264,83 +264,10 @@
           <h2>The methodology loop</h2>
 
           <p>
-            The study structures the work as a cyclic, four-phase process. We
-            recreated the logic from the paper's Figure 2 below as an ASCII
-            flowchart.
+            The study structures the work as a cyclic, four-phase process,
+            captured in the paper's own Figure 2, reproduced below.
           </p>
 
-                    <div class="wrflow-root" id="wrflow-root">
-            <p class="wrflow-eyebrow">Bársony, Kaszab &amp; Feszty (2025) · Figure 2</p>
-            <h3 class="wrflow-title">The iterative design loop</h3>
-            <p class="wrflow-subtitle">A cyclic, four-phase process — grade on three criteria at once, then route the one move that fixes what failed.</p>
-
-            <div class="wrflow-chart-area">
-              <!-- Phase 1: Requirements -->
-              <div class="wrflow-node wrflow-req" data-step="0">
-                <span class="wrflow-node-kicker">Phase 1</span>
-                <span class="wrflow-node-title">Requirements</span>
-              </div>
-              <div class="wrflow-conn wrflow-conn-down" data-step="0"></div>
-
-              <!-- Split into two inputs -->
-              <div class="wrflow-split" data-step="1">
-                <div class="wrflow-node wrflow-input">
-                  <span class="wrflow-node-title">Geometry design</span>
-                  <span class="wrflow-node-desc">first-guess stack + profile</span>
-                </div>
-                <div class="wrflow-node wrflow-input">
-                  <span class="wrflow-node-title">Load calculations</span>
-                  <span class="wrflow-node-desc">lap-time simulation</span>
-                </div>
-              </div>
-              <div class="wrflow-conn wrflow-conn-merge" data-step="2"></div>
-
-              <!-- Phase 2: FEM -->
-              <div class="wrflow-node wrflow-fem" data-step="3">
-                <span class="wrflow-node-kicker">Phase 2</span>
-                <span class="wrflow-node-title">FEM analysis</span>
-                <span class="wrflow-node-desc">failure criterion · stress distribution · displacement</span>
-                <span class="wrflow-loop-tag">◄ loops back</span>
-              </div>
-              <div class="wrflow-conn wrflow-conn-down" data-step="4"></div>
-
-              <!-- Decision -->
-              <div class="wrflow-node wrflow-decision" data-step="5">
-                <span class="wrflow-decision-q">All 3 satisfied?</span>
-                <div class="wrflow-decision-branches">
-                  <span class="wrflow-branch-yes">YES → Manufacturing</span>
-                  <span class="wrflow-branch-no">NO → which failed?</span>
-                </div>
-              </div>
-              <div class="wrflow-conn wrflow-conn-down" data-step="6"></div>
-
-              <!-- Three modification rules -->
-              <div class="wrflow-rules" data-step="7">
-                <div class="wrflow-rule">
-                  <span class="wrflow-rule-cond">High disp / stress / fail</span>
-                  <span class="wrflow-rule-arrow">▼</span>
-                  <span class="wrflow-rule-move wrflow-move-add">Add twill layer</span>
-                </div>
-                <div class="wrflow-rule">
-                  <span class="wrflow-rule-cond">High safety factor</span>
-                  <span class="wrflow-rule-arrow">▼</span>
-                  <span class="wrflow-rule-move wrflow-move-remove">Remove twill layer</span>
-                </div>
-                <div class="wrflow-rule">
-                  <span class="wrflow-rule-cond">Stress OK but high disp.</span>
-                  <span class="wrflow-rule-arrow">▼</span>
-                  <span class="wrflow-rule-move wrflow-move-ud">Add UD layer</span>
-                </div>
-              </div>
-              <p class="wrflow-loopback" data-step="8">↺ Any modification loops back to FEM analysis — round and round until all three pass together.</p>
-            </div>
-          </div>
-          <p class="image-caption">
-            Caption: Addcomposites visualization of the iterative methodology
-            described in B&aacute;rsony, Kaszab &amp; Feszty (2025), Figure 2.
-            Recreated from the paper's data; not a reproduction of the original
-            figure.
-          </p>
           <img
             src="images/fig_03.png"
             alt="Flowchart of the iterative design loop, branching on which criterion failed and looping until all pass."
