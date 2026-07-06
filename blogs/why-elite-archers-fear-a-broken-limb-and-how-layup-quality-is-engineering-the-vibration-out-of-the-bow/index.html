@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Why Elite Archers Fear a Broken Limb, and How Layup Quality Is
+      Engineering the Vibration Out of the Bow | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="An Addcomposites analysis of a 2023 open-access study on CFRP archery limbs paired with a GFRP stabilizer — how prepreg void content and layup quality drive fatigue life and post-release vibration, and where automated fiber placement fits."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#enemies" class="blog-sidebar-link"
+            >Two enemies: fatigue &amp; vibration</a
+          >
+          <a href="#materials" class="blog-sidebar-link"
+            >Materials on the bench</a
+          >
+          <a href="#manufacture" class="blog-sidebar-link"
+            >One-shot autoclave co-cure</a
+          >
+          <a href="#prepreg" class="blog-sidebar-link"
+            >Choosing the winning prepreg</a
+          >
+          <a href="#stabilizer" class="blog-sidebar-link"
+            >Bakelite vs. GFRP stabilizer</a
+          >
+          <a href="#simulation" class="blog-sidebar-link"
+            >Simulating the shot</a
+          >
+          <a href="#vibration" class="blog-sidebar-link"
+            >The vibration verdict</a
+          >
+          <a href="#afp" class="blog-sidebar-link">Where AFP fits</a>
+          <a href="#references" class="blog-sidebar-link">Read the research</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          Why Elite Archers Fear a Broken Limb, and How Layup Quality Is
+          Engineering the Vibration Out of the Bow
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            2023
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview">
+          <img
+            src="images/hero.jpg"
+            alt="Why elite archers fear a broken limb: an Addcomposites engineering deep-dive on CFRP archery limbs and GFRP stabilizers."
+            class="full-width-image"
+          />
+          <p class="drop-cap">
+            A top-level archer typically brings a spare bow to a competition
+            because hardware can fail, and a failure mid-match is close to
+            unrecoverable. As the authors of the study behind this post frame
+            it, a limb that breaks during a match doesn't just cost a part
+            &mdash; it can leave the athlete at a psychological disadvantage
+            at exactly the moment when steadiness is everything.
+          </p>
+
+          <img
+            src="images/archer-full-draw.jpg"
+            alt="An elite recurve archer at full draw — the moment when limb stiffness, stabilizer damping, and steadiness all have to hold at once."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            An elite recurve archer at full draw &mdash; the moment when limb
+            stiffness, stabilizer damping, and steadiness all have to hold at
+            once.
+          </p>
+
+          <p>
+            That is the practical backdrop against which archery limbs are
+            engineered. According to the authors, competitors are acutely
+            sensitive to two properties of their equipment above almost all
+            others: how long it survives, and how much it vibrates after the
+            string is released. A limb that fails, or a bow that buzzes after
+            the shot, both erode the precision the sport demands.
+          </p>
+
+          <p>
+            The study we are looking at here &mdash;
+            <em
+              >Manufacture and Vibration-Damping Effect of Composites for
+              Archery Carbon Fiber-Reinforced Polymer Limb with Glass
+              Fiber-Reinforced Polymer Stabilizer</em
+            >, by Heo and colleagues, published open-access in
+            <em>Materials</em> in 2023 &mdash; takes those two anxieties and
+            treats them as an engineering problem. The team manufactured
+            carbon fiber-reinforced polymer (CFRP) limbs, paired them with a
+            glass fiber-reinforced polymer (GFRP) stabilizer of their own
+            making, and ran the result through mechanical testing,
+            finite-element simulation, and live shooting vibration
+            measurements.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              For anyone building flex-critical sporting structures out of
+              composites, this is a compact case study in how layup and
+              consolidation quality translate into the two things a customer
+              actually feels &mdash; parts that last and parts that stay
+              quiet. We'll return to that thread at the end.
+            </p>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              <strong>A note on sourcing.</strong> Everything attributed to
+              "the paper," "the authors," or "the study" comes from Heo, An,
+              Yeum, Yang &amp; Choi (2023), cited in full at the end.
+              Sections labelled <strong>"Our perspective"</strong> are
+              Addcomposites' own editorial commentary and are not claims made
+              by, or endorsed by, the paper's authors.
+            </p>
+          </div>
+        </section>
+
+        <!-- Two enemies -->
+        <section id="enemies">
+          <h2>Two enemies: fatigue failure and post-release vibration</h2>
+
+          <p>
+            According to the authors, the traditional material for both
+            limbs and stabilizers in this class of bow has been Bakelite.
+            Its damping behaviour is genuinely good, but the paper identifies
+            real trade-offs: it isn't dense, and on both stiffness-under-load
+            and fatigue life it trails the stiffer structural composites
+            archers now expect. Over repeated draw-and-release cycles, the
+            authors point to delamination as the mechanism that eventually
+            undermines fatigue strength &mdash; the plies separate, and the
+            part degrades.
+          </p>
+
+          <p>
+            That single observation &mdash;
+            <em>delamination drives the fatigue failure</em> &mdash; is the
+            hinge the whole study turns on. Our reading: if interlaminar
+            quality is what fails, then interlaminar quality is what any
+            better manufacturing route has to protect.
+          </p>
+
+          <p>
+            The second enemy is vibration. The paper explains that releasing
+            the string turns the limb's stored strain into motion almost
+            instantly. Whatever isn't spent driving the arrow lingers as
+            shake &mdash; and that leftover motion is what nudges a shot off
+            line. The stabilizer's job is to soak up and cancel that shake,
+            and secondarily to let the archer rebalance the bow by
+            relocating where its mass sits.
+          </p>
+
+          <p>Here is the split in roles, as the authors describe it:</p>
+
+          <div class="bowrl-root" id="bowrl-root">
+            <p class="bowrl-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; functional role split</p>
+            <h3 class="bowrl-title">The bow, functionally</h3>
+            <p class="bowrl-subtitle">Two structural roles in tension: the limb must launch the arrow; the stabilizer must cancel what that launch leaves behind.</p>
+
+            <div class="bowrl-chart-area">
+              <div class="bowrl-grid">
+                <div class="bowrl-col bowrl-col-limb" data-cell="0">
+                  <div class="bowrl-colhead">
+                    <span class="bowrl-col-name">Limb</span>
+                    <span class="bowrl-col-sub">centre of bow</span>
+                  </div>
+                  <ul class="bowrl-list">
+                    <li class="bowrl-item">
+                      <span class="bowrl-item-main">Stores &amp; releases energy</span>
+                      <span class="bowrl-item-sub">bends under draw, springs back</span>
+                    </li>
+                    <li class="bowrl-item bowrl-item-hi">
+                      <span class="bowrl-item-main">Launches the arrow</span>
+                      <span class="bowrl-item-sub">this is the primary function</span>
+                    </li>
+                    <li class="bowrl-item">
+                      <span class="bowrl-item-main">Generates vibration</span>
+                      <span class="bowrl-item-sub">an unavoidable side effect of release</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bowrl-col bowrl-col-stab" data-cell="1">
+                  <div class="bowrl-colhead">
+                    <span class="bowrl-col-name">Stabilizer</span>
+                    <span class="bowrl-col-sub">attached at end</span>
+                  </div>
+                  <ul class="bowrl-list">
+                    <li class="bowrl-item bowrl-item-accent">
+                      <span class="bowrl-item-main">Absorbs &amp; cancels vibration</span>
+                      <span class="bowrl-item-sub">damps the oscillation after release</span>
+                    </li>
+                    <li class="bowrl-item">
+                      <span class="bowrl-item-main">Tunes balance</span>
+                      <span class="bowrl-item-sub">and centre of gravity</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bowrl-legend">
+                <span class="bowrl-legend-item"><span class="bowrl-swatch bowrl-swatch-limb"></span>Launches the arrow — and creates the vibration problem</span>
+                <span class="bowrl-legend-item"><span class="bowrl-swatch bowrl-swatch-stab"></span>Cancels the vibration the limb creates</span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            So the design challenge is twofold and slightly in tension: the
+            limb must be stiff, tough, and fatigue-resistant, while the
+            stabilizer must be an effective damper without giving up the
+            durability that Bakelite lacks. The authors' proposed answer is
+            CFRP for the limb and a purpose-made GFRP part for the
+            stabilizer.
+          </p>
+
+          <img
+            src="images/carbon-plies-layup.jpg"
+            alt="Carbon-fiber plies laid up at alternating angles — the stepped courses show how fiber direction is placed and sequenced layer by layer."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Carbon-fiber plies laid up at alternating angles &mdash; the
+            stepped courses show how fiber direction is placed and sequenced
+            layer by layer, the variable that decides how a flex structure
+            holds up.
+          </p>
+        </section>
+
+        <!-- Materials on the bench -->
+        <section id="materials">
+          <h2>The materials on the bench</h2>
+
+          <p>
+            The paper reports that the limbs were built from unidirectional
+            (UD) carbon fiber prepreg, with the reinforcement sourced from
+            Toray, and that three different prepreg suppliers were compared
+            head-to-head so the team could see which one produced the best
+            limb. A plain-weave carbon prepreg (using Mitsubishi Rayon fiber,
+            converted by Hyundai Fiber) served as the outer skin material,
+            and a 7628-style glass fabric prepreg was used to build the GFRP
+            stabilizer.
+          </p>
+
+          <p>
+            Rather than reproduce the paper's specification table verbatim,
+            here is the same information redrawn as a comparison of the five
+            test articles the authors made:
+          </p>
+
+          <div class="smap-root" id="smap-root">
+            <p class="smap-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; test articles</p>
+            <h3 class="smap-title">Five test articles on the bench</h3>
+            <p class="smap-subtitle">Three carbon prepreg suppliers for the limb, two glass-fabric gauges for the stabilizer — #C2 went on to become the built limb.</p>
+
+            <div class="smap-chart-area">
+              <div class="smap-group" data-group="limbs">
+                <p class="smap-group-label">Limbs <span class="smap-group-sub">carbon</span></p>
+
+                <div class="smap-row" data-row="0">
+                  <span class="smap-code">#C1</span>
+                  <span class="smap-desc">Carbon prepreg, supplier HK</span>
+                  <span class="smap-thick">2.8 mm</span>
+                </div>
+
+                <div class="smap-row smap-row-selected" data-row="1">
+                  <span class="smap-code">#C2</span>
+                  <span class="smap-desc">Carbon prepreg, best performer</span>
+                  <span class="smap-thick">3.0 mm</span>
+                  <span class="smap-badge">selected for the build</span>
+                </div>
+
+                <div class="smap-row" data-row="2">
+                  <span class="smap-code">#C3</span>
+                  <span class="smap-desc">Carbon prepreg</span>
+                  <span class="smap-thick">3.2 mm</span>
+                </div>
+              </div>
+
+              <div class="smap-group" data-group="stabilizers">
+                <p class="smap-group-label">Stabilizers <span class="smap-group-sub">glass</span></p>
+
+                <div class="smap-row" data-row="3">
+                  <span class="smap-code">#G1</span>
+                  <span class="smap-desc">Glass fabric (7628-type)</span>
+                  <span class="smap-thick">1.0 mm</span>
+                </div>
+
+                <div class="smap-row" data-row="4">
+                  <span class="smap-code">#G2</span>
+                  <span class="smap-desc">Glass fabric (7628-type)</span>
+                  <span class="smap-thick">1.5 mm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Editorial note (Addcomposites):</strong> the paper
+              contains an internal inconsistency in <em>which</em> supplier
+              is tied to sample #C2 &mdash; its specification table and its
+              results text name different companies for the same sample
+              code. Because the identity of the winning <em>supplier</em> is
+              ambiguous in the source, we refer to the best limb only by its
+              sample code, #C2, which the authors consistently identify as
+              the top performer. We flag this so readers don't propagate a
+              supplier claim the paper doesn't cleanly support.
+            </p>
+          </div>
+
+          <p>
+            The authors' stated reason for pairing carbon with glass, rather
+            than carbon alone, is practical: according to the paper, glass
+            co-cured against carbon bonds and forms well, finishes without
+            fuss, and gives the fabricator room to tune gauge, appearance,
+            and material choice &mdash; useful properties for a part that
+            has to be both functional and saleable.
+          </p>
+
+          <img
+            src="images/fig1-bow-parts.jpg"
+            alt="Every part of a recurve bow named and mapped out, shown next to photographs of real bow limbs and a carbon stabilizer."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Every part of a recurve bow named and mapped out, shown next to
+            photographs of real bow limbs and a carbon stabilizer &mdash;
+            putting the limb-versus-stabilizer role split onto physical
+            hardware. Figure 1 from: Heo, W.W.; An, S.K.; Yeum, J.H.; Yang,
+            S.B.; Choi, S. "Manufacture and Vibration-Damping Effect of
+            Composites for Archery Carbon Fiber-Reinforced Polymer Limb with
+            Glass Fiber-Reinforced Polymer Stabilizer." Materials 2023, 16,
+            4048.
+            <a
+              href="https://doi.org/10.3390/ma16114048"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/ma16114048</a
+            >
+            &mdash; &copy; 2023 by the authors. Licensed under CC BY 4.0
+            (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+        </section>
+
+        <!-- How the limbs were built -->
+        <section id="manufacture">
+          <h2>How the limbs were built: one-shot autoclave co-cure</h2>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              This is where the manufacturing detail matters, because it's
+              the step that either preserves or wrecks the interlaminar
+              quality the paper cares about.
+            </p>
+          </div>
+
+          <p>
+            The paper describes a vacuum-bagged autoclave process. The stack
+            was built on a release-treated steel mould, with the outermost
+            layers formed from two UD carbon sheets oriented at 45&deg; in a
+            plain-weave arrangement, and the interior filled with
+            90&deg;-oriented UD carbon plies from the supplier under test
+            &mdash; twelve plies in total. The bagged assembly was then cured
+            under vacuum with added pneumatic pressure, held for two hours,
+            and then brought down to about 30&nbsp;&deg;C with a
+            water-cooling step before demoulding.
+          </p>
+
+          <p>Drawn as a cross-section through the bag, the arrangement looks like this:</p>
+
+          <div class="acure-root" id="acure-root">
+            <p class="acure-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; vacuum-bag process</p>
+            <h3 class="acure-title">One-shot autoclave co-cure</h3>
+            <p class="acure-subtitle">Limb and stabilizer laminated and cured together in a single cycle — no secondary bond line.</p>
+
+            <div class="acure-chart-area">
+              <div class="acure-stack">
+                <div class="acure-band acure-band-film" data-band="0">
+                  <span class="acure-band-label">Bagging film</span>
+                  <span class="acure-band-tag">sealed to the tool</span>
+                </div>
+                <div class="acure-band acure-band-breather" data-band="1">
+                  <span class="acure-band-label">Breather</span>
+                </div>
+                <div class="acure-band acure-band-release" data-band="2">
+                  <span class="acure-band-label">Release film</span>
+                </div>
+                <div class="acure-band acure-band-mould" data-band="3">
+                  <span class="acure-band-label">SUS (steel) mould</span>
+                </div>
+                <div class="acure-band acure-band-ply acure-ply-45a" data-band="4">
+                  <span class="acure-band-label">45&deg; UD carbon skin</span>
+                </div>
+                <div class="acure-band acure-band-ply acure-ply-90 acure-band-core" data-band="5">
+                  <span class="acure-band-label">Interior — 90&deg; UD carbon</span>
+                  <span class="acure-ply-badge">12 plies</span>
+                </div>
+                <div class="acure-band acure-band-ply acure-ply-45b" data-band="6">
+                  <span class="acure-band-label">45&deg; UD carbon skin</span>
+                </div>
+                <div class="acure-band acure-band-mould" data-band="7">
+                  <span class="acure-band-label">SUS (steel) mould</span>
+                </div>
+                <div class="acure-band acure-band-release" data-band="8">
+                  <span class="acure-band-label">Release film</span>
+                </div>
+              </div>
+
+              <div class="acure-stats">
+                <div class="acure-stat">
+                  <span class="acure-stat-num">~8 kg/cm&sup2;</span>
+                  <span class="acure-stat-lbl">vacuum + pneumatic pressure</span>
+                </div>
+                <div class="acure-stat">
+                  <span class="acure-stat-num">120 min</span>
+                  <span class="acure-stat-lbl">hold at cure temperature</span>
+                </div>
+                <div class="acure-stat">
+                  <span class="acure-stat-num">~30&deg;C / 40 min</span>
+                  <span class="acure-stat-lbl">cooled down before de-mould</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            <em
+              >(The vacuum level is stated in the paper's process figure;
+              we've left the exact pressure figure to the source to avoid
+              misquoting the units, which appear inconsistently between the
+              text and the figure.)</em
+            >
+          </p>
+
+          <p>
+            The stabilizer wasn't bonded on afterwards. The authors explain
+            that once the best carbon prepreg (#C2) was identified, the limb
+            was laminated with that carbon at 90&deg; between plain-weave
+            carbon skins &mdash; with two thin maple-leaf inserts epoxied
+            between the UD layers &mdash; and the stabilizer materials were
+            laid onto the outer surface in the same operation. Everything
+            was then co-cured in a single autoclave cycle, producing the limb
+            and stabilizer as one integrated part.
+          </p>
+
+          <img
+            src="images/fig3-3d-render-tooling.jpg"
+            alt="A 3D render of the finished limb, dimensioned CAD drawings of the upper and lower molds, and a photograph of the curved aluminium tooling the layup is cured against."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A 3D render of the finished limb, dimensioned CAD drawings of the
+            upper and lower molds, and a photograph of the curved aluminium
+            tooling the layup is cured against &mdash; the shape data traced
+            back to a 3D-scanned bow limb. Figure 3 from: Heo, W.W.; An,
+            S.K.; Yeum, J.H.; Yang, S.B.; Choi, S. "Manufacture and
+            Vibration-Damping Effect of Composites for Archery Carbon
+            Fiber-Reinforced Polymer Limb with Glass Fiber-Reinforced Polymer
+            Stabilizer." Materials 2023, 16, 4048.
+            <a
+              href="https://doi.org/10.3390/ma16114048"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/ma16114048</a
+            >
+            &mdash; &copy; 2023 by the authors. Licensed under CC BY 4.0
+            (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our perspective</h4>
+            <p>
+              Co-curing in one shot is attractive precisely because it
+              removes a secondary bond line &mdash; and secondary bonds are
+              classic initiation sites for the delamination the paper blames
+              for fatigue failure. The catch is that a one-shot cure only
+              pays off if every ply lands where it should and sees
+              consistent consolidation pressure. That is exactly the
+              variable that hand layup struggles to hold identical from limb
+              to limb.
+            </p>
+          </div>
+        </section>
+
+        <!-- Choosing the winning prepreg -->
+        <section id="prepreg">
+          <h2>Choosing the winning prepreg: voids, cross-sections, and mechanicals</h2>
+
+          <p>
+            Before committing to a supplier, the team characterised each
+            candidate. The paper reports three converging lines of evidence.
+          </p>
+
+          <p>
+            First, fiber volume fraction (FVF). The authors calculated the
+            theoretical FVF for each carbon and found sample #C2 came out
+            highest. They tie this to resin content: #C2 also carried the
+            <em>lowest</em> resin fraction, and the authors reason that with
+            less resin in the stack there is simply less material in which
+            bubbles can get trapped as the plies are laid up and cured
+            &mdash; and fewer voids generally means better mechanical
+            behaviour. As a bonus, a lighter specimen at equal performance is
+            the more attractive engineering choice.
+          </p>
+
+          <p>
+            Second, electron microscopy. According to the paper, scanning
+            electron microscopy showed #C1's section pocked with tiny
+            pinholes, whereas the other two carbons came out of the cure
+            denser and visibly cleaner. The authors are candid about
+            <em>why</em> voids are so hard to eliminate here: because UD
+            tapes lie flat with no weave to vent gas, and because some of the
+            resin's volatiles stay locked in through the cure, a little
+            porosity is hard to design out of this particular process.
+          </p>
+
+          <p>
+            Third, mechanical testing to ASTM standards. The authors ran
+            tension (ASTM D638), flexure (ASTM D790), and compression (ASTM
+            D695) on five specimens per group using an Instron universal
+            testing machine. The headline result: #C2 led on flexural
+            strength, compressive strength, flexural modulus, and
+            compressive modulus, while a different sample edged it only on
+            tensile modulus. On that basis the team selected #C2 for the
+            actual limb.
+          </p>
+
+          <p>
+            Here is the void-quality story from the SEM work, as the
+            authors reported it:
+          </p>
+
+          <div class="vqual-root" id="vqual-root">
+            <p class="vqual-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; SEM cross-sections</p>
+            <h3 class="vqual-title">Void content separated the winner</h3>
+            <p class="vqual-subtitle">Scanning electron microscopy: #C1 came out pocked with pinholes; #C2 and #C3 cured dense and clean — #C2 also carried the lowest resin fraction and highest fiber volume fraction.</p>
+
+            <div class="vqual-chart-area">
+              <div class="vqual-row vqual-row-warn" data-pct="35">
+                <span class="vqual-label">#C1</span>
+                <div class="vqual-bar-track">
+                  <div class="vqual-bar-fill vqual-fill-warn"><span class="vqual-bar-val">numerous pinholes</span></div>
+                </div>
+                <span class="vqual-badge vqual-badge-reject">rejected — pinholes</span>
+              </div>
+
+              <div class="vqual-row vqual-row-selected" data-pct="88">
+                <span class="vqual-label">#C2</span>
+                <div class="vqual-bar-track">
+                  <div class="vqual-bar-fill vqual-fill-selected"><span class="vqual-bar-val">clean cross-section</span></div>
+                </div>
+                <span class="vqual-badge vqual-badge-selected">selected</span>
+              </div>
+
+              <div class="vqual-row" data-pct="84">
+                <span class="vqual-label">#C3</span>
+                <div class="vqual-bar-track">
+                  <div class="vqual-bar-fill vqual-fill-clean"><span class="vqual-bar-val">clean cross-section</span></div>
+                </div>
+                <span class="vqual-badge vqual-badge-plain">clean</span>
+              </div>
+
+              <p class="vqual-foot">Reading is qualitative (authors' SEM assessment, not a measured void-content number) — #C1 was dropped from further mechanical testing on void grounds alone.</p>
+            </div>
+          </div>
+
+          <p>
+            Figures 5, 6 and 7 in the paper carry the underlying data: the
+            FVF and resin/weight comparisons, the SEM micrographs of all
+            five composites, and the full stress&ndash;strain families for
+            tension, flexure, and compression across the three carbons.
+          </p>
+        </section>
+
+        <!-- Swapping Bakelite for glass -->
+        <section id="stabilizer">
+          <h2>Swapping Bakelite for glass in the stabilizer</h2>
+
+          <p>
+            With the limb settled, the authors turned to the stabilizer
+            itself and compared their GFRP part against the incumbent
+            Bakelite.
+          </p>
+
+          <p>
+            The paper reports that in tension, the glass composite beat
+            Bakelite on strength, modulus, and elasticity. In bending, GFRP
+            again showed higher strength and modulus &mdash; and the
+            authors offer a functional interpretation: if the stabilizer
+            gives under even modest load, the bow feels vaguer in the hand
+            as the archer reaches full draw, so the stiffer glass part is
+            the more confidence-inspiring choice. In compression the picture
+            split: Bakelite tolerated more compressive strain, but the glass
+            composite carried higher compressive strength.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Our read</h4>
+            <p>
+              Taken together, these bench results make the GFRP stabilizer
+              the more durable structural part, which addresses the
+              durability half of the paper's original problem statement. The
+              vibration half needed simulation and live testing to settle.
+            </p>
+          </div>
+
+          <p>
+            Figure 8 in the paper shows the tensile, flexural, and
+            compressive curves for the Bakelite and GFRP stabilizers side by
+            side.
+          </p>
+        </section>
+
+        <!-- Simulating the shot -->
+        <section id="simulation">
+          <h2>Simulating the shot before building it</h2>
+
+          <p>
+            The authors describe using Catia to build a finite-element
+            model of the limb, reverse-engineered by 3D-scanning a
+            Win&amp;Win limb &mdash; picked because that limb is one
+            competitive archers reach for more than almost any other. The
+            virtual test mirrored a real shot: the stabilizer end was
+            constrained to the handle, and the curved tip was drawn roughly
+            50&ndash;100&nbsp;mm in the Y direction, then released, so the
+            team could watch how load and vibration moved through the
+            structure.
+          </p>
+
+          <p>
+            The material card the authors fed the CFRP model, taken
+            directly from the paper, was: Young's modulus 1.35 &times; 10&sup11;
+            N&middot;m&#8315;&sup2;, Poisson's ratio 0.46, density 1600
+            kg/m&sup3;, and yield strength 1.3 &times; 10&sup9; N&middot;m&#8315;&sup2;.
+          </p>
+
+          <p>
+            The design itself, according to the paper, breaks into three
+            functional zones &mdash; the part that clamps to the handle, a
+            flat mid-section, and the curved working length:
+          </p>
+
+          <div class="lzone-root" id="lzone-root">
+            <p class="lzone-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; FEA model geometry</p>
+            <h3 class="lzone-title">Three zones, one flex structure</h3>
+            <p class="lzone-subtitle">Reverse-engineered from a 3D-scanned Win&amp;Win limb — the curved tip is where the simulation shows load and vibration concentrating at full draw.</p>
+
+            <div class="lzone-chart-area">
+              <div class="lzone-flow">
+                <div class="lzone-box lzone-box-1" data-zone="1">
+                  <span class="lzone-box-index">01</span>
+                  <span class="lzone-box-label">Handle / stabilizer end</span>
+                  <span class="lzone-box-desc">Clamps to the riser &amp; stabilizer mount</span>
+                </div>
+
+                <div class="lzone-connector" data-zone="c1">
+                  <svg viewBox="0 0 60 24" preserveAspectRatio="none">
+                    <line class="lzone-arrow-line" x1="2" y1="12" x2="52" y2="12" />
+                    <polyline class="lzone-arrow-head" points="42,4 54,12 42,20" />
+                  </svg>
+                </div>
+
+                <div class="lzone-box lzone-box-2" data-zone="2">
+                  <span class="lzone-box-index">02</span>
+                  <span class="lzone-box-label">Flat mid-section</span>
+                  <span class="lzone-box-desc">Transitional straight run of the limb</span>
+                </div>
+
+                <div class="lzone-connector" data-zone="c2">
+                  <svg viewBox="0 0 60 24" preserveAspectRatio="none">
+                    <line class="lzone-arrow-line" x1="2" y1="12" x2="52" y2="12" />
+                    <polyline class="lzone-arrow-head" points="42,4 54,12 42,20" />
+                  </svg>
+                </div>
+
+                <div class="lzone-box lzone-box-3 lzone-box-tip" data-zone="3">
+                  <span class="lzone-tip-flag">TIP</span>
+                  <span class="lzone-box-index">03</span>
+                  <span class="lzone-box-label">Curved working length</span>
+                  <span class="lzone-box-desc">Vibration concentrates here — load migrates here at full draw</span>
+                </div>
+              </div>
+
+              <div class="lzone-legend">
+                <span class="lzone-legend-item"><span class="lzone-key lzone-key-blue"></span>Handle &amp; transition zones</span>
+                <span class="lzone-legend-item"><span class="lzone-key lzone-key-red"></span>Curved tip — simulated peak load/vibration at ~100&nbsp;mm draw</span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            The simulation's qualitative finding: when the string is drawn
+            fully (~100&nbsp;mm) and released, the bending load migrates
+            toward the curved tip, and that tip is where the damping
+            behaviour of the stabilizer choice shows up most clearly.
+          </p>
+
+          <p>
+            Figure 9 in the paper visualises this as a sequence &mdash;
+            commercial reference, 50&nbsp;mm draw, 100&nbsp;mm draw, and the
+            post-shot state &mdash; with the stress field mapped in colour
+            along the limb.
+          </p>
+        </section>
+
+        <!-- The vibration verdict -->
+        <section id="vibration">
+          <h2>The vibration verdict</h2>
+
+          <p>
+            This is the payoff. The paper reports two layers of vibration
+            evidence: the simulated modal behaviour (tabulated as amplitude
+            versus frequency for both stabilizer types), and then real
+            shooting tests with a freshly built 68.42&nbsp;lb limb, measured
+            four times on the X, Y, and Z axes using a dedicated vibration
+            receiver and standard arrows.
+          </p>
+
+          <p>
+            The simulation's nuanced conclusion is worth stating carefully,
+            because it isn't a clean "glass wins everywhere." According to
+            the authors, at full draw the vibration reaching the curved
+            <em>tip</em> was lower with the GFRP stabilizer than with
+            Bakelite &mdash; but the vibration transmitted <em>into the
+            stabilizer body</em> was actually larger for glass. The
+            reconciling observation is about <em>shape</em>, not just
+            magnitude: the glass part actually starts with a larger raw
+            amplitude, but it sheds that energy more gradually &mdash; its
+            decay trace is rounder, without the sharp spikes and dips the
+            Bakelite part showed. That gradual bleed-off is what an archer
+            would feel as a cleaner, quieter release.
+          </p>
+
+          <p>
+            The live shooting test is where the numbers get concrete. The
+            paper reports the following average post-release vibration on
+            each axis, comparing the Bakelite baseline against two glass
+            stabilizer thicknesses:
+          </p>
+
+          <div class="vvib-root" id="vvib-root">
+            <p class="vvib-eyebrow">Heo, An, Yeum, Yang &amp; Choi (2023) &middot; live shooting tests</p>
+            <h3 class="vvib-title">The vibration verdict</h3>
+            <p class="vvib-subtitle">Four shots per axis with a freshly built 68.42 lb limb — GFRP 1.5mm cut vibration roughly 45% / 25% / 33% on X / Y / Z vs. the Bakelite baseline.</p>
+
+            <div class="vvib-chart-area">
+              <div class="vvib-legend">
+                <span class="vvib-legend-item"><span class="vvib-dot vvib-dot-bakelite"></span>Bakelite</span>
+                <span class="vvib-legend-item"><span class="vvib-dot vvib-dot-gfrp15"></span>GFRP 1.5mm</span>
+                <span class="vvib-legend-item"><span class="vvib-dot vvib-dot-gfrp10"></span>GFRP 1.0mm</span>
+              </div>
+
+              <p class="vvib-panel-label">Average post-release vibration <span class="vvib-panel-unit">[m&middot;s&#8315;&sup2;, lower is better]</span></p>
+
+              <div class="vvib-group" data-max="500">
+                <div class="vvib-group-head">
+                  <span class="vvib-group-name">X-axis</span>
+                </div>
+                <div class="vvib-set">
+                  <div class="vvib-bar-row" data-mag="500">
+                    <span class="vvib-bar-tag">Bakelite</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-bakelite"><span class="vvib-bar-val">500</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="280">
+                    <span class="vvib-bar-tag">GFRP 1.5</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp15"><span class="vvib-bar-val">280</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="290">
+                    <span class="vvib-bar-tag">GFRP 1.0</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp10"><span class="vvib-bar-val">290</span></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vvib-group" data-max="2000">
+                <div class="vvib-group-head">
+                  <span class="vvib-group-name">Y-axis</span>
+                </div>
+                <div class="vvib-set">
+                  <div class="vvib-bar-row" data-mag="2000">
+                    <span class="vvib-bar-tag">Bakelite</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-bakelite"><span class="vvib-bar-val">2000</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="1500">
+                    <span class="vvib-bar-tag">GFRP 1.5</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp15"><span class="vvib-bar-val">1500</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="1600">
+                    <span class="vvib-bar-tag">GFRP 1.0</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp10"><span class="vvib-bar-val">1600</span></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vvib-group" data-max="1200">
+                <div class="vvib-group-head">
+                  <span class="vvib-group-name">Z-axis</span>
+                </div>
+                <div class="vvib-set">
+                  <div class="vvib-bar-row" data-mag="1200">
+                    <span class="vvib-bar-tag">Bakelite</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-bakelite"><span class="vvib-bar-val">1200</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="800">
+                    <span class="vvib-bar-tag">GFRP 1.5</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp15"><span class="vvib-bar-val">800</span></div></div>
+                  </div>
+                  <div class="vvib-bar-row" data-mag="950">
+                    <span class="vvib-bar-tag">GFRP 1.0</span>
+                    <div class="vvib-bar-track"><div class="vvib-bar-fill vvib-fill-gfrp10"><span class="vvib-bar-val">950</span></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vvib-payoff">
+                <p class="vvib-panel-label vvib-payoff-label">Vibration reduction vs. Bakelite <span class="vvib-panel-unit">[1.5mm GFRP stabilizer, higher = quieter]</span></p>
+                <div class="vvib-pct-row" data-pct="45">
+                  <span class="vvib-pct-tag">X</span>
+                  <div class="vvib-pct-track"><div class="vvib-pct-fill"><span class="vvib-pct-val">~45%</span></div></div>
+                </div>
+                <div class="vvib-pct-row" data-pct="25">
+                  <span class="vvib-pct-tag">Y</span>
+                  <div class="vvib-pct-track"><div class="vvib-pct-fill"><span class="vvib-pct-val">~25%</span></div></div>
+                </div>
+                <div class="vvib-pct-row" data-pct="33">
+                  <span class="vvib-pct-tag">Z</span>
+                  <div class="vvib-pct-track"><div class="vvib-pct-fill"><span class="vvib-pct-val">~33%</span></div></div>
+                </div>
+              </div>
+
+              <p class="vvib-foot">GFRP 1.5mm is the consistent winner across all three axes — thinner 1.0mm trades a little damping for less material, but the 1.5mm stabilizer is the one that quiets the limb the most on every shot.</p>
+            </div>
+          </div>
+
+          <p>
+            Reading straight off the authors' figures, the 1.5&nbsp;mm glass
+            stabilizer cut vibration by roughly 44% on X, 25% on Y, and 33%
+            on Z relative to Bakelite. The team then thinned the glass part
+            to 1.0&nbsp;mm to shave weight, and found the penalty was
+            modest: vibration rose only slightly versus the 1.5&nbsp;mm
+            version &mdash; on the order of 10, 100, and 150
+            m&middot;s&#8315;&sup2; higher on X, Y, and Z respectively
+            &mdash; while still landing about 42% / 20% / 21% below the
+            Bakelite baseline.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Editorial note (Addcomposites):</strong> the paper's
+              prose at one point describes that 10 / 100 / 150
+              m&middot;s&#8315;&sup2; step as a comparison "to the previous
+              Bakelite stabilizer," but the numbers themselves are the
+              difference between the 1.0&nbsp;mm and 1.5&nbsp;mm
+              <em>glass</em> parts (290&minus;280, 1600&minus;1500,
+              950&minus;800). We present it as the glass-thickness
+              comparison to keep the arithmetic honest.
+            </p>
+          </div>
+
+          <p>
+            The authors' bottom line, stated in their conclusion, is that
+            across the tested axes the glass stabilizer delivered a
+            meaningful average reduction in vibration versus Bakelite while
+            resisting the durability loss that plagues the older material.
+            They also close on an important caveat that we'd echo:
+            equipment quality is necessary but not sufficient &mdash; the
+            athlete still has to shoot well.
+          </p>
+
+          <p>
+            Figures 10, 11 and 12 in the paper carry the full modal
+            simulations for both stabilizers, the per-axis average
+            vibration traces, and the summarised improvement chart.
+          </p>
+        </section>
+
+        <!-- What this means -->
+        <section id="afp">
+          <h2>
+            What this means for anyone building flex-critical composite
+            structures
+          </h2>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Everything above is the authors' work. This closing
+              section is Addcomposites' own analysis, and the paper's
+              authors neither reviewed nor endorsed it.</strong>
+            </p>
+          </div>
+
+          <p>
+            The single most transferable insight in this study isn't the
+            archery result &mdash; it's the failure diagnosis. The paper
+            names <em>delamination</em> as the root of fatigue failure, and
+            it independently shows that <em>void content</em> separated the
+            best carbon from the worst. Both of those are, at heart,
+            layup-and-consolidation problems. Where plies sit, how cleanly
+            they interface, and how uniform the consolidation pressure is
+            across the part &mdash; those variables decide whether a flex
+            structure survives ten thousand draw cycles or delaminates
+            early.
+          </p>
+
+          <p>
+            That diagnosis generalises well beyond a bow. Ski poles, diving
+            boards, vaulting poles, prosthetic feet, leaf springs &mdash; any
+            structure whose entire job is to store and release bending
+            energy lives or dies on interlaminar integrity, because the
+            interlaminar planes are exactly where cyclic bending tries to
+            pull the laminate apart.
+          </p>
+
+          <p>
+            To be clear about the method: the study used autoclave prepreg
+            layup with a co-cure. That is a proven route, and the one-shot
+            co-cure is genuinely smart for removing a secondary bond line.
+            Our editorial point is about repeatability at volume. Hand
+            layup can produce an excellent single limb; what it cannot
+            easily guarantee is that limb #500 has the same ply positions,
+            the same fiber angles, and the same consolidation as limb #1.
+            And in a flex-critical sporting product, unit-to-unit
+            consistency <em>is</em> the product &mdash; an elite athlete
+            rejects a bow that feels different from the one they trained
+            on.
+          </p>
+
+          <img
+            src="images/afp-xs-head.jpg"
+            alt="The AFP-XS head laying carbon tow under programmatic control — the same placement and consolidation repeated identically, part after part."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The AFP-XS head laying carbon tow under programmatic control
+            &mdash; the same placement and consolidation repeated
+            identically, part after part, is what turns layup quality from
+            an artisan variable into a controlled one.
+          </p>
+
+          <p>
+            This is where automated fiber placement (AFP) fits the problem
+            the paper describes. Addcomposites' AFP-XS system places fiber
+            under programmatic control, with repeatable ply positioning and
+            consistent consolidation from part to part, and AddPath lets an
+            engineer define and version that layup deterministically.
+            Against the two failure modes this study surfaces &mdash;
+            delamination and void content &mdash; controlled, repeatable
+            placement is a direct lever: fewer hand-introduced gaps and
+            overlaps, more uniform interlaminar quality, and a layup that
+            can be reproduced identically across a production run.
+          </p>
+
+          <img
+            src="images/addpath-software.jpg"
+            alt="AddPath sequences and simulates every tape and ply before production begins — the layup is versioned in software, so it reproduces identically across the run."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            AddPath sequences and simulates every tape and ply before
+            production begins &mdash; the layup is versioned in software, so
+            it reproduces identically across the run.
+          </p>
+
+          <p>
+            We're not claiming the archery limbs in this paper should have
+            been made with AFP, nor that AFP would beat the authors'
+            specific results &mdash; that's an untested comparison, and
+            small curved limbs are their own tooling challenge. The honest,
+            useful takeaway is narrower and stronger: the paper
+            independently confirms that the properties elite athletes care
+            about trace back to layup quality, and layup quality is
+            precisely what automated placement exists to make consistent.
+            For an OEM trying to move a premium flex-sports product from
+            artisan batches to a repeatable line without surrendering the
+            feel athletes trust, that connection is the whole conversation.
+          </p>
+
+          <div class="cta-section">
+            <p>
+              If you're developing flex-critical or vibration-sensitive
+              composite structures and want to talk through how a
+              programmable layup fits a repeatable production line, get in
+              touch with the Addcomposites team &rarr;
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/"
+              class="cta-button"
+              >Get in Touch with Addcomposites</a
+            >
+          </div>
+
+          <img
+            src="images/closing-banner.jpg"
+            alt="Addcomposites — ideate, innovate, automate."
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>Read the research</h2>
+
+          <p>
+            This article summarizes and comments on independent academic
+            work. All technical findings belong to the original authors. We
+            encourage you to read the open-access paper in full:
+          </p>
+
+          <ol class="references-list">
+            <li>
+              <strong
+                >Heo, W.W.; An, S.K.; Yeum, J.H.; Yang, S.B.; Choi, S.</strong
+              >
+              "Manufacture and Vibration-Damping Effect of Composites for
+              Archery Carbon Fiber-Reinforced Polymer Limb with Glass
+              Fiber-Reinforced Polymer Stabilizer."
+              <em>Materials</em> <strong>2023</strong>, <em>16</em>, 4048.
+              <a
+                href="https://doi.org/10.3390/ma16114048"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/ma16114048</a
+              >
+              Published open access by MDPI. &copy; 2023 by the authors.
+              Licensed under the Creative Commons Attribution (CC BY 4.0)
+              license:
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://creativecommons.org/licenses/by/4.0/</a
+              >
+            </li>
+          </ol>
+
+          <p style="font-size: 0.9375rem; color: #475569; margin-top: 1.5rem">
+            The authors have not reviewed or endorsed this article,
+            Addcomposites, or its products.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian
+                Space Research Organisation (ISRO). During his tenure, he
+                gained hands-on expertise in manufacturing composite
+                components for satellites and launch vehicles, where he
+                witnessed firsthand the prohibitive costs of traditional
+                Automated Fiber Placement (AFP) systems. This experience
+                became the driving force behind his entrepreneurial venture,
+                Addcomposites Oy, which he co-founded and now leads as CEO.
+                The company is dedicated to democratizing advanced
+                manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable.
+                This unique journey from designing space-grade hardware to
+                leading a disruptive technology company provides Pravin with
+                a comprehensive, real-world perspective that informs his
+                writing on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
