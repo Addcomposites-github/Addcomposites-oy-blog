@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      One Flaperon, Zero Autoclave Cycles: What FIDAMC's ECCM22 Results Mean
+      for High-Rate Aerostructure Manufacturing | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="FIDAMC's ECCM22 flaperon result combines stamped thermoplastic ribs with in-situ consolidation AFP skin — a full control surface built with zero autoclave cycles. Here's what the process actually does differently, and why the rate case matters more than the materials story."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <!-- Close button (mobile only) -->
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#bottleneck" class="blog-sidebar-link"
+            >A manufacturing bottleneck</a
+          >
+          <a href="#process" class="blog-sidebar-link"
+            >What FIDAMC does differently</a
+          >
+          <a href="#rate" class="blog-sidebar-link">Why the rate matters</a>
+          <a href="#industries" class="blog-sidebar-link"
+            >Defense, commercial, eVTOL</a
+          >
+          <a href="#heading" class="blog-sidebar-link">Where this is heading</a>
+          <a href="#help" class="blog-sidebar-link">Where AFP fits</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          One Flaperon, Zero Autoclave Cycles: What FIDAMC's ECCM22 Results
+          Mean for High-Rate Aerostructure Manufacturing
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            July 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            11 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview">
+          <img
+            src="images/hero.jpg"
+            alt="One Flaperon, Zero Autoclave Cycles — an Addcomposites analysis of FIDAMC's ECCM22 high-rate flaperon manufacturing results."
+            class="full-width-image"
+          />
+          <p class="drop-cap">
+            A flaperon is not a concept part. It is not a lab demonstrator
+            built to prove a material system works in principle. It is a
+            flight-critical control surface, bolted to the trailing edge of a
+            wing, cycling thousands of times over an aircraft's service life,
+            and it exists today on essentially every commercial and military
+            platform with a combined flap-aileron control architecture. So
+            when Mar Zuazo Ruiz of FIDAMC &mdash; the composites technology
+            foundation that supplies Airbus Defence and Space &mdash; stood up
+            at ECCM22 in Oslo this June and presented &ldquo;Stamping and AFP
+            for Next-Gen High-Rate Flaperon Manufacturing,&rdquo; the room was
+            not looking at a proof of concept. It was looking at a production
+            strategy.
+          </p>
+
+          <img
+            src="images/flaperon-deflected.jpg"
+            alt="A flap-aileron control surface (flaperon) shown in the deflected position on the wing trailing edge, illustrating the hinged, load-bearing architecture that makes such flight-critical components challenging to manufacture at production rate."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A flap-aileron control surface (flaperon) shown in the deflected
+            position on the wing trailing edge, illustrating the hinged,
+            load-bearing architecture that makes such flight-critical
+            components challenging to manufacture at production rate.
+          </p>
+
+          <div class="highlight-box">
+            <h4>The headline result</h4>
+            <p>
+              A full flaperon built from 11 internally stamped
+              continuous-fibre thermoplastic ribs, co-integrated into a single
+              automated fibre placement (AFP) laminated skin using in-situ
+              consolidation &mdash; with no autoclave cure step anywhere in
+              the process. That single sentence quietly answers a question
+              the aerostructures industry has been circling for over a
+              decade: can a flight-critical control surface be built entirely
+              out-of-autoclave, at rates fast enough to matter, without giving
+              up the structural integration that makes composites worth using
+              in the first place?
+            </p>
+          </div>
+
+          <p>
+            This post breaks down why that question is so hard to answer,
+            what FIDAMC's process actually does differently, and why the
+            &ldquo;boring&rdquo; manufacturing detail &mdash; stamped ribs
+            plus AFP skin, one shot, no oven &mdash; is the part that should
+            matter most to anyone evaluating automated fibre placement for a
+            real production programme rather than a research demonstrator.
+          </p>
+        </section>
+
+        <!-- Why flaperons are a manufacturing bottleneck -->
+        <section id="bottleneck">
+          <h2>
+            Why Flaperons Are a Manufacturing Bottleneck, Not Just a Design
+            Problem
+          </h2>
+
+          <p>
+            A flaperon looks simple from the outside: a trailing-edge control
+            surface, aerodynamically shaped, hinged at the wing. Structurally,
+            it is a small, dense assembly problem. The internal architecture
+            typically requires a series of ribs running spanwise, each one
+            carrying transverse loads into the skin and out to the hinge and
+            actuator attachment points, wrapped in an upper and lower skin
+            that has to hold its aerodynamic shape under repeated cyclic
+            loading.
+          </p>
+
+          <p>
+            The conventional manufacturing route builds these as separate
+            pieces. Ribs are laid up or machined independently. Skins are laid
+            up separately, often via
+            <a
+              href="https://www.addcomposites.com/post/what-is-automated-fibre-placement-afp"
+              target="_blank"
+              rel="noopener noreferrer"
+              >automated fiber placement</a
+            >, and cured in an autoclave. Then the whole assembly is joined
+            &mdash; riveted, bonded, or both &mdash; in a secondary operation
+            that adds fasteners, adds weight, adds inspection points, and adds
+            the single most expensive and time-consuming step in the entire
+            chain: the autoclave cycle itself, which can run for hours at
+            controlled temperature and pressure ramps, tie up capital
+            equipment, and constrain how many parts a factory can push through
+            per shift.
+          </p>
+
+          <img
+            src="images/autoclave-loading.jpg"
+            alt="A large aerospace composite autoclave during part loading, showing tooling and components being moved into the pressure chamber. The autoclave cure is among the most time- and capital-intensive steps in conventional composite manufacturing."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A large aerospace composite autoclave during part loading, showing
+            tooling and components being moved into the pressure chamber. The
+            autoclave cure is among the most time- and capital-intensive steps
+            in conventional composite manufacturing.
+          </p>
+
+          <p>
+            For a single high-value component, that cost structure is
+            tolerable. For a control surface that needs to be built at rate
+            &mdash; across a wide-body program, a defense platform ramping
+            production, or a next-generation single-aisle aircraft trying to
+            hit an ambitious delivery cadence &mdash; every one of those
+            separate steps compounds. This is exactly the throughput pressure
+            that NASA's Hi-Rate Composite Aircraft Manufacturing (HiCAM)
+            initiative and its in-situ consolidation AFP of thermoplastics
+            (ICAT) work were set up to address: closing the gap between what
+            AFP can theoretically lay down and what a factory can actually
+            consolidate, join, and ship.
+          </p>
+
+          <p>Drawn side by side, the two build routes look like this:</p>
+
+          <div class="bflow-root" id="bflow-root">
+            <p class="bflow-eyebrow">
+              FIDAMC &middot; ECCM22 2026 &middot; build-route comparison
+            </p>
+            <h3 class="bflow-title">Two routes to a finished flaperon</h3>
+            <p class="bflow-subtitle">
+              The conventional route chains four separate operations through
+              an autoclave cure. Stamping plus in-situ consolidation AFP
+              collapses that into one integrated build with no oven.
+            </p>
+
+            <div class="bflow-chart-area">
+              <div class="bflow-lane bflow-lane-trad">
+                <p class="bflow-lane-label">Traditional flaperon build</p>
+                <div class="bflow-steps">
+                  <div class="bflow-step" data-step="0">
+                    <span class="bflow-step-num">1</span>
+                    <span class="bflow-step-label">Ribs laid up</span>
+                    <span class="bflow-step-sub">separately</span>
+                  </div>
+                  <div class="bflow-step" data-step="1">
+                    <span class="bflow-step-num">2</span>
+                    <span class="bflow-step-label">Skins laid up</span>
+                    <span class="bflow-step-sub">AFP / ATL</span>
+                  </div>
+                  <div
+                    class="bflow-step bflow-step-oven"
+                    data-step="2"
+                  >
+                    <span class="bflow-step-num">3</span>
+                    <span class="bflow-step-label">Autoclave cure</span>
+                    <span class="bflow-step-sub">hours, batch process</span>
+                  </div>
+                  <div class="bflow-step" data-step="3">
+                    <span class="bflow-step-num">4</span>
+                    <span class="bflow-step-label">Secondary assembly</span>
+                    <span class="bflow-step-sub">fasteners, bonding</span>
+                  </div>
+                  <div class="bflow-step bflow-step-end" data-step="4">
+                    <span class="bflow-step-num">5</span>
+                    <span class="bflow-step-label">Multi-step inspection</span>
+                    <span class="bflow-step-sub">then finished part</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bflow-lane bflow-lane-new">
+                <p class="bflow-lane-label">Stamping + AFP integrated build</p>
+                <div class="bflow-steps">
+                  <div class="bflow-step" data-step="0">
+                    <span class="bflow-step-num">1</span>
+                    <span class="bflow-step-label">Ribs stamped</span>
+                    <span class="bflow-step-sub"
+                      >continuous-fibre TP, single press cycle</span
+                    >
+                  </div>
+                  <div class="bflow-step" data-step="1">
+                    <span class="bflow-step-num">2</span>
+                    <span class="bflow-step-label"
+                      >AFP skin, in-situ consolidation</span
+                    >
+                    <span class="bflow-step-sub"
+                      >laser or hot-gas heated, thermoplastic</span
+                    >
+                  </div>
+                  <div
+                    class="bflow-step bflow-step-highlight bflow-step-end"
+                    data-step="2"
+                  >
+                    <span class="bflow-step-num">3</span>
+                    <span class="bflow-step-label">One-shot integration</span>
+                    <span class="bflow-step-sub"
+                      >finished part &mdash; no autoclave cycle</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bflow-legend">
+              <span class="bflow-legend-item"
+                ><span class="bflow-key bflow-key-oven"></span>Autoclave
+                dependency &mdash; the most capital- and time-intensive
+                step</span
+              >
+              <span class="bflow-legend-item"
+                ><span class="bflow-key bflow-key-new"></span>Zero autoclave
+                cycles &mdash; three steps instead of five</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- What FIDAMC's process does differently -->
+        <section id="process">
+          <h2>What FIDAMC's Process Actually Does Differently</h2>
+
+          <p>
+            The FIDAMC result combines two manufacturing steps that are each
+            individually well-established, but rarely deployed together on a
+            flight-critical primary control surface: stamp forming for the
+            internal ribs, and in-situ consolidated AFP for the skin.
+          </p>
+
+          <p>
+            Stamping continuous-fibre-reinforced thermoplastic ribs is fast
+            &mdash; press-forming cycles are measured in minutes, not hours,
+            because the thermoplastic matrix is reheated to a formable state
+            and pressed into shape rather than chemically cured. FIDAMC's own
+            published capability list confirms they run infrared preheaters
+            and both 30- and 1,000-ton heated presses specifically for this
+            kind of stamp-forming work, alongside six AFP/ATL machines used
+            for skin and fuselage panel work. Producing 11 ribs this way,
+            rather than laying each one up as a wet or prepreg composite and
+            curing it individually, removes a large chunk of the labour and
+            cycle time from the internal structure before the skin is ever
+            built.
+          </p>
+
+          <p>
+            The second half &mdash; and the part that eliminates the
+            autoclave entirely &mdash; is in-situ consolidation AFP (ISC) of
+            the thermoplastic skin. In a conventional AFP process, tape is
+            laid down and the whole layup is cured afterward, typically in an
+            autoclave. In an ISC process, a heat source (laser or hot-gas
+            torch) melts the incoming tape and the previously deposited ply
+            together as the AFP head moves, welding each new layer to the
+            last in real time. When it works well, the part comes off the
+            machine already structurally consolidated &mdash; no secondary
+            cure step required. Industry reporting on FIDAMC's broader
+            thermoplastic work confirms this is exactly their approach:
+            one-step ISC integrated skin/stringer structures, with
+            consolidation quality reaching roughly 90% of what an autoclave
+            or hot press achieves &mdash; high enough for primary
+            aerostructures, and improving further as FIDAMC works with
+            suppliers on flatter, higher-quality feedstock tape.
+          </p>
+
+          <p>
+            Combining these two processes into a single flaperon build means
+            the ribs are stamped, the skin is laid and consolidated in place
+            around or onto them, and the assembly reaches near-final geometry
+            without ever going into an oven. That is the structural and cost
+            story in one sentence: fewer discrete curing operations, fewer
+            secondary joints, less non-recurring tooling tied up in autoclave
+            scheduling.
+          </p>
+        </section>
+
+        <!-- Why the rate matters -->
+        <section id="rate">
+          <h2>Why the Rate, Not Just the Materials, Is the Real Innovation</h2>
+
+          <p>
+            It's worth being precise about what's actually novel here,
+            because &ldquo;thermoplastic composites in aerospace&rdquo; is not
+            new &mdash; thermoplastic AFP research has been running for more
+            than three decades, and in-situ consolidation has moved from lab
+            curiosity to flying hardware on several programs already. What
+            FIDAMC's flaperon result demonstrates is not a new material
+            system.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              It's evidence that the <strong>rate</strong> case for
+              thermoplastic AFP holds up on a real, geometrically complex,
+              multi-rib control surface &mdash; not just on a flat panel
+              demonstrator.
+            </p>
+          </div>
+
+          <img
+            src="images/afp-xs-double-curvature.jpg"
+            alt="Addcomposites' AFP-XS head depositing tow onto a double-curvature mould, illustrating the surface complexity and conforming layup required for geometrically complex parts such as multi-rib control surfaces."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Addcomposites' AFP-XS head depositing tow onto a double-curvature
+            mould, illustrating the surface complexity and conforming layup
+            required for geometrically complex parts such as multi-rib
+            control surfaces.
+          </p>
+
+          <p>
+            That distinction matters enormously for anyone doing
+            <a
+              href="https://www.addcomposites.com/post/implement-an-automated-fiber-placement-system-80-faster-with-1-of-the-cost-of-traditional-systems"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AFP ROI</a
+            >
+            math for a production decision. Flat-panel thermoplastic AFP
+            demonstrators are common in the literature and at conferences
+            like ECCM &mdash; they're useful for characterizing consolidation
+            quality, void content, and mechanical properties under controlled
+            conditions. But a flaperon has curvature, rib intersections,
+            load-path complexity, and multiple part interfaces. Getting
+            stamping and in-situ consolidation to work together on that
+            geometry, at a rate that's credible for production, is the harder
+            engineering problem, and it's the one that determines whether a
+            manufacturing strategy survives contact with an actual production
+            line.
+          </p>
+
+          <p>
+            Plotted against part-geometry complexity, the FIDAMC flaperon sits
+            in a different tier of process maturity than the flat-panel and
+            coupon-level work the field usually reports on:
+          </p>
+
+          <div class="cmap-root" id="cmap-root">
+            <p class="cmap-eyebrow">
+              Thermoplastic AFP &middot; process maturity landscape
+            </p>
+            <h3 class="cmap-title">
+              Complexity vs. demonstrated process maturity
+            </h3>
+            <p class="cmap-subtitle">
+              The FIDAMC flaperon is the first result to combine high part
+              geometry complexity with a full-assembly, production-
+              representative demonstration &mdash; not just a lab
+              characterization or sub-component test.
+            </p>
+
+            <div class="cmap-chart-area">
+              <div class="cmap-plot">
+                <span class="cmap-axis-label cmap-axis-y">Part geometry complexity</span>
+                <div class="cmap-grid">
+                  <div
+                    class="cmap-point cmap-point-hi"
+                    data-x="88"
+                    data-y="90"
+                  >
+                    <span class="cmap-dot"></span>
+                    <span class="cmap-point-label"
+                      >Flaperon (11-rib, curved skin)<br /><span
+                        class="cmap-point-sub"
+                        >FIDAMC, ECCM22 2026</span
+                      ></span
+                    >
+                  </div>
+                  <div class="cmap-point" data-x="60" data-y="62">
+                    <span class="cmap-dot"></span>
+                    <span class="cmap-point-label"
+                      >Wingbox / fuselage panel<br /><span
+                        class="cmap-point-sub">demonstrators</span
+                      ></span
+                    >
+                  </div>
+                  <div class="cmap-point" data-x="42" data-y="40">
+                    <span class="cmap-dot"></span>
+                    <span class="cmap-point-label"
+                      >Tail boom structures<br /><span
+                        class="cmap-point-sub">TSS Albany, flying</span
+                      ></span
+                    >
+                  </div>
+                  <div class="cmap-point" data-x="14" data-y="16">
+                    <span class="cmap-dot"></span>
+                    <span class="cmap-point-label"
+                      >Flat coupon /<br /><span class="cmap-point-sub"
+                        >panel studies</span
+                      ></span
+                    >
+                  </div>
+                </div>
+                <span class="cmap-axis-label cmap-axis-x"
+                  >Demonstrated process maturity</span
+                >
+                <div class="cmap-axis-x-ticks">
+                  <span>Lab-scale characterization</span>
+                  <span>Sub-component demonstrator</span>
+                  <span>Full assembly, production-representative</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Industry-specific angles -->
+        <section id="industries">
+          <h2>
+            Industry-Specific Angles: Defense, Commercial Retrofit, and Beyond
+          </h2>
+
+          <p>
+            For <strong>defense and government aerospace programs</strong>,
+            the Airbus Defence and Space connection is not incidental.
+            Military platforms often run longer production tails than
+            commercial programs, with sustained demand for spares and
+            structural upgrades over decades of service. A flaperon
+            manufacturing process that cuts autoclave dependency and secondary
+            assembly steps is directly relevant to sustaining rate on those
+            programs without expanding autoclave capital footprint &mdash; a
+            constraint that matters just as much for emerging defense
+            manufacturing bases (including newer entrants building out
+            indigenous composite aerostructure capability) as it does for
+            established primes.
+          </p>
+
+          <p>
+            For <strong>commercial aircraft OEMs and tier suppliers</strong>,
+            the case is about closing the gap between AFP's theoretical
+            lay-down speed and what a factory can actually turn into
+            finished, inspected parts per shift &mdash; precisely the
+            throughput target NASA's HiCAM program has been chasing. A
+            control surface is a comparatively small, well-bounded part to
+            prove this on before attempting it on a larger structure like a
+            wingbox or fuselage panel, which makes flaperons a sensible first
+            production target for stamping-plus-ISC manufacturing strategies.
+          </p>
+
+          <p>
+            For <strong>eVTOL and next-generation air mobility platforms</strong>,
+            which are being designed from a blank sheet with weight, part
+            count, and manufacturing rate as first-order constraints from day
+            one, a validated stamping+AFP control-surface process is arguably
+            even more directly transferable &mdash; these platforms don't
+            carry the legacy tooling and qualification inertia of a
+            30-year-old commercial airframe program, and many are already
+            committed to thermoplastic-heavy structures for weldability and
+            repairability reasons.
+          </p>
+        </section>
+
+        <!-- Where this is heading -->
+        <section id="heading">
+          <h2>Where This Is Heading</h2>
+
+          <img
+            src="images/ultrasonic-ndi.jpg"
+            alt="Ultrasonic non-destructive inspection of a composite aircraft structure using a handheld phased-array probe and portable flaw detector, representative of the inspection methods being developed for one-step consolidated parts."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Ultrasonic non-destructive inspection of a composite aircraft
+            structure using a handheld phased-array probe and portable flaw
+            detector, representative of the inspection methods being
+            developed for one-step consolidated parts.
+          </p>
+
+          <p>
+            The next steps for this kind of process are exactly where you'd
+            expect: further improving feedstock tape flatness and quality to
+            push ISC consolidation quality closer to full autoclave-equivalent
+            properties, building out non-destructive inspection methods
+            suited to one-step consolidated parts rather than post-cure
+            assemblies, and running the qualification and certification
+            testing needed to move from a conference demonstrator to a
+            production part number. None of that is a materials breakthrough
+            waiting to happen &mdash; it's process engineering and
+            qualification discipline, which is a more predictable (if less
+            headline-grabbing) path to production.
+          </p>
+        </section>
+
+        <!-- How Addcomposites can help -->
+        <section id="help">
+          <h2>How Addcomposites Can Help</h2>
+
+          <img
+            src="images/afp-xs-closeup.jpg"
+            alt="Close-up of the Addcomposites AFP-XS head laser-heating and depositing carbon tow onto a double-curvature thermoplastic mould, ADD logo visible on the toolhead."
+            class="full-width-image"
+          />
+
+          <p>
+            FIDAMC's flaperon result validates exactly the manufacturing
+            pathway Addcomposites' AFP-XS and AFP-X platforms are built
+            around: in-situ consolidation thermoplastic AFP with an open,
+            configurable process architecture rather than a closed black-box
+            system, so process parameters like heating profile, compaction
+            force, and layup path can be tuned to the specific rib geometry
+            and skin curvature of a given part rather than forced into a fixed
+            recipe. Addcomposites' work inside the TOSCA and AeroComp EU
+            research programmes is directly aimed at maturing exactly this
+            kind of out-of-autoclave, high-rate thermoplastic manufacturing
+            case for structural aerospace parts, and
+            <a
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AddPath</a
+            >
+            CAM software handles the path planning complexity that multi-rib,
+            curved-skin geometries like a flaperon actually demand.
+          </p>
+
+          <img
+            src="images/addpath-cam-workflow.jpg"
+            alt="AddPath CAM workflow for automated fibre placement: (1) mould surface and boundary definition, (2) generated tow-path layup over the part, and (3) robotic simulation of the deposition sequence, illustrating the path-planning required for curved, multi-feature geometries."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            AddPath CAM workflow for automated fibre placement: (1) mould
+            surface and boundary definition, (2) generated tow-path layup over
+            the part, and (3) robotic simulation of the deposition sequence,
+            illustrating the path-planning required for curved, multi-feature
+            geometries.
+          </p>
+
+          <p>
+            If you're evaluating AFP for a control surface, structural
+            rib-and-skin assembly, or any other flight-critical part where
+            autoclave dependency is limiting your production rate, explore
+            what's possible at
+            <a
+              href="https://www.addcomposites.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >www.addcomposites.com</a
+            >.
+          </p>
+
+          <div class="cta-section">
+            <p>
+              Talk to the Addcomposites team about how in-situ consolidation
+              AFP fits your next high-rate aerostructure programme &rarr;
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/"
+              class="cta-button"
+              >Get in Touch with Addcomposites</a
+            >
+          </div>
+
+          <img
+            src="images/closing-banner.jpg"
+            alt="Addcomposites — ideate, innovate, automate."
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+          <h2>References</h2>
+
+          <ol class="references-list">
+            <li>
+              M. Zuazo Ruiz, K. Fernández Horcajo, R. Contento Tercedor, A.
+              Hernandez Ortiz, A. Blanco Laiz, &ldquo;Stamping and AFP for
+              Next-Gen High-Rate Flaperon Manufacturing,&rdquo; 22nd European
+              Conference on Composite Materials (ECCM22), Oslo, Norway, June
+              2026, Paper #631, Sub-theme 5.6 Automated Placement
+              Technologies.
+            </li>
+            <li>
+              FIDAMC, &ldquo;FIDAMC participates in the 22nd European
+              Conference on Composite Materials (ECCM22) with three
+              presentations on advanced manufacturing, recycling and
+              sustainability of composites,&rdquo; FIDAMC News, 2026. URL:
+              <a
+                href="https://fidamc.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                >fidamc.es</a
+              >
+            </li>
+            <li>
+              &ldquo;FIDAMC expands composites R&amp;D into new markets and
+              advanced manufacturing centers,&rdquo; CompositesWorld, 2025.
+            </li>
+            <li>
+              &ldquo;Consolidating thermoplastic composite aerostructures in
+              place, Part 1 &amp; Part 2,&rdquo; CompositesWorld, 2021/2023.
+            </li>
+            <li>
+              NASA, &ldquo;In-Situ Consolidation Automated Fiber Placement of
+              Thermoplastic Composites for High-Rate Aircraft
+              Manufacturing,&rdquo; Hi-Rate Composite Aircraft Manufacturing
+              (HiCAM) Project, NASA Technical Reports Server, 2022.
+            </li>
+          </ol>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand
+                the prohibitive costs of traditional Automated Fiber
+                Placement (AFP) systems. This experience became the driving
+                force behind his entrepreneurial venture, Addcomposites Oy,
+                which he co-founded and now leads as CEO. The company is
+                dedicated to democratizing advanced manufacturing by
+                developing patented, plug-and-play AFP toolheads that make
+                automation accessible and affordable. This unique journey
+                from designing space-grade hardware to leading a disruptive
+                technology company provides Pravin with a comprehensive,
+                real-world perspective that informs his writing on the future
+                of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
