@@ -306,15 +306,23 @@
                 <span class="lstk-arrow">&#9660;</span>
               </div>
 
+              <p class="lstk-hint">
+                Tap a load below to spotlight the layers it acts on.
+              </p>
               <div class="lstk-stack">
-                <div class="lstk-surface-tag lstk-tag">
+                <button
+                  type="button"
+                  class="lstk-surface-tag lstk-tag lstk-tag-btn"
+                  data-load="surface"
+                  aria-pressed="false"
+                >
                   <span class="lstk-tag-num">1</span>
                   <span class="lstk-tag-text"
                     >Surface explosion &mdash; LSP + paint flash to vapour =
                     fast <strong>mechanical</strong> shock, arrives before
                     current peak</span
                   >
-                </div>
+                </button>
 
                 <div class="lstk-layer lstk-layer-paint" data-i="0">
                   <span class="lstk-layer-name">Paint</span>
@@ -347,14 +355,19 @@
                   >
                 </div>
 
-                <div class="lstk-core-tag lstk-tag">
+                <button
+                  type="button"
+                  class="lstk-core-tag lstk-tag lstk-tag-btn"
+                  data-load="core"
+                  aria-pressed="false"
+                >
                   <span class="lstk-tag-num">2</span>
                   <span class="lstk-tag-text"
                     >Core current flow &mdash; Joule heating =
                     <strong>thermal</strong> load (plus a weak, slow
                     mechanical load)</span
                   >
-                </div>
+                </button>
               </div>
             </div>
             <p class="lstk-foot">
@@ -558,18 +571,28 @@
           </p>
 
           <!-- INFOGRAPHIC 3: lcsn — C-Scan acoustic shadow -->
-          <div class="lcsn-root" id="lcsn-root">
+          <div class="lcsn-root lcsn-mode-cscan" id="lcsn-root">
             <p class="lcsn-eyebrow">
               Bigand et al. &middot; Aerospace 2025 &middot; NDT limitation
+              &middot; interactive
             </p>
             <h3 class="lcsn-title">
               Why a bottom-view C-Scan under-reads the damage
             </h3>
             <p class="lcsn-subtitle">
               The echo returns from the nearest, largest delamination first;
-              shallower interfaces sit behind it acoustically. Destructive
-              micro-cuts are what recover the hidden interfaces.
+              shallower interfaces sit behind it acoustically. Switch the view
+              to see what a single bottom-up scan misses.
             </p>
+
+            <div class="lcsn-toggle" role="group" aria-label="Inspection method">
+              <button type="button" class="lcsn-tab lcsn-tab-active" data-mode="cscan">
+                What the C-Scan sees
+              </button>
+              <button type="button" class="lcsn-tab" data-mode="reveal">
+                What destructive cutting reveals
+              </button>
+            </div>
 
             <div class="lcsn-chart-area">
               <div class="lcsn-panel">
@@ -577,7 +600,11 @@
                 <div class="lcsn-delam lcsn-delam-small">
                   <span class="lcsn-delam-label"
                     >small delamination near top
-                    <strong>&mdash; missed, in the shadow</strong></span
+                    <strong class="lcsn-lbl-cscan"
+                      >&mdash; missed, in the shadow</strong
+                    ><strong class="lcsn-lbl-reveal"
+                      >&mdash; recovered by micro-cut</strong
+                    ></span
                   >
                 </div>
                 <div class="lcsn-shadow"></div>
@@ -658,38 +685,84 @@
           <div class="larea-root" id="larea-root">
             <p class="larea-eyebrow">
               Bigand et al. &middot; Aerospace 2025 &middot; Figure 18 data
+              &middot; interactive
             </p>
             <h3 class="larea-title">
-              Delaminated area climbs with paint thickness
+              Slide the paint thickness. Watch the delamination grow.
             </h3>
             <p class="larea-subtitle">
               ECF195 + 100 kA D-wave, 1.6 mm CFRP, NDT projected area. Same
-              build every time &mdash; only the coating changed.
+              build every time &mdash; only the coating changed. The four
+              measured points are marked; values between them are interpolated.
             </p>
 
+            <div class="larea-interactive">
+              <div class="larea-readout">
+                <div class="larea-panelviz" aria-hidden="true">
+                  <div class="larea-panel-square">
+                    <div class="larea-blob" id="larea-blob"></div>
+                  </div>
+                  <span class="larea-panel-cap"
+                    >delaminated zone, to scale by area</span
+                  >
+                </div>
+                <div class="larea-numbers">
+                  <span class="larea-paintnow" id="larea-paintnow"
+                    >400 &micro;m paint</span
+                  >
+                  <span class="larea-big"
+                    ><span id="larea-big">119.6</span>
+                    <span class="larea-unit">cm&sup2;</span></span
+                  >
+                  <span class="larea-desc" id="larea-desc">delaminated area</span>
+                </div>
+              </div>
+
+              <div class="larea-slider-wrap">
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="400"
+                  step="10"
+                  class="larea-slider"
+                  id="larea-slider"
+                  aria-label="Paint thickness in micrometres"
+                />
+                <div class="larea-ticks">
+                  <span style="left: 0%">0</span>
+                  <span style="left: 25%">250</span>
+                  <span style="left: 40%">400</span>
+                  <span style="left: 100%">1000 &micro;m</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- reference bars (the four measured panels; also no-JS fallback) -->
+            <p class="larea-ref-label">The four measured panels</p>
             <div class="larea-chart-area">
-              <div class="larea-row" data-pct="0" data-val="0.0">
+              <div class="larea-row" data-pct="0" data-thk="0">
                 <span class="larea-label">No paint</span>
                 <div class="larea-track">
                   <div class="larea-fill larea-fill-zero"></div>
                 </div>
                 <span class="larea-val">0.0 cm&sup2;</span>
               </div>
-              <div class="larea-row" data-pct="9.8" data-val="40.2">
+              <div class="larea-row" data-pct="9.8" data-thk="250">
                 <span class="larea-label">250 &micro;m</span>
                 <div class="larea-track">
                   <div class="larea-fill"></div>
                 </div>
                 <span class="larea-val">40.2 cm&sup2;</span>
               </div>
-              <div class="larea-row" data-pct="29.1" data-val="119.6">
+              <div class="larea-row" data-pct="29.1" data-thk="400">
                 <span class="larea-label">400 &micro;m</span>
                 <div class="larea-track">
                   <div class="larea-fill"></div>
                 </div>
                 <span class="larea-val">119.6 cm&sup2;</span>
               </div>
-              <div class="larea-row larea-row-hi" data-pct="100" data-val="411.6">
+              <div class="larea-row larea-row-hi" data-pct="100" data-thk="1000">
                 <span class="larea-label">1000 &micro;m</span>
                 <div class="larea-track">
                   <div class="larea-fill larea-fill-hi"></div>
@@ -759,50 +832,87 @@
           </p>
 
           <!-- INFOGRAPHIC 5: ldep — thermal penetration depth -->
-          <div class="ldep-root" id="ldep-root">
+          <div class="ldep-root ldep-mode-normal" id="ldep-root">
             <p class="ldep-eyebrow">
-              Bigand et al. &middot; Aerospace 2025 &middot; severe-case
-              micro-cut
+              Bigand et al. &middot; Aerospace 2025 &middot; micro-cut depth
+              &middot; interactive
             </p>
-            <h3 class="ldep-title">Thermal burn stops at ply 4</h3>
+            <h3 class="ldep-title">How deep does the burn actually reach?</h3>
             <p class="ldep-subtitle">
-              CFRP + ECF195 + 1000 &micro;m paint (extreme, not a normal
-              aircraft coat). Even here the burn reaches ~508 &micro;m &mdash;
-              about 31% into the 1.651 mm stack.
+              Toggle between a real aircraft coat and the extreme lab case. The
+              thermal burn depth into the 13-ply, 1.651 mm stack changes
+              dramatically &mdash; but even at its worst it stops at ply 4.
             </p>
 
+            <div class="ldep-toggle" role="group" aria-label="Paint thickness case">
+              <button type="button" class="ldep-tab ldep-tab-active" data-mode="normal">
+                Normal aircraft paint &middot; 250&ndash;400 &micro;m
+              </button>
+              <button type="button" class="ldep-tab" data-mode="extreme">
+                Extreme lab case &middot; 1000 &micro;m
+              </button>
+            </div>
+
             <div class="ldep-chart-area">
-              <div class="ldep-row" data-pct="100">
+              <div
+                class="ldep-row"
+                data-normal="100"
+                data-extreme="100"
+                data-state-normal="burned &mdash; top ply only"
+                data-state-extreme="destroyed"
+              >
                 <span class="ldep-ply">Ply 1</span>
                 <div class="ldep-track">
                   <div class="ldep-fill ldep-fill-max"></div>
                 </div>
-                <span class="ldep-state">destroyed</span>
+                <span class="ldep-state">burned &mdash; top ply only</span>
               </div>
-              <div class="ldep-row" data-pct="72">
+              <div
+                class="ldep-row"
+                data-normal="0"
+                data-extreme="72"
+                data-state-normal="intact"
+                data-state-extreme="highly damaged"
+              >
                 <span class="ldep-ply">Ply 2</span>
                 <div class="ldep-track">
                   <div class="ldep-fill"></div>
                 </div>
-                <span class="ldep-state">highly damaged</span>
+                <span class="ldep-state">intact</span>
               </div>
-              <div class="ldep-row" data-pct="48">
+              <div
+                class="ldep-row"
+                data-normal="0"
+                data-extreme="48"
+                data-state-normal="intact"
+                data-state-extreme="burned"
+              >
                 <span class="ldep-ply">Ply 3</span>
                 <div class="ldep-track">
                   <div class="ldep-fill"></div>
                 </div>
-                <span class="ldep-state">burned</span>
+                <span class="ldep-state">intact</span>
               </div>
-              <div class="ldep-row ldep-row-mark" data-pct="26">
+              <div
+                class="ldep-row ldep-row-mark"
+                data-normal="0"
+                data-extreme="26"
+                data-state-normal="intact"
+                data-state-extreme="deepest burned ply &mdash; ~508 &micro;m reached"
+              >
                 <span class="ldep-ply">Ply 4</span>
                 <div class="ldep-track">
                   <div class="ldep-fill"></div>
                 </div>
-                <span class="ldep-state"
-                  >deepest burned ply &mdash; ~508 &micro;m reached</span
-                >
+                <span class="ldep-state">intact</span>
               </div>
-              <div class="ldep-row ldep-row-intact" data-pct="0">
+              <div
+                class="ldep-row ldep-row-intact"
+                data-normal="0"
+                data-extreme="0"
+                data-state-normal="intact"
+                data-state-extreme="intact"
+              >
                 <span class="ldep-ply">Plies 5&ndash;13</span>
                 <div class="ldep-track">
                   <div class="ldep-fill"></div>
@@ -810,14 +920,14 @@
                 <span class="ldep-state">intact</span>
               </div>
             </div>
-            <div class="ldep-note">
+            <div class="ldep-note" id="ldep-note">
               At usual aircraft paint thickness (250&ndash;400 &micro;m): only
               <strong>Ply 1</strong> burns &mdash; which is why the plate's
               overall stiffness is not meaningfully changed.
             </div>
             <p class="ldep-foot">
               Depth diagram by Addcomposites, from the internal-damage findings
-              for the severe configuration in Bigand et al., Aerospace 2025.
+              in Bigand et al., Aerospace 2025.
             </p>
           </div>
 

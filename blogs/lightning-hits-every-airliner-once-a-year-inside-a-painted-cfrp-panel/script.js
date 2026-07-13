@@ -260,61 +260,271 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ============================================================
-   LIGHTNING / PAINTED CFRP BLOG — infographic behaviour
-   5 self-contained IIFEs (lstk lcfg lcsn larea ldep).
-   Each guards on its own root; a missing root is a no-op.
+   LIGHTNING / PAINTED CFRP BLOG — interactive behaviour
+   reading-flow reveal + 5 interactive infographics.
+   Runs at end of <body>; every block guards its own elements.
    ============================================================ */
+(function () {
+  var reduceMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Generic scroll-in observer: adds `${ns}-animated` to root when in view. */
-function lgtnObserve(rootId, animClass, onFirst) {
-  var root = document.getElementById(rootId);
-  if (!root) return;
-  if (typeof onFirst === "function") onFirst(root);
-  var fire = function () {
-    root.classList.add(animClass);
-  };
-  var obs = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          fire();
-          obs.unobserve(root);
+  /* ---------- Reading-flow reveal ---------- */
+  (function () {
+    if (reduceMotion) return; // CSS already shows everything
+    var sel = [
+      "section > h2",
+      "section > p",
+      "section > ul",
+      "section > ol",
+      "section > .full-width-image",
+      "section > .image-caption",
+      "section > .perspective-box",
+      "section > .cta-section",
+      "section > .references-list",
+      "section > .author-card",
+    ]
+      .map(function (s) {
+        return ".blog-content " + s;
+      })
+      .join(", ");
+    var els = [].slice.call(document.querySelectorAll(sel));
+    if (!els.length || !("IntersectionObserver" in window)) return;
+    els.forEach(function (el) {
+      el.classList.add("reveal-init");
+    });
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-in");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" },
+    );
+    els.forEach(function (el) {
+      obs.observe(el);
+    });
+    // reveal anything already in view on load
+    setTimeout(function () {
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom >= 0) {
+          el.classList.add("reveal-in");
         }
       });
-    },
-    { threshold: 0.15 },
-  );
-  obs.observe(root);
-  var rect = root.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom >= 0) {
-    fire();
-    obs.unobserve(root);
+    }, 40);
+  })();
+
+  /* ---------- generic scroll-in observer for infographic roots ---------- */
+  function lgtnObserve(rootId, animClass, onFirst) {
+    var root = document.getElementById(rootId);
+    if (!root) return null;
+    if (typeof onFirst === "function") onFirst(root);
+    var fire = function () {
+      root.classList.add(animClass);
+    };
+    if (!("IntersectionObserver" in window)) {
+      fire();
+      return root;
+    }
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            fire();
+            obs.unobserve(root);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(root);
+    var rect = root.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      fire();
+      obs.unobserve(root);
+    }
+    return root;
   }
-}
 
-/* ---------- 1. lstk · laminate stack + load decomposition ---------- */
-lgtnObserve("lstk-root", "lstk-animated");
+  /* ---------- 1. lstk · clickable load decomposition ---------- */
+  (function () {
+    var root = lgtnObserve("lstk-root", "lstk-animated");
+    if (!root) return;
+    var btns = [].slice.call(root.querySelectorAll(".lstk-tag-btn"));
+    var active = null;
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var load = btn.getAttribute("data-load");
+        var turnOff = active === load;
+        root.classList.remove("lstk-focus-surface", "lstk-focus-core");
+        btns.forEach(function (b) {
+          b.classList.remove("lstk-tag-on");
+          b.setAttribute("aria-pressed", "false");
+        });
+        if (turnOff) {
+          active = null;
+          return;
+        }
+        active = load;
+        root.classList.add("lstk-focus-" + load);
+        btn.classList.add("lstk-tag-on");
+        btn.setAttribute("aria-pressed", "true");
+      });
+    });
+  })();
 
-/* ---------- 2. lcfg · configuration table ---------- */
-lgtnObserve("lcfg-root", "lcfg-animated");
+  /* ---------- 2. lcfg · click a row to select ---------- */
+  (function () {
+    var root = lgtnObserve("lcfg-root", "lcfg-animated");
+    if (!root) return;
+    var rows = [].slice.call(root.querySelectorAll(".lcfg-row"));
+    rows.forEach(function (row) {
+      row.addEventListener("click", function () {
+        var was = row.classList.contains("lcfg-row-sel");
+        rows.forEach(function (r) {
+          r.classList.remove("lcfg-row-sel");
+        });
+        if (!was) row.classList.add("lcfg-row-sel");
+      });
+    });
+  })();
 
-/* ---------- 3. lcsn · C-Scan acoustic shadow ---------- */
-lgtnObserve("lcsn-root", "lcsn-animated");
+  /* ---------- 3. lcsn · C-Scan vs destructive reveal toggle ---------- */
+  (function () {
+    var root = lgtnObserve("lcsn-root", "lcsn-animated");
+    if (!root) return;
+    var tabs = [].slice.call(root.querySelectorAll(".lcsn-tab"));
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var mode = tab.getAttribute("data-mode");
+        root.classList.remove("lcsn-mode-cscan", "lcsn-mode-reveal");
+        root.classList.add("lcsn-mode-" + mode);
+        tabs.forEach(function (t) {
+          t.classList.toggle("lcsn-tab-active", t === tab);
+        });
+      });
+    });
+  })();
 
-/* ---------- 4. larea · delaminated-area bar chart ---------- */
-lgtnObserve("larea-root", "larea-animated", function (root) {
-  root.querySelectorAll(".larea-row").forEach(function (row) {
-    var pct = row.getAttribute("data-pct");
-    var fill = row.querySelector(".larea-fill");
-    if (fill && pct !== null) fill.style.setProperty("--w", pct + "%");
-  });
-});
+  /* ---------- 4. larea · paint-thickness slider ---------- */
+  (function () {
+    var root = lgtnObserve("larea-root", "larea-animated", function (r) {
+      r.querySelectorAll(".larea-row").forEach(function (row) {
+        var pct = row.getAttribute("data-pct");
+        var fill = row.querySelector(".larea-fill");
+        if (fill && pct !== null) fill.style.setProperty("--w", pct + "%");
+      });
+    });
+    if (!root) return;
+    var slider = document.getElementById("larea-slider");
+    var bigEl = document.getElementById("larea-big");
+    var paintEl = document.getElementById("larea-paintnow");
+    var blob = document.getElementById("larea-blob");
+    var rows = [].slice.call(root.querySelectorAll(".larea-row"));
+    if (!slider) return;
 
-/* ---------- 5. ldep · thermal penetration depth ---------- */
-lgtnObserve("ldep-root", "ldep-animated", function (root) {
-  root.querySelectorAll(".ldep-row").forEach(function (row) {
-    var pct = row.getAttribute("data-pct");
-    var fill = row.querySelector(".ldep-fill");
-    if (fill && pct !== null) fill.style.setProperty("--w", pct + "%");
-  });
-});
+    // measured points: [paint µm, delaminated cm²]
+    var PTS = [
+      [0, 0.0],
+      [250, 40.2],
+      [400, 119.6],
+      [1000, 411.6],
+    ];
+    var MAX = 411.6;
+
+    function interp(t) {
+      if (t <= PTS[0][0]) return PTS[0][1];
+      if (t >= PTS[PTS.length - 1][0]) return PTS[PTS.length - 1][1];
+      for (var i = 0; i < PTS.length - 1; i++) {
+        var a = PTS[i],
+          b = PTS[i + 1];
+        if (t >= a[0] && t <= b[0]) {
+          var f = (t - a[0]) / (b[0] - a[0]);
+          return a[1] + f * (b[1] - a[1]);
+        }
+      }
+      return 0;
+    }
+
+    function nearestRow(t) {
+      var best = null,
+        bd = Infinity;
+      rows.forEach(function (row) {
+        var thk = parseFloat(row.getAttribute("data-thk"));
+        var d = Math.abs(thk - t);
+        if (d < bd) {
+          bd = d;
+          best = row;
+        }
+      });
+      return best;
+    }
+
+    function update() {
+      var t = parseFloat(slider.value);
+      var area = interp(t);
+      if (bigEl) bigEl.textContent = area.toFixed(1);
+      if (paintEl)
+        paintEl.textContent = t === 0 ? "No paint" : t + " µm paint";
+      if (blob) {
+        var dim = Math.sqrt(area / MAX) * 100; // area-true scaling
+        blob.style.width = dim + "%";
+        blob.style.height = dim + "%";
+      }
+      var near = nearestRow(t);
+      rows.forEach(function (row) {
+        row.classList.toggle("larea-row-active", row === near);
+      });
+    }
+
+    slider.addEventListener("input", update);
+    update();
+  })();
+
+  /* ---------- 5. ldep · normal vs extreme burn-depth toggle ---------- */
+  (function () {
+    var root = lgtnObserve("ldep-root", "ldep-animated");
+    if (!root) return;
+    var tabs = [].slice.call(root.querySelectorAll(".ldep-tab"));
+    var rows = [].slice.call(root.querySelectorAll(".ldep-row"));
+    var note = document.getElementById("ldep-note");
+    var NOTE = {
+      normal:
+        "At usual aircraft paint thickness (250–400 µm): only <strong>Ply 1</strong> burns — which is why the plate's overall stiffness is not meaningfully changed.",
+      extreme:
+        "Even in this deliberately severe 1000 µm case, the burn halts at <strong>ply 4</strong> (~508 µm, ~31% of the stack): carbon's resistance reroutes the current back to the foil before it can bore deeper.",
+    };
+
+    function apply(mode) {
+      root.classList.remove("ldep-mode-normal", "ldep-mode-extreme");
+      root.classList.add("ldep-mode-" + mode);
+      tabs.forEach(function (t) {
+        t.classList.toggle(
+          "ldep-tab-active",
+          t.getAttribute("data-mode") === mode,
+        );
+      });
+      rows.forEach(function (row) {
+        var pct = parseFloat(row.getAttribute("data-" + mode)) || 0;
+        var fill = row.querySelector(".ldep-fill");
+        var state = row.querySelector(".ldep-state");
+        if (fill) fill.style.setProperty("--w", pct + "%");
+        if (state)
+          state.innerHTML = row.getAttribute("data-state-" + mode) || "";
+        row.classList.toggle("ldep-empty", pct === 0);
+      });
+      if (note) note.innerHTML = NOTE[mode];
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        apply(tab.getAttribute("data-mode"));
+      });
+    });
+    apply("normal");
+  })();
+})();
