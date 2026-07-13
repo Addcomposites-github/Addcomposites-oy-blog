@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Lightning Hits Every Airliner About Once a Year: What Really Happens
+      Inside a Painted CFRP Panel When It Does | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A 2025 Aerospace study shows paint — usually dismissed as cosmetic — drives lightning delamination in CFRP aircraft skins from zero to over 400 cm². Here's what Bigand et al. found, and what it means for manufacturing painted, protected composite panels."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#problem" class="blog-sidebar-link"
+            >The lightning problem</a
+          >
+          <a href="#decompose" class="blog-sidebar-link"
+            >Two damage sources</a
+          >
+          <a href="#paint" class="blog-sidebar-link">The variable: paint</a>
+          <a href="#testing" class="blog-sidebar-link">How they tested it</a>
+          <a href="#result" class="blog-sidebar-link"
+            >Paint vs. delamination</a
+          >
+          <a href="#depth" class="blog-sidebar-link">Where the damage goes</a>
+          <a href="#mechanism" class="blog-sidebar-link"
+            >Why the shock drives it</a
+          >
+          <a href="#perspective" class="blog-sidebar-link"
+            >What it means for AFP</a
+          >
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          Lightning Hits Every Airliner About Once a Year: What Really
+          Happens Inside a Painted CFRP Panel When It Does
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            July 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview -->
+        <section id="overview">
+          <img
+            src="images/hero.jpg"
+            alt="Lightning Hits Every Airliner About Once a Year — an Addcomposites analysis of what happens inside a painted CFRP aircraft panel when it is struck."
+            class="full-width-image"
+          />
+          <p class="drop-cap">
+            Every commercial aircraft in service can expect to be struck by
+            lightning roughly once a year, and by some counts once or twice.
+            Airbus's own flight-safety team states plainly that each
+            in-service aircraft is hit at least annually on average. Most of
+            those strikes end with an inspection and a return to service. But
+            the panel that absorbs the bolt is rarely the clean, bare laminate
+            that shows up in a lab. It is a carbon-fibre skin wrapped in a
+            metallic protection layer and then coated in paint, and that paint
+            turns out to change the outcome in a way that is easy to
+            underestimate.
+          </p>
+
+          <p>
+            A study published in May 2025 in the MDPI journal
+            <em>Aerospace</em> set out to measure exactly that. Audrey Bigand,
+            Christine Espinosa and Jean-Marc Bauchire ran destructive and
+            non-destructive analysis on protected and painted CFRP aircraft
+            laminates and asked a question most lightning research skips: once
+            you account for the paint that always sits on a real aircraft, how
+            does the damage inside the composite actually change?
+          </p>
+
+          <p>
+            This post walks through what the paper found, why the paint
+            matters more than its &ldquo;cosmetic&rdquo; reputation suggests,
+            and what it means for anyone manufacturing the CFRP skins that
+            eventually get painted, certified and flown. Throughout, we keep a
+            clear line between what the paper reports and where we at
+            Addcomposites add our own commentary.
+          </p>
+        </section>
+
+        <!-- Why carbon fibre has a lightning problem -->
+        <section id="problem">
+          <h2>Why Carbon Fibre Has a Lightning Problem in the First Place</h2>
+
+          <p>
+            <strong>From the paper:</strong> aluminium airframes shrug off
+            lightning because metal conducts the enormous transient current
+            away across the whole structure. Carbon fibre cannot do this
+            nearly as well. The authors note that a carbon fibre conducts
+            current on the order of a thousand times more poorly than metal,
+            and the through-thickness and in-plane transverse conduction is
+            worse still because the surrounding epoxy is an insulator. When a
+            bolt delivers tens of thousands of amps into a material that
+            resists it, the energy has nowhere gentle to go, and it converts
+            to heat right where it enters.
+          </p>
+
+          <p>
+            That heating drives two distinct families of damage, and keeping
+            them separate is central to the whole paper:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Thermal damage</strong> &mdash; resin breaking down
+              (pyrolysis) and fibres snapping or vaporising. The paper points
+              out that epoxy pyrolyses somewhere around 300&ndash;600 K, while
+              the arc environment can reach on the order of 30,000 K, so the
+              resin is destroyed far past its limit near the strike point.
+            </li>
+            <li>
+              <strong>Mechanical damage</strong> &mdash; delamination, meaning
+              the plies separate at their interfaces. The authors are explicit
+              that the separated interfaces they cut into carried no scorching
+              or thermal signature whatsoever, which is why they treat
+              delamination as a purely mechanical outcome rather than a
+              thermal one.
+            </li>
+          </ul>
+
+          <img
+            src="images/fig4-cross-section.jpg"
+            alt="A polished cross-section through the strike centre of the 13-ply laminate: the burnt, disrupted top ply is the electrothermal (heat) damage, while the long horizontal splits running between the plies below it are the mechanical delamination."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A polished cross-section through the strike centre of the 13-ply
+            laminate: the burnt, disrupted top ply is the electrothermal
+            (heat) damage, while the long horizontal splits running between
+            the plies below it are the mechanical delamination. Figure 4 from
+            Bigand, A.; Espinosa, C.; Bauchire, J.-M.
+            &ldquo;Destructive and Non-Destructive Analysis of
+            Lightning-Induced Damage in Protected and Painted Composite
+            Aircraft Laminates.&rdquo; <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              This two-part split is the mental model worth carrying into any
+              conversation about lightning and composites. Heat damages the
+              surface and the first ply or two. Shock separates the plies deep
+              inside. They come from the same event but behave differently,
+              and, as the paper shows, paint pushes on both.
+            </p>
+          </div>
+        </section>
+
+        <!-- The two damage sources -->
+        <section id="decompose">
+          <h2>The Two Damage Sources, and How the Strike Gets Decomposed</h2>
+
+          <p>
+            <strong>From the paper:</strong> to make sense of a genuinely
+            messy event, the authors break the loading into two contributions.
+            First, a surface explosion: the metallic protection layer and the
+            paint above it flash into vapour, producing a fast pressure shock
+            that lands on the top of the laminate. Second, a core current
+            flow: whatever current penetrates the plies heats them
+            resistively, a thermal load, and the resin it boils off can act as
+            a second, weaker mechanical push. The paper is careful to say this
+            second mechanical push is slower and small compared with the
+            surface explosion.
+          </p>
+
+          <p>
+            Crucially, the surface blast lands in the opening microseconds of
+            the strike, before peak current is even reached. That timing is
+            why the authors identify it as the dominant driver of
+            delamination. Here is the layered picture the paper works with,
+            built from its specimen description and its damage-source
+            decomposition:
+          </p>
+
+          <!-- INFOGRAPHIC 1: lstk — laminate stack + load decomposition -->
+          <div class="lstk-root" id="lstk-root">
+            <p class="lstk-eyebrow">
+              Bigand et al. &middot; Aerospace 2025 &middot; specimen &amp;
+              load decomposition
+            </p>
+            <h3 class="lstk-title">How the strike loads the laminate</h3>
+            <p class="lstk-subtitle">
+              A ~100 kA Waveform&nbsp;D arc (action integral ~250 kA&sup2;&middot;s)
+              hits the coated top face. Two loads follow: a fast surface
+              explosion and a slower core current flow.
+            </p>
+
+            <div class="lstk-chart-area">
+              <div class="lstk-arc">
+                <span class="lstk-arc-label"
+                  >Lightning arc &mdash; Waveform&nbsp;D &middot; ~100 kA peak
+                  &middot; action integral ~250 kA&sup2;&middot;s</span
+                >
+                <span class="lstk-arrow">&#9660;</span>
+              </div>
+
+              <div class="lstk-stack">
+                <div class="lstk-surface-tag lstk-tag">
+                  <span class="lstk-tag-num">1</span>
+                  <span class="lstk-tag-text"
+                    >Surface explosion &mdash; LSP + paint flash to vapour =
+                    fast <strong>mechanical</strong> shock, arrives before
+                    current peak</span
+                  >
+                </div>
+
+                <div class="lstk-layer lstk-layer-paint" data-i="0">
+                  <span class="lstk-layer-name">Paint</span>
+                  <span class="lstk-layer-spec">50&ndash;1000 &micro;m tested</span>
+                </div>
+                <div class="lstk-layer lstk-layer-lsp" data-i="1">
+                  <span class="lstk-layer-name">LSP protection</span>
+                  <span class="lstk-layer-spec"
+                    >ECF195 expanded copper foil</span
+                  >
+                </div>
+                <div class="lstk-plies" data-i="2">
+                  <div class="lstk-ply-band">
+                    <span class="lstk-layer-name">13 carbon/epoxy plies</span>
+                    <span class="lstk-layer-spec"
+                      >127 &micro;m each &middot; total laminate 1.651 mm</span
+                    >
+                  </div>
+                  <div class="lstk-ply-lines">
+                    <span></span><span></span><span></span><span></span
+                    ><span></span><span></span><span></span><span></span
+                    ><span></span><span></span><span></span><span></span
+                    ><span></span>
+                  </div>
+                </div>
+                <div class="lstk-layer lstk-layer-bottom" data-i="3">
+                  <span class="lstk-layer-name">Bottom (bare) face</span>
+                  <span class="lstk-layer-spec"
+                    >C-Scan &amp; DIC measurements taken here</span
+                  >
+                </div>
+
+                <div class="lstk-core-tag lstk-tag">
+                  <span class="lstk-tag-num">2</span>
+                  <span class="lstk-tag-text"
+                    >Core current flow &mdash; Joule heating =
+                    <strong>thermal</strong> load (plus a weak, slow
+                    mechanical load)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <p class="lstk-foot">
+              Schematic by Addcomposites, built from the specimen and
+              damage-source description in Bigand et al., Aerospace 2025, 12,
+              446.
+            </p>
+          </div>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The elegance of the paper's framing is that it lets you ask,
+              cleanly, &ldquo;if I neglect the core current entirely and treat
+              the strike as a pressure load on the surface, how wrong am
+              I?&rdquo; Much of the results section is really an effort to
+              justify exactly that simplification for normal aircraft
+              configurations, and to find where it breaks.
+            </p>
+          </div>
+        </section>
+
+        <!-- The variable: paint -->
+        <section id="paint">
+          <h2>The Variable Almost Everyone Leaves Out: Paint</h2>
+
+          <p>
+            <strong>From the paper:</strong> the authors argue that paint is
+            usually written off as decoration plus an insulating skin,
+            structurally irrelevant, and that this is a mistake. Because
+            lightning damage depends so heavily on how the arc interacts with
+            the surface, a coating that sits directly in that interaction
+            cannot be neutral. They describe two mechanisms by which paint
+            makes things worse:
+          </p>
+
+          <ol>
+            <li>
+              <strong>Confinement (mechanical).</strong> When the protection
+              layer explodes, the expanding metallic gas and pyrolysis
+              products want to vent into the air. Paint on top gets in the
+              way, holding the pressure down against the laminate for longer.
+              Earlier work cited in the paper modelled this as a simple
+              inertial mass effect, where only the paint's density and
+              thickness matter. The authors accept that but argue it is
+              incomplete.
+            </li>
+            <li>
+              <strong>Arc constraint (electrothermal).</strong> This is the
+              paper's proposed addition. Paint that survives the first
+              instants of the strike prevents the arc root from spreading
+              sideways. Bottled up like that, the arc stays narrow and forces
+              more current downward into the composite than it otherwise
+              would. So the paint does not merely trap the blast; it changes
+              where the current goes.
+            </li>
+          </ol>
+
+          <p>
+            The authors also flag, from Airbus internal investigation, that on
+            a bare panel the harm barely leaves the entry point and top ply,
+            whereas layering paint over it drives the damage deeper,
+            occasionally punching clean through.
+          </p>
+
+          <img
+            src="images/fig2-paint-thickness.jpg"
+            alt="Unprotected composite panels struck with increasing paint thickness, shown front (top row) and back (bottom row): with no paint the damage is a small surface mark, but at 100 micrometres and then 400 micrometres it grows dramatically, ending in a clean puncture punched right through the panel."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Unprotected composite panels struck with increasing paint
+            thickness, shown front (top row) and back (bottom row): with no
+            paint the damage is a small surface mark, but at 100 &micro;m and
+            then 400 &micro;m it grows dramatically, ending in a clean puncture
+            punched right through the panel. Figure 2 from Bigand et al.,
+            <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. CC BY 4.0.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The counterintuitive takeaway is that a layer added for
+              appearance and environmental protection can be the difference
+              between a scorch mark and a hole. That reframes paint thickness
+              as an engineering parameter, not a finishing detail.
+            </p>
+          </div>
+        </section>
+
+        <!-- How they tested it -->
+        <section id="testing">
+          <h2>How They Tested It</h2>
+
+          <p>
+            <strong>From the paper:</strong> the specimens were flat
+            450&nbsp;mm &times; 450&nbsp;mm plates, each built from 13
+            carbon/epoxy plies of 127&nbsp;&micro;m (IMA/M21E from Hexcel, laid
+            up and fabricated by Airbus), for a total thickness of
+            1.651&nbsp;mm, in a symmetric stacking sequence. The top face
+            carried an ECF195 expanded copper foil protection layer (Dexmet,
+            now PPG) and polyurethane paint, and took the strike. The bottom
+            face stayed bare, and its motion during the strike was tracked by
+            Digital Image Correlation.
+          </p>
+
+          <p>
+            The strikes used the standardised Waveform D: about 100 kA peak,
+            with a prescribed action integral near 250 kA&sup2;&middot;s. They
+            were generated on the EMMA facility, a one-off prototype generator
+            operated at DGA-Ta, with the arc leaping a 50&nbsp;mm gap from the
+            electrode to a panel clamped into a 370&nbsp;mm frame by twelve
+            fasteners. The configurations selected for the analysis map
+            cleanly onto the questions being asked:
+          </p>
+
+          <!-- INFOGRAPHIC 2: lcfg — configuration table -->
+          <div class="lcfg-root" id="lcfg-root">
+            <p class="lcfg-eyebrow">
+              Bigand et al. &middot; Aerospace 2025 &middot; Table 1 (redrawn)
+            </p>
+            <h3 class="lcfg-title">The seven test configurations</h3>
+            <p class="lcfg-subtitle">
+              Each row isolates one question &mdash; how paint confinement,
+              or how much current diving in with no protection, changes the
+              damage.
+            </p>
+
+            <div class="lcfg-table" role="table">
+              <div class="lcfg-head" role="row">
+                <span class="lcfg-c-purpose">Purpose</span>
+                <span class="lcfg-c-lsp">LSP</span>
+                <span class="lcfg-c-paint">Paint (&micro;m)</span>
+                <span class="lcfg-c-peak">Peak (kA)</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="0">
+                <span class="lcfg-c-purpose">Baseline painted + protected panel</span>
+                <span class="lcfg-c-lsp">ECF195</span>
+                <span class="lcfg-c-paint">400</span>
+                <span class="lcfg-c-peak">100</span>
+              </div>
+              <div class="lcfg-row lcfg-row-hi" role="row" data-r="1">
+                <span class="lcfg-c-purpose">Extreme paint confinement</span>
+                <span class="lcfg-c-lsp">ECF195</span>
+                <span class="lcfg-c-paint">1000</span>
+                <span class="lcfg-c-peak">100</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="2">
+                <span class="lcfg-c-purpose">Light paint confinement</span>
+                <span class="lcfg-c-lsp">ECF195</span>
+                <span class="lcfg-c-paint">250</span>
+                <span class="lcfg-c-peak">100</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="3">
+                <span class="lcfg-c-purpose">Thermal reference (glass-fibre panel)</span>
+                <span class="lcfg-c-lsp">ECF195</span>
+                <span class="lcfg-c-paint">400</span>
+                <span class="lcfg-c-peak">100</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="4">
+                <span class="lcfg-c-purpose">Current diving in, no LSP</span>
+                <span class="lcfg-c-lsp lcfg-none">none</span>
+                <span class="lcfg-c-paint">400</span>
+                <span class="lcfg-c-peak">5</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="5">
+                <span class="lcfg-c-purpose">Current diving in, no LSP</span>
+                <span class="lcfg-c-lsp lcfg-none">none</span>
+                <span class="lcfg-c-paint">400</span>
+                <span class="lcfg-c-peak">13</span>
+              </div>
+              <div class="lcfg-row" role="row" data-r="6">
+                <span class="lcfg-c-purpose">Current diving in, no LSP</span>
+                <span class="lcfg-c-lsp lcfg-none">none</span>
+                <span class="lcfg-c-paint">400</span>
+                <span class="lcfg-c-peak">25</span>
+              </div>
+            </div>
+            <p class="lcfg-foot">
+              Configuration summary, redrawn by Addcomposites from Table 1 in
+              Bigand et al., Aerospace 2025, 12, 446.
+            </p>
+          </div>
+
+          <p>
+            The measurement approach is what the paper's title refers to.
+            First, a C-Scan ultrasonic Non-Destructive Test mapped the
+            delamination. But the probe had to sit at the bare bottom face,
+            because the copper mesh on top interferes with the echo. That
+            geometry has a consequence the authors are candid about: a large
+            delamination near the bottom face casts an acoustic shadow over
+            smaller delaminations closer to the top, so those shallow ones are
+            under-read or missed entirely.
+          </p>
+
+          <!-- INFOGRAPHIC 3: lcsn — C-Scan acoustic shadow -->
+          <div class="lcsn-root" id="lcsn-root">
+            <p class="lcsn-eyebrow">
+              Bigand et al. &middot; Aerospace 2025 &middot; NDT limitation
+            </p>
+            <h3 class="lcsn-title">
+              Why a bottom-view C-Scan under-reads the damage
+            </h3>
+            <p class="lcsn-subtitle">
+              The echo returns from the nearest, largest delamination first;
+              shallower interfaces sit behind it acoustically. Destructive
+              micro-cuts are what recover the hidden interfaces.
+            </p>
+
+            <div class="lcsn-chart-area">
+              <div class="lcsn-panel">
+                <span class="lcsn-face lcsn-face-top">Top (arc side)</span>
+                <div class="lcsn-delam lcsn-delam-small">
+                  <span class="lcsn-delam-label"
+                    >small delamination near top
+                    <strong>&mdash; missed, in the shadow</strong></span
+                  >
+                </div>
+                <div class="lcsn-shadow"></div>
+                <div class="lcsn-delam lcsn-delam-large">
+                  <span class="lcsn-delam-label"
+                    >large delamination near bottom
+                    <strong>&mdash; seen</strong></span
+                  >
+                </div>
+                <span class="lcsn-face lcsn-face-bottom">Bottom (probe side)</span>
+                <div class="lcsn-probe">
+                  <span class="lcsn-probe-icon"></span>
+                  <span class="lcsn-probe-label">ultrasonic probe</span>
+                </div>
+              </div>
+            </div>
+            <p class="lcsn-foot">
+              Explanation by Addcomposites of the C-Scan limitation described
+              in Bigand et al., Aerospace 2025.
+            </p>
+          </div>
+
+          <p>
+            To get past that, the team froze each damaged plate in a poured
+            polyester resin block, then sliced it into strips (a 2.2&nbsp;mm
+            blade forced a minimum 14&nbsp;mm pitch between cuts), polished the
+            faces, measured delamination at every interface under an optical
+            microscope to 0.5&nbsp;mm precision, and reconstructed the full 3D
+            distribution in a custom Matlab routine. That destructive step is
+            what makes the hidden delamination visible.
+          </p>
+
+          <img
+            src="images/fig9-destructive-method.jpg"
+            alt="The destructive method in action: the resin-frozen panel being sliced on the saw, and a finished strip with the internal damage locked in the resin block — the panel's residual curve from the strike is still visible."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The destructive method in action: the resin-frozen panel being
+            sliced on the saw, and a finished strip with the internal damage
+            locked in the resin block &mdash; the panel's residual curve from
+            the strike is still visible. Figure 9 from Bigand et al.,
+            <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. CC BY 4.0.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              This dual method is a quiet but important reminder for anyone who
+              relies on a single NDT top-view map to judge a lightning event.
+              The paper demonstrates concretely that the ultrasonic picture,
+              taken alone, can understate how many interfaces have actually
+              separated.
+            </p>
+          </div>
+        </section>
+
+        <!-- The headline result -->
+        <section id="result">
+          <h2>The Headline Result: Paint Thickness Versus Delamination</h2>
+
+          <p>
+            <strong>From the paper:</strong> for an identical build (ECF195
+            protection over 1.6&nbsp;mm of CFRP, struck by a full 100 kA
+            D-wave), the only thing changed between panels was paint thickness.
+            The total projected delaminated area from the C-Scan came out as
+            follows:
+          </p>
+
+          <!-- INFOGRAPHIC 4: larea — delaminated area bar chart -->
+          <div class="larea-root" id="larea-root">
+            <p class="larea-eyebrow">
+              Bigand et al. &middot; Aerospace 2025 &middot; Figure 18 data
+            </p>
+            <h3 class="larea-title">
+              Delaminated area climbs with paint thickness
+            </h3>
+            <p class="larea-subtitle">
+              ECF195 + 100 kA D-wave, 1.6 mm CFRP, NDT projected area. Same
+              build every time &mdash; only the coating changed.
+            </p>
+
+            <div class="larea-chart-area">
+              <div class="larea-row" data-pct="0" data-val="0.0">
+                <span class="larea-label">No paint</span>
+                <div class="larea-track">
+                  <div class="larea-fill larea-fill-zero"></div>
+                </div>
+                <span class="larea-val">0.0 cm&sup2;</span>
+              </div>
+              <div class="larea-row" data-pct="9.8" data-val="40.2">
+                <span class="larea-label">250 &micro;m</span>
+                <div class="larea-track">
+                  <div class="larea-fill"></div>
+                </div>
+                <span class="larea-val">40.2 cm&sup2;</span>
+              </div>
+              <div class="larea-row" data-pct="29.1" data-val="119.6">
+                <span class="larea-label">400 &micro;m</span>
+                <div class="larea-track">
+                  <div class="larea-fill"></div>
+                </div>
+                <span class="larea-val">119.6 cm&sup2;</span>
+              </div>
+              <div class="larea-row larea-row-hi" data-pct="100" data-val="411.6">
+                <span class="larea-label">1000 &micro;m</span>
+                <div class="larea-track">
+                  <div class="larea-fill larea-fill-hi"></div>
+                </div>
+                <span class="larea-val">411.6 cm&sup2;</span>
+              </div>
+            </div>
+            <p class="larea-foot">
+              Plotted by Addcomposites from the delaminated-area values
+              reported in Figure 18 of Bigand et al., Aerospace 2025, 12, 446.
+            </p>
+          </div>
+
+          <img
+            src="images/fig18-paint-delamination.jpg"
+            alt="The same protected laminate struck at four paint thicknesses, with visual photos (top) and NDT delamination maps (bottom): the delaminated area climbs from zero with no paint to 40.2, 119.6 and 411.6 square centimetres as the coating thickens to 1000 micrometres."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The same protected laminate struck at four paint thicknesses, with
+            visual photos (top) and NDT delamination maps (bottom): the
+            delaminated area climbs from zero with no paint to 40.2, 119.6 and
+            411.6 cm&sup2; as the coating thickens to 1000 &micro;m. Figure 18
+            from Bigand et al., <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. CC BY 4.0.
+          </p>
+
+          <p>
+            The two ends of that range tell the story. With no paint at all,
+            the foil absorbed the strike as intended: it burned off at the
+            surface and the plies underneath came through mechanically
+            untouched. Add a millimetre of paint over the same protection, and
+            the delaminated area jumps past 400 cm&sup2;. And the relationship
+            is not proportional; past a certain coating depth, as the bar chart
+            shows, the curve steepens.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The zero-versus-411 contrast is the single most quotable number
+              in this paper. It reframes the protection layer's success as
+              conditional on what sits above it. A protection scheme that looks
+              flawless on a bare coupon can be undermined by the finishing
+              coat.
+            </p>
+          </div>
+        </section>
+
+        <!-- Where the damage goes in depth -->
+        <section id="depth">
+          <h2>Where the Damage Goes in Depth</h2>
+
+          <p>
+            <strong>From the paper:</strong> thickness area is only half the
+            picture. The depth of penetration is the other half, and it
+            behaves differently for thermal and mechanical damage. For the
+            extreme 1000&nbsp;&micro;m configuration, the authors performed a
+            micro-cut through the centre and read off exactly which plies had
+            burned:
+          </p>
+
+          <!-- INFOGRAPHIC 5: ldep — thermal penetration depth -->
+          <div class="ldep-root" id="ldep-root">
+            <p class="ldep-eyebrow">
+              Bigand et al. &middot; Aerospace 2025 &middot; severe-case
+              micro-cut
+            </p>
+            <h3 class="ldep-title">Thermal burn stops at ply 4</h3>
+            <p class="ldep-subtitle">
+              CFRP + ECF195 + 1000 &micro;m paint (extreme, not a normal
+              aircraft coat). Even here the burn reaches ~508 &micro;m &mdash;
+              about 31% into the 1.651 mm stack.
+            </p>
+
+            <div class="ldep-chart-area">
+              <div class="ldep-row" data-pct="100">
+                <span class="ldep-ply">Ply 1</span>
+                <div class="ldep-track">
+                  <div class="ldep-fill ldep-fill-max"></div>
+                </div>
+                <span class="ldep-state">destroyed</span>
+              </div>
+              <div class="ldep-row" data-pct="72">
+                <span class="ldep-ply">Ply 2</span>
+                <div class="ldep-track">
+                  <div class="ldep-fill"></div>
+                </div>
+                <span class="ldep-state">highly damaged</span>
+              </div>
+              <div class="ldep-row" data-pct="48">
+                <span class="ldep-ply">Ply 3</span>
+                <div class="ldep-track">
+                  <div class="ldep-fill"></div>
+                </div>
+                <span class="ldep-state">burned</span>
+              </div>
+              <div class="ldep-row ldep-row-mark" data-pct="26">
+                <span class="ldep-ply">Ply 4</span>
+                <div class="ldep-track">
+                  <div class="ldep-fill"></div>
+                </div>
+                <span class="ldep-state"
+                  >deepest burned ply &mdash; ~508 &micro;m reached</span
+                >
+              </div>
+              <div class="ldep-row ldep-row-intact" data-pct="0">
+                <span class="ldep-ply">Plies 5&ndash;13</span>
+                <div class="ldep-track">
+                  <div class="ldep-fill"></div>
+                </div>
+                <span class="ldep-state">intact</span>
+              </div>
+            </div>
+            <div class="ldep-note">
+              At usual aircraft paint thickness (250&ndash;400 &micro;m): only
+              <strong>Ply 1</strong> burns &mdash; which is why the plate's
+              overall stiffness is not meaningfully changed.
+            </div>
+            <p class="ldep-foot">
+              Depth diagram by Addcomposites, from the internal-damage findings
+              for the severe configuration in Bigand et al., Aerospace 2025.
+            </p>
+          </div>
+
+          <p>
+            Even under this deliberately severe case, the thermal burn stopped
+            at ply 4, about 508&nbsp;&micro;m into a 1.65&nbsp;mm stack. The
+            authors explain why: carbon's resistance is high enough that the
+            current only dips in locally before rerouting back to the copper
+            foil above, so the burn never spreads far. And at the paint
+            thicknesses aircraft actually carry, roughly 250 to 400&nbsp;&micro;m,
+            only the first ply burns, which is why the plate's overall
+            stiffness is not meaningfully changed.
+          </p>
+
+          <p>
+            To probe how much current really reaches the plies, the team also
+            struck unprotected but painted panels at 5, 13 and 25 kA (a quarter
+            of the full wave, an amount they argue the composite is unlikely to
+            exceed once a protection layer is present). Even the worst of
+            these, 25 kA, produced delamination reaching only to about the
+            sixth ply, and the topmost separation between the first two plies
+            came from thermal stress alone. Against the protected reference
+            struck at the full 100 kA, this unprotected-panel damage was far
+            smaller and shallower.
+          </p>
+
+          <img
+            src="images/fig16-current-panels.jpg"
+            alt="Delamination in three unprotected, painted panels struck at 5, 13 and 25 kA (left to right): the coloured NDT maps on top and the panel photos below show the damage reaching deeper as current rises, while the overall affected area stays small."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Delamination in three unprotected, painted panels struck at 5, 13
+            and 25 kA (left to right): the coloured NDT maps on top and the
+            panel photos below show the damage reaching deeper as current
+            rises, while the overall affected area stays small. Figure 16 from
+            Bigand et al., <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. CC BY 4.0.
+          </p>
+
+          <p>
+            A separate glass-fibre control panel confirmed the mechanism:
+            since the glass substrate is non-conductive, the foil eroded
+            exactly as it would have if every amp had remained in the foil,
+            showing that only a limited amount ever diverts into the carbon
+            plies.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The depth findings are reassuring in one direction and
+              cautionary in another. Reassuring, because at real paint
+              thicknesses the heat stays shallow. Cautionary, because the same
+              paint that keeps heat shallow is simultaneously widening the
+              mechanical delamination underneath, which is the damage you
+              cannot see from the outside.
+            </p>
+          </div>
+        </section>
+
+        <!-- Why the surface shock drives delamination -->
+        <section id="mechanism">
+          <h2>Why the Surface Shock, Not the Core Current, Drives Delamination</h2>
+
+          <p>
+            <strong>From the paper:</strong> the authors close the loop with a
+            Digital Image Correlation comparison. Using non-conductive
+            glass-fibre substrates, some capped with a single carbon ply and
+            some not, all protected and painted, they measured how the back
+            face moved during the strike. Adding or removing that single carbon
+            ply barely moved the back-face deflection, which led them to
+            conclude that the composite's own explosion contributes negligibly
+            to the mechanical load, at least while damage stays confined to the
+            top plies.
+          </p>
+
+          <p>
+            They also point to the timing of puncture cases in the literature:
+            when a panel is actually holed, it happens within a few
+            microseconds, far faster than a mechanical shock could act, which
+            pins early perforation on an electrothermal punch-through, current
+            boring a tight hole faster than the surface blast could ever
+            arrive.
+          </p>
+
+          <img
+            src="images/fig5-two-loads.png"
+            alt="A schematic of how the strike is broken into two loads: at the surface (1) the LSP and paint flash to vapour, creating a fast mechanical shock, while below it (2) the current diving into the plies produces a thermal load plus a weaker mechanical one."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A schematic of how the strike is broken into two loads: at the
+            surface (1) the LSP and paint flash to vapour, creating a fast
+            mechanical shock, while below it (2) the current diving into the
+            plies produces a thermal load plus a weaker mechanical one. Figure
+            5 from Bigand et al., <em>Aerospace</em> 2025, 12, 446.
+            <a
+              href="https://doi.org/10.3390/aerospace12050446"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/aerospace12050446</a
+            >
+            &mdash; &copy; 2025 by the authors. CC BY 4.0.
+          </p>
+
+          <p>
+            So the picture the paper assembles is: within normal paint
+            thicknesses, the delamination that matters is a mechanical event,
+            driven by the surface explosion, amplified by the paint that
+            confines it, and migrating toward the strike face as the coating
+            gets heavier. The core current's thermal damage is real but stays
+            shallow and localised, and its mechanical contribution can be set
+            aside, provided the burn does not reach deep.
+          </p>
+        </section>
+
+        <!-- Our perspective: manufacturing -->
+        <section id="perspective">
+          <h2>Our Perspective: What This Means for Building Painted CFRP Skins</h2>
+
+          <div class="perspective-box perspective-box-lead">
+            <p>
+              Everything in this section is Addcomposites' own analysis. The
+              paper's authors do not address manufacturing methods, and nothing
+              here should be read as their endorsement of any company, product
+              or process.
+            </p>
+          </div>
+
+          <p>
+            At Addcomposites, we build automated fibre placement systems, the
+            <a
+              href="https://www.addcomposites.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AFP-XS and AFP-X</a
+            >, that produce the CFRP fuselage panels, wing skins and control
+            surfaces this research is ultimately about. Reading a study like
+            this from the production side, a few points stand out.
+          </p>
+
+          <img
+            src="images/afp-heads.jpg"
+            alt="The AFP-XS and AFP-X heads depositing carbon fibre tow onto aerospace panel tooling. In-situ heating and compaction at the nip point give ply-by-ply control over orientation and over where any conductive or protective layer lands in the stack."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The AFP-XS and AFP-X heads depositing carbon fibre tow onto
+            aerospace panel tooling. In-situ heating and compaction at the nip
+            point give ply-by-ply control over orientation and over where any
+            conductive or protective layer lands in the stack.
+          </p>
+
+          <p>
+            First, lightning protection performance is a whole-stack property.
+            This paper is a clean demonstration that the same laminate and the
+            same protection layer can give wildly different outcomes depending
+            on what sits on top. That argues for treating the protection
+            layer's integration with the AFP-deposited plies, and the
+            placement of any conductive interlayer, as a design decision made
+            alongside the layup, not bolted on afterward. AFP gives you
+            deterministic, repeatable control over ply orientation and over
+            where an added functional layer lands in the stack, which is
+            exactly the kind of control that matters when the top few plies are
+            the ones taking the hit.
+          </p>
+
+          <p>
+            Second, the paper's demonstration that bottom-view NDT can miss
+            shallow delamination is a useful input for anyone specifying
+            inspection and repair zones after a strike. If the ultrasonic map
+            understates near-surface separation, the realistic damaged volume,
+            and therefore the repair envelope, may be larger than a single
+            top-view scan suggests. Production data on exactly how the skin was
+            built, ply by ply, makes those post-event assessments more
+            grounded.
+          </p>
+
+          <p>
+            Third, and most simply, this is a reminder that test coupons should
+            look like flight hardware. A protection scheme validated on a bare
+            panel is validated for a condition that never flies. Manufacturers
+            who can produce representative painted, protected panels at will,
+            using the same process that makes the real part, are better placed
+            to characterise their materials against realistic strikes rather
+            than idealised ones.
+          </p>
+
+          <p>
+            None of this changes the physics the paper describes. It just
+            points at where a repeatable, well-instrumented AFP process can
+            help turn findings like these into build and inspection practice.
+          </p>
+
+          <div class="cta-section">
+            <p>
+              Talk to the Addcomposites team about producing representative
+              painted, protected CFRP panels with repeatable, ply-by-ply AFP
+              control &rarr;
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/"
+              class="cta-button"
+              >Get in Touch with Addcomposites</a
+            >
+          </div>
+
+          <img
+            src="images/closing-banner.jpg"
+            alt="Addcomposites — ideate, innovate, automate."
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- References -->
+        <section id="references">
+          <h2>Read the Research</h2>
+
+          <p>
+            This post summarises and comments on open-access work by its
+            original authors. For the full methodology, figures and data, read
+            the paper directly:
+          </p>
+
+          <ol class="references-list">
+            <li>
+              Bigand, A.; Espinosa, C.; Bauchire, J.-M.
+              <em
+                >Destructive and Non-Destructive Analysis of Lightning-Induced
+                Damage in Protected and Painted Composite Aircraft
+                Laminates.</em
+              >
+              Aerospace 2025, 12, 446.
+              <a
+                href="https://doi.org/10.3390/aerospace12050446"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://doi.org/10.3390/aerospace12050446</a
+              >. Published 19 May 2025, open access under the Creative Commons
+              Attribution (CC BY 4.0) license. Affiliations: Institut Clement
+              Ader (ICA), Universite de Toulouse / ISAE-SUPAERO; Airbus
+              Operations SAS; GREMI, CNRS-University of Orleans.
+            </li>
+          </ol>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand
+                the prohibitive costs of traditional Automated Fiber
+                Placement (AFP) systems. This experience became the driving
+                force behind his entrepreneurial venture, Addcomposites Oy,
+                which he co-founded and now leads as CEO. The company is
+                dedicated to democratizing advanced manufacturing by
+                developing patented, plug-and-play AFP toolheads that make
+                automation accessible and affordable. This unique journey
+                from designing space-grade hardware to leading a disruptive
+                technology company provides Pravin with a comprehensive,
+                real-world perspective that informs his writing on the future
+                of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
