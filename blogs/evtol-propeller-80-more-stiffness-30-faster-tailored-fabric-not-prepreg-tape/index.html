@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      A Redesigned eVTOL Propeller Gained 80% More Stiffness and Cut Production
+      Time by 30%: Using Fabric, Not Prepreg Tape | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A 2025 CEAS Aeronautical Journal study rebuilt an eVTOL propeller around stitch-free tailored non-crimp fabrics and a design tool that puts manufacturing cost in the loop — gaining 97% bending and 83% torsional stiffness while cutting labour and time by roughly 30%. Our summary of what the redesign actually bought, and where it connects to automated fibre placement."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#problem" class="blog-sidebar-link">A manufacturing problem</a>
+          <a href="#benchmark" class="blog-sidebar-link">The benchmark blade</a>
+          <a href="#tncf" class="blog-sidebar-link">One tailored fabric</a>
+          <a href="#material" class="blog-sidebar-link">Changing the material twice</a>
+          <a href="#proptimize" class="blog-sidebar-link">Proptimize: cost in the loop</a>
+          <a href="#results" class="blog-sidebar-link">What the redesign bought</a>
+          <a href="#afp" class="blog-sidebar-link">Where AFP fits</a>
+          <a href="#unfinished" class="blog-sidebar-link">What's unfinished</a>
+          <a href="#signal" class="blog-sidebar-link">The bigger signal</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>
+          A Redesigned eVTOL Propeller Gained 80% More Stiffness and Cut
+          Production Time by 30%: Using Fabric, Not Prepreg Tape
+        </h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            July 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            12 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview -->
+        <section id="overview">
+          <img
+            src="images/hero.jpg"
+            alt="The future of eVTOL propellers — why fabric is replacing prepreg tape. An Addcomposites analysis of a 2025 CEAS Aeronautical Journal study on tailored non-crimp fabrics for urban air mobility rotors."
+            class="full-width-image"
+          />
+          <p class="drop-cap">
+            Urban air mobility keeps promising a future where short hops between
+            airports, city centres, and outlying landing pads happen by air
+            instead of by road. But the aircraft meant to deliver that future
+            run into a stubborn engineering contradiction at the component
+            level. Nowhere is that contradiction sharper than in the propeller.
+          </p>
+
+          <p>
+            An eVTOL propeller has to behave like an aerospace part: stiff,
+            fatigue-tolerant, dimensionally stable, and trustworthy enough to
+            satisfy aviation-grade quality expectations. At the same time, it
+            has to be produced like an automotive part, in the tens of
+            thousands, quickly, cheaply, and repeatably. Traditional
+            high-performance composite propeller manufacturing, built on hand
+            lay-up and prepreg tape, is very good at the first requirement and
+            quite bad at the second.
+          </p>
+
+          <p>
+            A 2025 open-access study in the <em>CEAS Aeronautical Journal</em>
+            takes that contradiction head-on. Rico Hubert, Tobias A. Weber, Lars
+            Linnemann, Brian G. Falzon, and Adrian C. Orifici document a
+            research and development project (branded &ldquo;pro.EVOLUTION&rdquo;)
+            that rebuilt an eVTOL propeller around tailored non-crimp fabrics
+            (T-NCFs), stitch-free layers held together with adhesive rather than
+            thread, and a custom design tool called &ldquo;Proptimize.&rdquo; The
+            paper was published online on 19 August 2025 and is licensed under
+            Creative Commons Attribution 4.0. What follows is our summary of
+            that work, with a clear line drawn between what the paper reports and
+            where Addcomposites adds its own commentary.
+          </p>
+        </section>
+
+        <!-- A manufacturing problem -->
+        <section id="problem">
+          <h2>
+            Why eVTOL Propellers Are a Manufacturing Problem, Not Just a Design
+            Problem
+          </h2>
+
+          <p>
+            The paper frames the challenge with market numbers. According to the
+            authors, eVTOL vehicle production is projected to climb from roughly
+            500 units in 2025 to about 15,000 units by 2035, and one cited
+            forecast anticipates on the order of 160,000 electric urban air
+            mobility vehicles over a thirty-year horizon. Because these are small
+            passenger aircraft that carry several rotors each, the propeller
+            count multiplies fast.
+          </p>
+
+          <img
+            src="images/evtol-taxi.jpg"
+            alt="A multi-rotor eVTOL air taxi on final approach to a rooftop vertiport."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A multi-rotor eVTOL air taxi on final approach to a rooftop
+            vertiport, illustrating the urban air mobility use case that is
+            projected to scale from hundreds to hundreds of thousands of
+            aircraft over the next decade.
+          </p>
+
+          <p>
+            The study puts a concrete figure on the bottleneck: it estimates
+            that one worker on the current hand-lamination line manages on the
+            order of 1,800 blades a year, while the segment may need something
+            close to a million blades by 2035. The authors argue that the real
+            barrier to scaling isn't lightweight design on its own; it's moving
+            proven, repeatable, quantifiable processes into high-volume
+            production without giving up aviation's safety margins.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              This is the exact pressure point Addcomposites hears about from
+              customers building rotor and propeller structures. The physics of
+              a good blade is well understood. The manufacturing economics are
+              what decide whether a program survives contact with a production
+              ramp. The paper is useful precisely because it treats
+              manufacturing cost and labour as first-class design variables
+              rather than afterthoughts.
+            </p>
+          </div>
+        </section>
+
+        <!-- The benchmark blade -->
+        <section id="benchmark">
+          <h2>
+            The Benchmark: A Hand-Laid State-of-the-Art Blade, and Where It
+            Leaks Time and Money
+          </h2>
+
+          <p>
+            The reference point for the study is the H25F propeller from
+            Helix-Carbon GmbH. The paper describes it as an eVTOL blade that has
+            already been empirically refined, with a span of about 1.8 m
+            producing roughly 380 N of thrust at 5 kW of electrical power. It is
+            a high-aspect-ratio blade built as a hollow all-composite shell
+            around a spacer-fabric core, and it was developed through around ten
+            trial-and-error iterations of static and dynamic bench testing.
+          </p>
+
+          <img
+            src="images/h25f-benchmark.png"
+            alt="The H25F benchmark propeller from Helix-Carbon GmbH: a single high-aspect-ratio carbon-fibre eVTOL blade, roughly 1.8 m in span."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The H25F benchmark propeller from Helix-Carbon GmbH: a single
+            high-aspect-ratio carbon-fibre eVTOL blade, roughly 1.8 m in span,
+            shown against a plain background. This hand-laid, empirically refined
+            blade is the state-of-the-art reference the study measures its
+            redesign against. Figure 2 from Hubert et&nbsp;al., <em>CEAS
+            Aeronautical Journal</em> 2026, 17, 810.
+            <a
+              href="https://doi.org/10.1007/s13272-025-00880-9"
+              target="_blank"
+              rel="noopener noreferrer"
+              >doi.org/10.1007/s13272-025-00880-9</a
+            >
+            &mdash; &copy; 2025 the authors, licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            Its structural lay-up leans on three separate semi-finished
+            products: a 245 g/m&sup2; carbon fabric at 0/90&deg;, a 110
+            g/m&sup2; carbon fabric at &plusmn;45&deg;, and a 250 g/m&sup2;
+            unidirectional ultra-high-modulus (UHM) carbon tape at 0&deg;. The
+            authors report that the UHM tape, while stiff, wetted out poorly and
+            produced inconsistent results, so it was restricted to less than a
+            quarter of the wall thickness in each half-shell.
+          </p>
+
+          <p>
+            The material testing exposed the reproducibility problem plainly.
+            The paper reports a mean fibre volume fraction around 0.32 for the
+            propellers, but scatter in the individual material tests ran high, up
+            to 28% for stiffness on the UHM tape and 24% for compressive
+            strength, against an aviation expectation that scatter should sit
+            below roughly 5%. As the authors write, specimens made this way,
+            &ldquo;without additional pressurization/compaction,&rdquo; tended
+            toward low structural-design allowables.
+          </p>
+
+          <p>
+            Then there is the sheer choreography of building it. The blade is
+            divided into eight distinct lay-up sections, which means cutting and
+            placing a large number of plies by hand. The paper puts the
+            manufacturing time for a two-blade propeller at roughly 210 minutes
+            excluding cure, with cutting the single most time-consuming step, and
+            it breaks the cost down as shown below.
+          </p>
+
+          <div class="pcost-root" id="pcost-root">
+  <p class="pcost-eyebrow">H25F BENCHMARK · HAND LAY-UP</p>
+  <p class="pcost-title">Where the cost and time go</p>
+  <p class="pcost-subtitle">Production-cost share of a hand-laid two-blade propeller, and the ~210 min of hands-on time it takes (excl. cure). Built by Addcomposites from figures reported in the paper, Sect. 2.3.</p>
+  <div class="pcost-chart-area">
+    <div class="pcost-hero">
+      <p class="pcost-hero-num">~210 min</p>
+      <p class="pcost-hero-sub">hands-on time per two-blade propeller (excl. cure)</p>
+    </div>
+    <div class="pcost-bars">
+      <div class="pcost-row">
+        <div class="pcost-rowhead">
+          <span class="pcost-label">Fibre-reinforced materials</span>
+          <span class="pcost-pct">32%</span>
+        </div>
+        <div class="pcost-track">
+          <div class="pcost-fill pcost-blue" data-pct="32"></div>
+        </div>
+      </div>
+      <div class="pcost-row">
+        <div class="pcost-rowhead">
+          <span class="pcost-label">Manual labour (lamination)</span>
+          <span class="pcost-pct">26%</span>
+        </div>
+        <div class="pcost-track">
+          <div class="pcost-fill pcost-blue" data-pct="26"></div>
+        </div>
+      </div>
+      <div class="pcost-row">
+        <div class="pcost-rowhead">
+          <span class="pcost-label">Cutting processes <span class="pcost-tag">bottleneck</span></span>
+          <span class="pcost-pct pcost-pct-red">20%</span>
+        </div>
+        <div class="pcost-track">
+          <div class="pcost-fill pcost-red" data-pct="20"></div>
+        </div>
+      </div>
+      <div class="pcost-row">
+        <div class="pcost-rowhead">
+          <span class="pcost-label">Remaining share</span>
+          <span class="pcost-pct">22%</span>
+        </div>
+        <div class="pcost-track">
+          <div class="pcost-fill pcost-gray" data-pct="22"></div>
+        </div>
+      </div>
+    </div>
+    <p class="pcost-footnote">Most time-consuming single step: cutting the dry material — 8 lay-up sections × 3 structural fibre materials.</p>
+  </div>
+</div>
+
+          <p>
+            Put together, the benchmark is an honest picture of the industry's
+            current ceiling: capable blades, but a diverse material catalogue and
+            a manual process that the authors argue does not meet future
+            certification needs for the sector.
+          </p>
+        </section>
+
+        <!-- One tailored fabric -->
+        <section id="tncf">
+          <h2>The Core Idea: Fold Many Plies Into One Tailored Fabric</h2>
+
+          <p>
+            The project's central move is to stop building the laminate from many
+            individual plies and instead pre-combine them into a single
+            engineered fabric. That fabric is the tailored non-crimp fabric.
+          </p>
+
+          <p>
+            A conventional NCF holds its layers together with stitching. The
+            approach here is stitch-free: the unidirectional layers are bonded
+            across their full contact area with a thermally activated adhesive
+            binder. That sidesteps stitching entirely, along with the dedicated
+            equipment it needs and the fibre breakage it can cause. The paper
+            describes producing these fabrics on a winding-based process it calls
+            &ldquo;Fibraforce Technology,&rdquo; developed by Fibraworks GmbH and
+            demonstrated on a prototype machine designated MD25.
+          </p>
+
+          <img
+            src="images/tncf-45deg.jpg"
+            alt="A ±45° tailored non-crimp fabric being produced on the MD25 prototype using Fibraforce Technology with TeXtreme Gapped UD."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A &plusmn;45&deg; tailored non-crimp fabric being produced on the
+            MD25 prototype using Fibraforce Technology with TeXtreme Gapped UD.
+            The dry unidirectional tows are laid down on the winding platform at
+            the set angle, showing how a single stitch-free fabric is built up in
+            place of separately cut and stacked plies. Figure 8 from Hubert
+            et&nbsp;al., <em>CEAS Aeronautical Journal</em> 2026, 17, 815.
+            &copy; 2025 the authors, CC BY 4.0.
+          </p>
+
+          <p>
+            One practical feature is how the process sets fibre angle. Rather
+            than laying orientations down in separate discontinuous steps, the
+            angle set on the winding machine is the angle the fibres end up
+            sitting at in the finished fabric, tunable across roughly 30&deg; to
+            70&deg;. The authors report the prototype producing fabric up to 850
+            mm wide at speeds up to 9 m/min, which works out to a productivity of
+            about 765 m&sup2;/h at a &plusmn;45&deg; winding angle, with a
+            projected path toward far higher throughput if the width is extended.
+          </p>
+
+          <img
+            src="images/winding-60deg.jpg"
+            alt="Example winding at a ±60° angle on the MD25 prototype, with the key machine elements labelled."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Example winding at a &plusmn;60&deg; angle on the MD25 prototype,
+            with the key elements labelled: the winding plane (1), the two
+            unwinders (2) that feed and tension the UD-tape (4), the conveyer
+            belts (3), the guidance deflection barrels (5) that wrap the tape
+            around the winding plane, and the tensioning elements (6). Figure 5
+            from Hubert et&nbsp;al., <em>CEAS Aeronautical Journal</em> 2026, 17,
+            814; figure sourced from ref.&nbsp;[35] (JEC Group).
+          </p>
+
+          <p>
+            Crucially, a T-NCF can be given a general structure the authors
+            express as [&plusmn;&alpha;, 0<sub>n</sub>, 90<sub>m</sub>, Patches]
+            &mdash; an outer pair of angle plies, some number of 0&deg; layers,
+            some number of 90&deg; layers, and optional local reinforcing
+            patches. That single stack can carry the torsional, bending, and
+            strength duties that previously required three different materials.
+          </p>
+
+          <p>Here is what that consolidation does to the blade's build complexity:</p>
+
+          <div class="pcplx-root" id="pcplx-root">
+  <p class="pcplx-eyebrow">PROCESS REDESIGN · SECT. 3.2</p>
+  <p class="pcplx-title">Lay-up complexity: before vs after</p>
+  <p class="pcplx-subtitle">Folding many individual plies into pre-combined tailored non-crimp fabrics collapses the blade's build. Built by Addcomposites from process figures reported in the paper, Sect. 3.2.</p>
+  <div class="pcplx-chart-area">
+    <div class="pcplx-grid">
+      <div class="pcplx-corner" aria-hidden="true"></div>
+      <div class="pcplx-head pcplx-head-before">Hand lay-up (benchmark)</div>
+      <div class="pcplx-head pcplx-head-after">T-NCF + infusion</div>
+
+      <div class="pcplx-rowlabel">Plies to cut</div>
+      <div class="pcplx-cell pcplx-cell-before">18 individual plies</div>
+      <div class="pcplx-cell pcplx-cell-after">6 T-NCFs + 6 UD tapes</div>
+
+      <div class="pcplx-rowlabel">Materials</div>
+      <div class="pcplx-cell pcplx-cell-before">3 structural fibres</div>
+      <div class="pcplx-cell pcplx-cell-after">1 single fibre material</div>
+
+      <div class="pcplx-rowlabel">Sections</div>
+      <div class="pcplx-cell pcplx-cell-before">8 lay-up zones</div>
+      <div class="pcplx-cell pcplx-cell-after">5 lay-up zones</div>
+
+      <div class="pcplx-rowlabel">Wetting</div>
+      <div class="pcplx-cell pcplx-cell-before">wet each ply by hand</div>
+      <div class="pcplx-cell pcplx-cell-after">~15 min single infusion</div>
+    </div>
+
+    <div class="pcplx-callout">
+      <p class="pcplx-callout-main">Cutting time reduced by more than 35%</p>
+      <p class="pcplx-callout-sub">rectangular tapes are far easier to cut than plies shaped to the blade contour</p>
+    </div>
+  </div>
+</div>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The deeper lesson here is about part integration. Every ply you
+              eliminate is a cut, a placement, an alignment check, and an
+              opportunity for scatter that you remove from the shop floor.
+              Whether the route is a pre-consolidated fabric or automated
+              deposition, the winning move for eVTOL volumes is the same: reduce
+              the number of discrete manual operations per part.
+            </p>
+          </div>
+        </section>
+
+        <!-- Changing the material twice -->
+        <section id="material">
+          <h2>Changing the Process, Then Changing the Material Twice</h2>
+
+          <p>
+            Consolidating plies forced a second decision. The paper explains that
+            once you try to wet out a whole bonded stack in a single shot instead
+            of layer by layer, hand lamination can no longer saturate it
+            reliably, so the team moved the propeller to vacuum infusion. The
+            authors note this was chosen deliberately as a reproducible technique
+            that could slot into existing workstations with only modest
+            additions, mainly vacuum pumps and tubing, keeping the transition
+            fast and inexpensive.
+          </p>
+
+          <p>
+            The material path was less smooth, and the paper is candid about it.
+            The team first selected a single low-cost fibre, the industrial-grade
+            Panex PX35 from Zoltek, processed into an 80 g/m&sup2; unidirectional
+            fabric (Unidry) from UNI-CARBON. On paper it was ideal: cheap,
+            available, high strength. In practice, the authors report that Unidry
+            proved much harder to saturate than expected because its dense,
+            homogeneous fibre packing resisted resin flow, which drove up
+            porosity and kept scatter high in tension and interlaminar shear.
+          </p>
+
+          <img
+            src="images/porosity-voids.png"
+            alt="A section cut through a propeller made from Unidry 80 g/m², with a magnified view of the laminate showing black porosity voids."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            A section cut through a propeller made from Unidry 80 g/m&sup2;, with
+            a magnified view of the laminate. The black regions are porosity
+            voids left by insufficient resin saturation (the white core section
+            is excluded), a direct picture of the infiltration problem that
+            pushed the team to switch reinforcement materials. Figure 19 from
+            Hubert et&nbsp;al., <em>CEAS Aeronautical Journal</em> 2026, 17, 823.
+            &copy; 2025 the authors, CC BY 4.0.
+          </p>
+
+          <p>
+            So they switched a second time, to TeXtreme Gapped UD from Oxeon AB,
+            a dry reinforcement in which the fibre tows are spaced with precise
+            openings that give resin room to travel through the stack. Its UTS50
+            fibres behave mechanically much like the Panex PX35 grade, so
+            stiffness and strength stayed comparable, but infiltration improved
+            dramatically. The paper reports experimental scatter in the shear
+            results falling from more than 9% with Unidry to roughly 4% with the
+            gapped material.
+          </p>
+
+          <p>
+            The payoff shows up most clearly in fibre volume fraction, which is a
+            direct lever on both stiffness and quality:
+          </p>
+
+          <div class="pvf-root" id="pvf-root">
+  <p class="pvf-eyebrow">MATERIAL QUALITY · SECT. 3.3.1 / 5.3</p>
+  <p class="pvf-title">Fibre volume fraction climbing toward the target</p>
+  <p class="pvf-subtitle">Vf is a direct lever on both stiffness and quality. Built by Addcomposites from Vf values reported in the paper.</p>
+  <div class="pvf-chart-area">
+    <div class="pvf-track-wrap">
+      <div class="pvf-threshold" aria-hidden="true">
+        <span class="pvf-threshold-line"></span>
+        <span class="pvf-threshold-label">Proptimize quality target: Vf &gt; 0.45</span>
+      </div>
+
+      <div class="pvf-row">
+        <div class="pvf-row-head">
+          <span class="pvf-name">Benchmark, hand lay-up</span>
+        </div>
+        <div class="pvf-track">
+          <div class="pvf-bar pvf-bar-gray" data-vf="0.32">
+            <span class="pvf-val">0.32</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pvf-row">
+        <div class="pvf-row-head">
+          <span class="pvf-name">Unidry T-NCF, infusion</span>
+          <span class="pvf-delta pvf-delta-blue">+28%</span>
+        </div>
+        <div class="pvf-track">
+          <div class="pvf-bar pvf-bar-blue" data-vf="0.41">
+            <span class="pvf-val">0.41</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pvf-row">
+        <div class="pvf-row-head">
+          <span class="pvf-name">TeXtreme T-NCF demonstrator</span>
+          <span class="pvf-delta pvf-delta-red">+68% vs benchmark</span>
+        </div>
+        <div class="pvf-track">
+          <div class="pvf-bar pvf-bar-red" data-vf="0.54">
+            <span class="pvf-val">0.54</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pvf-scale" aria-hidden="true">
+      <span>0</span><span>0.15</span><span>0.30</span><span>0.45</span><span>0.60</span>
+    </div>
+  </div>
+</div>
+
+          <p>
+            For the binder itself, a weighted comparison of candidates led the
+            team to a thermoplastic adhesive web, Spunfab PA1203 at 6 g/m&sup2;,
+            chosen for its balance of processing maturity, cost, and minimal drag
+            on the fabric's permeability.
+          </p>
+
+          <img
+            src="images/spunfab-binder.jpg"
+            alt="The stitch-free binder in two states: a T-NCF with the Spunfab adhesive web before processing, and the same layers after thermal activation."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The stitch-free binder in two states. Left: a T-NCF with the Spunfab
+            adhesive web laid over the carbon fibres before processing. Right: the
+            same layers after thermal activation, where the melted thermoplastic
+            binder has bonded the fibre plies together &mdash; the bonding
+            mechanism that replaces stitching across the fabric's full contact
+            area. Figure 7 from Hubert et&nbsp;al., <em>CEAS Aeronautical
+            Journal</em> 2026, 17, 815; figure from ref.&nbsp;[45].
+          </p>
+        </section>
+
+        <!-- Proptimize -->
+        <section id="proptimize">
+          <h2>Proptimize: Putting Manufacturing Cost Inside the Design Loop</h2>
+
+          <p>
+            The design tool is where the study's philosophy becomes concrete. The
+            authors argue that conventional design tends to chase the flight
+            numbers first and leave how the part will actually be built for
+            later, which is what drives low production rates and high scrap.
+            Proptimize is built to optimise against several competing objectives
+            at once, including some the authors describe as &ldquo;soft
+            factors&rdquo; that are handled through statistically determined
+            thresholds rather than clean equations.
+          </p>
+
+          <p>
+            The tool is organised as three linked modules that iterate until
+            every constraint is satisfied.
+          </p>
+
+          <div class="ploop-root" id="ploop-root">
+  <p class="ploop-eyebrow">PROPTIMIZE · SECT. 4 / FIG. 18</p>
+  <p class="ploop-title">Three modules, one iterative loop</p>
+  <p class="ploop-subtitle">Mechanical, quality and economic checks iterate until all thresholds are met at once. Redrawn by Addcomposites from the process described in Fig. 18 / Sect. 4 — not the figure itself.</p>
+  <div class="ploop-chart-area">
+
+    <div class="ploop-inputs">
+      <div class="ploop-chip" data-step="0">
+        <span class="ploop-chip-label">User input</span>
+        <span class="ploop-chip-sub">mechanical requirements</span>
+      </div>
+      <div class="ploop-chip" data-step="0">
+        <span class="ploop-chip-label">CAD geometry</span>
+        <span class="ploop-chip-sub">aero profile</span>
+      </div>
+    </div>
+
+    <div class="ploop-arrow" data-step="1" aria-hidden="true">
+      <span class="ploop-arrow-line"></span>
+      <svg class="ploop-arrow-head" viewBox="0 0 12 8"><path d="M0 0 L6 8 L12 0 Z"/></svg>
+    </div>
+
+    <div class="ploop-flow">
+
+      <div class="ploop-module" data-step="2">
+        <div class="ploop-mod-head">
+          <span class="ploop-mod-title">Mechanical module</span>
+          <span class="ploop-tag">ANSYS FE analysis</span>
+        </div>
+        <ul class="ploop-list">
+          <li>1) twist check</li>
+          <li>2) bending check</li>
+          <li>3) failure (IRF, Puck)</li>
+        </ul>
+        <p class="ploop-note">re-designs the laminate if a limit fails</p>
+      </div>
+
+      <div class="ploop-arrow" data-step="3" aria-hidden="true">
+        <span class="ploop-arrow-line"></span>
+        <svg class="ploop-arrow-head" viewBox="0 0 12 8"><path d="M0 0 L6 8 L12 0 Z"/></svg>
+      </div>
+
+      <div class="ploop-module" data-step="4">
+        <div class="ploop-mod-head">
+          <span class="ploop-mod-title">Quality module</span>
+        </div>
+        <ul class="ploop-list">
+          <li>drapability + permeability checks</li>
+        </ul>
+        <p class="ploop-note">infiltration time · fibre volume · porosity</p>
+      </div>
+
+      <div class="ploop-arrow" data-step="5" aria-hidden="true">
+        <span class="ploop-arrow-line"></span>
+        <svg class="ploop-arrow-head" viewBox="0 0 12 8"><path d="M0 0 L6 8 L12 0 Z"/></svg>
+      </div>
+
+      <div class="ploop-module" data-step="6">
+        <div class="ploop-mod-head">
+          <span class="ploop-mod-title">Economic module</span>
+        </div>
+        <ul class="ploop-list">
+          <li>cost + time estimate</li>
+        </ul>
+        <p class="ploop-note">T-NCF + raw-material cost · labour · production time</p>
+      </div>
+
+      <div class="ploop-arrow" data-step="7" aria-hidden="true">
+        <span class="ploop-arrow-line"></span>
+        <svg class="ploop-arrow-head" viewBox="0 0 12 8"><path d="M0 0 L6 8 L12 0 Z"/></svg>
+      </div>
+
+      <div class="ploop-output" data-step="8">
+        <span class="ploop-output-label">T-NCF laminate</span>
+      </div>
+
+      <div class="ploop-loop" data-step="9">
+        <div class="ploop-loop-track" aria-hidden="true">
+          <span class="ploop-loop-up"></span>
+          <span class="ploop-loop-top"></span>
+          <span class="ploop-loop-down"></span>
+          <svg class="ploop-loop-head" viewBox="0 0 8 12"><path d="M8 0 L0 6 L8 12 Z"/></svg>
+        </div>
+        <span class="ploop-loop-label">iterate until mechanical + quality + economic thresholds are all met</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+          <p>
+            The mechanical module runs automated ANSYS routines that mesh the
+            geometry, apply loads, and evaluate results in a deliberate order.
+            Because the study found propeller twist to be the dominant driver of
+            aeroelastic performance, the analysis checks twist first, then
+            bending deformation, then strength via the Inverse Reserve Factor
+            computed with Puck failure criteria. The authors describe practical
+            optimisation rules coded into the subroutines. For a blade that
+            twists past its limit, the rules offer two moves: swap in a heavier
+            base fabric so the layer count (and therefore cost) holds, or drop in
+            a second T-NCF, which lifts both bending and torsional stiffness at
+            once.
+          </p>
+
+          <p>
+            The quality module predicts infiltration time and flags
+            configurations that would exceed the resin's pot life or invite dry
+            spots, drawing on a database expanded with flow simulations. The
+            economic module estimates cost, labour, and cycle time. The authors
+            are transparent that they did not implement genetic algorithms or
+            similar autonomous optimisers, because too many interacting soft
+            parameters made that impractical at this stage; the tool instead
+            converges through thresholds and engineering rules.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The transferable idea here is not the specific software. It is the
+              discipline of refusing to separate design from cost. A
+              design-for-manufacture loop that quotes labour and cycle time on
+              every iteration is a template any composites manufacturer can
+              adopt, whatever the deposition method.
+            </p>
+          </div>
+        </section>
+
+        <!-- What the redesign bought -->
+        <section id="results">
+          <h2>The Results: What a Holistic Redesign Actually Bought</h2>
+
+          <p>
+            The team built and tested physical demonstrator propellers, not just
+            simulations, and compared them against the benchmark and against
+            Proptimize's own predictions.
+          </p>
+
+          <div class="ptab-root" id="ptab-root">
+  <p class="ptab-eyebrow">VALIDATION · TABLE 4</p>
+  <p class="ptab-title">Predicted vs tested vs benchmark</p>
+  <p class="ptab-subtitle">Physical demonstrator propellers measured against Proptimize's predictions and the hand-laid benchmark. Built by Addcomposites from Table 4 of the paper.</p>
+  <div class="ptab-chart-area">
+    <div class="ptab-table-scroll">
+      <table class="ptab-table">
+        <thead>
+          <tr class="ptab-head-row">
+            <th class="ptab-th ptab-th-param">Parameter</th>
+            <th class="ptab-th ptab-num">Benchmark</th>
+            <th class="ptab-th ptab-num">Proptimize prediction</th>
+            <th class="ptab-th ptab-num ptab-demo">Tested demo</th>
+            <th class="ptab-th ptab-note-col">Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ptab-row">
+            <td class="ptab-td ptab-param">Bending [mm]</td>
+            <td class="ptab-td ptab-num">42.0</td>
+            <td class="ptab-td ptab-num">40.7</td>
+            <td class="ptab-td ptab-num ptab-demo">40.6</td>
+            <td class="ptab-td ptab-note">prediction ~spot on</td>
+          </tr>
+          <tr class="ptab-row">
+            <td class="ptab-td ptab-param">Twist [deg]</td>
+            <td class="ptab-td ptab-num">2.7</td>
+            <td class="ptab-td ptab-num">1.4</td>
+            <td class="ptab-td ptab-num ptab-demo">1.3</td>
+            <td class="ptab-td ptab-note">large improvement</td>
+          </tr>
+          <tr class="ptab-row">
+            <td class="ptab-td ptab-param">Max. IRF [–]</td>
+            <td class="ptab-td ptab-num">1.0</td>
+            <td class="ptab-td ptab-num">0.9</td>
+            <td class="ptab-td ptab-num ptab-demo">—</td>
+            <td class="ptab-td ptab-note">within strength limit</td>
+          </tr>
+          <tr class="ptab-row">
+            <td class="ptab-td ptab-param">Production time [min]</td>
+            <td class="ptab-td ptab-num">365.0</td>
+            <td class="ptab-td ptab-num">300.0</td>
+            <td class="ptab-td ptab-num ptab-demo">300.0</td>
+            <td class="ptab-td ptab-note">time cut, as modelled</td>
+          </tr>
+          <tr class="ptab-row">
+            <td class="ptab-td ptab-param">Fibre material cost [€]</td>
+            <td class="ptab-td ptab-num">23.4</td>
+            <td class="ptab-td ptab-num">11.1</td>
+            <td class="ptab-td ptab-num ptab-demo">22.5</td>
+            <td class="ptab-td ptab-note">see caveat</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+          <p>
+            The paper also documents where the model fell short. Proptimize
+            predicted the fibre material cost would roughly halve, but the tested
+            demonstrators came in near the benchmark cost. The authors attribute
+            this to excess waste during T-NCF production of the then very new
+            gapped fabric, driven by fabric imperfections and unrefined machine
+            settings during a short development window, and they expect the
+            figure to improve as the material and process mature. They also note
+            the quality module could not yet reliably distinguish the two raw
+            materials on infiltration quality because of thin experimental data,
+            and they call for more work there.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              Reporting the misses alongside the wins is what makes the results
+              easy to trust. A paper that only showed the headline stiffness
+              gains would read as marketing; one that flags where its own cost
+              model overshot reads as engineering.
+            </p>
+          </div>
+
+          <p>
+            On mechanical performance, the gains were large. The paper reports
+            bending stiffness up 97% and torsional stiffness up 83% versus the
+            benchmark. Because the redesigned blade weighs essentially the same,
+            the stiffness-per-kilogram metrics rose almost as much: about 94% in
+            the longitudinal direction and 80% in torsion. Porosity dropped from
+            7% to a local maximum of 4.5% under matched conditions, and measured
+            bending deformation in static tests fell by 24%. Aerodynamically,
+            PropCODE, the team's in-house aerodynamic tool, indicated a modest
+            thrust gain of roughly 2% at 2,500 rpm.
+          </p>
+
+          <p>
+            To roll everything into one number, the authors built a weighted
+            metric across thirteen parameters, assigning higher weights to what
+            matters most for aerospace (stable quality and low porosity) and
+            lower weights to convenience factors.
+          </p>
+
+          <div class="pchg-root" id="pchg-root">
+  <p class="pchg-eyebrow">HOLISTIC REDESIGN · TABLE 5</p>
+  <p class="pchg-title">Change vs benchmark, by parameter</p>
+  <p class="pchg-subtitle">Raw improvement over the hand-laid benchmark across 13 parameters; positive = better. Built by Addcomposites from Table 5 of the paper.</p>
+  <div class="pchg-chart-area">
+    <div class="pchg-hero">
+      <div class="pchg-hero-num">+44.8%</div>
+      <div class="pchg-hero-body">
+        <div class="pchg-hero-label">weighted performance improvement across all 13 parameters</div>
+        <div class="pchg-hero-note">Torsional stiffness (weight 0.15) is the single largest weighted contributor at +12.5% — the study found twist more decisive than bending.</div>
+      </div>
+    </div>
+    <div class="pchg-bars">
+      <div class="pchg-row pchg-red" data-val="97">
+        <div class="pchg-label">Bending stiffness (E)</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+97%</div>
+      </div>
+      <div class="pchg-row pchg-red" data-val="94">
+        <div class="pchg-label">Lightweight metric (E/m)</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+94%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="83">
+        <div class="pchg-label">Torsional stiffness (T)</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+83%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="80">
+        <div class="pchg-label">Lightweight metric (T/m)</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+80%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="68">
+        <div class="pchg-label">Fibre volume</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+68%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="44">
+        <div class="pchg-label">Structural damping</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+44%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="36">
+        <div class="pchg-label">Manual labour</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+36%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="36">
+        <div class="pchg-label">Porosity</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+36%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="24">
+        <div class="pchg-label">Bending deformation</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+24%</div>
+      </div>
+      <div class="pchg-row pchg-blue" data-val="17">
+        <div class="pchg-label">Production time</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+17%</div>
+      </div>
+      <div class="pchg-row pchg-gray" data-val="4">
+        <div class="pchg-label">Material cost</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+4%</div>
+      </div>
+      <div class="pchg-row pchg-gray" data-val="2">
+        <div class="pchg-label">Propeller thrust</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">+2%</div>
+      </div>
+      <div class="pchg-row pchg-gray pchg-neg" data-val="-1">
+        <div class="pchg-label">Weight</div>
+        <div class="pchg-track"><div class="pchg-bar"></div></div>
+        <div class="pchg-value">−1% <span class="pchg-tiny">essentially unchanged</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <p>
+            A note on the headline &ldquo;30%&rdquo;: the paper's abstract
+            summarises the labour and time savings as roughly a 30% reduction.
+            The detailed table separates this into a 36% improvement in manual
+            labour and a 17% reduction in production time (365 to 300 minutes),
+            so the abstract's figure is best read as a rounded, combined summary
+            rather than a single measured value.
+          </p>
+
+          <p>
+            Finally, all of this came from a genuinely simpler blade: five lay-up
+            sections instead of eight, built from one fibre material instead of
+            three.
+          </p>
+
+          <div class="pspan-root" id="pspan-root">
+  <p class="pspan-eyebrow">SIMPLER BLADE · FIG. 22</p>
+  <p class="pspan-title">Laminate sections along the span</p>
+  <p class="pspan-subtitle">Eight sections and three materials collapse to five sections and one, with the T-NCF wall tapering from root to tip. Built by Addcomposites from the section thicknesses in Fig. 22 of the paper.</p>
+  <div class="pspan-chart-area">
+
+    <div class="pspan-row">
+      <p class="pspan-caption">Benchmark H25F — 8 sections / 3 materials</p>
+      <div class="pspan-blades pspan-blades--bench">
+        <div class="pspan-seg pspan-seg--bench" style="--i:0"><span class="pspan-seg-num">#1</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:1"><span class="pspan-seg-num">#2</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:2"><span class="pspan-seg-num">#3</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:3"><span class="pspan-seg-num">#4</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:4"><span class="pspan-seg-num">#5</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:5"><span class="pspan-seg-num">#6</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:6"><span class="pspan-seg-num">#7</span></div>
+        <div class="pspan-seg pspan-seg--bench" style="--i:7"><span class="pspan-seg-num">#8</span></div>
+      </div>
+      <div class="pspan-ends"><span>root</span><span>tip</span></div>
+    </div>
+
+    <div class="pspan-row">
+      <p class="pspan-caption pspan-caption--brand">T-NCF propeller — 5 sections / 1 material</p>
+      <div class="pspan-blades pspan-blades--ncf">
+        <div class="pspan-seg pspan-seg--ncf" style="--i:0;--h:100%"><span class="pspan-seg-mm">4.74</span></div>
+        <div class="pspan-seg pspan-seg--ncf" style="--i:1;--h:80.2%"><span class="pspan-seg-mm">3.8</span></div>
+        <div class="pspan-seg pspan-seg--ncf" style="--i:2;--h:54.9%"><span class="pspan-seg-mm">2.6</span></div>
+        <div class="pspan-seg pspan-seg--ncf" style="--i:3;--h:31.6%"><span class="pspan-seg-mm">1.5</span></div>
+        <div class="pspan-seg pspan-seg--ncf" style="--i:4;--h:8.4%"><span class="pspan-seg-mm">0.4</span></div>
+      </div>
+      <div class="pspan-ends"><span>root</span><span>tip</span></div>
+    </div>
+
+  </div>
+</div>
+        </section>
+
+        <!-- Where AFP fits -->
+        <section id="afp">
+          <h2>Where This Connects to Automated Fibre Placement</h2>
+
+          <p>
+            The paper is not about automated fibre placement. Its chosen route is
+            a pre-consolidated dry fabric plus vacuum infusion, and it is worth
+            being precise about that rather than stretching the findings to fit a
+            product story.
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              What does transfer cleanly is the problem statement. The study
+              diagnoses hand lay-up's core weaknesses as manual cutting load,
+              high scatter, and a diverse material catalogue that resists a
+              stable, certifiable routine.
+              <a
+                href="https://www.addcomposites.com/post/what-is-automated-fibre-placement-afp"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Automated fibre placement</a
+              >
+              attacks the same weaknesses from a different angle, replacing
+              manual placement with repeatable machine deposition and shrinking
+              the human-error surface that the paper identifies as the source of
+              low design allowables.
+            </p>
+          </div>
+
+          <img
+            src="images/afp-xs-head.jpg"
+            alt="The Addcomposites AFP-XS head depositing carbon-fibre tow onto a curved tool — repeatable, heat-assisted machine placement in place of manual cutting and hand lay-up."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The Addcomposites AFP-XS head depositing carbon-fibre tow onto a
+            curved tool &mdash; repeatable, heat-assisted machine placement in
+            place of manual cutting and hand lay-up.
+          </p>
+
+          <p>
+            For teams building propeller and rotor structures for eVTOL programs,
+            the takeaway we draw is that automation and design-for-manufacture
+            belong together from day one. Addcomposites positions the AFP-XS as
+            an accessible entry point into automated deposition for exactly this
+            audience: manufacturers who need aerospace-grade repeatability but
+            cannot justify a heavy, capital-intensive cell to get there. The
+            study's second lesson, that a design tool should quote manufacturing
+            cost and cycle time on every iteration, maps directly onto how AFP
+            shops can build their own design-for-manufacture and quoting
+            workflows around
+            <a
+              href="https://www.addcomposites.com/post/afp-machines-and-components"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AddPath</a
+            >.
+          </p>
+
+          <p>
+            None of this implies the study's authors endorse Addcomposites or its
+            products. The connection is our own analysis of a shared engineering
+            problem, offered alongside the paper rather than drawn from it.
+          </p>
+
+          <div class="cta-section">
+            <p>
+              Building propeller, rotor, or control-surface structures where
+              manual lay-up is capping your rate? Talk to the Addcomposites team
+              about where automated fibre placement fits your production plan
+              &rarr;
+            </p>
+            <a
+              target="_blank"
+              href="https://www.addcomposites.com/"
+              class="cta-button"
+              >Get in Touch with Addcomposites</a
+            >
+          </div>
+        </section>
+
+        <!-- What's unfinished -->
+        <section id="unfinished">
+          <h2>What the Authors Flag as Unfinished</h2>
+
+          <img
+            src="images/forming-sim.png"
+            alt="Predicting how the fabric forms: a colour displacement map from the stamp-forming simulation next to the matching region of the actual formed part."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Predicting how the fabric forms. Left: a colour displacement map (in
+            mm) from the stamp-forming simulation of the T-NCF. Right: the
+            matching region of the actual formed part for an identical lay-up.
+            Comparing the two is how the team judged draw-in and wrinkling
+            &mdash; and the gaps between them are exactly the forming behaviour
+            the authors flag as still needing more precise modelling. Figure 14
+            from Hubert et&nbsp;al., <em>CEAS Aeronautical Journal</em> 2026, 17,
+            819; figure from ref.&nbsp;[42] (Hubert, Falzon &amp; Weber, ICCM23).
+          </p>
+
+          <p>
+            The paper closes with clear limitations, and they are worth carrying
+            forward honestly. The authors call the overall effort a
+            proof-of-concept. They note the quality module still needs better
+            predictive modelling of local shear angles after forming and their
+            effect on infiltration and porosity, and they point to thin databases
+            as the reason autonomous optimisation algorithms were left out. Their
+            stated future work includes tighter coupling between aeroelastic
+            response and fabric layout, more precise characterisation of T-NCF
+            manufacturing behaviour, and broader datasets to enable data-driven
+            optimisation. They also observe that eVTOL porosity allowables are not
+            yet finalised but will likely tighten toward roughly 1% against
+            current certification norms, which is below the demonstrator's 4.5%
+            and marks a real gap still to close.
+          </p>
+        </section>
+
+        <!-- The bigger signal -->
+        <section id="signal">
+          <h2>The Bigger Signal</h2>
+
+          <p>
+            Read as a whole, the study is less a claim about one blade and more
+            an argument about method. The 44.8% weighted improvement is the
+            eye-catching number, but the durable contribution is the framing:
+            treat fibre selection, fabric architecture, deposition, infiltration,
+            and cost as one coupled system, and optimise them together rather
+            than in sequence. That is the mindset the eVTOL production ramp will
+            reward, and it is the mindset behind how we think about automated
+            manufacturing at Addcomposites.
+          </p>
+
+          <img
+            src="images/closing-banner.jpg"
+            alt="Addcomposites — ideate, innovate, automate."
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- References -->
+        <section id="references">
+          <h2>References</h2>
+
+          <ol class="references-list">
+            <li>
+              R. Hubert, T. A. Weber, L. Linnemann, B. G. Falzon, A. C. Orifici,
+              &ldquo;Tailored composites and digital optimization for efficient
+              eVTOL propellers,&rdquo; <em>CEAS Aeronautical Journal</em> 2026,
+              17, 809&ndash;828. Published online 19 August 2025.
+              <a
+                href="https://doi.org/10.1007/s13272-025-00880-9"
+                target="_blank"
+                rel="noopener noreferrer"
+                >doi.org/10.1007/s13272-025-00880-9</a
+              >. Open Access, licensed under CC BY 4.0.
+            </li>
+            <li>
+              Fibraworks GmbH, &ldquo;Fibraforce Technology&rdquo; &mdash;
+              winding-based, stitch-free tailored non-crimp fabric production on
+              the MD25 prototype (as described in ref.&nbsp;1; process figure
+              sourced from JEC Group, ref.&nbsp;[35]).
+            </li>
+            <li>
+              Spunfab / Protechnic, thermoplastic adhesive web PA1203 (6
+              g/m&sup2;) &mdash; stitch-free binder used to bond the T-NCF plies
+              (as cited in ref.&nbsp;1, ref.&nbsp;[45]).
+            </li>
+            <li>
+              R. Hubert, B. G. Falzon, T. A. Weber, stamp-forming simulation of
+              tailored non-crimp fabrics, presented at ICCM23 (as cited in
+              ref.&nbsp;1, ref.&nbsp;[42]).
+            </li>
+          </ol>
+
+          <p class="image-caption">
+            This blog post is an independent summary and commentary by
+            Addcomposites and is not affiliated with or endorsed by the authors
+            of the cited study.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing on
+                the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
