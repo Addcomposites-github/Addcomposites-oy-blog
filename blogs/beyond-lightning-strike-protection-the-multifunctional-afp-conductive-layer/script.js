@@ -259,68 +259,43 @@ document.addEventListener("DOMContentLoaded", function () {
   createProgressBar();
 });
 
-
 /* ===== Part-2 conductive-layer infographics ===== */
 
-/* ---------- cbolt ---------- */
-(function () {
-  var root = document.getElementById("cbolt-root");
-  if (!root) return;
-  var obs = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (e.isIntersecting) {
-        root.classList.add("cbolt-animated");
-        obs.unobserve(root);
-      }
-    });
-  }, { threshold: 0.15 });
-  obs.observe(root);
-  var r = root.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom >= 0) {
-    root.classList.add("cbolt-animated");
-    obs.unobserve(root);
-  }
-})();
-
-
 /* ---------- ctun ---------- */
-(function () {
-  var root = document.getElementById("ctun-root");
-  if (!root) return;
-  var obs = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (e.isIntersecting) {
-        root.classList.add("ctun-animated");
-        obs.unobserve(root);
-      }
-    });
-  }, { threshold: 0.15 });
-  obs.observe(root);
-  var r = root.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom >= 0) {
-    root.classList.add("ctun-animated");
-    obs.unobserve(root);
+(function(){var __r=document.getElementById("ctun-root");if(!__r)return;
+  var uni=document.getElementById("ctun-btn-uni"), tun=document.getElementById("ctun-btn-tuned"),
+      panel=document.getElementById("ctun-panel"), streams=document.getElementById("ctun-streams"),
+      damage=document.getElementById("ctun-damage"),
+      v1=document.getElementById("ctun-v1"), v2=document.getElementById("ctun-v2"), v3=document.getElementById("ctun-v3"),
+      s2=document.getElementById("ctun-s2"), s3=document.getElementById("ctun-s3");
+  function setTuned(t){
+    tun.classList.toggle("on",t); uni.classList.toggle("on",!t);
+    panel.setAttribute("fill", t?"url(#ctun-tuned)":"#6b7aa0");
+    streams.style.opacity = t?"1":"0.22";
+    damage.setAttribute("rx", t?"0":"60"); damage.setAttribute("ry", t?"0":"44");
+    v1.innerHTML = t?"graded 0.01&#8211;0.1 &#8486;/&#9633;":"uniform ~0.05 &#8486;/&#9633;";
+    v2.textContent = t?"Low":"High";
+    v3.textContent = t?"Only where needed":"Everywhere (full-coverage foil)";
+    s2.className = "ctun-stat "+(t?"lo":"hi");
+    s3.className = "ctun-stat "+(t?"lo":"hi");
   }
+  uni.addEventListener("click",function(){setTuned(false);});
+  tun.addEventListener("click",function(){setTuned(true);});
+  setTuned(true);
 })();
 
-
-/* ---------- clhub ---------- */
+/* ---------- cjobs ---------- */
 (function(){
-  var root=document.getElementById("clhub-root");
-  if(!root) return;
-  var obs=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){
-        root.classList.add("clhub-animated");
-        obs.unobserve(root);
-      }
-    });
-  },{threshold:0.15});
-  obs.observe(root);
-  var r=root.getBoundingClientRect();
-  if(r.top<window.innerHeight && r.bottom>=0){
-    root.classList.add("clhub-animated");
-    obs.unobserve(root);
+  var root=document.getElementById("cjobs-root");
+  var tabs=root.querySelectorAll(".cjobs-tab"), dets=root.querySelectorAll(".cjobs-d");
+  function set(f){
+    root.className="cjobs-root m-"+f;
+    tabs.forEach(function(t){t.classList.toggle("on",t.getAttribute("data-f")===f);});
+    dets.forEach(function(d){d.classList.toggle("on",d.getAttribute("data-f")===f);});
   }
+  tabs.forEach(function(t){t.addEventListener("click",function(){set(t.getAttribute("data-f"));});});
+  set("protect");
 })();
 
+/* ---------- cbolt ---------- */
+(function(){var root=document.getElementById("cbolt-root");if(!root)return;var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){root.classList.add("cbolt-animated");obs.unobserve(root);}});},{threshold:0.12});obs.observe(root);var r=root.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>=0){root.classList.add("cbolt-animated");obs.unobserve(root);}})();
