@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Beyond Lightning Strike Protection: The Multifunctional Conductive Layer
+      AFP Can Place | Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A follow-up to our painted-CFRP lightning summary: a design proposition for an AFP-placed, co-cured conductive layer whose connectivity is tuned across the skin — and that doubles as a damage sensor, a de-icing heater, and its own digital thread. Grounded in six recent papers."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#landscape" class="blog-sidebar-link">The established toolkit</a>
+          <a href="#placement" class="blog-sidebar-link">Placement, not a coating</a>
+          <a href="#tune" class="blog-sidebar-link">Tuning the conductivity</a>
+          <a href="#jobs" class="blog-sidebar-link">Three more jobs</a>
+          <a href="#why" class="blog-sidebar-link">Why this matters now</a>
+          <a href="#limits" class="blog-sidebar-link">What we're not claiming</a>
+          <a href="#lands" class="blog-sidebar-link">Where this lands</a>
+          <a href="#references" class="blog-sidebar-link">References</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <h1>
+          Beyond Lightning Strike Protection: The Multifunctional Conductive
+          Layer That AFP Can Place
+        </h1>
+
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg class="blog-meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            July 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg class="blog-meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            9 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg class="blog-meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview -->
+        <section id="overview">
+          <div class="img-slot">
+            <span class="is-cam">📷</span>
+            <span class="is-label">Hero image — Aditya to add via Drive</span>
+            <p class="is-desc">Suggested: an AFP-XS head laying tow/tape onto an aerospace skin panel, or a lightning-test panel — a strong, wide banner image that reads as "conductive layer + placement."</p>
+            <span class="is-file">images/hero.jpg</span>
+          </div>
+
+          <p class="drop-cap">
+            In our <a href="https://www.addcomposites.com/post/lightning-hits-every-airliner-once-a-year-inside-a-painted-cfrp-panel" target="_blank" rel="noopener noreferrer">summary of the Bigand et&nbsp;al. study</a>
+            on painted carbon-fibre skins, we stopped where good reporting should:
+            at what the data showed. On an identical laminate with an identical
+            protection scheme, the paint on top drove internal delamination from
+            essentially zero on a bare panel to <strong>411.6&nbsp;cm&sup2;</strong> on a
+            thickly painted one. The damage is a surface-confinement effect, decided
+            in the first few plies, and a bottom-view ultrasonic scan can miss it.
+          </p>
+
+          <p>
+            That leaves an obvious follow-on question, and it is the one worth
+            answering out loud: if the outcome is decided at the top of the stack,
+            what would a conductive layer built to own that region look like &mdash;
+            and what does it need from the manufacturing process to be real? The
+            short answer is a layer that is <em>placed</em>, not bolted on. And once
+            you are placing it precisely, it stops being only a lightning shield. The
+            same finely controlled conductive architecture can become a damage
+            sensor, a de-icing heater, and a digital record of itself.
+          </p>
+
+          <p>
+            What follows is Addcomposites' own engineering position. The Bigand
+            et&nbsp;al. numbers are theirs; the design argument is ours; and the work
+            we lean on below is other groups' published results, cited so you can
+            check them.
+          </p>
+        </section>
+
+        <!-- The established toolkit -->
+        <section id="landscape">
+          <h2>The Established Toolkit, and Its Ceiling</h2>
+
+          <p>
+            Lightning protection for composite aircraft is not a new field, and the
+            conventional toolkit is mature. Metal options dominate: expanded copper
+            or aluminium foil, woven wire mesh, metallized fibres, fabrics and veils,
+            and conductive surface films, most often applied as a surfacing layer and
+            qualified against the aerospace lightning-environment standards &mdash;
+            the SAE ARP5412 waveform set, ARP5414 zoning (Zones 1A, 1B, 2A and so
+            on), and ARP5416 / EUROCAE ED-105 test methods that back the
+            certification requirements of FAR Parts 23, 25 and 27.
+          </p>
+
+          <p>
+            The ceiling in that toolkit is not the material; it is the integration.
+            A protection layer that is chosen last and bonded on after cure is
+            designed in a separate world from the plies it protects. The Bigand
+            et&nbsp;al. result is a clean demonstration of why that separation
+            matters: the same protected laminate behaves completely differently
+            depending on what sits on top of it. If the surface system and the
+            structural plies interact that strongly, they should be designed &mdash;
+            and built &mdash; together.
+          </p>
+        </section>
+
+        <!-- Placement, not a coating -->
+        <section id="placement">
+          <h2>Correct the Framing: It's Placement, Not a Coating</h2>
+
+          <p>
+            The alternative to a bolt-on surfacer is to treat the conductive layer as
+            an integral layer placed within the layup and cured with the structure,
+            in the same resin at the same cycle. There is no separate film-adhesive
+            interface to fail, and no thermoplastic assumption baked in: it is
+            co-cured into the skin exactly like any other ply, at the same
+            temperature as the surrounding resin, so the protected region is as
+            strong as the structure itself. The whole game becomes
+            <strong>placement with sufficient connectivity and a high-quality
+            resin</strong>, rather than a coating chosen at the end.
+          </p>
+
+          <p>
+            This is not speculative. Metal-and-carbon hybrid laminates have been
+            built and characterised on a robotic fibre-placement cell,<sup><a href="#r4">4</a></sup>
+            and dual-layer conductive/insulating LSP stacks have been designed and
+            tested.<sup><a href="#r6">6</a></sup> <strong>Our AFP-XS is capable of
+            placing that conductive layer as part of the same automated sequence that
+            lays the structural plies</strong> &mdash; orienting it where you want it
+            and, crucially, setting its connectivity region by region.
+          </p>
+
+          <div class="img-slot">
+            <span class="is-cam">📷</span>
+            <span class="is-label">Image — Aditya to add via Drive</span>
+            <p class="is-desc">Suggested: close-up of the AFP-XS head depositing tow onto a curved tool (the same shot family as our other posts), captioned to show ply-by-ply placement control. Credit: Addcomposites.</p>
+            <span class="is-file">images/afp-xs-placing.jpg</span>
+          </div>
+
+          <div class="cbolt-root" id="cbolt-root">
+  <p class="cbolt-eyebrow">TWO WAYS TO ADD A CONDUCTIVE LAYER</p>
+  <p class="cbolt-title">Bolt-on vs placed-and-co-cured</p>
+  <p class="cbolt-subtitle">The confinement problem argues against a shield designed in a separate world from the plies it protects. Addcomposites analysis.</p>
+  <div class="cbolt-chart-area">
+    <div class="cbolt-grid">
+      <div class="cbolt-col cbolt-col-left">
+        <div class="cbolt-head cbolt-head-left">
+          <span class="cbolt-head-tag">CONVENTIONAL</span>
+          <span class="cbolt-head-name">Bolt-on surfacer</span>
+        </div>
+        <div class="cbolt-cell cbolt-cell-left" data-row="1">Secondary bonded operation, after cure</div>
+        <div class="cbolt-cell cbolt-cell-left" data-row="2">Film-adhesive interface that can fail</div>
+        <div class="cbolt-cell cbolt-cell-left" data-row="3">Uniform sheet</div>
+        <div class="cbolt-cell cbolt-cell-left" data-row="4">Single function (protection)</div>
+        <div class="cbolt-cell cbolt-cell-left" data-row="5">Chosen last, decoupled from the layup</div>
+      </div>
+      <div class="cbolt-col cbolt-col-right">
+        <div class="cbolt-head cbolt-head-right">
+          <span class="cbolt-badge">WINNER</span>
+          <span class="cbolt-head-tag cbolt-head-tag-right">AFP</span>
+          <span class="cbolt-head-name cbolt-head-name-right">AFP-placed &amp; co-cured</span>
+        </div>
+        <div class="cbolt-cell cbolt-cell-right" data-row="1">Placed in the layup, co-cured in the same resin</div>
+        <div class="cbolt-cell cbolt-cell-right" data-row="2">No added interface — as strong as the structure</div>
+        <div class="cbolt-cell cbolt-cell-right" data-row="3">Conductivity tuned region by region (gaps / overlaps / layers)</div>
+        <div class="cbolt-cell cbolt-cell-right" data-row="4">Multifunctional: protect · sense · de-ice · report</div>
+        <div class="cbolt-cell cbolt-cell-right" data-row="5">Designed with the stack; recorded as a digital thread</div>
+      </div>
+    </div>
+  </div>
+</div>
+        </section>
+
+        <!-- Tuning the conductivity -->
+        <section id="tune">
+          <h2>The Design Freedom People Miss: Tune the Conductivity Spatially</h2>
+
+          <p>
+            A placed conductive layer is not one uniform sheet. With AFP you decide,
+            locally, how much conductor is present and how it is connected &mdash; by
+            varying the gaps between courses, the overlaps, and the number of layers.
+            That turns conductivity into a designed field across the part:
+            high-conductivity zones that act as charge sinks where a strike is likely
+            to attach, taking the impact, and thinner, more linear paths that steer
+            the current away elsewhere.
+          </p>
+
+          <p>
+            Recent work has shown that tailoring the through-thickness conductive
+            architecture directly changes the lightning-strike damage
+            response,<sup><a href="#r5">5</a></sup> and automated-placement routes for
+            laying overlapping conductive courses are established prior art. This is a
+            design-architecture problem &mdash; precisely the kind of
+            high-dimensional layout that modern AI-assisted design tools are well
+            suited to optimise for a given part, load case and strike zone.
+          </p>
+
+          <div class="ctun-root" id="ctun-root">
+  <p class="ctun-eyebrow">DESIGNED CONDUCTIVITY &middot; AFP</p>
+  <p class="ctun-title">Tune the conductivity across the skin</p>
+  <p class="ctun-subtitle">AFP sets connectivity region by region &mdash; via gaps, overlaps and layer count &mdash; turning a uniform shield into a designed current-management field. Addcomposites analysis.</p>
+
+  <div class="ctun-chart-area">
+    <svg class="ctun-svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Plan-view map of an aircraft skin panel showing charge-sink zones, drain paths and a low-conductivity gap zone">
+      <!-- panel outline -->
+      <rect class="ctun-panel" x="20" y="24" width="560" height="252" rx="26" ry="26"></rect>
+
+      <!-- leading-edge marker -->
+      <text class="ctun-edge-label" x="40" y="18">LEADING EDGE</text>
+      <line class="ctun-edge-line" x1="20" y1="24" x2="20" y2="276"></line>
+
+      <!-- drain paths (blue linear courses) -->
+      <g class="ctun-drains">
+        <path class="ctun-drain" d="M120 78 L300 120 L560 150"></path>
+        <path class="ctun-drain" d="M120 78 L260 190 L520 260"></path>
+        <path class="ctun-drain" d="M120 78 L200 40 L400 40 L560 60"></path>
+        <path class="ctun-drain" d="M110 232 L300 210 L560 200"></path>
+        <path class="ctun-drain" d="M110 232 L260 260 L520 272"></path>
+        <path class="ctun-drain" d="M110 232 L180 150 L360 130"></path>
+      </g>
+
+      <!-- low-conductivity gap zone (light gray) -->
+      <rect class="ctun-gap" x="330" y="118" width="150" height="86" rx="14" ry="14"></rect>
+      <text class="ctun-zone-label ctun-gap-label" x="405" y="166">GAP ZONE</text>
+
+      <!-- charge-sink zones (red, near strike-attachment points) -->
+      <circle class="ctun-sink" cx="120" cy="78" r="42"></circle>
+      <text class="ctun-zone-label ctun-sink-label" x="120" y="82">SINK</text>
+
+      <circle class="ctun-sink" cx="110" cy="232" r="38"></circle>
+      <text class="ctun-zone-label ctun-sink-label" x="110" y="236">SINK</text>
+    </svg>
+
+    <ul class="ctun-legend">
+      <li class="ctun-legend-item">
+        <span class="ctun-swatch ctun-swatch-red"></span>
+        <span class="ctun-legend-text"><b>More overlaps / +1&ndash;2 layers</b> &rarr; High-conductivity charge sink</span>
+      </li>
+      <li class="ctun-legend-item">
+        <span class="ctun-swatch ctun-swatch-blue"></span>
+        <span class="ctun-legend-text"><b>No gaps, linear courses</b> &rarr; Drain path</span>
+      </li>
+      <li class="ctun-legend-item">
+        <span class="ctun-swatch ctun-swatch-gray"></span>
+        <span class="ctun-legend-text"><b>Programmed gaps</b> &rarr; Low-conductivity zone</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our perspective</span>
+            <p>
+              The transferable idea is not a specific material. It is that
+              conductivity should be a designed variable, placed deliberately, not a
+              uniform property you inherit from whatever mesh you bonded on. AFP is
+              the process that makes &ldquo;design the conductivity&rdquo; a real,
+              repeatable instruction rather than a wish.
+            </p>
+          </div>
+        </section>
+
+        <!-- Three more jobs -->
+        <section id="jobs">
+          <h2>Once It's Placed, the Same Layer Does Three More Jobs</h2>
+
+          <p>
+            Here is the part that turns a protection cost into a system advantage. A
+            conductive layer placed to a known, repeatable geometry is not only a
+            shield; it is a structure you can energise, read, and trace. Three uses
+            follow almost for free.
+          </p>
+
+          <div class="clhub-root" id="clhub-root">
+  <p class="clhub-eyebrow">THE MULTIFUNCTIONAL LAYER</p>
+  <p class="clhub-title">One placed layer, four jobs</p>
+  <p class="clhub-subtitle">A conductive layer placed and co-cured into the laminate stops being only a lightning shield. Addcomposites analysis; each job is grounded in published work.</p>
+
+  <div class="clhub-chart-area">
+    <div class="clhub-hub">
+      <p class="clhub-hub-title">One placed conductive layer</p>
+      <p class="clhub-hub-sub">oriented + connectivity-tuned by AFP, co-cured with the structure</p>
+    </div>
+
+    <svg class="clhub-connectors" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="50" y1="0" x2="15" y2="40"></line>
+      <line x1="50" y1="0" x2="38.3" y2="40"></line>
+      <line x1="50" y1="0" x2="61.6" y2="40"></line>
+      <line x1="50" y1="0" x2="85" y2="40"></line>
+    </svg>
+
+    <div class="clhub-cards">
+      <div class="clhub-card" data-i="0">
+        <p class="clhub-card-title">Protect</p>
+        <p class="clhub-card-line">Lightning-strike protection tuned across the skin</p>
+        <p class="clhub-card-tag">Kumar 2023 · Zhu 2022</p>
+      </div>
+      <div class="clhub-card" data-i="1">
+        <p class="clhub-card-title">Sense</p>
+        <p class="clhub-card-line">The grid's electrical signature shifts with damage — structural health monitoring</p>
+        <p class="clhub-card-tag">Ji 2025 · Zehni 2026</p>
+      </div>
+      <div class="clhub-card" data-i="2">
+        <p class="clhub-card-title">De-ice / heat</p>
+        <p class="clhub-card-line">Carry current to melt ice and aid in-service maintenance</p>
+        <p class="clhub-card-tag">Latko-Durałek 2026</p>
+      </div>
+      <div class="clhub-card" data-i="3">
+        <p class="clhub-card-title">Report</p>
+        <p class="clhub-card-line">Every course, gap and overlap is recorded — a digital thread</p>
+        <p class="clhub-card-tag">AFP as-built data</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <h3>1. It becomes the sensor</h3>
+          <p>
+            A conductive grid placed to a known geometry is a calibrated grid &mdash;
+            and one whose electrical (and electromagnetic) signature shifts when the
+            structure underneath is damaged. Because you know exactly where every
+            line sits, you can infer damage location and severity from how that
+            signature changes. This is now demonstrated territory: real-time
+            self-sensing structural health monitoring has been shown in
+            <em>AFP-manufactured</em> parts,<sup><a href="#r1">1</a></sup> and a
+            purpose-designed conductive-veil grid has been used as both a structural
+            interlayer and a multi-point damage sensor in CFRP and
+            GFRP.<sup><a href="#r2">2</a></sup> Turning the lightning shield into the
+            sensing grid is exactly the direction we are pursuing in the final phase
+            of the EU <strong>TOSCA</strong> project.
+          </p>
+
+          <h3>2. It becomes the heater</h3>
+          <p>
+            The same integrated conductive interlayer can carry current to produce
+            heat &mdash; for de-icing in service, and, as airframes move toward
+            thermoplastics, as a resistive heating element that could support
+            in-service maintenance and repair. Metallized thermoplastic nonwovens
+            have already been integrated into fibre-reinforced composites and shown
+            to work as both electrothermal heating elements and sensing layers in one
+            part.<sup><a href="#r3">3</a></sup> One placed layer, several functions,
+            and the weight is paid only once.
+          </p>
+
+          <h3>3. It leaves a digital thread</h3>
+          <p>
+            Every course, gap and overlap AFP lays down is recorded. That as-built
+            map is what lets you verify the conductive architecture came out as
+            designed, interpret the sensing grid against a known baseline, and define
+            the post-strike inspection envelope with the paper's NDT-under-read
+            finding already accounted for. Design, protection, sensing, heating and
+            inspection close into one loop, anchored by the placement record from
+            <a href="https://www.addcomposites.com/post/afp-machines-and-components" target="_blank" rel="noopener noreferrer">AddPath</a>.
+          </p>
+
+          <div class="img-slot">
+            <span class="is-cam">📷</span>
+            <span class="is-label">Image — Aditya to add via Drive</span>
+            <p class="is-desc">Suggested: a panel with an embedded conductive grid / sensor layout, or a TOSCA-project panel, illustrating the "grid you can read." If none available, a lightning-test panel with damage mapping works. Credit as appropriate.</p>
+            <span class="is-file">images/conductive-grid-panel.jpg</span>
+          </div>
+        </section>
+
+        <!-- Why this matters now -->
+        <section id="why">
+          <h2>Why This Matters Now</h2>
+
+          <p>
+            A lightning strike used to be a once-in-a-blue-moon event for a given
+            airframe. That is changing for a simple reason: there is going to be far
+            more flying. eVTOL fleets alone are
+            <a href="https://www.addcomposites.com/post/evtol-propeller-80-more-stiffness-30-faster-tailored-fabric-not-prepreg-tape" target="_blank" rel="noopener noreferrer">projected to scale</a>
+            from hundreds of aircraft today toward the order of a hundred thousand
+            over the coming decades, and every one of them &mdash; plus space
+            reflectors, launch vehicles and space engines &mdash; has to survive
+            strikes and carry as little dead weight as possible. When the fleet is
+            that large, a layer that protects, senses <em>and</em> heats for the
+            weight of one is not a nicety; it is how the numbers close.
+          </p>
+        </section>
+
+        <!-- What we're not claiming -->
+        <section id="limits">
+          <h2>What We Are Not Claiming</h2>
+
+          <ul>
+            <li>
+              This is a <strong>design proposition, not a finished test result</strong>.
+              We are not quoting a delamination-reduction number, because the point is
+              the architecture, not a figure we have not yet earned on a test bench.
+            </li>
+            <li>
+              Lightning qualification is standards-bound. A concept laminate still has
+              to earn its zoning under ARP5414, its waveforms under ARP5412, and its
+              direct- and indirect-effects results under ARP5416 / EUROCAE ED-105
+              before any airframe claim is made. A design starts that process; it does
+              not replace it.
+            </li>
+            <li>
+              The papers we cite are other groups' work, and the Part-1 study's authors
+              address neither manufacturing nor Addcomposites. The synthesis, and any
+              error in it, is ours.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Where this lands -->
+        <section id="lands">
+          <h2>Where This Lands</h2>
+
+          <p>
+            The paint study proved the outcome is decided at the top of the stack.
+            That is not a coating problem to hand downstream; it is a placement
+            problem &mdash; orient the fibre, tune the connectivity, co-cure it in. Do
+            that, and the conductive layer you added for lightning quietly becomes the
+            sensing grid, the de-icing element, and its own digital twin. The
+            literature is already converging on each of these pieces separately; the
+            contribution we are proposing is to put them under one placed, controllable
+            layer.
+          </p>
+
+          <div class="cta-section">
+            <p>
+              Talk to the Addcomposites team about building multifunctional conductive
+              layers into CFRP and thermoplastic skins with repeatable, ply-by-ply AFP
+              control &mdash; for lightning protection, structural health monitoring,
+              de-icing, and the digital thread that ties them together. &rarr;
+            </p>
+            <a target="_blank" href="https://www.addcomposites.com/" class="cta-button">Get in Touch with Addcomposites</a>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section id="references">
+          <h2>References</h2>
+          <ol class="references-list">
+            <li id="r1">
+              Y. Ji, C. Luan, X. Yao, Z. Ding, C. Niu, N. Dong, L. Cheng, K. Zhao, J.
+              Fu, &ldquo;Real-time in-service structural health monitoring method based
+              on self-sensing of CF/PEEK prepreg in automated fibre placement (AFP)
+              manufactured parts,&rdquo; <em>Composites Part A</em> 2025, 194, 108925.
+              <a href="https://doi.org/10.1016/j.compositesa.2025.108925" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.compositesa.2025.108925</a>
+            </li>
+            <li id="r2">
+              O. C. Zehni, A. Kandemir, &ldquo;Multifunctional carbon-veil grid design
+              for impact damage monitoring and tolerance in GFRP and CFRP
+              laminates,&rdquo; <em>Materials &amp; Design</em> 2026, 263, 115608.
+              <a href="https://doi.org/10.1016/j.matdes.2026.115608" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.matdes.2026.115608</a>
+            </li>
+            <li id="r3">
+              P. Latko-Dura&#322;ek, M. Misiak, D. T. Ufaysa, N. Tao, B. Przybyszewski,
+              P. Dura&#322;ek, D. Rutkowska, M. Kurkowska, A. Anisimov, O. Bergsma, R. M.
+              Groves, A. Boczkowska, &ldquo;Metallized thermoplastic nonwovens as
+              integrated heating elements in fibre-reinforced composites,&rdquo;
+              <em>Materials Today Communications</em> 2026, 53, 115313.
+              <a href="https://doi.org/10.1016/j.mtcomm.2026.115313" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.mtcomm.2026.115313</a>
+            </li>
+            <li id="r4">
+              M. M. A. Ammar, B. Shirinzadeh, P. Zhao, Y. Shi, &ldquo;An approach for
+              damage initiation and propagation in metal and carbon fibre hybrid
+              composites manufactured by robotic fibre placement,&rdquo; <em>Composite
+              Structures</em> 2021, 268, 113976.
+              <a href="https://doi.org/10.1016/j.compstruct.2021.113976" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.compstruct.2021.113976</a>
+            </li>
+            <li id="r5">
+              V. Kumar, W. Lin, Y. Wang, R. Spencer, S. Saha, C. Park, et&nbsp;al.,
+              &ldquo;Enhanced through-thickness electrical conductivity and lightning
+              strike damage response of interleaved vertically aligned short carbon
+              fibre composites,&rdquo; <em>Composites Part B</em> 2023, 253, 110535.
+              <a href="https://doi.org/10.1016/j.compositesb.2023.110535" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.compositesb.2023.110535</a>
+            </li>
+            <li id="r6">
+              H. Zhu, K. Fu, H. Liu, B. Yang, Y. Chen, C. Kuang, Y. Li, &ldquo;Design a
+              dual-layer lightning strike protection for carbon fibre reinforced
+              composites,&rdquo; <em>Composites Part B</em> 2022, 247, 110330.
+              <a href="https://doi.org/10.1016/j.compositesb.2022.110330" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.compositesb.2022.110330</a>
+            </li>
+          </ol>
+          <p class="image-caption">
+            Background on the strike mechanism itself is in Part 1 (our summary of
+            Bigand et&nbsp;al., <em>Aerospace</em> 2025, 12, 446). This post is an
+            independent analysis by Addcomposites; the cited authors do not endorse it.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg" alt="Pravin Luthada" class="author-image" />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a href="https://www.linkedin.com/in/pravinluthada/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@addcomposites" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's insights are
+                forged from a distinguished career in advanced materials, beginning as a
+                space scientist at the Indian Space Research Organisation (ISRO). During
+                his tenure, he gained hands-on expertise in manufacturing composite
+                components for satellites and launch vehicles, where he witnessed
+                firsthand the prohibitive costs of traditional Automated Fiber Placement
+                (AFP) systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded and now
+                leads as CEO. The company is dedicated to democratizing advanced
+                manufacturing by developing patented, plug-and-play AFP toolheads that
+                make automation accessible and affordable. This unique journey from
+                designing space-grade hardware to leading a disruptive technology company
+                provides Pravin with a comprehensive, real-world perspective that informs
+                his writing on the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
