@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      A Carbon Bike Frame's Weakest Point Is the Joint, Not the Tube |
+      Addcomposites
+    </title>
+    <meta
+      name="description"
+      content="A Czech Technical University team embedded fiber Bragg grating optical sensors inside the head tube joint of a composite bicycle frame, then rode it, tested it to failure, and modeled it. Real sprint loads exceeded every ISO load case, and the strain inside the joint beat the strain on the tube surface beside it. Our summary of the 2022 Applied Sciences study — and why we read it as a manufacturing problem."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Assistant:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="blog-layout">
+      <!-- Sidebar -->
+      <nav class="blog-sidebar" aria-label="Table of Contents">
+        <button class="sidebar-close" aria-label="Close navigation menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Close Menu
+        </button>
+        <h3 class="blog-sidebar-title">Contents</h3>
+        <div class="blog-sidebar-nav">
+          <a href="#overview" class="blog-sidebar-link active">Overview</a>
+          <a href="#frame" class="blog-sidebar-link">The frame and its joints</a>
+          <a href="#methods" class="blog-sidebar-link"
+            >Four measurement methods</a
+          >
+          <a href="#ergometer" class="blog-sidebar-link"
+            >The ergometer surprise</a
+          >
+          <a href="#inside" class="blog-sidebar-link">Inside vs. the surface</a>
+          <a href="#destruction" class="blog-sidebar-link"
+            >Testing to destruction</a
+          >
+          <a href="#sensor" class="blog-sidebar-link">The sensor-position catch</a>
+          <a href="#perspective" class="blog-sidebar-link"
+            >Our perspective: a manufacturing problem</a
+          >
+          <a href="#takeaway" class="blog-sidebar-link">The takeaway</a>
+          <a href="#references" class="blog-sidebar-link">Read the research</a>
+        </div>
+      </nav>
+
+      <article class="blog-content">
+        <!-- Title -->
+        <h1>A Carbon Bike Frame's Weakest Point Is the Joint, Not the Tube</h1>
+
+        <!-- Blog Meta -->
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            July 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            11 min read
+          </span>
+          <span class="blog-meta-item">
+            <svg
+              class="blog-meta-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Pravin Luthada
+          </span>
+        </div>
+
+        <!-- Overview -->
+        <section id="overview">
+          <img
+            src="images/hero.jpg"
+            alt="Carbon bike frame joints: where strain builds, why they fail, and what a 2022 Czech Technical University study found by embedding fiber optic sensors inside the head tube joint."
+            class="full-width-image"
+          />
+
+          <p class="deck">
+            A Czech Technical University team embedded fiber optic sensors
+            <em>inside</em> the head tube joint of a composite bicycle frame,
+            then rode it, tested it to failure, and modeled it. Here is what the
+            joint was actually feeling.
+          </p>
+
+          <p class="drop-cap">
+            Ask most people to guess where a carbon fiber bicycle frame is most
+            likely to fail, and they will point at a tube. It feels intuitive:
+            the tubes are the long, load-carrying spans, so surely they are the
+            parts under the most stress.
+          </p>
+
+          <p>
+            A 2022 open-access study in <em>Applied Sciences</em> (MDPI),
+            authored by Milan Dvo&#345;&aacute;k and colleagues at the Czech
+            Technical University in Prague (with Compo Tech PLUS), makes a
+            compelling case that this intuition is backwards.
+            <strong
+              >In a frame built from filament-wound composite tubes, the joints
+              where those tubes meet are the critical structural elements &mdash;
+              and they carry more strain than the tube surfaces right next to
+              them.</strong
+            >
+          </p>
+
+          <p>
+            The reason the study can say this with confidence is a measurement
+            choice most frame testing never makes. Instead of relying only on
+            strain gauges glued to the outside of the frame, the researchers
+            embedded fiber Bragg grating (FBG) optical sensors <em>inside</em>
+            the head tube joint during manufacturing, laid directly between the
+            unidirectional carbon plies. That gave them a rare window into what
+            the composite is experiencing at the exact point where hand
+            lamination joins the tubes together.
+          </p>
+
+          <p>
+            At Addcomposites, we spend our days on the manufacturing side of
+            exactly this problem: how fiber gets placed at complex tube-to-tube
+            intersections, and whether that placement is repeatable enough to
+            trust. So this paper caught our attention. Below, we walk through
+            what the authors did and what they found, and then &mdash; clearly
+            separated from their work &mdash; we offer our own perspective on
+            what it means for anyone producing CFRP frames and tubular sports
+            structures.
+          </p>
+
+          <img
+            src="images/frame-front-triangle.jpg"
+            alt="Carbon composite bicycle frame, front triangle detail, showing the head tube joints where the top tube and down tube meet."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Carbon composite bicycle frame, front triangle detail. The head tube
+            joints are the frame's critical load-transfer points.
+          </p>
+
+          <p>
+            A note on boundaries: everything attributed to &ldquo;the
+            paper,&rdquo; &ldquo;the authors,&rdquo; or &ldquo;the study&rdquo;
+            is the researchers' work. Anything under &ldquo;Our
+            perspective&rdquo; is Addcomposites' commentary. The authors did not
+            review, endorse, or validate this article or our products.
+          </p>
+        </section>
+
+        <!-- The frame -->
+        <section id="frame">
+          <h2>The frame, and why its joints are the interesting part</h2>
+
+          <p>
+            The study looked at a road-frame-scale carbon composite bicycle
+            frame. The load-bearing tubes were produced by filament winding,
+            which lets the manufacturer lay longitudinally oriented fibers and
+            mix material types in a single tube. Here the authors used a hybrid
+            layup pairing two carbon grades &mdash; Toray T700 for strength and
+            Tenax UMS40 for stiffness &mdash; in a two-component epoxy, reaching
+            a fiber volume fraction of roughly 51&ndash;55 percent. The finished
+            frame weighed about 800 g at a 54 cm size.
+          </p>
+
+          <p>
+            The tubes themselves are not really the story. The story is how they
+            are connected. According to the paper, the tube-to-tube joints were
+            built up by hand, layering woven carbon fabric with UD carbon tape in
+            epoxy, and a lightweight micro-balloon epoxy filler was used to blend
+            the contours where the tubes meet. The authors are candid that a
+            hand-laid joint like this can be a weak point in the frame's overall
+            strength, and that this needs to be checked experimentally rather
+            than assumed.
+          </p>
+
+          <img
+            src="images/fig3-hand-lamination-fbg.png"
+            alt="The head tube joint during hand lamination, with the optical fiber FBG sensor routed by hand across the joint and taped in position before the carbon plies close over it."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The head tube joint during hand lamination, with the optical fiber
+            (FBG) sensor routed by hand across the joint and taped in position
+            before the carbon plies close over it: (a) at the
+            top-tube-to-head-tube joint and (b) at the down-tube-to-head-tube
+            joint. This manual, build-by-hand step is where the joint the study
+            identifies as the frame's critical element takes shape.<br /><br />
+            Figure 3 from: Dvo&#345;&aacute;k, M., Poni&#382;il, T.,
+            Kul&iacute;&scaron;ek, V., Schmidov&aacute;, N., Doubrava, K.,
+            Krop&iacute;k, B., R&#367;&#382;i&#269;ka, M. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0 (<a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://creativecommons.org/licenses/by/4.0/</a
+            >).
+          </p>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Our read</span>
+            <p>
+              That single admission frames the entire investigation. If the joint
+              is the suspected weak link, you have to measure the joint itself,
+              not just the tube beside it.
+            </p>
+          </div>
+
+          <p>
+            Here is how the frame's front triangle is laid out, and where the two
+            embedded optical sensors went. The two sensors &mdash; FBG TT in the
+            top-tube-to-head-tube joint and FBG DT in the
+            down-tube-to-head-tube joint &mdash; were placed between the UD
+            carbon layers, which the authors identify as critical for
+            transferring horizontal (front-to-rear) forces.
+          </p>
+
+          <img
+            src="images/fig1-frame-test-rig.png"
+            alt="The complete carbon composite bicycle frame mounted in the test rig, with the six main structural elements labeled: head tube, top tube, seat stay, down tube, bottom bracket, and chain stay."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The complete carbon composite bicycle frame mounted in the test rig,
+            instrumented with embedded FBG and surface strain sensors, with the
+            six main structural elements labeled: head tube, top tube, seat stay,
+            down tube, bottom bracket, and chain stay. This is the fully
+            assembled frame (specimen 0) run through the standardized ISO load
+            cases and the ergometer test.<br /><br />
+            Figure 1 from: Dvo&#345;&aacute;k, M., et al. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            That placement is the whole point: a bonded strain gauge has to live
+            on an outer surface &mdash; it can't sit down among the plies or
+            within the bondline of a joint &mdash; so it reports only what the
+            skin of the part is doing. An embedded FBG can report from inside.
+          </p>
+        </section>
+
+        <!-- Methods -->
+        <section id="methods">
+          <h2>Four measurement methods, one joint</h2>
+
+          <p>
+            The study did not lean on a single technique. The paper describes a
+            stacked instrumentation approach, with each method covering a blind
+            spot of the others:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Embedded FBG sensors</strong> (two ORMOCER-coated fibers,
+              read by a Safibra FBGuard interrogator, with a stated measurement
+              error of about &plusmn;6.1 &micro;m/m) reported strain from inside
+              the joint.
+            </li>
+            <li>
+              <strong>Resistive strain gauges</strong> (350 &#937;, 6 mm grid,
+              logged on an HBM Spider8, error about &plusmn;6 &micro;m/m)
+              measured strain on the tube surfaces near the joint, and on the
+              back of the head tube.
+            </li>
+            <li>
+              <strong>Digital image correlation (DIC)</strong> &mdash; a Dantec
+              Dynamics Q400 system with a resolution near 0.08 mm/px &mdash;
+              mapped the full surface strain field around the joint.
+            </li>
+            <li>
+              <strong>Acoustic emission (AE)</strong> &mdash; three Dakel
+              piezoelectric sensors at the top tube, head tube, and down tube
+              &mdash; listened for the tiny elastic waves released when the
+              composite starts to crack, before that damage shows up in the
+              frame's overall stiffness.
+            </li>
+          </ul>
+
+          <img
+            src="images/fig4-sensor-layout.jpg"
+            alt="Sensor layout in the head tube area: a schematic marking all surface-mounted strain gauge positions, and a photograph of the head tube joint with the two embedded FBG optical sensors highlighted in blue."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The sensor layout in the head tube area: (a) a schematic of the frame
+            marking the positions and labels of all the surface-mounted strain
+            gauges, and (b) a photograph of the head tube joint with the two
+            embedded FBG optical sensors highlighted in blue &mdash; FBG TT
+            running into the top-tube joint and FBG DT into the down-tube joint.
+            The FBGs sit inside the joint between the carbon plies, where a
+            surface gauge cannot reach.<br /><br />
+            Figure 4 from: Dvo&#345;&aacute;k, M., et al. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            Before any of this, the authors ran a baseline tensile test on the
+            hand-laminated UD tape itself, since if that tape breaks the joint it
+            connects collapses. Two samples reached breaking-point strains of
+            4860 and 4946 &micro;m/m. That number becomes a yardstick later: it
+            lets the team express joint strains as a fraction of the material's
+            actual limit.
+          </p>
+        </section>
+
+        <!-- Ergometer -->
+        <section id="ergometer">
+          <h2>What the standard test misses: the ergometer surprise</h2>
+
+          <p>
+            Bicycle frames sold commercially have to survive the load cases in
+            the ISO 4210 family of standards. The paper's first campaign put the
+            fully assembled frame (called specimen 0) through five of these:
+            pedal forces (1100 N through the crank, cycled), horizontal fork
+            forces (600 N, cycled), vertical forces through the seat tube (1200
+            N, cycled), bottom bracket torsional stiffness (756 N), and head tube
+            torsion stiffness (a 43.5 Nm moment).
+          </p>
+
+          <p>
+            Then the team did something the standard does not require. They
+            fitted the instrumented frame to a real bicycle, put it on an
+            ergometer, and had a rider perform sprints &mdash; capturing what the
+            head tube joint feels during actual hard pedaling rather than during
+            an idealized lab cycle.
+          </p>
+
+          <p>
+            The gap between the two is the headline result. According to the
+            paper, the ergometer sprints produced larger joint strains than
+            <em>any</em> of the standardized ISO cases. Compared to the
+            standardized load case, the peak strain rose by about 66 percent at
+            the down-tube joint and about 55 percent at the top-tube joint.
+          </p>
+
+          <!-- INFOGRAPHIC: bfstr -->
+          <div class="bfstr-root" id="bfstr-root">
+            <p class="bfstr-eyebrow">Dvo&#345;&aacute;k et al. 2022 &middot; Table 2</p>
+            <p class="bfstr-title">
+              Real sprints load the joint harder than the standard does
+            </p>
+            <p class="bfstr-subtitle">
+              Strain measured by the embedded FBG DT sensor inside the
+              down-tube-to-head-tube joint, in &micro;m/m (magnitude). Recreated
+              from data reported by Dvo&#345;&aacute;k et al. (2022).
+            </p>
+
+            <div class="bfstr-row">
+              <div class="bfstr-head">
+                <span class="bfstr-label"
+                  >ISO 4210 pedal forces
+                  <span class="bfstr-sub">Standardized lab load case</span></span
+                >
+                <span class="bfstr-val">580 &micro;m/m</span>
+              </div>
+              <div class="bfstr-track">
+                <div class="bfstr-fill bfstr-fill--iso" data-pct="24.2"></div>
+              </div>
+            </div>
+
+            <div class="bfstr-row">
+              <div class="bfstr-head">
+                <span class="bfstr-label"
+                  >Ergometer sprint
+                  <span class="bfstr-sub"
+                    >Rider on a real bicycle, hard pedaling</span
+                  ></span
+                >
+                <span class="bfstr-val bfstr-val--hi"
+                  >963 &micro;m/m<span class="bfstr-delta">+66%</span></span
+                >
+              </div>
+              <div class="bfstr-track">
+                <div class="bfstr-fill bfstr-fill--erg" data-pct="40.1"></div>
+              </div>
+            </div>
+
+            <div class="bfstr-row">
+              <div class="bfstr-head">
+                <span class="bfstr-label"
+                  >Test-to-failure limit
+                  <span class="bfstr-sub"
+                    >Max strain at FBG DT in the strength tests</span
+                  ></span
+                >
+                <span class="bfstr-val bfstr-val--mut"
+                  >~1800&ndash;2120 &micro;m/m</span
+                >
+              </div>
+              <div class="bfstr-track">
+                <div class="bfstr-fill bfstr-fill--lim" data-pct="75"></div>
+                <div class="bfstr-band" data-left="75" data-pct="13.3"></div>
+              </div>
+            </div>
+
+            <div class="bfstr-axis">
+              <span>0</span><span>600</span><span>1200</span><span>1800</span
+              ><span>2400</span>
+            </div>
+
+            <p class="bfstr-note">
+              The paper reports that the highest absolute strain the embedded
+              FBGs saw corresponded to about 68 percent of the head tube joint's
+              limit strain &mdash; enough safety margin, but also evidence that
+              testing against the standard alone underestimates real operational
+              load.
+            </p>
+          </div>
+
+          <p>
+            The practical reading is straightforward. The authors treat that
+            margin as sufficient &mdash; but also as evidence that a genuine
+            field strain measurement would be needed for deeper development. The
+            standard, in other words, is a floor, not a ceiling.
+          </p>
+        </section>
+
+        <!-- Inside vs surface -->
+        <section id="inside">
+          <h2>Inside the joint sees more than the surface</h2>
+
+          <p>
+            The FBG-versus-strain-gauge comparison is the part that reframes
+            where the risk lives. For the load cases that represent normal riding
+            &mdash; pedaling and horizontal forces &mdash; the paper reports that
+            the strain measured <em>inside</em> the joint by the FBGs was
+            consistently higher than the strain measured by gauges on the nearby
+            tube surface.
+          </p>
+
+          <p>
+            Take the pedal forces case on specimen 0. The embedded down-tube
+            sensor read about 580 &micro;m/m while the surface gauge on the down
+            tube read about 388 &micro;m/m. On the top tube, the embedded sensor
+            read about 480 &micro;m/m against roughly 364 &micro;m/m at the
+            surface.
+          </p>
+
+          <!-- INFOGRAPHIC: bffbg -->
+          <div class="bffbg-root" id="bffbg-root">
+            <p class="bffbg-eyebrow">
+              Dvo&#345;&aacute;k et al. 2022 &middot; Specimen 0, pedal forces
+            </p>
+            <p class="bffbg-title">
+              The surface gauge under-reports what the joint is feeling
+            </p>
+            <p class="bffbg-subtitle">
+              Strain in &micro;m/m (magnitude) under the ISO pedal forces load
+              case, comparing the FBG embedded between the UD plies inside the
+              joint against the resistive gauge bonded to the tube surface
+              nearby. Recreated from data reported by Dvo&#345;&aacute;k et al.
+              (2022), Table 2.
+            </p>
+
+            <div class="bffbg-legend">
+              <span class="bffbg-key"
+                ><span class="bffbg-swatch bffbg-swatch--in"></span>Embedded FBG
+                (inside joint)</span
+              >
+              <span class="bffbg-key"
+                ><span class="bffbg-swatch bffbg-swatch--out"></span>Surface
+                strain gauge</span
+              >
+            </div>
+
+            <div class="bffbg-group">
+              <p class="bffbg-gname">
+                Down tube <span class="bffbg-gap">+49% inside</span>
+              </p>
+              <div class="bffbg-row">
+                <span class="bffbg-rlabel">Embedded FBG DT</span>
+                <span class="bffbg-track"
+                  ><span class="bffbg-fill bffbg-fill--in" data-pct="89.2"></span
+                ></span>
+                <span class="bffbg-rval">580</span>
+              </div>
+              <div class="bffbg-row">
+                <span class="bffbg-rlabel">Surface gauge, down tube</span>
+                <span class="bffbg-track"
+                  ><span
+                    class="bffbg-fill bffbg-fill--out"
+                    data-pct="59.7"
+                  ></span
+                ></span>
+                <span class="bffbg-rval bffbg-rval--mut">388</span>
+              </div>
+            </div>
+
+            <div class="bffbg-group">
+              <p class="bffbg-gname">
+                Top tube <span class="bffbg-gap">+32% inside</span>
+              </p>
+              <div class="bffbg-row">
+                <span class="bffbg-rlabel">Embedded FBG TT</span>
+                <span class="bffbg-track"
+                  ><span class="bffbg-fill bffbg-fill--in" data-pct="73.8"></span
+                ></span>
+                <span class="bffbg-rval">480</span>
+              </div>
+              <div class="bffbg-row">
+                <span class="bffbg-rlabel">Surface gauge, top tube</span>
+                <span class="bffbg-track"
+                  ><span
+                    class="bffbg-fill bffbg-fill--out"
+                    data-pct="56.0"
+                  ></span
+                ></span>
+                <span class="bffbg-rval bffbg-rval--mut">364</span>
+              </div>
+            </div>
+
+            <p class="bffbg-note">
+              The down tube carries a larger share of the load than the top tube,
+              consistent with the two tubes having different stiffnesses. Across
+              the roughly 1000-cycle fatigue runs the readings stayed put cycle
+              after cycle &mdash; no creeping shift that would hint at a joint
+              slowly losing its grip.
+            </p>
+          </div>
+
+          <p>
+            The conclusion the paper draws from all of this is direct: when it
+            comes to moving load through the structure, it is the junctions
+            &mdash; not the spans between them &mdash; that decide the frame's
+            fate, and that is where design effort should go.
+          </p>
+        </section>
+
+        <!-- Destruction -->
+        <section id="destruction">
+          <h2>
+            Testing to destruction: does reinforcing the joint actually help?
+          </h2>
+
+          <p>
+            The second campaign used simplified frames &mdash; just the front
+            triangle, no chain or seat stays &mdash; loaded horizontally by a
+            hydraulic actuator at 8 mm/min until the joint failed completely.
+            Across the specimens, failure loads ranged from about &minus;3.3 kN
+            to 3.1 kN depending on load direction.
+          </p>
+
+          <img
+            src="images/fig9-strength-test-setup.jpg"
+            alt="Structural strength test setup: a simplified front-triangle specimen mounted in the test bed and loaded horizontally by a servo-hydraulic actuator."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The structural strength test setup: a simplified front-triangle
+            specimen mounted in the test bed and loaded horizontally by an IST
+            PL63 servo-hydraulic actuator, with the pushing/pulling load
+            direction marked by the red arrow. Specimens were driven at 8 mm/min
+            until the head tube joint failed completely.<br /><br />
+            Figure 9 from: Dvo&#345;&aacute;k, M., et al. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            The most useful comparison is between two specimens that were
+            identical except for the joint lay-up. Specimen 4 used the original
+            head tube joint. Specimen 7 used a reinforced version, built by
+            doubling the number of carbon fabric layers in the joint area. The
+            authors tracked three signals: the strain gauge on the head tube, the
+            DIC strain field, and the acoustic emission event count. The results
+            line up across all three methods &mdash; reinforcement pushed back
+            the onset of trouble.
+          </p>
+
+          <!-- INFOGRAPHIC: bfrnf -->
+          <div class="bfrnf-root" id="bfrnf-root">
+            <p class="bfrnf-eyebrow">
+              Dvo&#345;&aacute;k et al. 2022 &middot; Specimen 4 vs. specimen 7
+            </p>
+            <p class="bfrnf-title">
+              Reinforcement bought operating range, not breaking strength
+            </p>
+            <p class="bfrnf-subtitle">
+              Onset of damage expressed as a percentage of each specimen's own
+              failure load. Specimen 7 doubled the number of carbon fabric layers
+              in the joint area. Recreated from thresholds reported by
+              Dvo&#345;&aacute;k et al. (2022).
+            </p>
+
+            <div class="bfrnf-legend">
+              <span class="bfrnf-key"
+                ><span class="bfrnf-swatch bfrnf-swatch--o"></span>Specimen 4
+                &mdash; original joint</span
+              >
+              <span class="bfrnf-key"
+                ><span class="bfrnf-swatch bfrnf-swatch--r"></span>Specimen 7
+                &mdash; reinforced joint</span
+              >
+            </div>
+
+            <div class="bfrnf-metric">
+              <p class="bfrnf-mname">Loss of linear response</p>
+              <p class="bfrnf-msrc">Head tube strain gauge</p>
+              <div class="bfrnf-row">
+                <span class="bfrnf-rlabel">Original</span>
+                <span class="bfrnf-track"
+                  ><span class="bfrnf-fill bfrnf-fill--o" data-pct="35"></span
+                ></span>
+                <span class="bfrnf-rval bfrnf-rval--mut">35%</span>
+              </div>
+              <div class="bfrnf-row">
+                <span class="bfrnf-rlabel">Reinforced</span>
+                <span class="bfrnf-track"
+                  ><span class="bfrnf-fill bfrnf-fill--r" data-pct="46"></span
+                  ><span class="bfrnf-gain" data-left="35" data-pct="11"></span
+                ></span>
+                <span class="bfrnf-rval">46%</span>
+              </div>
+            </div>
+
+            <div class="bfrnf-metric">
+              <p class="bfrnf-mname">First cracks detected</p>
+              <p class="bfrnf-msrc">Acoustic emission event count</p>
+              <div class="bfrnf-row">
+                <span class="bfrnf-rlabel">Original</span>
+                <span class="bfrnf-track"
+                  ><span class="bfrnf-fill bfrnf-fill--o" data-pct="47"></span
+                ></span>
+                <span class="bfrnf-rval bfrnf-rval--mut">47%</span>
+              </div>
+              <div class="bfrnf-row">
+                <span class="bfrnf-rlabel">Reinforced</span>
+                <span class="bfrnf-track"
+                  ><span class="bfrnf-fill bfrnf-fill--r" data-pct="57"></span
+                  ><span class="bfrnf-gain" data-left="47" data-pct="10"></span
+                ></span>
+                <span class="bfrnf-rval">57%</span>
+              </div>
+              <div class="bfrnf-axis">
+                <span>0%</span><span>25%</span><span>50%</span><span>75%</span
+                ><span>100% of failure load</span>
+              </div>
+            </div>
+
+            <div class="bfrnf-stats">
+              <div class="bfrnf-stat">
+                <div class="bfrnf-snum">2.85 kN</div>
+                <div class="bfrnf-slabel">
+                  Failure force, original joint (specimen 4)
+                </div>
+              </div>
+              <div class="bfrnf-stat">
+                <div class="bfrnf-snum">2.82 kN</div>
+                <div class="bfrnf-slabel">
+                  Failure force, reinforced joint (specimen 7)
+                </div>
+              </div>
+            </div>
+
+            <p class="bfrnf-note">
+              Almost identical breaking points. The benefit of reinforcement was
+              not a higher failure load &mdash; it was a larger usable,
+              well-behaved operating range before damage began.
+            </p>
+          </div>
+
+          <p>
+            The DIC and AE data added one more insight the authors found telling.
+            In the original specimen, the top-tube junction let go first while
+            the down-tube junction came through largely unscathed &mdash; an
+            unbalanced failure. In the reinforced specimen, both junctions
+            reached high strain and gave way together, which the authors
+            interpret as the two joints sharing the load more evenly.
+          </p>
+
+          <img
+            src="images/fig17-dic-strain-maps.jpg"
+            alt="Surface strain maps from digital image correlation of the head tube joint area just before failure, comparing the original joint with the reinforced joint."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            Surface strain maps (DIC principal strain 1) of the head tube joint
+            area just before failure, comparing the original joint (a, specimen
+            4) with the reinforced joint (b, specimen 7). In the original, strain
+            concentrates at the top-tube-to-head-tube joint, which failed first;
+            in the reinforced version, high strain appears at both joints,
+            indicating the two junctions shared the load and gave way
+            together.<br /><br />
+            Figure 17 from: Dvo&#345;&aacute;k, M., et al. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            There is also a reassuring material result buried in here. The paper
+            reports that at the top-tube-to-head-tube joint, peak strain only
+            ever reached roughly a third (about 35 percent) of what the bare UD
+            tape could take before breaking in the coupon test. In plain terms:
+            the reinforcing UD strips were not the limiting factor in tensile
+            strain. The joint's behavior is governed by the geometry and the
+            lay-up around those strips, not by the strips running out of
+            strength.
+          </p>
+        </section>
+
+        <!-- Sensor position -->
+        <section id="sensor">
+          <h2>The catch: a sensor is only as good as its position</h2>
+
+          <p>
+            The study closes with a finite element analysis in ANSYS that carries
+            a sober warning for anyone planning to instrument a joint like this.
+            The team modeled the joint lay-up ply by ply and looked at how strain
+            varies along the UD tapes that carry the embedded FBGs.
+          </p>
+
+          <img
+            src="images/fig22-fem-mesh.jpg"
+            alt="Finite-element mesh of the head tube joint lamination, including a cross-section cut revealing composite tube walls, foam fillers, and the ply-by-ply lamination."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The finite-element mesh of the head tube joint lamination: (a) the
+            full model of the head tube, down tube, and top tube meeting at the
+            joint, and (b) a cross-section cut revealing the internal structure
+            &mdash; the composite tube walls, foam fillers, and the layered
+            lamination modeled ply by ply. This detailed mesh is what let the
+            study analyze how strain varies through the thickness of the UD tapes
+            carrying the embedded sensors.<br /><br />
+            Figure 22 from: Dvo&#345;&aacute;k, M., et al. &ldquo;Experimental
+            Development of Composite Bicycle Frame.&rdquo;
+            <em>Applied Sciences</em> 2022, 12, 8377.
+            <a
+              href="https://doi.org/10.3390/app12168377"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://doi.org/10.3390/app12168377</a
+            >
+            &mdash; &copy; 2022 by the authors. Licensed under CC BY 4.0.
+          </p>
+
+          <p>
+            The finding: the strain along the tape is far from uniform, and it
+            flips sign across the tape's thickness. One edge of the tape is in
+            tension while the other is in compression, with a neutral axis in
+            between. The paper reports that, depending on exactly where a sensor
+            sits relative to that neutral axis, its reading can deviate by up to
+            100 percent &mdash; and can even show the <em>opposite</em> sense of
+            strain from what you would expect.
+          </p>
+
+          <!-- INFOGRAPHIC: bftape -->
+          <div class="bftape-root" id="bftape-root">
+            <p class="bftape-eyebrow">
+              Dvo&#345;&aacute;k et al. 2022 &middot; ANSYS ply-by-ply FEA
+            </p>
+            <p class="bftape-title">
+              Fiber-direction strain flips sign across the tape's thickness
+            </p>
+            <p class="bftape-subtitle">
+              Schematic of the through-thickness strain behavior in the
+              hand-laid UD tape carrying the embedded FBG, as described by
+              Dvo&#345;&aacute;k et al. (2022). The FBGs were placed near the
+              tape's neutral axis, where fiber-direction strain passes through
+              roughly zero.
+            </p>
+
+            <div class="bftape-figure">
+              <svg
+                class="bftape-svg"
+                viewBox="0 0 780 300"
+                role="img"
+                aria-label="Diagram showing a UD tape cross-section with a tension zone at the top edge, a compression zone at the bottom edge, and a neutral axis in between where the FBG sensor sits; alongside a strain profile that crosses zero at the neutral axis."
+              >
+                <text x="110" y="30" class="bftape-t bftape-t--hd">
+                  UD tape cross-section
+                </text>
+                <text x="450" y="30" class="bftape-t bftape-t--hd">
+                  Fiber-direction strain
+                </text>
+
+                <!-- tape body -->
+                <rect
+                  x="110"
+                  y="60"
+                  width="230"
+                  height="150"
+                  rx="3"
+                  class="bftape-tape"
+                />
+                <rect
+                  x="110"
+                  y="60"
+                  width="230"
+                  height="75"
+                  class="bftape-zone-t"
+                />
+                <rect
+                  x="110"
+                  y="135"
+                  width="230"
+                  height="75"
+                  class="bftape-zone-c"
+                />
+                <line x1="110" y1="97" x2="340" y2="97" class="bftape-ply" />
+                <line x1="110" y1="172" x2="340" y2="172" class="bftape-ply" />
+
+                <!-- edge labels -->
+                <text x="102" y="70" text-anchor="end" class="bftape-t">
+                  top edge
+                </text>
+                <text x="102" y="207" text-anchor="end" class="bftape-t">
+                  bottom edge
+                </text>
+
+                <!-- neutral axis across both panels -->
+                <line
+                  x1="100"
+                  y1="135"
+                  x2="360"
+                  y2="135"
+                  class="bftape-neutral"
+                />
+                <line
+                  x1="440"
+                  y1="135"
+                  x2="745"
+                  y2="135"
+                  class="bftape-neutral"
+                />
+
+                <!-- FBG in the tape -->
+                <circle cx="225" cy="135" r="12" class="bftape-fbg-ring" />
+                <circle cx="225" cy="135" r="5.5" class="bftape-fbg" />
+                <line
+                  x1="225"
+                  y1="150"
+                  x2="225"
+                  y2="240"
+                  class="bftape-axis"
+                />
+                <text
+                  x="225"
+                  y="258"
+                  text-anchor="middle"
+                  class="bftape-t bftape-t--fbg"
+                >
+                  FBG embedded here &mdash; near the neutral axis
+                </text>
+
+                <!-- strain panel: zero axis -->
+                <line x1="580" y1="50" x2="580" y2="228" class="bftape-axis" />
+                <text x="599" y="114" class="bftape-t">&epsilon; &asymp; 0</text>
+                <text x="745" y="128" text-anchor="end" class="bftape-t">
+                  neutral axis
+                </text>
+
+                <!-- profile -->
+                <polyline
+                  points="700,63 580,135 460,207"
+                  class="bftape-profile"
+                />
+                <circle cx="580" cy="135" r="12" class="bftape-fbg-ring" />
+                <circle cx="580" cy="135" r="5.5" class="bftape-fbg" />
+
+                <text
+                  x="745"
+                  y="58"
+                  text-anchor="end"
+                  class="bftape-t bftape-t--pos"
+                >
+                  TENSION +
+                </text>
+                <text x="440" y="226" class="bftape-t bftape-t--neg">
+                  &minus; COMPRESSION
+                </text>
+                <text
+                  x="592"
+                  y="258"
+                  text-anchor="middle"
+                  class="bftape-t"
+                >
+                  strain magnitude &rarr;
+                </text>
+              </svg>
+            </div>
+
+            <p class="bftape-callout">
+              Move the sensor off the neutral axis and the reading can deviate by
+              up to <strong>100%</strong> &mdash; and can even flip sign,
+              reporting compression where you expected tension.
+            </p>
+
+            <p class="bftape-note">
+              Addcomposites' own visualization of the strain-through-thickness
+              behavior described by Dvo&#345;&aacute;k et al. (2022). Schematic,
+              not to scale.
+            </p>
+          </div>
+
+          <p>
+            The authors are clear-eyed about the trade-off. The FBGs were placed
+            in the only spot that was technologically feasible &mdash; between
+            the UD plies, near the neutral axis &mdash; which makes their
+            absolute readings highly sensitive to position. That does not make
+            them useless: keep the sensor in one place on one frame, and it still
+            ranks load cases against each other dependably, and the paper
+            concludes the FBGs worked well for locally monitoring the frame's
+            critical joints. But it does mean that absolute FBG numbers from a
+            hand-built joint have to be interpreted with the geometry in mind.
+            This is also, the authors note, why DIC is attractive: you don't have
+            to model the part first to know where to aim it, because it reads the
+            entire visible surface in one pass.
+          </p>
+        </section>
+
+        <!-- Our perspective -->
+        <section id="perspective">
+          <h2>Our perspective: this is a manufacturing problem in disguise</h2>
+
+          <div class="perspective-box">
+            <span class="perspective-label">Addcomposites commentary</span>
+            <p>
+              Everything above is the authors' work. What follows is our own
+              read, and is not a claim about what the study's authors think of
+              AFP or of Addcomposites.
+            </p>
+          </div>
+
+          <p>
+            Read the study as a manufacturing document and a pattern emerges. The
+            tubes were made by an automated, repeatable process (filament
+            winding). The joints &mdash; the parts the paper identifies as
+            critical, position-sensitive, and responsible for how load
+            redistributes at failure &mdash; were made by hand. The two most
+            fragile findings in the whole paper both trace back to that hand
+            lamination: the joint being the weak link, and the sensor readings
+            being wildly dependent on exactly where a ply and a sensor ended up.
+            Hand lay-up is where variability enters, and variability is exactly
+            what makes both strength and instrumentation hard to trust.
+          </p>
+
+          <p>
+            This is the gap automated fiber placement (AFP) is built to close.
+            When the reinforcing plies at a head tube junction or a lug are laid
+            by a controlled AFP head instead of by hand, fiber angle, ply
+            boundaries, and coverage become repeatable from frame to frame. The
+            study got its more balanced joint behavior by adding plies by hand;
+            our argument is that automation is what makes that kind of
+            improvement repeatable at production scale &mdash; a separate claim
+            the paper does not test. If your joints are consistent, the
+            &ldquo;where exactly did that ply land&rdquo; problem that undermines
+            both strength and embedded-sensor accuracy starts to shrink.
+          </p>
+
+          <img
+            src="images/afp-xs-tube.jpg"
+            alt="The Addcomposites AFP-XS head placing carbon fiber onto a tubular part, with an integrated laser profilometer and heat module."
+            class="full-width-image"
+          />
+          <p class="image-caption">
+            The Addcomposites AFP-XS head placing carbon fiber onto a tubular
+            part, with an integrated laser profilometer (left) and heat module
+            monitoring and consolidating the tow as it goes down. Where the
+            study's joints were built up by hand, a controlled AFP head makes
+            fiber angle, ply boundaries, and coverage repeatable from part to
+            part.
+          </p>
+
+          <p>
+            For most frame builders and tubular-structure shops exploring this,
+            our <strong>AFP-XS</strong> system is the accessible entry point: a
+            compact, capable platform for getting repeatable placement onto tubes
+            and joint interfaces without a heavy capital commitment. Teams
+            working at larger scales, or producing bigger tubular structures
+            where the layup spans more area, tend to move toward
+            <strong>AFP-X</strong>. And for the genuinely complex, freeform joint
+            geometries &mdash; the three-dimensional, multi-tube intersections
+            where a fixed tool is impractical &mdash; robotic freeform placement
+            with <strong>ADDX</strong> becomes the relevant conversation.
+          </p>
+
+          <p>
+            There is a second, quieter opportunity in this paper for anyone
+            selling premium frames. The authors did not just build a frame; they
+            generated sensor-validated evidence of how their joints behave under
+            real riding loads, not just standard ones. In a market where most
+            competitors can only point to &ldquo;it passed ISO,&rdquo; being able
+            to show data from inside the joint &mdash; enabled by manufacturing
+            precise enough to place a sensor reliably in the first place &mdash;
+            is a differentiator. Automated placement and in-situ validation
+            reinforce each other: consistent joints make the data meaningful, and
+            the data makes the case for the consistent joints.
+          </p>
+        </section>
+
+        <!-- Takeaway -->
+        <section id="takeaway">
+          <h2>The takeaway</h2>
+
+          <p>
+            The paper's core message is one worth internalizing whether or not
+            you ever embed an optical fiber: in a composite frame made of joined
+            tubes, the joint is the structure. It carries more strain than the
+            tube surface beside it, it is where standard testing most
+            underestimates real load, and it is where reinforcement buys you the
+            most usable operating range. The embedded FBG sensors made that
+            visible from the inside; the DIC and AE methods confirmed it from the
+            outside; and the FEA explained why measuring it is so delicate.
+          </p>
+
+          <p>
+            For anyone manufacturing these structures, the follow-on question is
+            not really &ldquo;how do we test the joint better?&rdquo; It is
+            &ldquo;how do we make the joint consistent enough that testing it
+            means something?&rdquo; That is a placement question &mdash; and it
+            is the one we find most interesting.
+          </p>
+
+          <img
+            src="images/closing-banner.jpg"
+            alt="Addcomposites — ideate, innovate, automate. Robotic automated fiber placement systems."
+            class="full-width-image"
+          />
+        </section>
+
+        <!-- References -->
+        <section id="references">
+          <h2>Read the Research</h2>
+
+          <ol class="references-list">
+            <li>
+              Dvo&#345;&aacute;k, M.; Poni&#382;il, T.; Kul&iacute;&scaron;ek,
+              V.; Schmidov&aacute;, N.; Doubrava, K.; Krop&iacute;k, B.;
+              R&#367;&#382;i&#269;ka, M. &ldquo;Experimental Development of
+              Composite Bicycle Frame.&rdquo; <em>Applied Sciences</em> 2022, 12,
+              8377.
+              <a
+                href="https://doi.org/10.3390/app12168377"
+                target="_blank"
+                rel="noopener noreferrer"
+                >doi.org/10.3390/app12168377</a
+              >. Open access, published 22 August 2022 by MDPI under the Creative
+              Commons Attribution (CC BY 4.0) license (<a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >creativecommons.org/licenses/by/4.0/</a
+              >).
+            </li>
+            <li>
+              ISO 4210 &mdash; Cycles: Safety requirements for bicycles. The
+              standardized load cases (pedal forces, horizontal forces, vertical
+              forces, bottom bracket and head tube stiffness) applied to specimen
+              0 in ref.&nbsp;1.
+            </li>
+          </ol>
+
+          <p class="image-caption">
+            This article is an independent editorial summary and commentary
+            produced by Addcomposites. It is not affiliated with, reviewed by, or
+            endorsed by the study's authors or their institutions. All figures
+            reproduced from ref.&nbsp;1 under CC BY 4.0.
+          </p>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+          <div class="author-card">
+            <div class="author-image-wrapper">
+              <img
+                src="https://cdn.prod.website-files.com/65d8589d1d07ae7c06b4b253/65dc93e2c8b30f7b6484e473_contact-lwr-img1.jpg"
+                alt="Pravin Luthada"
+                class="author-image"
+              />
+            </div>
+            <div class="author-info">
+              <h3 class="author-name">Pravin Luthada</h3>
+              <p class="author-title">CEO &amp; Co-founder, Addcomposites</p>
+              <div class="author-social">
+                <a
+                  href="https://www.linkedin.com/in/pravinluthada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="#0A66C2">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:pravin@addcomposites.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="#EA4335">
+                    <path
+                      d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@addcomposites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <h4 class="about-author-label">About Author</h4>
+              <p class="author-bio">
+                As the author of the Addcomposites blog, Pravin Luthada's
+                insights are forged from a distinguished career in advanced
+                materials, beginning as a space scientist at the Indian Space
+                Research Organisation (ISRO). During his tenure, he gained
+                hands-on expertise in manufacturing composite components for
+                satellites and launch vehicles, where he witnessed firsthand the
+                prohibitive costs of traditional Automated Fiber Placement (AFP)
+                systems. This experience became the driving force behind his
+                entrepreneurial venture, Addcomposites Oy, which he co-founded
+                and now leads as CEO. The company is dedicated to democratizing
+                advanced manufacturing by developing patented, plug-and-play AFP
+                toolheads that make automation accessible and affordable. This
+                unique journey from designing space-grade hardware to leading a
+                disruptive technology company provides Pravin with a
+                comprehensive, real-world perspective that informs his writing on
+                the future of the composites industry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
